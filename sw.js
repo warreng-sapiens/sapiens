@@ -1,5 +1,5 @@
 // Pacha Académie IB : fonctionne hors connexion (cours, planning, calculatrice).
-const CACHE = "sapiens-v11";
+const CACHE = "sapiens-v12";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {

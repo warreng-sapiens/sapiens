@@ -517,8 +517,8 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
     <p class="muted" data-i="e_desc">Colle ton travail : l'IA l'évalue critère par critère comme un examinateur, sans le réécrire.</p>
     <div class="row"><label class="f" style="flex:1 1 320px"><span data-i="e_comp">Composante</span><select id="evalSel"></select></label></div>
     <div id="evalCrit" style="margin-top:12px"></div>
-    <label class="f" style="margin-top:12px"><span data-i="e_paste">Ton texte (ou importe un .txt)</span><textarea id="evalTxt" style="min-height:240px"></textarea></label>
-    <div class="row" style="margin-top:8px;justify-content:space-between"><input type="file" id="evalFile" accept=".txt,.md,text/plain" style="max-width:320px"><span class="wc" id="evalWc"></span></div>
+    <label class="f" style="margin-top:12px"><span data-i="e_paste">Ton texte (ou importe un fichier Word, PDF, photo ou .txt)</span><textarea id="evalTxt" style="min-height:240px"></textarea></label>
+    <div class="row" style="margin-top:8px;justify-content:space-between"><span style="display:grid;gap:4px"><input type="file" id="evalFile" accept=".txt,.md,.docx,.pdf,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*" style="max-width:320px"><span class="small muted" id="evalFN"></span></span><span class="wc" id="evalWc"></span></div>
     <div class="row" style="margin-top:10px"><button class="btn pri" id="evalGo" data-i="e_go">Évaluer selon les critères</button></div>
     <div class="ai-out" id="evalOut"></div>
   </div>
@@ -652,7 +652,7 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
     <div class="row"><label class="f" style="flex:1 1 200px"><span data-i="hw_subj">Matière</span><select id="hwSubj"></select></label>
       <label class="f" style="flex:2 1 260px"><span data-i="hw_mode">Mode</span><select id="hwMode"></select></label></div>
     <label class="f" style="margin-top:12px"><span data-i="hw_q">Ton exercice ou ta question</span><textarea id="hwQ"></textarea></label>
-    <div class="row" style="margin-top:8px"><label class="f" style="flex:1 1 260px" id="hwImgL"><span data-i="hw_img">Photo de l'exercice (facultatif)</span><input type="file" id="hwImg" accept="image/*"></label><button class="btn pri" id="hwGo" data-i="hw_go">Résoudre et expliquer</button><button class="btn" id="hwNew" data-i="hw_new">Nouvelle question</button></div>
+    <div class="row" style="margin-top:8px"><label class="f" style="flex:1 1 260px" id="hwImgL"><span data-i="hw_img">Photo ou PDF de l'exercice (facultatif)</span><input type="file" id="hwImg" accept="image/*,application/pdf" multiple><span class="small muted" id="hwImgN"></span></label><button class="btn pri" id="hwGo" data-i="hw_go">Résoudre et expliquer</button><button class="btn" id="hwNew" data-i="hw_new">Nouvelle question</button></div>
     <div class="convo" id="hwConvo"></div>
     <div class="row" id="hwFollowRow" hidden style="margin-top:10px"><input id="hwFollow" style="flex:1 1 300px" data-ip="hw_fu"><button class="btn" id="hwFollowGo" data-i="hw_send">Envoyer</button></div>
   </div>
@@ -694,7 +694,8 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
   </div>
   <div id="botMsgs"></div>
   <p class="warn" id="botWarn" hidden></p>
-  <div class="botin"><textarea id="botIn" data-ip="bot_ph" rows="1"></textarea><button class="btn pri" id="botGo" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg></button></div>
+  <p class="small muted" id="botFN" style="margin:0 14px"></p>
+  <div class="botin"><button class="btn" id="botAtt" aria-label="Joindre une photo ou un PDF" style="min-width:46px;padding:0 10px">📎</button><input type="file" id="botFile" accept="image/*,application/pdf" multiple hidden><textarea id="botIn" data-ip="bot_ph" rows="1"></textarea><button class="btn pri" id="botGo" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg></button></div>
 </section>
 <div class="toast" id="toast"></div>
 
@@ -1287,7 +1288,7 @@ tr_pp:['Les vrais past papers sont vendus par l’IB (IB Store) ou fournis par t
 c_title:['IA, TOK et EE : guides et notation par critères','IA, TOK and EE: guides and criterion-based marking','IA, TdC y Monografía: guías y evaluación por criterios'],
 e_title:['Évaluer mon travail avec les critères officiels','Mark my work against the official criteria','Evaluar mi trabajo con los criterios oficiales'],
 e_desc:["Colle ton travail : l'IA l'évalue critère par critère comme un examinateur, sans le réécrire.",'Paste your work: the AI marks it criterion by criterion like an examiner, without rewriting it.','Pega tu trabajo: la IA lo evalúa criterio por criterio como un examinador, sin reescribirlo.'],
-e_comp:['Composante','Component','Componente'],e_paste:['Ton texte (ou importe un .txt)','Your text (or import a .txt)','Tu texto (o importa un .txt)'],e_go:['Évaluer selon les critères','Mark against the criteria','Evaluar con los criterios'],
+e_comp:['Composante','Component','Componente'],e_paste:['Ton texte (ou importe un fichier Word, PDF, photo ou .txt)','Your text (or import a Word, PDF, photo or .txt file)','Tu texto (o importa Word, PDF, foto o .txt)'],e_go:['Évaluer selon les critères','Mark against the criteria','Evaluar con los criterios'],
 words:['mots','words','palabras'],limit:['limite','limit','límite'],total:['Total','Total','Total'],
 rq_title:['Trouver une question de recherche','Find a research question','Encontrar una pregunta de investigación'],rq_type:['Pour','For','Para'],rq_int:['Ton thème ou ton idée','Your theme or idea','Tu tema o idea'],rq_go:['Proposer 5 questions','Suggest 5 questions','Proponer 5 preguntas'],
 p_title:["Planning d'étude",'Study plan','Plan de estudio'],p_exam:['Début des examens','Exams start','Inicio de exámenes'],p_wd:['Heures / jour de semaine','Hours / weekday','Horas / día laborable'],p_we:['Heures / jour de week-end','Hours / weekend day','Horas / día de fin de semana'],
@@ -1313,7 +1314,7 @@ sat_title:["SAT numérique : structure, méthode et entraînement",'Digital SAT:
 sat_gen:["Questions d'entraînement",'Practice questions','Preguntas de práctica'],sat_dom:['Domaine','Domain','Área'],sat_go:['Générer','Generate','Generar'],sat_rw:['Lecture et écriture','Reading and Writing','Lectura y escritura'],sat_m:['Maths','Math','Matemáticas'],
 sat_tm:['Module chronométré','Timed module','Módulo cronometrado'],
 hw_title:['Aide aux devoirs : la réponse, puis chaque étape expliquée','Homework help: the answer, then every step explained','Ayuda con deberes: la respuesta y cada paso explicado'],hw_subj:['Matière','Subject','Asignatura'],hw_mode:['Mode','Mode','Modo'],
-hw_q:['Ton exercice ou ta question','Your exercise or question','Tu ejercicio o pregunta'],hw_img:["Photo de l'exercice (facultatif)",'Photo of the exercise (optional)','Foto del ejercicio (opcional)'],hw_go:['Résoudre et expliquer','Solve and explain','Resolver y explicar'],hw_new:['Nouvelle question','New question','Nueva pregunta'],
+hw_q:['Ton exercice ou ta question','Your exercise or question','Tu ejercicio o pregunta'],hw_img:["Photo ou PDF de l'exercice (facultatif)",'Photo or PDF of the exercise (optional)','Foto o PDF del ejercicio (opcional)'],hw_go:['Résoudre et expliquer','Solve and explain','Resolver y explicar'],hw_new:['Nouvelle question','New question','Nueva pregunta'],
 hw_fu:['Pose une question de suivi : « pourquoi l’étape 3 ? »','Ask a follow-up: “why step 3?”','Haz una pregunta: «¿por qué el paso 3?»'],hw_send:['Envoyer','Send','Enviar'],
 hw_m1:['Réponse directe + explication détaillée pas à pas','Direct answer + detailed step-by-step explanation','Respuesta directa + explicación paso a paso'],hw_m2:['Indices seulement (je veux trouver seul)','Hints only (I want to solve it myself)','Solo pistas (quiero resolverlo yo)'],hw_m3:['Vérifier ma réponse','Check my answer','Revisar mi respuesta'],
 sim_desc:["Compare ton texte avec les sources que tu as utilisées (articles, livres, brouillons, travaux d'autres élèves). Les passages repris mot pour mot sont surlignés, pour que tu les cites ou les reformules.",'Compare your text with the sources you used (articles, books, drafts, other students’ work). Word-for-word passages are highlighted so you can cite or paraphrase them.','Compara tu texto con las fuentes que usaste (artículos, libros, borradores, trabajos de otros). Los pasajes copiados literalmente se resaltan para que los cites o reformules.'],
@@ -1407,10 +1408,19 @@ let S=null,imgOK=false,API=null;
 /* IA : dans Claude -> capacité "sample" ; sur le site public -> fonction serveur /api/chat */
 let AIK=store.get('aikey',null); /* {p:'gemini'|'groq'|'anthropic', k:'...'} — reste dans ce navigateur */
 const aiOK=()=>!!(S||API||(AIK&&AIK.k));
-async function directChat(messages){
+/* fichiers joints : photos (réduites), PDF */
+async function shrinkImg(f){try{if(!/^image\//.test(f.type)||f.size<700000)return f;const bm=await createImageBitmap(f);const sc=Math.min(1,1600/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*sc);c.height=Math.round(bm.height*sc);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(b=>r(b||f),'image/jpeg',.85))}catch(e){return f}}
+async function toB64(blob){const u=new Uint8Array(await blob.arrayBuffer());let s='';for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s)}
+const fileMime=f=>f.type||(/\.pdf$/i.test(f.name||'')?'application/pdf':'image/jpeg');
+const canFiles=()=>!!(imgOK||(AIK&&AIK.k&&AIK.p!=='groq'&&!S));
+async function docxText(f){if(!window.JSZip)await new Promise((ok,ko)=>{const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';sc.onload=ok;sc.onerror=ko;document.head.appendChild(sc)});
+  const z=await JSZip.loadAsync(f);const x=await z.file('word/document.xml').async('string');return x.replace(/<\/w:p>/g,'\n').replace(/<w:tab\/>/g,'\t').replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/\n{3,}/g,'\n\n').trim()}
+async function directChat(messages,files=[]){
   const {p,k}=AIK;let r,j;
+  if(files.length&&p==='groq')throw {message:X('Groq ne lit pas les photos ni les PDF : choisis Google Gemini dans Pacha IA ⚙.','Groq cannot read photos or PDFs: choose Google Gemini in Pacha IA ⚙.','Groq no lee fotos ni PDF: elige Google Gemini.')};
+  const att=[];for(const f of files){const g=await shrinkImg(f);att.push({mime:/^image\//.test(fileMime(f))?(g.type||'image/jpeg'):fileMime(f),data:await toB64(g)})}
   if(p==='gemini'){
-    const body=JSON.stringify({contents:messages.map(m=>({role:m.role==='assistant'?'model':'user',parts:[{text:m.content}]})),generationConfig:{maxOutputTokens:4000,temperature:.4}});
+    const body=JSON.stringify({contents:messages.map((m,i)=>({role:m.role==='assistant'?'model':'user',parts:[...(i===messages.length-1?att.map(a=>({inline_data:{mime_type:a.mime,data:a.data}})):[]),{text:m.content}]})),generationConfig:{maxOutputTokens:4000,temperature:.4}});
     const models=[store.get('gmodel',null),'gemini-flash-latest','gemini-2.5-flash','gemini-2.0-flash'].filter((v,i,a)=>v&&a.indexOf(v)===i);let last;
     for(const mdl of models){
       r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent`,{method:'POST',headers:{'content-type':'application/json','x-goog-api-key':k},body});
@@ -1422,7 +1432,7 @@ async function directChat(messages){
     throw last;
   }
   if(p==='anthropic'){
-    r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-5-5',max_tokens:4000,messages})});
+    r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-5-5',max_tokens:4000,messages:messages.map((m,i)=>i===messages.length-1&&att.length?{role:m.role,content:[...att.map(a=>a.mime==='application/pdf'?{type:'document',source:{type:'base64',media_type:a.mime,data:a.data}}:{type:'image',source:{type:'base64',media_type:a.mime,data:a.data}}),{type:'text',text:m.content}]}:m)})});
     j=await r.json().catch(()=>({}));if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};
     return (j.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('');
   }
@@ -1430,9 +1440,9 @@ async function directChat(messages){
   j=await r.json().catch(()=>({}));if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};
   return j.choices?.[0]?.message?.content||'';
 }
-async function apiChat(input){
+async function apiChat(input,files=[]){
   const messages=typeof input==='string'?[{role:'user',content:input}]:input;
-  if(!API)return directChat(messages);
+  if(!API)return directChat(messages,files);
   const r=await fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages})});
   let j={};try{j=await r.json()}catch(e){}
   if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error||('HTTP '+r.status)};
@@ -1443,8 +1453,8 @@ async function ask(input,out,o={}){
   const view=o.view||md;out.innerHTML=`<p class="muted">${esc(t('thinking'))}</p>`;
   if(o.btn)o.btn.disabled=true;
   try{
-    if(S){const opts={modelTier:o.tier||'complex',cache:false,onText:({text})=>{out.innerHTML=view(text)}};if(o.images&&o.images.length)opts.images=o.images;const r=await S(input,opts);out.innerHTML=view(r.text);return r.text}
-    const txt=await apiChat(input);out.innerHTML=view(txt);return txt;
+    if(S){const opts={modelTier:o.tier||'complex',cache:false,onText:({text})=>{out.innerHTML=view(text)}};if(o.images&&o.images.length){const im=o.images.filter(f=>/^image\//.test(fileMime(f)));if(im.length)opts.images=im}const r=await S(input,opts);out.innerHTML=view(r.text);return r.text}
+    const txt=await apiChat(input,o.images||[]);out.innerHTML=view(txt);return txt;
   }
   catch(e){out.innerHTML=`<p class="warn">${esc(aiErr(e))}</p>`;return null}
   finally{if(o.btn)o.btn.disabled=false}
@@ -1711,11 +1721,15 @@ function evalCrit(){const a=ASSESS.find(x=>x.id===$('#evalSel').value)||ASSESS[0
 function wcount(s){return (s.match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu)||[]).length}
 function evalWc(){const a=ASSESS.find(x=>x.id===$('#evalSel').value)||ASSESS[0];const n=wcount($('#evalTxt').value);const el=$('#evalWc');el.textContent=`${n} ${t('words')}`+(a.words?` / ${t('limit')} ${a.words}`:'');el.classList.toggle('over',!!a.words&&n>a.words)}
 $('#evalSel').addEventListener('change',evalCrit);$('#evalTxt').addEventListener('input',evalWc);
-$('#evalFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;$('#evalTxt').value=await f.text();evalWc()});
+let evalFiles=[];
+$('#evalFile').addEventListener('change',async e=>{const f=e.target.files[0];evalFiles=[];$('#evalFN').textContent='';if(!f)return;
+  try{if(/\.docx$/i.test(f.name)){$('#evalFN').textContent=t('thinking');$('#evalTxt').value=await docxText(f);$('#evalFN').textContent='✓ '+f.name}
+  else if(/\.(txt|md)$/i.test(f.name)||f.type==='text/plain'){$('#evalTxt').value=await f.text();$('#evalFN').textContent='✓ '+f.name}
+  else{evalFiles=[f];$('#evalFN').textContent='📎 '+f.name+' · '+X('sera lu par l’IA','will be read by the AI','lo leerá la IA')}}catch(err){$('#evalFN').textContent=X('Fichier illisible : copie-colle le texte.','Cannot read file: paste the text.','Archivo ilegible.')}evalWc()});
 $('#evalGo').addEventListener('click',e=>{
-  const a=ASSESS.find(x=>x.id===$('#evalSel').value),txt=$('#evalTxt').value.trim();if(!txt){$('#evalOut').textContent=t('empty');return}
+  const a=ASSESS.find(x=>x.id===$('#evalSel').value),txt=$('#evalTxt').value.trim()||(evalFiles.length?'(The student work is in the attached file.)':'');if(!txt){$('#evalOut').textContent=t('empty');return}
   const crit=a.crit.length?a.crit.map(c=>`- Criterion ${c[0]}: ${c[1][1]} (max ${c[2]})`).join('\n'):'- Use the official holistic markbands for this component.';
-  ask(`You are an experienced senior IB examiner and moderator. Assess this student work for: ${a.en}. Word limit: ${a.words||'n/a'}; the text has about ${wcount(txt)} words (an examiner stops reading after the limit). Criteria:\n${crit}\n\nFor each criterion: the mark you would award, the markband descriptor it matches, 1–2 short quotations from the work as evidence, and exactly what is needed to reach the next band. Then: total /${a.max||'markband'}, likely grade, the 5 highest-impact improvements in priority order, and any academic-integrity risks (missing citations, unsupported claims). Follow IB academic integrity: give feedback and guidance only — do NOT rewrite paragraphs or write new text for the student. Be honest and calibrated, not generous.\n\nSTUDENT WORK:\n${txt.slice(0,60000)}\n\n${LANGLINE()}`,$('#evalOut'),{btn:e.currentTarget});
+  ask(`You are an experienced senior IB examiner and moderator. Assess this student work for: ${a.en}. Word limit: ${a.words||'n/a'}; the text has about ${wcount(txt)} words (an examiner stops reading after the limit). Criteria:\n${crit}\n\nFor each criterion: the mark you would award, the markband descriptor it matches, 1–2 short quotations from the work as evidence, and exactly what is needed to reach the next band. Then: total /${a.max||'markband'}, likely grade, the 5 highest-impact improvements in priority order, and any academic-integrity risks (missing citations, unsupported claims). Follow IB academic integrity: give feedback and guidance only — do NOT rewrite paragraphs or write new text for the student. Be honest and calibrated, not generous.\n\nSTUDENT WORK:\n${txt.slice(0,60000)}\n\n${LANGLINE()}`,$('#evalOut'),{btn:e.currentTarget,images:evalFiles});
 });
 $('#rqGo').addEventListener('click',e=>{const i=$('#rqInt').value.trim();if(!i){$('#rqOut').textContent=t('empty');return}
   ask(`You are an IB ${$('#rqType').selectedOptions[0].textContent} supervisor. The student's theme: "${i}". Propose 5 focused, arguable research questions (or TOK knowledge questions) suited to the official criteria. For each: why it scores well, the data/sources needed and whether they are accessible, a likely structure, and one risk. Finish by recommending the best one and how to narrow it further. ${LANGLINE()}`,$('#rqOut'),{btn:e.currentTarget})});
@@ -1955,7 +1969,7 @@ let HW=[],hwImgs=[];
 function renderHW(){
   const cur=$('#hwSubj').value;$('#hwSubj').innerHTML=SUBJ.map(s=>`<option value="${s.id}">${esc(L(s.n))}</option>`).join('')+`<option value="tok">TOK</option><option value="sat">SAT</option><option value="other">${['Autre','Other','Otra'][LI()]}</option>`;if(cur)$('#hwSubj').value=cur;
   const cm=$('#hwMode').value;$('#hwMode').innerHTML=`<option value="full">${t('hw_m1')}</option><option value="hints">${t('hw_m2')}</option><option value="check">${t('hw_m3')}</option>`;if(cm)$('#hwMode').value=cm;
-  $('#hwImgL').hidden=!imgOK;renderConvo();
+  $('#hwImgL').hidden=!canFiles();renderConvo();
 }
 function renderConvo(){$('#hwConvo').innerHTML=HW.map((m,i)=>m.role==='user'?`<div class="u">${esc(i===0?m.shown:m.content)}</div>`:`<div class="ai-out">${md(m.content)}</div>`).join('');$('#hwFollowRow').hidden=!HW.some(m=>m.role==='assistant')}
 async function hwSend(btn){
@@ -1967,12 +1981,12 @@ async function hwSend(btn){
 $('#hwGo').addEventListener('click',async e=>{const q=$('#hwQ').value.trim();if(!q&&!hwImgs.length){$('#hwConvo').innerHTML=`<p class="warn">${t('empty')}</p>`;return}
   const subj=$('#hwSubj').selectedOptions[0].textContent,mode=$('#hwMode').value;
   const modeTxt=mode==='full'?'Start with a section "Answer" giving the final answer directly. Then a section "Step-by-step explanation": number every step and for each say what you do, why, and how (show all working). Then "Common mistakes" and "Check" (verify the answer). End with one similar practice exercise and its answer.':mode==='hints'?'Do NOT give the final answer. Give 3 progressive hints, from light to strong, and the key concept to revise, so the student can solve it alone.':'The student gives their own answer. Say whether it is correct, find exactly where any error is, explain the correct reasoning step by step and give the correct final answer.';
-  const sys=`You are an expert, patient IB Diploma tutor (${subj}${$('#hwSubj').value==='sat'?', Digital SAT':''}). ${modeTxt} Use IB terminology, command terms and notation; for calculations give exact values then 3 significant figures as IB expects. If the task is an assessed IA, EE, TOK essay or exhibition, do not write it for the student (IB academic integrity): explain, guide and give feedback instead. ${hwImgs.length?'An image of the exercise is attached; read it carefully first.':''} ${LANGLINE()}\n\nSTUDENT:\n${q||'(see image)'}`;
+  const sys=`You are an expert, patient IB Diploma tutor (${subj}${$('#hwSubj').value==='sat'?', Digital SAT':''}). ${modeTxt} Use IB terminology, command terms and notation; for calculations give exact values then 3 significant figures as IB expects. If the task is an assessed IA, EE, TOK essay or exhibition, do not write it for the student (IB academic integrity): explain, guide and give feedback instead. ${hwImgs.length?'The exercise is attached as photo(s) or PDF; read it carefully first and transcribe the key data.':''} ${LANGLINE()}\n\nSTUDENT:\n${q||'(see image)'}`;
   HW=[{role:'user',content:sys,shown:q||'📷'}];renderConvo();await hwSend(e.currentTarget)});
 $('#hwFollowGo').addEventListener('click',async e=>{const f=$('#hwFollow').value.trim();if(!f)return;HW.push({role:'user',content:f});$('#hwFollow').value='';renderConvo();await hwSend(e.currentTarget)});
 $('#hwFollow').addEventListener('keydown',e=>{if(e.key==='Enter')$('#hwFollowGo').click()});
-$('#hwNew').addEventListener('click',()=>{HW=[];hwImgs=[];$('#hwQ').value='';$('#hwImg').value='';renderConvo()});
-$('#hwImg').addEventListener('change',e=>{hwImgs=[...e.target.files].slice(0,1)});
+$('#hwNew').addEventListener('click',()=>{HW=[];hwImgs=[];$('#hwQ').value='';$('#hwImg').value='';$('#hwImgN').textContent='';renderConvo()});
+$('#hwImg').addEventListener('change',e=>{hwImgs=[...e.target.files].slice(0,4);$('#hwImgN').textContent=hwImgs.length?hwImgs.map(f=>f.name||'photo').join(', '):''});
 
 /* ---------- similitudes ---------- */
 let SRC=store.get('src',[{name:'',text:''}]);
@@ -2008,7 +2022,7 @@ $('#simAI').addEventListener('click',e=>{const text=$('#simMine').value.trim();i
   ask(`You are an IB academic-integrity coordinator. Review this student text (an IB assessment draft). List: (1) sentences that state facts, data, quotations or others' ideas without an in-text citation; (2) inconsistent or incorrect citation formatting (APA or MLA); (3) passages whose style suggests copied or unacknowledged text; (4) how to fix each one (cite, quote, or paraphrase in their own words). Quote the exact sentences. Do not rewrite the text yourself. Note: you cannot search the internet, so judge from the text only.\n\nTEXT:\n${text.slice(0,50000)}\n\n${LANGLINE()}`,$('#simAIOut'),{btn:e.currentTarget})});
 
 /* ---------- Pacha IA : assistant intégré ---------- */
-let BOT=store.get('bot',[]);
+let BOT=store.get('bot',[]),botFiles=[];
 const BOT_SUG=[['Comment utiliser cette app ?','How do I use this app?','¿Cómo uso esta app?'],['Que dois-je réviser cette semaine ?','What should I revise this week?','¿Qué debo repasar esta semana?'],['Explique-moi la leçon ouverte','Explain the lesson I have open','Explícame la lección abierta'],['Comment viser 7 en Économie HL ?','How do I get a 7 in Economics HL?','¿Cómo saco un 7 en Economía NS?']];
 function botContext(){
   const v=(location.hash.slice(1)||'accueil'),pl=buildPlan();
@@ -2036,14 +2050,16 @@ async function botSend(text){
   const hist=BOT.slice(-14).map(m=>({role:m.role,content:m.content}));
   while(hist.length&&hist[0].role!=='user')hist.shift();
   hist[0]={role:'user',content:botSystem()+'\n\n---\nSTUDENT: '+hist[0].content};
-  const r=await ask(hist,out,{btn:$('#botGo'),tier:'default'});
+  const r=await ask(hist,out,{btn:$('#botGo'),tier:'default',images:botFiles});botFiles=[];$('#botFN').textContent='';
   if(r){BOT.push({role:'assistant',content:r});store.set('bot',BOT.slice(-30))}else BOT.pop();
   $('#botMsgs').scrollTop=$('#botMsgs').scrollHeight;
 }
 $('#botFab').addEventListener('click',()=>{const o=$('#bot').classList.toggle('open');$('#botFab').setAttribute('aria-expanded',o);if(o){botRender();setTimeout(()=>$('#botIn').focus(),50)}});
 $('#botX').addEventListener('click',()=>{$('#bot').classList.remove('open');$('#botFab').setAttribute('aria-expanded','false')});
 $('#botNew').addEventListener('click',()=>{BOT=[];store.set('bot',BOT);botRender()});
-$('#botGo').addEventListener('click',()=>botSend($('#botIn').value));
+$('#botGo').addEventListener('click',()=>botSend($('#botIn').value||(botFiles.length?X('Explique-moi ce document.','Explain this document to me.','Explícame este documento.'):'')));
+$('#botAtt').addEventListener('click',()=>{if(!canFiles()){$('#botFN').textContent=X('Les photos marchent avec Google Gemini ou Claude (⚙).','Photos work with Google Gemini or Claude (⚙).','Las fotos funcionan con Gemini o Claude.');return}$('#botFile').click()});
+$('#botFile').addEventListener('change',e=>{botFiles=[...e.target.files].slice(0,4);$('#botFN').textContent=botFiles.length?'📎 '+botFiles.map(f=>f.name||'photo').join(', '):''});
 $('#botIn').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();botSend($('#botIn').value)}});
 $('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-sug]');if(b)botSend(L(BOT_SUG[+b.dataset.sug]))});
 function setRender(){$('#mascSel').value=MASC;$('#setP').value=(AIK&&AIK.p)||'gemini';$('#setK').value=(AIK&&AIK.k)||'';$('#setMsg').textContent=S?t('set_claude'):'';$('#setMsg').className='small muted'}
