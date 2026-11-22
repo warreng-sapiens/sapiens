@@ -22,15 +22,15 @@
    COLOUR and TYPE: blanc porcelaine, encre nuit, bleu roi ; Fraunces (serif élégant) pour les titres, Plus Jakarta Sans pour l'interface
    LAYOUT: barre latérale fixe, contenu aéré en cartes de verre ; sur téléphone, barre d'onglets en bas */
 :root{color-scheme:light dark;
---bg:light-dark(#f3f5fb,#05070e);--panel:light-dark(#ffffffd9,#0f1527d9);--solid:light-dark(#ffffff,#0c1222);--soft:light-dark(#f0f3fa,#0b1120);--sky:light-dark(#e8eeff,#111b3b);
---ink:light-dark(#0a0f1f,#eef2ff);--mut:light-dark(#5a6584,#98a3c3);--line:light-dark(#e1e7f3,#1b2544);--acc:light-dark(#2146e0,#6f8fff);--acc2:light-dark(#0b1d5c,#b7c8ff);
---sh:light-dark(0 1px 2px #0a0f1f0d,0 18px 40px -24px #2146e040,0 1px 2px #0005,0 18px 40px -24px #000c);--night:#060a18;--nt:#eef2ff;--r:22px}
+--bg:light-dark(#f7f5f0,#06080f);--panel:light-dark(#fffdf9e0,#10141fd9);--solid:light-dark(#fffdf9,#0d111c);--soft:light-dark(#f2efe8,#0b0f19);--sky:light-dark(#f3ebda,#1d1c1a);
+--ink:light-dark(#0b1530,#f3efe6);--mut:light-dark(#5f6270,#a4a6b0);--line:light-dark(#e6e1d6,#22262f);--acc:light-dark(#96712d,#d8bb83);--acc2:light-dark(#0b1530,#ead9b5);
+--sh:light-dark(0 1px 2px #0a0f1f0d,0 18px 40px -24px #0b153022,0 1px 2px #0005,0 18px 40px -24px #000c);--night:#060a18;--nt:#eef2ff;--r:22px}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 [hidden]{display:none!important}
 html{scroll-padding-top:20px}
 body{margin:0;color:var(--ink);font:16px/1.62 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip;background:var(--bg);
-background-image:radial-gradient(800px 500px at 100% -10%,light-dark(#dfe7ff,#0f1d4a) 0,transparent 70%),radial-gradient(700px 500px at 20% 110%,light-dark(#e9eeff,#0a1438) 0,transparent 70%);background-attachment:fixed}
+background-image:radial-gradient(800px 500px at 100% -10%,light-dark(#efe5cf,#1a1a24) 0,transparent 70%),radial-gradient(700px 500px at 20% 110%,light-dark(#ece9e2,#0c1226) 0,transparent 70%);background-attachment:fixed}
 h1,h2,.serif{font-family:Fraunces,Georgia,serif;font-optical-sizing:auto;letter-spacing:-.015em}
 h1{font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin:0 0 10px;font-weight:600;text-wrap:balance}
 h2{font-size:clamp(22px,2.4vw,28px);line-height:1.15;margin:0 0 12px;font-weight:600;text-wrap:balance}
@@ -39,7 +39,7 @@ h3{font-size:17px;margin:0 0 8px;line-height:1.3;font-weight:700}
 p{margin:0 0 10px}a{color:var(--acc)}
 .band{padding:clamp(18px,3vw,34px) clamp(16px,3vw,40px);max-width:1240px;margin:0 auto}
 pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere;background:var(--soft);padding:1px 5px;border-radius:5px}
-:focus-visible{outline:3px solid #6f8fff;outline-offset:2px}
+:focus-visible{outline:3px solid #d8bb83;outline-offset:2px}
 
 /* ---------- barre latérale ---------- */
 .sidebar{position:fixed;inset:0 auto 0 0;width:264px;z-index:20;background:var(--solid);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 14px 14px;gap:14px}
@@ -50,10 +50,10 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere;background:var(--soft);p
 .nav .grp{font-size:12px;color:var(--mut);font-weight:700;margin:12px 10px 4px}
 .nav a{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;padding:9px 11px;border-radius:12px;font-weight:600;font-size:14.5px;min-height:42px}
 .nav a svg{width:19px;height:19px;stroke:var(--mut);flex:none}
-.nav a:hover{background:var(--soft)}.nav a.on{background:var(--sky);color:var(--acc)}.nav a.on svg{stroke:var(--acc)}
+.nav a:hover{background:var(--soft)}.nav a.on{background:var(--ink);color:var(--bg)}.nav a.on svg{stroke:light-dark(#e2c98f,#96712d)}
 .xpw{border:1px solid var(--line);border-radius:18px;padding:12px;display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;align-items:center;background:var(--soft);text-decoration:none;color:inherit}
 .xpw b{font-size:14px;display:block;line-height:1.2}.xpw span{font-size:12px;color:var(--mut)}
-.xpbar{height:6px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:5px}.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#6f8fff,#2146e0);border-radius:9px}
+.xpbar{height:6px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:5px}.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#d8bb83,#a8823a);border-radius:9px}
 .langs{display:flex;gap:4px}.langs button{flex:1;min-height:38px;border-radius:10px;border:1px solid var(--line);background:var(--solid);color:var(--ink);font:700 12.5px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer}
 .langs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .main{margin-left:264px;min-height:100vh}
@@ -64,7 +64,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere;background:var(--soft);p
 
 /* ---------- éléments de base ---------- */
 .panel{background:var(--panel);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2vw,24px);box-shadow:var(--sh)}
-.panel.hl{border:1.5px solid transparent;background:linear-gradient(var(--solid),var(--solid)) padding-box,linear-gradient(135deg,#8fa8ff,#2146e0 50%,var(--line)) border-box}
+.panel.hl{border:1.5px solid transparent;background:linear-gradient(var(--solid),var(--solid)) padding-box,linear-gradient(135deg,#e6d3a6,#a8823a 50%,var(--line)) border-box}
 .stackv>*+*{margin-top:18px}
 .g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -76,7 +76,7 @@ pre,.scroll{overflow-x:auto}code{overflow-wrap:anywhere;background:var(--soft);p
 .muted{color:var(--mut)}.small{font-size:14px}.warn{color:#e5484d;font-weight:600}
 .btn{min-height:44px;padding:0 18px;border-radius:13px;border:1px solid var(--line);background:var(--solid);color:var(--ink);font:700 14.5px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:transform .12s,border-color .12s,box-shadow .12s;box-shadow:0 1px 2px #0a0f1f0f}
 .btn:hover{border-color:var(--acc);transform:translateY(-1px)}
-.btn.pri{background:linear-gradient(135deg,#4a6cff,#2146e0);border-color:transparent;color:#fff;box-shadow:0 10px 24px -10px #2146e0cc}
+.btn.pri{background:linear-gradient(135deg,light-dark(#1c2b5e,#e8cf98),light-dark(#0b1530,#b8924a));border-color:light-dark(#b8924a66,transparent);color:light-dark(#f7f1e3,#0b1530);box-shadow:0 10px 24px -12px light-dark(#0b1530aa,#b8924a88)}
 .btn.ghost{background:#ffffff12;color:var(--nt);border-color:#ffffff2a}.btn.ghost:hover{border-color:#fff}
 .btn.sm{min-height:38px;padding:0 13px;font-size:13.5px;border-radius:11px}
 .btn:disabled{opacity:.5;cursor:wait;transform:none}
@@ -102,19 +102,19 @@ th{font-size:12.5px;color:var(--mut);font-weight:700}td.n,th.n{text-align:right;
 /* ---------- en-tête de page ---------- */
 .phead .band{display:flex;align-items:center;gap:18px;padding-top:clamp(26px,4vw,48px);padding-bottom:4px}
 .phead h1{margin:0}
-.picon{width:58px;height:58px;border-radius:18px;background:linear-gradient(140deg,#4a6cff,#0b1d5c);display:grid;place-items:center;flex:none;box-shadow:0 14px 30px -12px #2146e0aa}
+.picon{width:58px;height:58px;border-radius:18px;background:linear-gradient(140deg,#c9a86a,#0b1d5c);display:grid;place-items:center;flex:none;box-shadow:0 14px 30px -12px #a8823aaa}
 .picon svg{width:28px;height:28px;stroke:#fff}
 .phead p{margin:2px 0 0;color:var(--mut)}
 
 /* ---------- accueil ---------- */
-.hero{position:relative;overflow:hidden;border-radius:30px;color:var(--nt);background:radial-gradient(700px 380px at 75% 20%,#1f3fb055,transparent 70%),linear-gradient(160deg,#0b1430,#060a18 60%);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:10px;align-items:center;padding:clamp(24px,4vw,48px);box-shadow:0 30px 60px -30px #060a18}
+.hero{position:relative;overflow:hidden;border-radius:30px;color:var(--nt);background:radial-gradient(700px 380px at 75% 20%,#b8924a26,transparent 70%),linear-gradient(160deg,#0f1a3a,#070b18 60%);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:10px;align-items:center;padding:clamp(24px,4vw,48px);box-shadow:0 30px 60px -30px #060a18}
 @media(max-width:1000px){.hero{grid-template-columns:minmax(0,1fr)}}
 .hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1;margin-bottom:16px;font-weight:600}
-.hero h1 em{color:#9db4ff}
-.hero .lead{font-size:clamp(16px,1.4vw,18.5px);color:#b9c5e6;max-width:33em;margin-bottom:22px}
-.hgreet{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#cfd9ff;background:#ffffff10;border:1px solid #ffffff1c;border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:16px}
+.hero h1 em{color:#dcc59a}
+.hero .lead{font-size:clamp(16px,1.4vw,18.5px);color:#d3cbb9;max-width:33em;margin-bottom:22px}
+.hgreet{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#e9e1cf;background:#ffffff10;border:1px solid #ffffff1c;border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:16px}
 .hgreet i{width:8px;height:8px;border-radius:50%;background:#6ee7a8;box-shadow:0 0 0 4px #6ee7a833}
-.stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px}.stats div{display:grid}.stats b{font:600 30px Fraunces,Georgia,serif;color:#fff}.stats span{font-size:13px;color:#8d9bc4}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px}.stats div{display:grid}.stats b{font:600 30px Fraunces,Georgia,serif;color:#fff}.stats span{font-size:13px;color:#a39b8a}
 .scene{width:100%;height:auto;display:block;max-width:640px;margin-inline:auto}
 .steam{animation:steam 4s ease-in-out infinite}.steam2{animation:steam 4s 1.3s ease-in-out infinite}
 @keyframes steam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-16px)}}
@@ -123,7 +123,7 @@ th{font-size:12.5px;color:var(--mut);font-weight:700}td.n,th.n{text-align:right;
 .quick{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
 @media(max-width:1100px){.quick{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media(max-width:640px){.quick{grid-template-columns:minmax(0,1fr)}}
-.resume{display:grid;gap:10px;align-content:start;color:#fff;background:radial-gradient(400px 200px at 100% 0%,#4a6cff88,transparent 70%),linear-gradient(150deg,#2146e0,#0b1d5c);border:0}
+.resume{display:grid;gap:10px;align-content:start;color:#fff;background:radial-gradient(400px 200px at 100% 0%,#c9a86a88,transparent 70%),linear-gradient(150deg,#a8823a,#0b1d5c);border:0}
 .resume .muted{color:#c9d5ff}.resume h3{font:600 22px/1.2 Fraunces,Georgia,serif;margin:0}
 .resume .btn{background:#fff;color:#0b1d5c;border:0;justify-self:start}
 .miss{display:grid;gap:8px}
@@ -148,20 +148,40 @@ th{font-size:12.5px;color:var(--mut);font-weight:700}td.n,th.n{text-align:right;
 
 /* renard diplômé */
 .foxhero{position:relative;max-width:500px;margin:10px auto;padding:10px 10px 30px}
-.foxhero img{width:100%;display:block;border-radius:24%;box-shadow:0 40px 80px -30px #2146e0cc,0 0 0 1px #ffffff1a;aspect-ratio:1;object-fit:cover}
+.foxhero img{width:100%;display:block;border-radius:24%;box-shadow:0 40px 80px -30px #a8823acc,0 0 0 1px #ffffff1a;aspect-ratio:1;object-fit:cover}
 .fh-count{position:absolute;left:-6px;bottom:6px;display:grid;background:#0b1430e6;backdrop-filter:blur(10px);border:1px solid #ffffff26;border-radius:20px;padding:12px 18px;box-shadow:0 20px 40px -20px #000}
-.fh-count b{font:600 44px/1 Fraunces,Georgia,serif;color:#fff}.fh-count span{font-size:13px;color:#cfd9ff;font-weight:600}.fh-count em{font-style:normal;font-size:12px;color:#8d9bc4}
-.fh-chip{position:absolute;right:-8px;top:34px;display:flex;gap:9px;align-items:center;background:#ffffff14;backdrop-filter:blur(10px);border:1px solid #ffffff2e;border-radius:16px;padding:9px 13px;font-size:12px;color:#cfd9ff}
-.fh-chip svg{width:24px;height:24px;padding:4px;border-radius:50%;background:#2146e0;stroke:#fff;flex:none}.fh-chip b{color:#fff}
+.fh-count b{font:600 44px/1 Fraunces,Georgia,serif;color:#fff}.fh-count span{font-size:13px;color:#e9e1cf;font-weight:600}.fh-count em{font-style:normal;font-size:12px;color:#a39b8a}
+.fh-chip{position:absolute;right:-8px;top:34px;display:flex;gap:9px;align-items:center;background:#ffffff14;backdrop-filter:blur(10px);border:1px solid #ffffff2e;border-radius:16px;padding:9px 13px;font-size:12px;color:#e9e1cf}
+.fh-chip svg{width:24px;height:24px;padding:4px;border-radius:50%;background:#a8823a;stroke:#fff;flex:none}.fh-chip b{color:#fff}
 .fh-xp{position:absolute;right:18px;bottom:44px;background:linear-gradient(135deg,#f8dd86,#c8962c);color:#3a2a05;font-weight:800;font-size:14px;border-radius:999px;padding:7px 14px;box-shadow:0 10px 24px -10px #c8962c}
 @media(max-width:560px){.fh-count{left:0}.fh-chip{right:0}}
+/* ---------- v5 : Master Plan ---------- */
+.lead2{font:italic 500 clamp(17px,1.6vw,20px) Fraunces,Georgia,serif;color:#e6d3a6;margin:-6px 0 10px}
+.recos{display:grid;gap:10px}
+.reco{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--solid)}
+.reco .ri{width:44px;height:44px;border-radius:13px;background:var(--sky);display:grid;place-items:center}.reco .ri svg{width:22px;height:22px;stroke:var(--acc)}
+.reco b{display:block;font-size:15px;line-height:1.3}.reco .why{font-size:13px;color:var(--mut);display:block;margin-top:2px}
+@media(max-width:560px){.reco{grid-template-columns:36px minmax(0,1fr)}.reco .btn{grid-column:2;justify-self:start}.reco .ri{width:36px;height:36px}}
+.engine{margin-top:12px;border:1px solid var(--acc);border-radius:16px;padding:14px;background:var(--sky)}.engine b{display:flex;gap:8px;align-items:center}.engine b svg{width:18px;height:18px;stroke:var(--acc)}.engine ul{margin:8px 0;padding-left:20px;font-size:14.5px}
+.aitag{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12.5px;color:var(--mut);margin:0 0 8px;padding-bottom:8px;border-bottom:1px dashed var(--line)}.aitag svg{width:14px;height:14px;stroke:var(--acc)}.aitag b{color:var(--ink);font-weight:600}
+.srcline{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--mut);margin:0}
+.tag{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--solid);border-radius:999px;padding:3px 10px;font-weight:600;font-size:12px;color:var(--ink)}.tag.gold{border-color:var(--acc);color:var(--acc)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:grid;box-shadow:var(--sh)}.kpi b{font:600 30px/1.1 Fraunces,Georgia,serif}.kpi span{font-size:12.5px;color:var(--mut);font-weight:600}
+.mrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) 56px;gap:4px 12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.mn{display:flex;gap:8px;align-items:center;font-weight:600;font-size:14.5px}.mn i{width:9px;height:9px;border-radius:50%;flex:none}
+.mb{height:10px;border-radius:9px;background:var(--soft);overflow:hidden}.mb b{display:block;height:100%;border-radius:9px}.mv{text-align:right;font-variant-numeric:tabular-nums}
+.md{grid-column:1/-1;font-size:12px;color:var(--mut)}
+.wbars{width:100%;height:auto}.wbars rect{fill:color-mix(in srgb,var(--acc) 35%,var(--soft))}.wbars rect.cur{fill:var(--acc)}.wbars .wv{font:600 11px "Plus Jakarta Sans",system-ui,sans-serif;fill:var(--ink)}.wbars .wl{font:500 10.5px "Plus Jakarta Sans",system-ui,sans-serif;fill:var(--mut)}
+.notes textarea{min-height:110px}.lfav.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.principle{font:600 11.5px Fraunces,Georgia,serif;letter-spacing:.28em;color:var(--mut);margin:16px 0 0}
 /* ---------- salle d'étude ---------- */
-.focus{position:relative;border-radius:30px;overflow:hidden;color:#eef2ff;background:radial-gradient(600px 300px at 50% 0%,#2146e055,transparent 70%),linear-gradient(180deg,#0b1430,#05070e);padding:clamp(22px,4vw,46px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;min-height:560px}
+.focus{position:relative;border-radius:30px;overflow:hidden;color:#eef2ff;background:radial-gradient(600px 300px at 50% 0%,#a8823a55,transparent 70%),linear-gradient(180deg,#0b1430,#05070e);padding:clamp(22px,4vw,46px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;min-height:560px}
 @media(max-width:900px){.focus{grid-template-columns:minmax(0,1fr)}}
 .focus:fullscreen{border-radius:0;min-height:100vh}
 .fring{width:min(380px,100%);margin:0 auto;display:block}
-.fring .tt{font:600 64px Fraunces,Georgia,serif;fill:#fff}.fring .ts{font:600 14px "Plus Jakarta Sans",system-ui,sans-serif;fill:#9db4ff}
-.focus label.f{color:#a9b8e0}.focus input,.focus select{background:#ffffff0f;border-color:#ffffff22;color:#fff}.focus select option{color:#0a0f1f}
+.fring .tt{font:600 64px Fraunces,Georgia,serif;fill:#fff}.fring .ts{font:600 14px "Plus Jakarta Sans",system-ui,sans-serif;fill:#dcc59a}
+.focus label.f{color:#c2b9a6}.focus input,.focus select{background:#ffffff0f;border-color:#ffffff22;color:#fff}.focus select option{color:#0a0f1f}
 .focus .chip{background:#ffffff0d;border-color:#ffffff22;color:#e6ecff}.focus .chip.on{background:#fff;color:#0a0f1f}
 .quote{font:italic 500 clamp(18px,2vw,22px)/1.45 Fraunces,Georgia,serif;color:#dfe7ff;margin:8px 0 0}
 .sbars{display:grid;gap:8px}.sbar{display:grid;grid-template-columns:minmax(0,1fr) 3fr auto;gap:10px;align-items:center;font-size:13.5px;font-weight:600}
@@ -184,8 +204,8 @@ th{font-size:12.5px;color:var(--mut);font-weight:700}td.n,th.n{text-align:right;
 .lbtn.done i{background:var(--acc);border-color:var(--acc);color:#fff}
 .lhead{border-radius:26px;padding:clamp(22px,3vw,38px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:start;color:#fff;background:radial-gradient(520px 280px at 100% 0%,color-mix(in srgb,var(--c) 75%,transparent),transparent 70%),linear-gradient(160deg,#0b1430,#060a18);position:relative;overflow:hidden;box-shadow:0 24px 50px -30px #060a18}
 .lhead::after{content:"";position:absolute;right:-70px;bottom:-70px;width:240px;height:240px;border-radius:50%;border:30px solid #ffffff0b}
-.lnum{font:600 clamp(48px,7vw,84px)/.85 Fraunces,Georgia,serif;color:transparent;-webkit-text-stroke:1.5px #9db4ff}
-.ltag{font-size:13px;color:#a9b8e0;font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.ltag svg{width:16px;height:16px;stroke:#a9b8e0}
+.lnum{font:600 clamp(48px,7vw,84px)/.85 Fraunces,Georgia,serif;color:transparent;-webkit-text-stroke:1.5px #dcc59a}
+.ltag{font-size:13px;color:#c2b9a6;font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.ltag svg{width:16px;height:16px;stroke:#c2b9a6}
 .lhead h1{font-size:clamp(26px,3.4vw,40px);margin:8px 0 10px}
 .lsum{font-size:17px;color:#d4dcf3;max-width:46em;margin:0}
 @media(max-width:560px){.lhead{grid-template-columns:minmax(0,1fr)}}
@@ -208,7 +228,7 @@ h3>svg{width:20px;height:20px;stroke:var(--acc);flex:none}
 .ldefs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
 .def{background:var(--solid);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:grid;gap:4px}.def b{font:600 16px Fraunces,Georgia,serif;color:var(--acc)}.def span{font-size:14.5px}
 .lai{gap:8px;align-items:center}.lnav{justify-content:space-between;margin-top:6px}
-.prog{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}.prog i{display:block;height:100%;background:linear-gradient(90deg,#2146e0,#8fa8ff)}
+.prog{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}.prog i{display:block;height:100%;background:linear-gradient(90deg,#a8823a,#e6d3a6)}
 .search{position:relative}.search input{padding-left:38px}.search svg{position:absolute;left:12px;top:13px;width:18px;height:18px;stroke:var(--mut)}
 .hits{display:grid;gap:4px;margin-top:8px}
 .sheet h2{margin-top:6px}.sheet .lsec{break-inside:avoid;border-bottom:1px solid var(--line);padding:14px 0}
@@ -248,14 +268,14 @@ h3>svg{width:20px;height:20px;stroke:var(--acc);flex:none}
 .keys{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.keys button{min-height:38px;min-width:44px;border:1px solid var(--line);background:var(--solid);color:var(--ink);border-radius:10px;font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;padding:0 9px}
 .keys button:hover{border-color:var(--acc)}
 .res{font-variant-numeric:tabular-nums;background:var(--soft);border-radius:14px;padding:12px;margin-top:10px;white-space:pre-wrap;font-size:15px}.res:empty{display:none}
-.meter{height:12px;background:var(--soft);border-radius:6px;overflow:hidden;border:1px solid var(--line)}.meter i{display:block;height:100%;background:linear-gradient(90deg,#2146e0,#8fa8ff)}
+.meter{height:12px;background:var(--soft);border-radius:6px;overflow:hidden;border:1px solid var(--line)}.meter i{display:block;height:100%;background:linear-gradient(90deg,#a8823a,#e6d3a6)}
 .simtxt{white-space:pre-wrap;line-height:1.75;background:var(--solid);border:1px solid var(--line);border-radius:16px;padding:16px;max-height:520px;overflow:auto}
 mark{border-radius:4px;padding:0 1px;color:inherit}
 mark.m0,.sw0{background:light-dark(#c9d6ff,#1e3a8a)}mark.m1,.sw1{background:light-dark(#bae6fd,#0c4a6e)}mark.m2,.sw2{background:light-dark(#ddd6fe,#3b2f7a)}mark.m3,.sw3{background:light-dark(#e2e8f0,#334155)}
 .q-card{border:1px solid var(--line);border-radius:18px;padding:16px;margin:10px 0;background:var(--solid)}
 .q-card .ch{display:block;width:100%;text-align:left;min-height:44px;margin:6px 0;padding:9px 13px;border-radius:12px;border:1px solid var(--line);background:var(--soft);color:var(--ink);font:15px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer}
 .q-card .ch:hover{border-color:var(--acc)}
-.q-card .ch.ok{border-color:#2146e0;background:light-dark(#dde6ff,#14306e)}.q-card .ch.no{border-color:#e5484d;background:light-dark(#fde2e2,#4a1616)}
+.q-card .ch.ok{border-color:#a8823a;background:light-dark(#f3ead6,#3d3320)}.q-card .ch.no{border-color:#e5484d;background:light-dark(#fde2e2,#4a1616)}
 .q-card .ex{display:none;margin-top:8px;font-size:15px}.q-card.done .ex{display:block}
 .pomo{font:600 clamp(48px,8vw,80px)/1 Fraunces,Georgia,serif;font-variant-numeric:tabular-nums;color:var(--acc)}
 .crit td:first-child{font-weight:700;width:2.5em;color:var(--acc)}
@@ -281,7 +301,7 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 .streak{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.streak div{display:grid}.streak b{font:600 28px Fraunces,Georgia,serif}.streak span{font-size:12.5px;color:var(--mut)}
 .flame{width:46px;height:46px}
 .hmap{width:100%;height:auto;max-height:150px}
-.hm0{fill:var(--soft)}.hm1{fill:color-mix(in srgb,#2146e0 28%,var(--soft))}.hm2{fill:color-mix(in srgb,#2146e0 55%,var(--soft))}.hm3{fill:#4a6cff}.hm4{fill:#2146e0}
+.hm0{fill:var(--soft)}.hm1{fill:color-mix(in srgb,#a8823a 28%,var(--soft))}.hm2{fill:color-mix(in srgb,#a8823a 55%,var(--soft))}.hm3{fill:#c9a86a}.hm4{fill:#a8823a}
 .rchart{width:100%;height:auto}.rchart .gl{stroke:var(--line)}.rchart .gt{fill:var(--mut);font:600 11px "Plus Jakarta Sans",system-ui,sans-serif}.rchart .rl{fill:none;stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round}.rchart .g7{fill:color-mix(in srgb,var(--acc) 8%,transparent)}
 .qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .qcard,.err{background:var(--solid);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:6px;align-content:start;box-shadow:var(--sh);position:relative}
@@ -289,7 +309,7 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 .qcard.pick{outline:2px solid var(--acc);outline-offset:-1px}
 .qcard h3{margin:2px 0 0;font:600 18px Fraunces,Georgia,serif}.qtop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .qs{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:700;color:var(--c)}.qs svg{width:16px;height:16px}
-.badge{font:700 11.5px "Plus Jakarta Sans",system-ui,sans-serif;padding:3px 8px;border-radius:8px;background:var(--sky);color:var(--acc)}.badge.ok{background:#2146e0;color:#fff}
+.badge{font:700 11.5px "Plus Jakarta Sans",system-ui,sans-serif;padding:3px 8px;border-radius:8px;background:var(--sky);color:var(--acc)}.badge.ok{background:#a8823a;color:#fff}
 .lvl{display:inline-flex;gap:2px}.lvl i{width:7px;height:7px;border-radius:2px;background:var(--line)}.lvl i.on{background:var(--acc)}
 .peek{border-top:1px solid var(--line);padding-top:8px;font-size:14.5px;max-height:320px;overflow:auto}
 .builder{position:sticky;bottom:14px;z-index:6;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#060a18;color:#fff;border-radius:18px;padding:12px 16px;box-shadow:0 20px 40px -20px #000}
@@ -297,10 +317,10 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 @media(min-width:901px){.builder{margin-right:170px}}@media(max-width:900px){.builder{bottom:100px}}
 .err.ok{opacity:.6}
 .extimer{position:sticky;top:12px;z-index:5;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;background:#060a18;color:#fff;border-radius:18px;padding:12px 16px;box-shadow:0 14px 30px -18px #000}
-.extimer>div:first-child{display:grid}.extimer span{color:#a9b8e0}
-.clock{font:600 34px Fraunces,Georgia,serif;font-variant-numeric:tabular-nums;color:#9db4ff}
+.extimer>div:first-child{display:grid}.extimer span{color:#c2b9a6}
+.clock{font:600 34px Fraunces,Georgia,serif;font-variant-numeric:tabular-nums;color:#dcc59a}
 .extimer.late .clock{color:#ff7b7f;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.5}}
-.exbar{grid-column:1/-1;height:6px;border-radius:6px;background:#17234a;overflow:hidden}.exbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8fa8ff,#2146e0)}
+.exbar{grid-column:1/-1;height:6px;border-radius:6px;background:#17234a;overflow:hidden}.exbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e6d3a6,#a8823a)}
 .exq{max-height:75vh;overflow:auto}.exgrid{align-items:start}
 .rsums{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
 .rsum{background:var(--solid);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;box-shadow:var(--sh)}.rsum span{color:var(--c);font-weight:700;font-size:14px}.rsum b{font:600 28px Fraunces,Georgia,serif}.rsum em{font-style:normal;font-size:12.5px;color:var(--mut)}
@@ -309,15 +329,15 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 .fcgrid{align-items:start}
 .flip{display:block;width:100%;min-height:320px;border:0;padding:0;background:none;cursor:pointer;perspective:1200px;position:relative;font:inherit;color:inherit}
 .flip .face{position:absolute;inset:0;border-radius:26px;display:grid;place-content:center;gap:12px;text-align:center;padding:28px;backface-visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
-.flip .front{background:radial-gradient(420px 220px at 100% 0%,#2146e0aa,transparent 70%),linear-gradient(160deg,#0b1430,#060a18);color:#fff;box-shadow:0 24px 50px -28px #060a18}
-.flip .front b{font:600 clamp(24px,3vw,34px)/1.15 Fraunces,Georgia,serif}.flip .front em{font-style:normal;color:#a9b8e0;font-size:14px}
+.flip .front{background:radial-gradient(420px 220px at 100% 0%,#a8823aaa,transparent 70%),linear-gradient(160deg,#0b1430,#060a18);color:#fff;box-shadow:0 24px 50px -28px #060a18}
+.flip .front b{font:600 clamp(24px,3vw,34px)/1.15 Fraunces,Georgia,serif}.flip .front em{font-style:normal;color:#c2b9a6;font-size:14px}
 .flip .back{background:var(--solid);border:1.5px solid var(--acc);transform:rotateY(180deg)}.flip .back b{font:600 20px Fraunces,Georgia,serif;color:var(--acc)}.flip .back span{font-size:17px;line-height:1.55}
 .flip.on .front{transform:rotateY(-180deg)}.flip.on .back{transform:rotateY(0)}
 @media(prefers-reduced-motion:reduce){.flip .face{transition:none}}
 .fcbtns{justify-content:center;margin-top:14px}.fcbtns .btn{min-width:110px;justify-content:center}
 .fcdone{text-align:center;padding:36px 20px;background:var(--solid);border:1px solid var(--line);border-radius:26px}
 .boxes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;height:150px;align-items:end}
-.boxes div{display:grid;grid-template-rows:1fr auto auto;height:100%;text-align:center;gap:2px}.boxes span{align-self:end;background:linear-gradient(180deg,#8fa8ff,#2146e0);border-radius:8px 8px 3px 3px;width:100%}
+.boxes div{display:grid;grid-template-rows:1fr auto auto;height:100%;text-align:center;gap:2px}.boxes span{align-self:end;background:linear-gradient(180deg,#e6d3a6,#a8823a);border-radius:8px 8px 3px 3px;width:100%}
 .boxes b{font:600 15px Fraunces,Georgia,serif}.boxes em{font-style:normal;font-size:11px;color:var(--mut)}
 
 /* ---------- mobile ---------- */
@@ -327,8 +347,8 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 .msin svg,.mtabs svg{width:22px;height:22px;stroke:currentColor}
 @media(max-width:900px){
  .mtabs{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:31;background:color-mix(in srgb,#060a18 92%,transparent);backdrop-filter:blur(14px);border:1px solid #1b2544;border-radius:22px;padding:6px 4px;box-shadow:0 16px 40px -12px #000a}
- .mtabs a,.mtabs button{display:grid;justify-items:center;gap:2px;color:#8d9bc4;text-decoration:none;font:700 11px "Plus Jakarta Sans",system-ui,sans-serif;background:none;border:0;padding:4px 0;min-height:48px;cursor:pointer}
- .mtabs a.on,.mtabs button.on{color:#fff}.mtabs a.on span,.mtabs button.on span{background:#2146e0;border-radius:11px}
+ .mtabs a,.mtabs button{display:grid;justify-items:center;gap:2px;color:#a39b8a;text-decoration:none;font:700 11px "Plus Jakarta Sans",system-ui,sans-serif;background:none;border:0;padding:4px 0;min-height:48px;cursor:pointer}
+ .mtabs a.on,.mtabs button.on{color:#fff}.mtabs a.on span,.mtabs button.on span{background:#a8823a;border-radius:11px}
  .mtabs span{padding:3px 14px;display:grid;place-items:center}
  body{padding-bottom:96px}
  body #botFab{bottom:calc(92px + env(safe-area-inset-bottom));right:14px}body #bot{bottom:158px;height:calc(100vh - 230px)}
@@ -337,20 +357,20 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 .msheet:not([hidden])~#botFab{display:none}
 
 /* ---------- Pacha IA ---------- */
-#botFab{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:8px;min-height:58px;padding:0 20px 0 8px;border-radius:999px;border:0;background:linear-gradient(135deg,#4a6cff,#2146e0);color:#fff;font:700 15px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;box-shadow:0 16px 34px -10px #2146e0cc,0 0 0 4px #ffffff30}
+#botFab{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:8px;min-height:58px;padding:0 20px 0 8px;border-radius:999px;border:0;background:linear-gradient(135deg,#1c2b5e,#0b1530);color:#f7f1e3;font:700 15px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;box-shadow:0 16px 34px -10px #0b1530cc,0 0 0 2px #d8bb83}
 #botFab svg{width:44px;height:44px}
 #bot{position:fixed;right:18px;bottom:88px;z-index:41;width:min(430px,calc(100vw - 32px));height:min(640px,calc(100vh - 120px));display:none;flex-direction:column;background:var(--solid);border:1px solid var(--line);border-radius:26px;box-shadow:0 30px 80px -20px #05070ecc;overflow:hidden}
 #bot.open{display:flex;animation:fi .2s ease}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
-.bothead{background:radial-gradient(300px 140px at 100% 0%,#2146e0aa,transparent 70%),#060a18;color:#fff;padding:12px 12px 12px 14px;display:flex;gap:10px;align-items:center}
-.bothead b{font:600 18px Fraunces,Georgia,serif;display:block}.bothead small{color:#a9b8e0;font-size:12.5px}
+.bothead{background:radial-gradient(300px 140px at 100% 0%,#a8823aaa,transparent 70%),#060a18;color:#fff;padding:12px 12px 12px 14px;display:flex;gap:10px;align-items:center}
+.bothead b{font:600 18px Fraunces,Georgia,serif;display:block}.bothead small{color:#c2b9a6;font-size:12.5px}
 .bothead button{margin-left:auto;min-width:40px;min-height:40px;border-radius:11px;border:1px solid #26335e;background:transparent;color:#fff;cursor:pointer;font:600 14px "Plus Jakarta Sans",system-ui,sans-serif;padding:0 10px}
 .bothead button+button{margin-left:6px}
 #setBox:not([hidden]){display:grid}
 #botMsgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px}
 .bm{max-width:88%;padding:10px 13px;border-radius:18px;font-size:15px;line-height:1.55}
 .bm p:last-child,.bm ul:last-child{margin-bottom:0}.bm h4{font-size:15px;margin:8px 0 4px}.bm ul,.bm ol{padding-left:20px;margin:4px 0}
-.bm.u{align-self:flex-end;background:linear-gradient(135deg,#4a6cff,#2146e0);color:#fff;border-bottom-right-radius:6px;white-space:pre-wrap}
+.bm.u{align-self:flex-end;background:linear-gradient(135deg,#1c2b5e,#0b1530);color:#f7f1e3;border-bottom-right-radius:6px;white-space:pre-wrap}
 .bm.a{align-self:flex-start;background:var(--soft);border:1px solid var(--line);border-bottom-left-radius:6px}
 .bm.a.ai-out{margin-top:0}
 .botin{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
@@ -359,7 +379,7 @@ details summary{cursor:pointer;font-weight:700;min-height:42px;display:flex;alig
 #botWarn{margin:0 14px 8px;font-size:13px}
 @media(max-width:560px){#bot{right:8px;left:8px;width:auto}#botFab span{display:none}#botFab{padding:0 7px}}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);z-index:60;background:#060a18;color:#fff;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14.5px;display:flex;gap:8px;align-items:center;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 14px 30px -12px #000}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}.toast b{color:#9db4ff}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}.toast b{color:#dcc59a}
 @media(max-width:900px){.toast{bottom:112px}}
 footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut);border-top:1px solid var(--line);margin-top:20px}
 .sigf{display:inline-flex;gap:18px;align-items:center;text-align:left}
@@ -375,26 +395,32 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f8e3a0"/><stop offset=".5" stop-color="#d9ad4a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fa8ff"/><stop offset="1" stop-color="#2146e0"/></linearGradient></defs></svg>
+<svg width="0" height="0" style="position:absolute"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker><linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f8e3a0"/><stop offset=".5" stop-color="#d9ad4a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6d3a6"/><stop offset="1" stop-color="#a8823a"/></linearGradient></defs></svg>
 
 <aside class="sidebar">
   <a class="brand" href="#accueil"><span class="owlmark"></span><span><b>Sapiens</b><small>par Pacha Académie · IB</small></span></a>
   <nav class="nav" id="nav">
-    <a href="#accueil" data-ic="home"><span data-i="n_home">Accueil</span></a>
-    <div class="grp" data-i="g_learn">Apprendre</div>
+    <a href="#accueil" data-ic="home"><span data-i="n_dash">Tableau de bord</span></a>
+    <div class="grp" data-i="g_learn">Learn · Apprendre</div>
     <a href="#cours" data-ic="book"><span data-i="n_cours">Cours</span></a>
+    <div class="grp" data-i="g_prac">Practice · S’exercer</div>
     <a href="#reviser" data-ic="bulb"><span data-i="n_rev">Réviser</span></a>
-    <a href="#focus" data-ic="moon"><span data-i="n_focus">Salle d’étude</span></a>
-    <div class="grp" data-i="g_train">S’entraîner</div>
-    <a href="#matieres" data-ic="target"><span data-i="n_subj">Examens</span></a>
+    <div class="grp" data-i="g_exam">Exam · Examens</div>
+    <a href="#matieres" data-ic="target"><span data-i="n_subj">Centre d’examens</span></a>
+    <div class="grp" data-i="g_intel">Intelligence · Pacha IA</div>
+    <a href="#intel" data-ic="spark"><span data-i="n_intel">Pacha IA</span></a>
     <a href="#devoirs" data-ic="pen"><span data-i="n_hw">Devoirs</span></a>
-    <a href="#sat" data-ic="sat"><span data-i="n_sat">SAT</span></a>
-    <div class="grp" data-i="g_work">Travaux évalués</div>
     <a href="#coeur" data-ic="doc"><span data-i="n_core">IA · TOK · EE</span></a>
-    <a href="#similitudes" data-ic="cmp"><span data-i="n_sim">Similitudes</span></a>
-    <div class="grp" data-i="g_tools">Outils</div>
+    <div class="grp" data-i="g_perf">Performance</div>
+    <a href="#perf" data-ic="graph"><span data-i="n_perf">Mes performances</span></a>
+    <div class="grp" data-i="g_tools">Tools · Outils</div>
     <a href="#planning" data-ic="cal"><span data-i="n_plan">Planning</span></a>
+    <a href="#focus" data-ic="moon"><span data-i="n_focus">Salle d’étude</span></a>
     <a href="#gdc" data-ic="graph"><span data-i="n_gdc">Calculatrice</span></a>
+    <a href="#sat" data-ic="sat"><span data-i="n_sat">SAT</span></a>
+    <a href="#similitudes" data-ic="cmp"><span data-i="n_sim">Similitudes</span></a>
+    <div class="grp"></div>
+    <a href="#profil" data-ic="user"><span data-i="n_prof">Profil et réglages</span></a>
   </nav>
   <a class="xpw" href="#accueil" id="sideXP"></a>
   <div class="langs"><button data-l="fr">FR</button><button data-l="en">EN</button><button data-l="es">ES</button></div>
@@ -410,9 +436,10 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
       <p class="motto">THINK BEYOND.</p>
       <div class="hgreet" id="hGreet"><i></i><span></span></div>
       <h1><span data-i="h_title1">Ton bureau d’étude,</span><br><em data-i="h_title2">à la hauteur de tes ambitions.</em></h1>
+      <p class="lead2" data-i="h_stmt">Beyond studying. Mastering knowledge.</p>
       <p class="lead" data-i="h_lead">Cours complets, banque de questions, examens blancs corrigés, flashcards, salle d’étude et Pacha IA : tout ce qu’il faut pour viser les 45 points.</p>
-      <div class="row"><a class="btn pri" href="#cours" id="hStart"></a><a class="btn ghost" href="#focus" id="hFocus"></a><button class="btn ghost" id="installBtn" hidden data-i="inst_btn">Installer l’app</button></div>
-      <p class="small" id="installTip" hidden style="color:#9db4ff;margin-top:12px"></p>
+      <div class="row"><a class="btn pri" href="#cours" id="hStart"></a><a class="btn ghost" href="#focus" id="hFocus"></a><button class="btn ghost" id="hAsk"></button><button class="btn ghost" id="installBtn" hidden data-i="inst_btn">Installer l’app</button></div>
+      <p class="small" id="installTip" hidden style="color:#dcc59a;margin-top:12px"></p>
       <div class="stats" id="hStats"></div>
     </div>
     <div id="heroArt"></div>
@@ -422,6 +449,7 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
     <div class="panel"><h2 data-i="q_miss">Missions du jour</h2><div class="miss" id="qMiss"></div></div>
     <div class="panel"><div class="rank" id="qRank"></div><div class="badges" id="qBadges"></div></div>
   </div>
+  <div class="panel"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0" data-i="d_reco">Recommandé pour toi</h2><a class="btn sm" href="#perf" data-i="d_perf">Mes performances</a></div><div id="qReco" class="recos" style="margin-top:10px"></div></div>
   <div class="g2 dash">
     <div class="panel hl"><h2 data-i="d_pts">Mes points du diplôme</h2><div id="ptsBox"></div></div>
     <div class="stackv"><div class="panel"><h2 data-i="d_act">Ma régularité</h2><div id="dashAct"></div></div><div class="panel"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0" data-i="d_res">Mes examens blancs</h2><a class="btn sm" href="#matieres" data-i="x_go2">Passer un examen</a></div><div id="dashRes" style="margin-top:8px"></div></div></div>
@@ -458,16 +486,49 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
       <h1 style="color:#fff" data-i="f_title">Salle d’étude</h1>
       <p class="quote" id="fQuote"></p>
       <div class="row"><label class="f" style="flex:1 1 180px"><span data-i="hw_subj">Matière</span><select id="fSubj"></select></label><label class="f" style="flex:2 1 220px"><span data-i="f_task">Ma tâche pour cette session</span><input id="fTask" data-ip="f_taskph"></label></div>
-      <div><span class="small" style="color:#a9b8e0" data-i="f_len">Durée</span><div class="chips" id="fLen" style="margin-top:6px"></div></div>
-      <div><span class="small" style="color:#a9b8e0" data-i="f_amb">Ambiance sonore</span><div class="chips" id="fSnd" style="margin-top:6px"></div><input type="range" id="fVol" min="0" max="1" step="0.05" value="0.5" style="max-width:240px;margin-top:8px" aria-label="volume"></div>
+      <div><span class="small" style="color:#c2b9a6" data-i="f_len">Durée</span><div class="chips" id="fLen" style="margin-top:6px"></div></div>
+      <div><span class="small" style="color:#c2b9a6" data-i="f_amb">Ambiance sonore</span><div class="chips" id="fSnd" style="margin-top:6px"></div><input type="range" id="fVol" min="0" max="1" step="0.05" value="0.5" style="max-width:240px;margin-top:8px" aria-label="volume"></div>
     </div>
     <div style="display:grid;gap:16px;justify-items:center">
       <svg viewBox="0 0 300 300" class="fring" id="fRing"></svg>
       <div class="row" style="justify-content:center"><button class="btn pri" id="fGo"></button><button class="btn ghost" id="fReset" data-i="p_reset">Réinitialiser</button><button class="btn ghost" id="fFull" data-i="f_full">Plein écran</button></div>
-      <p class="small" id="fDone" style="color:#a9b8e0;margin:0"></p>
+      <p class="small" id="fDone" style="color:#c2b9a6;margin:0"></p>
     </div>
   </div>
   <div class="g2"><div class="panel"><h2 data-i="f_stats">Temps d’étude par matière</h2><div class="sbars" id="fBars"></div></div><div class="panel"><h2 data-i="f_tips">Rituel d’une bonne session</h2><ol id="fTips" style="margin:0;padding-left:20px"></ol></div></div>
+</div></section>
+
+<!-- INTELLIGENCE -->
+<section class="view" id="v-intel"><div class="phead"><div class="band"><span class="picon" data-ico="spark"></span><div><h1 data-i="in_title">Pacha IA</h1><p data-i="in_lead">Ton assistant académique : il t’aide à comprendre et à progresser, sans faire le travail à ta place.</p></div></div></div>
+<div class="band stackv"><div class="g3" id="inGrid"></div>
+  <div class="g2"><div class="panel"><h2 data-i="in_int">Utiliser l’IA honnêtement</h2><ul id="inRules" style="margin:0;padding-left:20px"></ul></div>
+  <div class="panel"><h2 data-i="in_cite">Citer une aide de l’IA</h2><p class="small muted" data-i="in_cite2">Si une idée, une formulation ou une donnée vient de l’IA dans un travail évalué, cite-la comme une source. Exemple :</p><pre id="inCiteEx" style="white-space:pre-wrap;background:var(--soft);padding:12px;border-radius:12px;font-size:14px"></pre><p class="small muted" data-i="in_cite3">Vérifie le format exact demandé par ton école et ton coordinateur IB.</p></div></div>
+</div></section>
+
+<!-- PERFORMANCE -->
+<section class="view" id="v-perf"><div class="phead"><div class="band"><span class="picon" data-ico="graph"></span><div><h1 data-i="pf_title">Mes performances</h1><p data-i="pf_lead">Ta progression mesurée : maîtrise, temps d’étude, examens, erreurs et régularité.</p></div></div></div>
+<div class="band stackv"><div class="kpis" id="pfKpi"></div>
+  <div class="panel"><h2 data-i="pf_reco">Recommandations</h2><div class="recos" id="pfReco"></div></div>
+  <div class="panel"><h2 data-i="pf_mast">Maîtrise par matière</h2><div id="pfMast"></div><p class="note" data-i="pf_how">Calcul : 30 % leçons acquises + 30 % flashcards connues + 40 % moyenne des 3 derniers examens blancs (si tu en as passé). C’est un indicateur pour t’orienter, pas une note de l’IB.</p></div>
+  <div class="g2"><div class="panel"><h2 data-i="pf_time">Temps d’étude (8 semaines)</h2><div id="pfTime"></div></div><div class="panel"><h2 data-i="x_curve">Évolution de mes notes (%)</h2><div id="pfRes"></div></div></div>
+  <div class="g2"><div class="panel"><h2 data-i="pf_err">Suivi des erreurs</h2><div id="pfErr"></div></div><div class="panel"><h2 data-i="d_act">Ma régularité</h2><div id="pfHeat"></div></div></div>
+</div></section>
+
+<!-- PROFIL -->
+<section class="view" id="v-profil"><div class="phead"><div class="band"><span class="picon" data-ico="user"></span><div><h1 data-i="pr_title">Profil et réglages</h1><p data-i="pr_lead">Tes objectifs, ta langue, ton IA et tes données.</p></div></div></div>
+<div class="band stackv"><div class="g2">
+  <div class="panel stackv"><h2 data-i="pr_me">Moi</h2>
+    <div class="row"><label class="f" style="flex:2 1 180px"><span data-i="pr_name">Prénom (pour l’accueil)</span><input id="prName" autocomplete="given-name"></label><label class="f" style="flex:1 1 120px"><span data-i="pr_year">Année</span><select id="prYear"><option>DP1</option><option>DP2</option></select></label></div>
+    <div class="row"><label class="f" style="flex:1 1 150px"><span data-i="pr_target">Objectif de points (/45)</span><input id="prTarget" type="number" min="24" max="45"></label><label class="f" style="flex:1 1 150px"><span data-i="p_exam">Début des examens</span><input id="prExam" type="date"></label></div>
+    <div class="row"><label class="f" style="flex:1 1 180px"><span data-i="masc">Mascotte</span><select id="prMasc"><option value="renard">Renard diplômé</option><option value="aigle">Aigle royal</option><option value="hibou">Hibou royal</option></select></label><div class="langs" style="flex:1 1 180px"><button data-l="fr">FR</button><button data-l="en">EN</button><button data-l="es">ES</button></div></div>
+    <div class="row"><button class="btn pri" id="prSave" data-i="pr_save">Enregistrer</button></div>
+  </div>
+  <div class="stackv"><div class="panel"><h2>Pacha IA</h2><p id="prAI"></p><button class="btn" id="prKey" data-i="pr_key">Configurer la clé d’IA</button></div>
+  <div class="panel"><h2 data-i="pr_data">Mes données</h2><p class="small" data-i="pr_priv">Tout reste sur cet appareil : Sapiens n’a pas de serveur, ne crée pas de compte et ne vend aucune donnée. Ta clé d’IA n’est jamais incluse dans les sauvegardes.</p><p class="small muted" id="prData"></p>
+    <div class="row"><button class="btn sm" id="prExport" data-i="pr_exp">Sauvegarder mes données</button><label class="btn sm" style="cursor:pointer"><span data-i="pr_imp">Restaurer une sauvegarde</span><input type="file" id="prImport" accept=".json,application/json" hidden></label><button class="btn sm" id="prDel" style="color:#c2413b" data-i="pr_del">Effacer toutes mes données</button></div>
+    <p class="small" id="prMsg" style="margin-top:8px"></p><div id="prOut" hidden><textarea id="prOutT" style="min-height:90px;font-size:12px" readonly></textarea><button class="btn sm" id="prCopy" data-i="pr_copy">Copier</button></div></div></div>
+</div>
+<div class="panel"><h2 data-i="pr_about">À propos</h2><p><b class="serif" style="font-size:20px">Sapiens</b> · par Pacha Académie · <span id="prVer"></span></p><p class="small muted" data-i="pr_ab1">Les cours et les sujets d’entraînement sont des contenus originaux de Sapiens, pas des documents officiels de l’IB. Les corrections et notes de l’IA sont indicatives. Vérifie toujours les exigences officielles dans les guides de l’IB et auprès de ton école.</p></div>
 </div></section>
 
 <!-- MATIERES -->
@@ -675,11 +736,11 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
 </div></section>
 
 </main>
-<footer><div class="sigf"><span id="sealF"></span><div class="sigt"><b class="serif">Sapiens</b><i class="serif">par Pacha Académie</i><svg viewBox="0 0 300 16" class="flour" aria-hidden="true"><path d="M2 10 C 70 4, 150 16, 220 8 S 280 4, 298 8" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round"/></svg><span class="mt">THINK BEYOND.</span><small>INTELLIGENCE · KNOWLEDGE · EXCELLENCE</small><small style="font-weight:500;margin-top:2px"><span data-i="sig_off">Signature officielle</span> · <span data-i="sig_f">Fondée en 2026</span></small></div></div><p class="small" style="margin:14px 0 0"><span data-i="f_txt">Outil d’étude indépendant, non affilié à l’International Baccalaureate Organization.</span></p></footer>
+<footer><div class="sigf"><span id="sealF"></span><div class="sigt"><b class="serif">Sapiens</b><i class="serif">par Pacha Académie</i><svg viewBox="0 0 300 16" class="flour" aria-hidden="true"><path d="M2 10 C 70 4, 150 16, 220 8 S 280 4, 298 8" fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round"/></svg><span class="mt">THINK BEYOND.</span><small>INTELLIGENCE · KNOWLEDGE · EXCELLENCE</small><small style="font-weight:500;margin-top:2px"><span data-i="sig_off">Signature officielle</span> · <span data-i="sig_f">Fondée en 2026</span></small></div></div><p class="principle">LEARN · THINK · PRACTICE · UNDERSTAND · MASTER · EXCEL</p><p class="small" style="margin:14px 0 0"><span data-i="f_txt">Outil d’étude indépendant, non affilié à l’International Baccalaureate Organization.</span></p></footer>
 </div>
 
-<nav class="mtabs" id="mTabs"><a href="#accueil"><span data-ico2="home"></span><b data-i="n_home">Accueil</b></a><a href="#cours"><span data-ico2="book"></span><b data-i="n_cours">Cours</b></a><a href="#reviser"><span data-ico2="bulb"></span><b data-i="n_rev">Réviser</b></a><a href="#matieres"><span data-ico2="target"></span><b data-i="n_subj">Examens</b></a><button data-more><span data-ico2="grid"></span><b data-i="n_more">Plus</b></button></nav>
-<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a></div></div>
+<nav class="mtabs" id="mTabs"><a href="#accueil"><span data-ico2="home"></span><b data-i="n_home">Accueil</b></a><a href="#cours"><span data-ico2="book"></span><b data-i="n_learn">Learn</b></a><a href="#reviser"><span data-ico2="bulb"></span><b data-i="n_prac">Practice</b></a><a href="#matieres"><span data-ico2="target"></span><b data-i="n_exam">Exam</b></a><button data-more><span data-ico2="grid"></span><b data-i="n_more">Plus</b></button></nav>
+<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
 <button id="botFab" aria-expanded="false" aria-controls="bot"></button>
 <section id="bot" aria-label="Pacha IA">
   <div class="bothead"><span class="owlmark" style="width:42px;height:42px;display:block"></span><div><b>Pacha IA</b><small data-i="bot_sub">Ton assistant d’études, disponible partout dans l’app</small></div><button id="botSet" title="Réglages">⚙</button><button id="botNew" title="Nouvelle conversation">↺</button><button id="botX" aria-label="Fermer">✕</button></div>
@@ -1238,9 +1299,19 @@ const LOC=()=>({fr:'fr-FR',en:'en-GB',es:'es-ES'})[lang];
 
 /* ---------- textes de l'interface ---------- */
 const T={
+n_dash:['Tableau de bord','Dashboard','Panel'],n_intel:['Pacha IA','Pacha IA','Pacha IA'],n_perf:['Mes performances','My performance','Mi rendimiento'],n_prof:['Profil et réglages','Profile & settings','Perfil y ajustes'],n_learn:['Learn','Learn','Learn'],n_prac:['Practice','Practice','Practice'],n_exam:['Exam','Exam','Exam'],
+g_learn:['Learn · Apprendre','Learn','Learn · Aprender'],g_prac:['Practice · S’exercer','Practice','Practice · Practicar'],g_exam:['Exam · Examens','Exam','Exam · Exámenes'],g_intel:['Intelligence · Pacha IA','Intelligence · Pacha IA','Intelligence · Pacha IA'],g_perf:['Performance','Performance','Performance · Rendimiento'],g_tools:['Tools · Outils','Tools','Tools · Herramientas'],
+h_stmt:['Beyond studying. Mastering knowledge.','Beyond studying. Mastering knowledge.','Beyond studying. Mastering knowledge.'],d_reco:['Recommandé pour toi','Recommended for you','Recomendado para ti'],d_perf:['Mes performances','My performance','Mi rendimiento'],
+in_title:['Pacha IA','Pacha IA','Pacha IA'],in_lead:['Ton assistant académique : il t’aide à comprendre et à progresser, sans faire le travail à ta place.','Your academic assistant: it helps you understand and improve, without doing the work for you.','Tu asistente académico: te ayuda a comprender sin hacer el trabajo por ti.'],in_int:['Utiliser l’IA honnêtement','Using AI honestly','Usar la IA con honestidad'],in_cite:['Citer une aide de l’IA','Citing AI help','Citar la ayuda de la IA'],
+in_cite2:['Si une idée, une formulation ou une donnée vient de l’IA dans un travail évalué, cite-la comme une source. Exemple :','If an idea, wording or data in assessed work comes from AI, cite it as a source. Example:','Si una idea o dato viene de la IA, cítala como fuente. Ejemplo:'],in_cite3:['Vérifie le format exact demandé par ton école et ton coordinateur IB.','Check the exact format required by your school and IB coordinator.','Verifica el formato con tu coordinador IB.'],
+pf_title:['Mes performances','My performance','Mi rendimiento'],pf_lead:['Ta progression mesurée : maîtrise, temps d’étude, examens, erreurs et régularité.','Your measured progress: mastery, study time, exams, mistakes and consistency.','Tu progreso medido.'],pf_reco:['Recommandations','Recommendations','Recomendaciones'],pf_mast:['Maîtrise par matière','Mastery by subject','Dominio por asignatura'],
+pf_how:['Calcul : 30 % leçons acquises + 30 % flashcards connues + 40 % moyenne des 3 derniers examens blancs (si tu en as passé). C’est un indicateur pour t’orienter, pas une note de l’IB.','Formula: 30% lessons done + 30% known flashcards + 40% average of the last 3 mocks (if any). A guide, not an IB grade.','Fórmula: 30 % lecciones + 30 % tarjetas + 40 % simulacros. Indicativo.'],pf_time:['Temps d’étude (8 semaines)','Study time (8 weeks)','Tiempo de estudio (8 semanas)'],pf_err:['Suivi des erreurs','Error tracking','Seguimiento de errores'],
+pr_title:['Profil et réglages','Profile & settings','Perfil y ajustes'],pr_lead:['Tes objectifs, ta langue, ton IA et tes données.','Your goals, language, AI and data.','Tus objetivos, idioma, IA y datos.'],pr_me:['Moi','Me','Yo'],pr_name:['Prénom (pour l’accueil)','First name (for the welcome)','Nombre'],pr_year:['Année','Year','Año'],pr_target:['Objectif de points (/45)','Points target (/45)','Objetivo de puntos (/45)'],pr_save:['Enregistrer','Save','Guardar'],pr_key:['Configurer la clé d’IA','Set up the AI key','Configurar la clave'],
+pr_data:['Mes données','My data','Mis datos'],pr_priv:['Tout reste sur cet appareil : Sapiens n’a pas de serveur, ne crée pas de compte et ne vend aucune donnée. Ta clé d’IA n’est jamais incluse dans les sauvegardes.','Everything stays on this device: Sapiens has no server, creates no account and sells no data. Your AI key is never included in backups.','Todo queda en este dispositivo. Tu clave nunca se incluye en las copias.'],pr_exp:['Sauvegarder mes données','Back up my data','Guardar mis datos'],pr_imp:['Restaurer une sauvegarde','Restore a backup','Restaurar copia'],pr_del:['Effacer toutes mes données','Erase all my data','Borrar mis datos'],pr_copy:['Copier','Copy','Copiar'],pr_about:['À propos','About','Acerca de'],
+pr_ab1:['Les cours et les sujets d’entraînement sont des contenus originaux de Sapiens, pas des documents officiels de l’IB. Les corrections et notes de l’IA sont indicatives. Vérifie toujours les exigences officielles dans les guides de l’IB et auprès de ton école.','Courses and practice questions are original Sapiens content, not official IB documents. AI marks are indicative. Always check official requirements in IB guides and with your school.','Los cursos y ejercicios son contenidos originales de Sapiens, no documentos oficiales del IB.'],
 sig_off:['Signature officielle','Official signature','Firma oficial'],sig_f:['Fondée en 2026','Founded in 2026','Fundada en 2026'],
 masc:['Mascotte','Mascot','Mascota'],
-g_learn:['Apprendre','Learn','Aprender'],g_train:['S’entraîner','Practise','Practicar'],g_work:['Travaux évalués','Assessed work','Trabajos evaluados'],g_tools:['Outils','Tools','Herramientas'],n_focus:['Salle d’étude','Study room','Sala de estudio'],
+g_train:['S’entraîner','Practise','Practicar'],g_work:['Travaux évalués','Assessed work','Trabajos evaluados'],n_focus:['Salle d’étude','Study room','Sala de estudio'],
 f_title:['Salle d’étude','Study room','Sala de estudio'],f_task:['Ma tâche pour cette session','My task for this session','Mi tarea'],f_taskph:['ex. 10 questions de dérivation','e.g. 10 differentiation questions','p. ej. 10 preguntas'],f_len:['Durée','Length','Duración'],f_amb:['Ambiance sonore','Ambient sound','Sonido ambiente'],f_full:['Plein écran','Full screen','Pantalla completa'],f_stats:['Temps d’étude par matière','Study time by subject','Tiempo por asignatura'],f_tips:['Rituel d’une bonne session','A good session ritual','Ritual de una buena sesión'],
 q_miss:['Missions du jour','Today’s missions','Misiones del día'],h_title1:['Ton bureau d’étude,','Your study desk,','Tu escritorio de estudio,'],h_title2:['à la hauteur de tes ambitions.','as ambitious as you are.','a la altura de tus ambiciones.'],
 h_lead:['Cours complets, banque de questions, examens blancs corrigés, flashcards, salle d’étude et Pacha IA : tout ce qu’il faut pour viser les 45 points.','Full courses, a question bank, marked mock exams, flashcards, a study room and Pacha IA: everything you need to aim for 45 points.','Cursos, banco de preguntas, simulacros corregidos, tarjetas, sala de estudio y Pacha IA: todo para apuntar a 45.'],
@@ -1275,7 +1346,7 @@ c_qhint:['Réponds de tête, puis demande le corrigé à l’IA ci-dessous.','An
 c_ai:['Aller plus loin avec l’IA','Go further with AI','Profundiza con IA'],c_simple:['Explique plus simplement','Explain more simply','Explica más simple'],c_deep:['Approfondir (niveau 7)','Go deeper (grade 7)','Profundizar (nivel 7)'],c_quiz:['Quiz de 6 questions','6-question quiz','Quiz de 6 preguntas'],c_corr:['Corrigé des questions','Model answers','Respuestas modelo'],c_tr:['Traduire','Translate','Traducir'],
 c_prev:['Précédente','Previous','Anterior'],c_next:['Suivante','Next','Siguiente'],c_markdone:['Marquer comme acquise','Mark as done','Marcar como hecha'],c_undone:['Acquise ✓ (annuler)','Done ✓ (undo)','Hecha ✓ (deshacer)'],c_nohit:['Aucun résultat.','No results.','Sin resultados.'],
 f_txt:['Outil d’étude indépendant, non affilié à l’International Baccalaureate Organization.','Independent study tool, not affiliated with the International Baccalaureate Organization.','Herramienta de estudio independiente, no afiliada a la Organización del Bachillerato Internacional.'],
-n_home:['Accueil','Home','Inicio'],n_subj:['Examens','Exams','Exámenes'],n_cours:['Cours','Courses','Cursos'],n_core:['IA · TOK · EE','IA · TOK · EE','IA · TOK · EE'],n_plan:['Planning','Study plan','Plan de estudio'],n_gdc:['Calculatrice','Calculator','Calculadora'],n_sat:['SAT','SAT','SAT'],n_hw:['Devoirs','Homework','Deberes'],n_sim:['Similitudes','Similarity','Similitud'],
+n_home:['Accueil','Home','Inicio'],n_subj:['Centre d’examens','Exam centre','Centro de exámenes'],n_cours:['Cours','Courses','Cursos'],n_core:['IA · TOK · EE','IA · TOK · EE','IA · TOK · EE'],n_plan:['Planning','Study plan','Plan de estudio'],n_gdc:['Calculatrice','Calculator','Calculadora'],n_sat:['SAT','SAT','SAT'],n_hw:['Devoirs','Homework','Deberes'],n_sim:['Similitudes','Similarity','Similitud'],
 h_until:['Jours avant le début des examens','Days until exams begin','Días hasta los exámenes'],h_edit:['Mon planning','My study plan','Mi plan'],h_today:["Aujourd'hui",'Today','Hoy'],
 h_weeks:['semaines · phase : ','weeks · phase: ','semanas · fase: '],h_nodl:['Aucune échéance enregistrée.','No deadlines saved.','Ninguna fecha límite guardada.'],h_dl:['Prochaines échéances','Next deadlines','Próximas fechas'],h_days:['j','d','d'],h_rest:['Rien de prévu aujourd’hui : jour de repos.','Nothing planned today: rest day.','Nada previsto hoy: día de descanso.'],
 
@@ -1335,7 +1406,7 @@ const LANGLINE=()=>`Write your whole answer in ${LANGN()}. Format with Markdown:
 
 /* ---------- matières (curriculum en vigueur pour mai 2027) ---------- */
 const SUBJ=[
-{id:'eco',c:'#1d4ed8',hl:1,n:['Économie HL','Economics HL','Economía NS'],en:'IB DP Economics HL',
+{id:'eco',c:'#b8924a',hl:1,n:['Économie HL','Economics HL','Economía NS'],en:'IB DP Economics HL',
  comps:[
  {k:'P1',n:'Paper 1',d:'1 h 15',w:'20 %',x:['Dissertation : (a) 10 pts + (b) 15 pts, une question parmi trois','Extended response: (a) 10 marks + (b) 15 marks, one question from three','Respuesta extensa: (a) 10 + (b) 15 puntos, una pregunta de tres']},
  {k:'P2',n:'Paper 2',d:'1 h 45',w:'30 %',x:['Questions sur données (texte et chiffres), 40 pts','Data response (text and data), 40 marks','Respuesta con datos (texto y cifras), 40 puntos']},
@@ -1343,7 +1414,7 @@ const SUBJ=[
  {k:'IA',n:'IA',d:'3 × 800',w:'20 %',x:['Portfolio de 3 commentaires d’articles (800 mots max chacun), 3 concepts clés différents','Portfolio of 3 commentaries on news articles (max 800 words each), 3 different key concepts','Portafolio de 3 comentarios de noticias (máx. 800 palabras), 3 conceptos clave']}],
  topics:[['Introduction à l’économie','Introduction to economics','Introducción a la economía'],['Offre, demande et élasticités','Demand, supply and elasticities','Oferta, demanda y elasticidades'],['Intervention de l’État','Government intervention','Intervención del Estado'],['Défaillances du marché','Market failure','Fallos de mercado'],['Théorie de la firme (HL)','Theory of the firm (HL)','Teoría de la empresa (NS)'],['Demande et offre globales','Aggregate demand and supply','Demanda y oferta agregadas'],['Chômage, inflation, croissance','Unemployment, inflation, growth','Desempleo, inflación, crecimiento'],['Politiques budgétaire et monétaire','Fiscal and monetary policy','Política fiscal y monetaria'],['Inégalités et pauvreté','Inequality and poverty','Desigualdad y pobreza'],['Commerce international et protectionnisme','International trade and protectionism','Comercio internacional y proteccionismo'],['Taux de change et balance des paiements','Exchange rates and balance of payments','Tipos de cambio y balanza de pagos'],['Développement économique','Economic development','Desarrollo económico']],
  res:[['tutor2u Economics','https://www.tutor2u.net/economics'],['Khan Academy – Économie','https://www.khanacademy.org/economics-finance-domain'],['World Bank Open Data','https://data.worldbank.org'],['IMF Data','https://www.imf.org/en/Data'],['Save My Exams','https://www.savemyexams.com']]},
-{id:'gp',c:'#0b1d5c',hl:1,n:['Global Politics HL','Global Politics HL','Política Global NS'],en:'IB DP Global Politics HL (first assessment 2026)',
+{id:'gp',c:'#3c5591',hl:1,n:['Global Politics HL','Global Politics HL','Política Global NS'],en:'IB DP Global Politics HL (first assessment 2026)',
  comps:[
  {k:'P1',n:'Paper 1',d:'1 h 15',w:'20 %',x:['Questions structurées sur des sources (tronc commun : pouvoir et politique)','Structured source-based questions (core: power and politics)','Preguntas estructuradas sobre fuentes (tronco común)']},
  {k:'P2',n:'Paper 2',d:'≈ 1 h 30',w:'30 %',x:['Dissertations sur les études thématiques (droits et justice, développement et durabilité, paix et conflits)','Essays on the thematic studies (rights and justice, development and sustainability, peace and conflict)','Ensayos sobre estudios temáticos (derechos y justicia, desarrollo y sostenibilidad, paz y conflicto)']},
@@ -1351,7 +1422,7 @@ const SUBJ=[
  {k:'IA',n:'IA',d:'2000 + 400',w:'20 %',x:['Projet d’engagement : rapport de 2000 mots + recommandation HL (400 mots)','Engagement project: 2,000-word report + HL recommendation (400 words)','Proyecto de compromiso: informe de 2000 palabras + recomendación NS (400)']}],
  topics:[['Pouvoir, souveraineté, légitimité','Power, sovereignty, legitimacy','Poder, soberanía, legitimidad'],['Acteurs : États, OIG, ONG, firmes','Actors: states, IGOs, NGOs, MNCs','Actores: Estados, OIG, ONG, multinacionales'],['Droits et justice','Rights and justice','Derechos y justicia'],['Développement et durabilité','Development and sustainability','Desarrollo y sostenibilidad'],['Paix et conflits','Peace and conflict','Paz y conflicto'],['Défi HL : frontières','HL challenge: borders','Desafío NS: fronteras'],['Défi HL : environnement','HL challenge: environment','Desafío NS: medio ambiente'],['Défi HL : santé','HL challenge: health','Desafío NS: salud'],['Défi HL : identité','HL challenge: identity','Desafío NS: identidad'],['Défi HL : pauvreté','HL challenge: poverty','Desafío NS: pobreza'],['Défi HL : sécurité','HL challenge: security','Desafío NS: seguridad'],['Défi HL : technologie','HL challenge: technology','Desafío NS: tecnología'],['Défi HL : égalité','HL challenge: equality','Desafío NS: igualdad']],
  res:[['Guide IB (résumé officiel)','https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/global-politics-sl-hl-subject-brief-en.pdf'],['Nations unies','https://www.un.org'],['Our World in Data','https://ourworldindata.org'],['International Crisis Group','https://www.crisisgroup.org'],['Human Rights Watch','https://www.hrw.org']]},
-{id:'fr',c:'#4f46e5',hl:1,n:['Français A : langue et littérature HL','French A: Language & Literature HL','Francés A: Lengua y Literatura NS'],en:'IB DP French A: Language and Literature HL',
+{id:'fr',c:'#8c6d46',hl:1,n:['Français A : langue et littérature HL','French A: Language & Literature HL','Francés A: Lengua y Literatura NS'],en:'IB DP French A: Language and Literature HL',
  comps:[
  {k:'P1',n:'Épreuve 1',d:'2 h 15',w:'35 %',x:['Analyse guidée de 2 textes non littéraires inédits (2 × 20 pts)','Guided analysis of 2 unseen non-literary texts (2 × 20 marks)','Análisis guiado de 2 textos no literarios (2 × 20)']},
  {k:'P2',n:'Épreuve 2',d:'1 h 45',w:'25 %',x:['Essai comparatif sur 2 œuvres étudiées, 30 pts','Comparative essay on 2 studied works, 30 marks','Ensayo comparativo sobre 2 obras, 30 puntos']},
@@ -1359,21 +1430,21 @@ const SUBJ=[
  {k:'HL',n:'Essai HL',d:'1200–1500',w:'20 %',x:['Essai écrit sur une œuvre ou un corpus, 20 pts','Written essay on a work or body of work, 20 marks','Ensayo escrito sobre una obra o corpus, 20 puntos']}],
  topics:[['Analyse de texte non littéraire','Non-literary text analysis','Análisis de texto no literario'],['Publicité et image','Advertising and image','Publicidad e imagen'],['Article de presse et éditorial','News article and editorial','Artículo de prensa y editorial'],['Discours politique','Political speech','Discurso político'],['Bande dessinée et roman graphique','Comics and graphic novel','Cómic y novela gráfica'],['Poésie','Poetry','Poesía'],['Roman et récit','Novel and narrative','Novela y relato'],['Théâtre','Drama','Teatro'],['Procédés stylistiques','Stylistic devices','Recursos estilísticos'],['Enjeux mondiaux (oral)','Global issues (oral)','Cuestiones globales (oral)']],
  res:[['Gallica (BnF)','https://gallica.bnf.fr'],['CNRTL','https://www.cnrtl.fr'],['Dictionnaire Le Robert','https://dictionnaire.lerobert.com'],['Le Monde (articles)','https://www.lemonde.fr']]},
-{id:'en',c:'#0284c7',hl:0,n:['English B SL','English B SL','Inglés B NM'],en:'IB DP English B SL',
+{id:'en',c:'#5d7390',hl:0,n:['English B SL','English B SL','Inglés B NM'],en:'IB DP English B SL',
  comps:[
  {k:'P1',n:'Paper 1',d:'1 h 15',w:'25 %',x:['Production écrite : 1 tâche, 250–400 mots, type de texte au choix, 30 pts','Writing: 1 task, 250–400 words, choice of text type, 30 marks','Expresión escrita: 1 tarea, 250–400 palabras, 30 puntos']},
  {k:'P2',n:'Paper 2',d:'1 h 45',w:'50 %',x:['Compréhension orale (45 min) + écrite (1 h)','Listening (45 min) + reading (1 h)','Comprensión auditiva (45 min) + lectora (1 h)']},
  {k:'IO',n:'Individual oral',d:'12–15 min',w:'25 %',x:['Oral sur un stimulus visuel puis conversation, 30 pts','Oral on a visual stimulus then conversation, 30 marks','Oral sobre un estímulo visual y conversación, 30 puntos']}],
  topics:[['Identities','Identities','Identities'],['Experiences','Experiences','Experiences'],['Human ingenuity','Human ingenuity','Human ingenuity'],['Social organization','Social organization','Social organization'],['Sharing the planet','Sharing the planet','Sharing the planet'],['Types de textes (blog, lettre, discours…)','Text types (blog, letter, speech…)','Tipos de texto (blog, carta, discurso…)']],
  res:[['BBC Learning English','https://www.bbc.co.uk/learningenglish'],['Cambridge Dictionary','https://dictionary.cambridge.org'],['The Guardian','https://www.theguardian.com'],['BBC News','https://www.bbc.com/news']]},
-{id:'math',c:'#334155',hl:0,n:['Maths AA SL','Maths AA SL','Matemáticas AA NM'],en:'IB DP Mathematics: Analysis and Approaches SL',
+{id:'math',c:'#2b3a67',hl:0,n:['Maths AA SL','Maths AA SL','Matemáticas AA NM'],en:'IB DP Mathematics: Analysis and Approaches SL',
  comps:[
  {k:'P1',n:'Paper 1',d:'1 h 30',w:'40 %',x:['Sans calculatrice, sections A (courtes) et B (longues), 80 pts','No calculator, sections A (short) and B (long), 80 marks','Sin calculadora, secciones A y B, 80 puntos']},
  {k:'P2',n:'Paper 2',d:'1 h 30',w:'40 %',x:['Avec calculatrice graphique, sections A et B, 80 pts','Graphing calculator allowed, sections A and B, 80 marks','Con calculadora gráfica, secciones A y B, 80 puntos']},
  {k:'IA',n:'IA',d:'12–20 p.',w:'20 %',x:['Exploration mathématique personnelle, 20 pts','Personal mathematical exploration, 20 marks','Exploración matemática personal, 20 puntos']}],
  topics:[['Nombres et algèbre','Number and algebra','Números y álgebra'],['Suites et séries','Sequences and series','Sucesiones y series'],['Fonctions et transformations','Functions and transformations','Funciones y transformaciones'],['Exponentielles et logarithmes','Exponentials and logarithms','Exponenciales y logaritmos'],['Trigonométrie','Trigonometry','Trigonometría'],['Géométrie dans l’espace','3D geometry','Geometría 3D'],['Statistiques','Statistics','Estadística'],['Probabilités et lois','Probability and distributions','Probabilidad y distribuciones'],['Dérivation','Differentiation','Derivación'],['Intégration','Integration','Integración'],['Cinématique','Kinematics','Cinemática']],
  res:[['Revision Village','https://www.revisionvillage.com'],['Khan Academy Maths','https://www.khanacademy.org/math'],['Desmos','https://www.desmos.com/calculator']]},
-{id:'ess',c:'#0e7490',hl:0,n:['ESS SL','ESS SL','Sistemas Ambientales NM'],en:'IB DP Environmental Systems and Societies SL (first assessment 2026)',
+{id:'ess',c:'#5f7d6e',hl:0,n:['ESS SL','ESS SL','Sistemas Ambientales NM'],en:'IB DP Environmental Systems and Societies SL (first assessment 2026)',
  comps:[
  {k:'P1',n:'Paper 1',d:'',w:'',x:['Étude de cas à partir d’un dossier de ressources','Case study based on a resource booklet','Estudio de caso con cuadernillo de recursos']},
  {k:'P2',n:'Paper 2',d:'',w:'',x:['Questions courtes et réponses longues sur tout le programme','Short-answer and extended-response questions on the whole syllabus','Preguntas cortas y respuestas extensas sobre todo el programa']},
@@ -1453,8 +1524,9 @@ async function ask(input,out,o={}){
   const view=o.view||md;out.innerHTML=`<p class="muted">${esc(t('thinking'))}</p>`;
   if(o.btn)o.btn.disabled=true;
   try{
-    if(S){const opts={modelTier:o.tier||'complex',cache:false,onText:({text})=>{out.innerHTML=view(text)}};if(o.images&&o.images.length){const im=o.images.filter(f=>/^image\//.test(fileMime(f)));if(im.length)opts.images=im}const r=await S(input,opts);out.innerHTML=view(r.text);return r.text}
-    const txt=await apiChat(input,o.images||[]);out.innerHTML=view(txt);return txt;
+    const tag=()=>{if(!o.notag&&typeof aiTag==='function')out.insertAdjacentHTML('afterbegin',aiTag(o.indic))};
+    if(S){const opts={modelTier:o.tier||'complex',cache:false,onText:({text})=>{out.innerHTML=view(text)}};if(o.images&&o.images.length){const im=o.images.filter(f=>/^image\//.test(fileMime(f)));if(im.length)opts.images=im}const r=await S(input,opts);out.innerHTML=view(r.text);tag();return r.text}
+    const txt=await apiChat(input,o.images||[]);out.innerHTML=view(txt);tag();return txt;
   }
   catch(e){out.innerHTML=`<p class="warn">${esc(aiErr(e))}</p>`;return null}
   finally{if(o.btn)o.btn.disabled=false}
@@ -1502,8 +1574,8 @@ function quiz(el,qs){
 const QJSON='Return ONLY JSON of this shape: {"questions":[{"passage":"string (empty if none)","q":"string","choices":["A text","B text","C text","D text"],"answer":0,"explain":"string: why the right answer is right and why each distractor is wrong"}]}. "answer" is the 0-based index of the single correct choice. Plain text, Unicode maths, no LaTeX.';
 
 /* ---------- navigation et langue ---------- */
-const VIEWS=['accueil','cours','reviser','focus','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
-function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();window.scrollTo(0,0)}
+const VIEWS=['accueil','cours','reviser','focus','intel','perf','profil','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
+function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();if(v==='perf'&&typeof renderPerf==='function')renderPerf();if(v==='profil'&&typeof renderProfil==='function')renderProfil();if(v==='devoirs'&&typeof renderHW==='function')renderHW();window.scrollTo(0,0)}
 window.addEventListener('hashchange',route);
 function applyLang(){
   document.documentElement.lang=lang;
@@ -1542,7 +1614,7 @@ $$('[data-ico]').forEach(e=>e.innerHTML=ico(e.dataset.ico));
 
 /* ---------- méta des cours ---------- */
 const CO=window.COURS||{};
-const CMETA={tok:{n:['Théorie de la connaissance','Theory of Knowledge','Teoría del Conocimiento'],c:'#3b82f6'},ee:{n:['Extended Essay','Extended Essay','Monografía'],c:'#1e3a8a'},sat:{n:['SAT','SAT','SAT'],c:'#2563eb'}};
+const CMETA={tok:{n:['Théorie de la connaissance','Theory of Knowledge','Teoría del Conocimiento'],c:'#9a8f7a'},ee:{n:['Extended Essay','Extended Essay','Monografía'],c:'#6a7697'},sat:{n:['SAT','SAT','SAT'],c:'#7d8597'}};
 SUBJ.forEach(s=>CMETA[s.id]={n:s.n,c:s.c});
 const CORDER=['eco','gp','fr','en','math','ess','tok','ee','sat'].filter(k=>CO[k]);
 let CS=store.get('cs','eco'),CL=store.get('cl',0),DONE=new Set(store.get('done',[]));
@@ -1559,10 +1631,10 @@ function heroArt(days){
     return `<div class="foxhero"><img src="${window.FOXH}" alt="${esc(X('Pacha, le renard diplômé','Pacha, the graduate fox','Pacha, el zorro graduado'))}"><div class="fh-count"><b>${d}</b><span>${esc(X('jours avant les examens','days until exams','días hasta los exámenes'))}</span><em>→ ${esc(date)}</em></div><div class="fh-chip">${ico('check')}<span><b>${esc(X('Économie HL','Economics HL','Economía NS'))}</b><br>${esc(X('Leçon acquise','Lesson done','Lección hecha'))}</span></div><div class="fh-xp">+20 XP</div></div>`}
   const d=days>0?days:0,date=new Date(P.exam+'T00:00').toLocaleDateString(LOC(),{day:'numeric',month:'long'});
   const stars=Array.from({length:22},(_,i)=>`<circle class="${i%3?'':'twinkle'}" style="animation-delay:${(i%7)*.4}s" cx="${170+((i*61)%290)}" cy="${34+((i*37)%120)}" r="${i%4?1.1:1.8}" fill="#dfe7ff" opacity="${.35+(i%5)/9}"/>`).join('');
-  const city=[[150,200,26],[176,182,18],[194,206,30],[224,170,22],[246,196,28],[274,186,20],[294,160,26],[320,192,24],[344,176,30],[374,198,22],[396,168,26],[422,188,30],[452,180,28]].map(b=>`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${250-b[1]}" fill="#0a1638"/>`+Array.from({length:3},(_,j)=>`<rect x="${b[0]+5+(j%2)*9}" y="${b[1]+8+j*12}" width="4" height="5" fill="#9db4ff" opacity="${(b[0]+j)%3?.15:.65}"/>`).join('')).join('');
+  const city=[[150,200,26],[176,182,18],[194,206,30],[224,170,22],[246,196,28],[274,186,20],[294,160,26],[320,192,24],[344,176,30],[374,198,22],[396,168,26],[422,188,30],[452,180,28]].map(b=>`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${250-b[1]}" fill="#0a1638"/>`+Array.from({length:3},(_,j)=>`<rect x="${b[0]+5+(j%2)*9}" y="${b[1]+8+j*12}" width="4" height="5" fill="#dcc59a" opacity="${(b[0]+j)%3?.15:.65}"/>`).join('')).join('');
   return `<svg viewBox="0 0 640 520" class="scene" role="img" aria-label="${esc(t('h_days_l'))}">
   <defs>
-   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1a4a"/><stop offset="1" stop-color="#2146e0"/></linearGradient>
+   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1a4a"/><stop offset="1" stop-color="#a8823a"/></linearGradient>
    <radialGradient id="cone" cx=".45" cy="0" r="1"><stop offset="0" stop-color="#fff1cc" stop-opacity=".55"/><stop offset=".6" stop-color="#fff1cc" stop-opacity=".12"/><stop offset="1" stop-color="#fff1cc" stop-opacity="0"/></radialGradient>
    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f2d63"/><stop offset="1" stop-color="#0d1535"/></linearGradient>
    <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1430"/><stop offset="1" stop-color="#132667"/></linearGradient>
@@ -1574,25 +1646,25 @@ function heroArt(days){
   ${city}<rect x="150" y="26" width="330" height="220" rx="16" fill="none" stroke="#1d2b5e" stroke-width="2"/>
   <path d="M315 26V246M150 136H480" stroke="#162250" stroke-width="7"/>
   <rect x="128" y="250" width="374" height="12" rx="6" fill="#1b2860"/>
-  <g transform="translate(470 196)"><rect x="0" y="0" width="150" height="46" rx="14" fill="#ffffff14" stroke="#ffffff2e"/><circle cx="23" cy="23" r="12" fill="#2146e0"/><path d="M17 23l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/><text x="44" y="20" style="font:700 12px 'Plus Jakarta Sans',sans-serif;fill:#fff">${esc(X('Économie HL','Economics HL','Economía NS'))}</text><text x="44" y="35" style="font:600 11px 'Plus Jakarta Sans',sans-serif;fill:#9db4ff">${esc(X('Leçon acquise','Lesson done','Lección hecha'))}</text></g>
-  <g transform="translate(14 120)"><rect x="0" y="0" width="112" height="40" rx="13" fill="#ffffff14" stroke="#ffffff2e"/><text x="16" y="25" style="font:800 14px 'Plus Jakarta Sans',sans-serif;fill:#b7c8ff">+20 XP</text><circle cx="92" cy="20" r="8" fill="#f2bf4e"/></g>
+  <g transform="translate(470 196)"><rect x="0" y="0" width="150" height="46" rx="14" fill="#ffffff14" stroke="#ffffff2e"/><circle cx="23" cy="23" r="12" fill="#a8823a"/><path d="M17 23l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/><text x="44" y="20" style="font:700 12px 'Plus Jakarta Sans',sans-serif;fill:#fff">${esc(X('Économie HL','Economics HL','Economía NS'))}</text><text x="44" y="35" style="font:600 11px 'Plus Jakarta Sans',sans-serif;fill:#dcc59a">${esc(X('Leçon acquise','Lesson done','Lección hecha'))}</text></g>
+  <g transform="translate(14 120)"><rect x="0" y="0" width="112" height="40" rx="13" fill="#ffffff14" stroke="#ffffff2e"/><text x="16" y="25" style="font:800 14px 'Plus Jakarta Sans',sans-serif;fill:#eadbb8">+20 XP</text><circle cx="92" cy="20" r="8" fill="#f2bf4e"/></g>
   <path d="M60 380L105 280L300 380Z" fill="url(#cone)"/>
   <rect x="10" y="378" width="620" height="20" rx="8" fill="url(#desk)"/><rect x="28" y="398" width="584" height="122" fill="#0b1230"/><rect x="28" y="398" width="584" height="6" fill="#060a18" opacity=".6"/>
-  <ellipse cx="70" cy="378" rx="34" ry="7" fill="#2a3a7a"/><path d="M70 372L88 300L132 262" stroke="#4a6cff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="88" cy="300" r="6" fill="#8fa8ff"/>
-  <path d="M112 248L170 266L160 292L104 274Z" fill="#4a6cff"/><path d="M112 248L170 266L166 256L118 240Z" fill="#8fa8ff"/><ellipse cx="132" cy="284" rx="12" ry="5" fill="#fff6dc" opacity=".9"/>
-  <rect x="160" y="356" width="118" height="22" rx="4" fill="#2146e0"/><rect x="166" y="362" width="106" height="2" fill="#8fa8ff" opacity=".6"/>
-  <rect x="170" y="336" width="104" height="20" rx="4" fill="#eef2ff"/><rect x="176" y="341" width="30" height="3" fill="#2146e0"/>
-  <rect x="164" y="318" width="110" height="18" rx="4" fill="#0b1d5c" stroke="#2a3a7a"/><rect x="250" y="318" width="8" height="18" fill="#8fa8ff"/>
+  <ellipse cx="70" cy="378" rx="34" ry="7" fill="#2a3a7a"/><path d="M70 372L88 300L132 262" stroke="#c9a86a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="88" cy="300" r="6" fill="#e6d3a6"/>
+  <path d="M112 248L170 266L160 292L104 274Z" fill="#c9a86a"/><path d="M112 248L170 266L166 256L118 240Z" fill="#e6d3a6"/><ellipse cx="132" cy="284" rx="12" ry="5" fill="#fff6dc" opacity=".9"/>
+  <rect x="160" y="356" width="118" height="22" rx="4" fill="#a8823a"/><rect x="166" y="362" width="106" height="2" fill="#e6d3a6" opacity=".6"/>
+  <rect x="170" y="336" width="104" height="20" rx="4" fill="#eef2ff"/><rect x="176" y="341" width="30" height="3" fill="#a8823a"/>
+  <rect x="164" y="318" width="110" height="18" rx="4" fill="#0b1d5c" stroke="#2a3a7a"/><rect x="250" y="318" width="8" height="18" fill="#e6d3a6"/>
   ${owl(176,224,0.86,'ho')}
   <rect x="316" y="236" width="230" height="140" rx="12" fill="#2a3560"/><rect x="324" y="244" width="214" height="124" rx="7" fill="url(#scr)"/>
-  <text x="340" y="268" style="font:700 10.5px 'Plus Jakarta Sans',sans-serif;fill:#9db4ff">SAPIENS · IB</text>
+  <text x="340" y="268" style="font:700 10.5px 'Plus Jakarta Sans',sans-serif;fill:#dcc59a">SAPIENS · IB</text>
   <text x="340" y="318" style="font:600 50px Fraunces,Georgia,serif;fill:#fff">${d}</text>
-  <text x="${d>99?438:d>9?412:386}" y="300" style="font:600 12px 'Plus Jakarta Sans',sans-serif;fill:#cfd9ff">${esc(X('jours','days','días'))}</text>
-  <text x="${d>99?438:d>9?412:386}" y="316" style="font:500 11px 'Plus Jakarta Sans',sans-serif;fill:#8d9bc4">→ ${esc(date)}</text>
-  ${[[0.82,'#8fa8ff'],[0.6,'#4a6cff'],[0.38,'#b7c8ff']].map((b,i)=>`<rect x="340" y="${334+i*10}" width="180" height="5" rx="2.5" fill="#ffffff18"/><rect x="340" y="${334+i*10}" width="${180*b[0]}" height="5" rx="2.5" fill="${b[1]}"/>`).join('')}
+  <text x="${d>99?438:d>9?412:386}" y="300" style="font:600 12px 'Plus Jakarta Sans',sans-serif;fill:#e9e1cf">${esc(X('jours','days','días'))}</text>
+  <text x="${d>99?438:d>9?412:386}" y="316" style="font:500 11px 'Plus Jakarta Sans',sans-serif;fill:#a39b8a">→ ${esc(date)}</text>
+  ${[[0.82,'#e6d3a6'],[0.6,'#c9a86a'],[0.38,'#eadbb8']].map((b,i)=>`<rect x="340" y="${334+i*10}" width="180" height="5" rx="2.5" fill="#ffffff18"/><rect x="340" y="${334+i*10}" width="${180*b[0]}" height="5" rx="2.5" fill="${b[1]}"/>`).join('')}
   <path d="M296 378H566L582 388H280Z" fill="#33406e"/><rect x="408" y="380" width="46" height="3" rx="1.5" fill="#1b2860"/>
   <path class="steam" d="M588 330q-6-10 0-18t0-18" stroke="#dfe7ff" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".6"/><path class="steam2" d="M600 334q-6-10 0-18t0-16" stroke="#dfe7ff" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".5"/>
-  <rect x="578" y="342" width="36" height="36" rx="7" fill="#eef2ff"/><path d="M614 350q12 0 12 10t-12 10" stroke="#eef2ff" stroke-width="5" fill="none"/><rect x="578" y="352" width="36" height="5" fill="#2146e0"/>
+  <rect x="578" y="342" width="36" height="36" rx="7" fill="#eef2ff"/><path d="M614 350q12 0 12 10t-12 10" stroke="#eef2ff" stroke-width="5" fill="none"/><rect x="578" y="352" width="36" height="5" fill="#a8823a"/>
   <path d="M40 520h560" stroke="#1b2860"/>
   </svg>`;
 }
@@ -1620,7 +1692,7 @@ function renderCours(){
   const n=CO[CS].l.length;if(CL>=n)CL=0;
   $('#cSubj').innerHTML=CORDER.map(k=>`<button class="sbtn ${k===CS?'on':''}" data-s="${k}" style="--c:${CMETA[k].c}"><span class="si">${ico(k)}</span>${esc(L(CMETA[k].n))}<em>${nDone(k)}/${CO[k].l.length}</em></button>`).join('');
   const d=nDone(CS);$('#cProg i').style.width=(d/n*100)+'%';$('#cProgT').textContent=`${d} / ${n} ${t('c_done_n')}`;
-  $('#cList').innerHTML=CO[CS].l.map((l,i)=>`<button class="lbtn ${i===CL?'on':''} ${DONE.has(CS+':'+i)?'done':''}" data-l="${i}"><i>${DONE.has(CS+':'+i)?'✓':i+1}</i>${esc(l.t)}</button>`).join('');
+  $('#cList').innerHTML=CO[CS].l.map((l,i)=>`<button class="lbtn ${i===CL?'on':''} ${DONE.has(CS+':'+i)?'done':''}" data-l="${i}"><i>${DONE.has(CS+':'+i)?'✓':i+1}</i>${esc(l.t)}${FAV.has(CS+':'+i)?' <span style="color:var(--acc)">★</span>':''}</button>`).join('');
   renderLesson();
 }
 function renderLesson(){
@@ -1628,6 +1700,7 @@ function renderLesson(){
   const words=JSON.stringify(l).split(/\s+/).length,mins=Math.max(3,Math.round(words/180));
   const other=CO[CS].lang!==lang;
   $('#cLesson').innerHTML=`<header class="lhead" style="--c:${m.c}"><div class="lnum">${String(CL+1).padStart(2,'0')}</div><div><p class="ltag">${ico(CS)}${esc(L(m.n))} · ${t('c_lesson')} ${CL+1}/${n} · ${mins} min</p><h1>${esc(l.t)}</h1><p class="lsum">${esc(l.s)}</p></div></header>
+  <p class="srcline"><span class="tag gold">${X('Contenu original SAPIENS','Original SAPIENS content','Contenido original SAPIENS')}</span><span class="tag">${esc(L(m.n))}${SUBJ.find(x=>x.id===CS)?' · '+(SUBJ.find(x=>x.id===CS).hl?'HL':'SL'):''}</span><span class="tag">${X('Programme IB actuel','Current IB syllabus','Programa IB actual')}</span><span>${X('Révisé en nov. 2026 · à vérifier avec le guide officiel','Revised Nov 2026 · check the official guide','Revisado nov. 2026')}</span></p>
   ${other?`<p class="note">${esc(t('c_langnote'))}</p>`:''}
   ${l.f&&window.FIG?`<figure class="lfig">${FIG(l.f)}</figure>`:''}
   <section class="lcard key"><h3>${ico('star')}${t('c_key')}</h3><ul>${l.k.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
@@ -1635,7 +1708,8 @@ function renderLesson(){
   <div class="g2"><section class="lcard"><h3>${ico('bulb')}${t('c_ex')}</h3><p style="margin:0">${esc(l.e)}</p></section><section class="lcard trap"><h3>${ico('alert')}${t('c_trap')}</h3><ul>${l.p.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section></div>
   <section class="lcard"><h3>${ico('q')}${t('c_q')}</h3><ol>${l.q.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="small muted" style="margin:10px 0 0">${esc(t('c_qhint'))}</p></section>
   <section class="lcard"><h3>${ico('spark')}${t('c_ai')}</h3><div class="row lai"><button class="btn sm" data-ai="simple">${t('c_simple')}</button><button class="btn sm" data-ai="deep">${t('c_deep')}</button><button class="btn sm" data-ai="quiz">${t('c_quiz')}</button><button class="btn sm" data-ai="corr">${t('c_corr')}</button>${other?`<button class="btn sm" data-ai="tr">${t('c_tr')}</button>`:''}</div><div class="ai-out ai-box" id="lOut"></div><div id="lQuiz"></div></section>
-  <nav class="row lnav"><button class="btn" id="lPrev" ${CL?'':'disabled'}>${ico('arrowL')}${t('c_prev')}</button><button class="btn ${done?'':'pri'}" id="lDone">${ico('check')}${done?t('c_undone'):t('c_markdone')}</button><button class="btn" id="lNext" ${CL<n-1?'':'disabled'}>${t('c_next')}${ico('arrowR')}</button></nav>`;
+  <section class="lcard notes"><h3>${ico('pen')}${X('Mes notes','My notes','Mis notas')}<span class="small muted" id="lNoteS" style="margin-left:auto;font-weight:500"></span></h3><textarea id="lNote" placeholder="${esc(X('Écris ici ce que tu veux retenir, tes questions, tes exemples…','Write what you want to remember, your questions, your examples…','Escribe lo que quieres recordar…'))}">${esc(NOTES[CS+':'+CL]||'')}</textarea></section>
+  <nav class="row lnav"><button class="btn lfav ${FAV.has(CS+':'+CL)?'on':''}" id="lFav">★ ${FAV.has(CS+':'+CL)?X('Favori','Bookmarked','Favorito'):X('Ajouter aux favoris','Bookmark','Favorito')}</button><button class="btn" id="lPrev" ${CL?'':'disabled'}>${ico('arrowL')}${t('c_prev')}</button><button class="btn ${done?'':'pri'}" id="lDone">${ico('check')}${done?t('c_undone'):t('c_markdone')}</button><button class="btn" id="lNext" ${CL<n-1?'':'disabled'}>${t('c_next')}${ico('arrowR')}</button></nav>`;
 }
 $('#cSubj').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;CS=b.dataset.s;CL=0;store.set('cs',CS);store.set('cl',CL);renderCours()});
 $('#cList').addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(!b)return;CL=+b.dataset.l;store.set('cl',CL);renderCours();if(innerWidth<960)$('#cLesson').scrollIntoView({behavior:'smooth'})});
@@ -1729,7 +1803,7 @@ $('#evalFile').addEventListener('change',async e=>{const f=e.target.files[0];eva
 $('#evalGo').addEventListener('click',e=>{
   const a=ASSESS.find(x=>x.id===$('#evalSel').value),txt=$('#evalTxt').value.trim()||(evalFiles.length?'(The student work is in the attached file.)':'');if(!txt){$('#evalOut').textContent=t('empty');return}
   const crit=a.crit.length?a.crit.map(c=>`- Criterion ${c[0]}: ${c[1][1]} (max ${c[2]})`).join('\n'):'- Use the official holistic markbands for this component.';
-  ask(`You are an experienced senior IB examiner and moderator. Assess this student work for: ${a.en}. Word limit: ${a.words||'n/a'}; the text has about ${wcount(txt)} words (an examiner stops reading after the limit). Criteria:\n${crit}\n\nFor each criterion: the mark you would award, the markband descriptor it matches, 1–2 short quotations from the work as evidence, and exactly what is needed to reach the next band. Then: total /${a.max||'markband'}, likely grade, the 5 highest-impact improvements in priority order, and any academic-integrity risks (missing citations, unsupported claims). Follow IB academic integrity: give feedback and guidance only — do NOT rewrite paragraphs or write new text for the student. Be honest and calibrated, not generous.\n\nSTUDENT WORK:\n${txt.slice(0,60000)}\n\n${LANGLINE()}`,$('#evalOut'),{btn:e.currentTarget,images:evalFiles});
+  ask(`You are an experienced senior IB examiner and moderator. Assess this student work for: ${a.en}. Word limit: ${a.words||'n/a'}; the text has about ${wcount(txt)} words (an examiner stops reading after the limit). Criteria:\n${crit}\n\nFor each criterion: the mark you would award, the markband descriptor it matches, 1–2 short quotations from the work as evidence, and exactly what is needed to reach the next band. Then: total /${a.max||'markband'}, likely grade, the 5 highest-impact improvements in priority order, and any academic-integrity risks (missing citations, unsupported claims). Follow IB academic integrity: give feedback and guidance only — do NOT rewrite paragraphs or write new text for the student. Be honest and calibrated, not generous.\n\nSTUDENT WORK:\n${txt.slice(0,60000)}\n\n${LANGLINE()}`,$('#evalOut'),{btn:e.currentTarget,images:evalFiles,indic:true});
 });
 $('#rqGo').addEventListener('click',e=>{const i=$('#rqInt').value.trim();if(!i){$('#rqOut').textContent=t('empty');return}
   ask(`You are an IB ${$('#rqType').selectedOptions[0].textContent} supervisor. The student's theme: "${i}". Propose 5 focused, arguable research questions (or TOK knowledge questions) suited to the official criteria. For each: why it scores well, the data/sources needed and whether they are accessible, a likely structure, and one risk. Finish by recommending the best one and how to narrow it further. ${LANGLINE()}`,$('#rqOut'),{btn:e.currentTarget})});
@@ -1753,7 +1827,7 @@ function buildPlan(){
   items.push({id:'core',c:'#64748b',name:L(CORE_ACT[0]),w:phase>=2?0.6:1.6,topics:[]});
   const soon=upcomingDl().filter(d=>d.left<=21);
   const sumBase=items.reduce((a,b)=>a+b.w,0);
-  soon.forEach(d=>items.push({id:'dl',c:'#2f6bff',name:d.name,w:sumBase*(d.left<=7?0.45:0.25)/soon.length,topics:[],dl:d}));
+  soon.forEach(d=>items.push({id:'dl',c:'#b8924a',name:d.name,w:sumBase*(d.left<=7?0.45:0.25)/soon.length,topics:[],dl:d}));
   const B=+P.blk||45,gap=B>=45?10:5;
   const per=h=>Math.max(1,Math.round(h*60/(B+gap)));
   const week=[];let total=0;
@@ -1968,7 +2042,7 @@ $('#satGo').addEventListener('click',async e=>{const d=SATD[+$('#satDom').value]
 let HW=[],hwImgs=[];
 function renderHW(){
   const cur=$('#hwSubj').value;$('#hwSubj').innerHTML=SUBJ.map(s=>`<option value="${s.id}">${esc(L(s.n))}</option>`).join('')+`<option value="tok">TOK</option><option value="sat">SAT</option><option value="other">${['Autre','Other','Otra'][LI()]}</option>`;if(cur)$('#hwSubj').value=cur;
-  const cm=$('#hwMode').value;$('#hwMode').innerHTML=`<option value="full">${t('hw_m1')}</option><option value="hints">${t('hw_m2')}</option><option value="check">${t('hw_m3')}</option>`;if(cm)$('#hwMode').value=cm;
+  const cm=$('#hwMode').value;$('#hwMode').innerHTML=`<option value="full">${t('hw_m1')}</option><option value="hints">${t('hw_m2')}</option><option value="check">${t('hw_m3')}</option><option value="socratic">${X('Mode socratique (questions guidées)','Socratic mode (guided questions)','Modo socrático')}</option>`;if(cm)$('#hwMode').value=cm;
   $('#hwImgL').hidden=!canFiles();renderConvo();
 }
 function renderConvo(){$('#hwConvo').innerHTML=HW.map((m,i)=>m.role==='user'?`<div class="u">${esc(i===0?m.shown:m.content)}</div>`:`<div class="ai-out">${md(m.content)}</div>`).join('');$('#hwFollowRow').hidden=!HW.some(m=>m.role==='assistant')}
@@ -1980,7 +2054,7 @@ async function hwSend(btn){
 }
 $('#hwGo').addEventListener('click',async e=>{const q=$('#hwQ').value.trim();if(!q&&!hwImgs.length){$('#hwConvo').innerHTML=`<p class="warn">${t('empty')}</p>`;return}
   const subj=$('#hwSubj').selectedOptions[0].textContent,mode=$('#hwMode').value;
-  const modeTxt=mode==='full'?'Start with a section "Answer" giving the final answer directly. Then a section "Step-by-step explanation": number every step and for each say what you do, why, and how (show all working). Then "Common mistakes" and "Check" (verify the answer). End with one similar practice exercise and its answer.':mode==='hints'?'Do NOT give the final answer. Give 3 progressive hints, from light to strong, and the key concept to revise, so the student can solve it alone.':'The student gives their own answer. Say whether it is correct, find exactly where any error is, explain the correct reasoning step by step and give the correct final answer.';
+  const modeTxt=mode==='socratic'?'Use the Socratic method: do NOT give the answer or the method. Ask ONE short guiding question at a time that leads the student to the next step, wait for their reply, then react briefly (confirm or correct gently) and ask the next question. Start by asking what they already know or have tried.':mode==='full'?'Start with a section "Answer" giving the final answer directly. Then a section "Step-by-step explanation": number every step and for each say what you do, why, and how (show all working). Then "Common mistakes" and "Check" (verify the answer). End with one similar practice exercise and its answer.':mode==='hints'?'Do NOT give the final answer. Give 3 progressive hints, from light to strong, and the key concept to revise, so the student can solve it alone.':'The student gives their own answer. Say whether it is correct, find exactly where any error is, explain the correct reasoning step by step and give the correct final answer.';
   const sys=`You are an expert, patient IB Diploma tutor (${subj}${$('#hwSubj').value==='sat'?', Digital SAT':''}). ${modeTxt} Use IB terminology, command terms and notation; for calculations give exact values then 3 significant figures as IB expects. If the task is an assessed IA, EE, TOK essay or exhibition, do not write it for the student (IB academic integrity): explain, guide and give feedback instead. ${hwImgs.length?'The exercise is attached as photo(s) or PDF; read it carefully first and transcribe the key data.':''} ${LANGLINE()}\n\nSTUDENT:\n${q||'(see image)'}`;
   HW=[{role:'user',content:sys,shown:q||'📷'}];renderConvo();await hwSend(e.currentTarget)});
 $('#hwFollowGo').addEventListener('click',async e=>{const f=$('#hwFollow').value.trim();if(!f)return;HW.push({role:'user',content:f});$('#hwFollow').value='';renderConvo();await hwSend(e.currentTarget)});
@@ -2031,7 +2105,7 @@ function botContext(){
   return c;
 }
 function botSystem(){return `You are "Pacha IA", the built-in assistant of Sapiens (made by Pacha Académie IB; motto: "Think beyond." — values: Intelligence, Knowledge, Excellence), a study app for IB Diploma students. The student takes Economics HL, Global Politics HL, French A Language & Literature HL, English B SL, Mathematics AA SL, ESS SL, plus TOK, the Extended Essay, and prepares the Digital SAT.
-The app's pages (top menu): Accueil (home: countdown, progress rings, today's plan), Cours (70 lessons with diagrams, definitions, examples, pitfalls, self-test questions, AI buttons: explain more simply, go deeper, quiz, model answers, translate; search box; "mark as done"), Salle d’étude / study room (focus timer 25-90 min with ambient sounds rain, brown noise, waves; study time per subject), XP points, ranks from Apprenti to Grand Pacha, badges and 4 daily missions on the home page, a 'quick sheet' summary per course, a custom exam builder in the question bank (pick several questions, filter by difficulty), Réviser (spaced-repetition flashcards from every lesson's definitions and the IB command terms; command terms glossary; error log), Examens / exam centre (tabs: papers and criteria with AI question generator; a bank of original past-paper-style questions with markschemes; timed mock exams from the bank or AI-generated full papers, marked by AI or self-marked; 'My results' with a progress chart), Accueil also shows a diploma points calculator /45 with the TOK/EE matrix and diploma conditions, a streak and activity heatmap, IA·TOK·EE (criteria, guides, "mark my work" against official criteria, research question generator), Planning (exam date, hours, confidence sliders, deadlines, weekly timetable, Pomodoro, AI detailed plan), Calculatrice (graphing calculator: 6 functions, zeros, max/min, intersections, derivative, integral, table, console, equation solver, polynomial roots, 1- and 2-variable statistics with regression, normal and binomial distributions, matrices, RAD/DEG), SAT (structure, strategy, practice MCQs, timer), Devoirs (homework help: direct answer + step-by-step, hints mode, check-my-answer), Similitudes (similarity checker against pasted sources + AI citation check). Language buttons FR/EN/ES in the top right.
+The app's pages (top menu): Accueil (home: countdown, progress rings, today's plan), Cours (70 lessons with diagrams, definitions, examples, pitfalls, self-test questions, AI buttons: explain more simply, go deeper, quiz, model answers, translate; search box; "mark as done"), Navigation follows six environments: Learn (Cours), Practice (Réviser), Exam (Centre d’examens), Intelligence (Pacha IA hub, Devoirs with Socratic mode, IA·TOK·EE), Performance (mastery by subject, study time, exam history, error tracking, recommendations that explain why), Tools (Planning, Salle d’étude, Calculatrice, SAT, Similitudes), plus Profil et réglages (name, target, exam date, AI key, backup/restore/erase data). The Sapiens learning engine turns weak points from AI-marked mocks into error-log entries, auto flashcards, recommended lessons and a scheduled revision. Lessons have personal notes and bookmarks. Salle d’étude / study room (focus timer 25-90 min with ambient sounds rain, brown noise, waves; study time per subject), XP points, ranks from Apprenti to Grand Pacha, badges and 4 daily missions on the home page, a 'quick sheet' summary per course, a custom exam builder in the question bank (pick several questions, filter by difficulty), Réviser (spaced-repetition flashcards from every lesson's definitions and the IB command terms; command terms glossary; error log), Examens / exam centre (tabs: papers and criteria with AI question generator; a bank of original past-paper-style questions with markschemes; timed mock exams from the bank or AI-generated full papers, marked by AI or self-marked; 'My results' with a progress chart), Accueil also shows a diploma points calculator /45 with the TOK/EE matrix and diploma conditions, a streak and activity heatmap, IA·TOK·EE (criteria, guides, "mark my work" against official criteria, research question generator), Planning (exam date, hours, confidence sliders, deadlines, weekly timetable, Pomodoro, AI detailed plan), Calculatrice (graphing calculator: 6 functions, zeros, max/min, intersections, derivative, integral, table, console, equation solver, polynomial roots, 1- and 2-variable statistics with regression, normal and binomial distributions, matrices, RAD/DEG), SAT (structure, strategy, practice MCQs, timer), Devoirs (homework help: direct answer + step-by-step, hints mode, check-my-answer), Similitudes (similarity checker against pasted sources + AI citation check). Language buttons FR/EN/ES in the top right.
 Your job: answer any question about using the app (say exactly where to click), and any study question with accurate IB-level content, examples and exam technique. Be warm, clear and concise; use short paragraphs or lists. When a question is ambiguous, answer the most likely reading. Follow IB academic integrity: never write an assessed IA, EE, TOK essay or exhibition for the student; guide and give feedback instead. If you are not sure of a fact (dates, official IB rules), say so and suggest checking the official subject guide.
 Context about the student right now:
 ${botContext()}
@@ -2050,7 +2124,7 @@ async function botSend(text){
   const hist=BOT.slice(-14).map(m=>({role:m.role,content:m.content}));
   while(hist.length&&hist[0].role!=='user')hist.shift();
   hist[0]={role:'user',content:botSystem()+'\n\n---\nSTUDENT: '+hist[0].content};
-  const r=await ask(hist,out,{btn:$('#botGo'),tier:'default',images:botFiles});botFiles=[];$('#botFN').textContent='';
+  const r=await ask(hist,out,{btn:$('#botGo'),tier:'default',images:botFiles,notag:true});botFiles=[];$('#botFN').textContent='';
   if(r){BOT.push({role:'assistant',content:r});store.set('bot',BOT.slice(-30))}else BOT.pop();
   $('#botMsgs').scrollTop=$('#botMsgs').scrollHeight;
 }
@@ -2142,10 +2216,10 @@ function renderBank(){
   $('#bankF').innerHTML=ids.map(id=>`<button class="chip ${BF===id?'on':''}" data-bf="${id}">${id==='all'?X('Toutes les matières','All subjects','Todas'):esc(sName(id))}</button>`).join('');
   $('#bankD').innerHTML=[['all',X('Toutes difficultés','All levels','Todas')],['1',X('Facile','Easy','Fácil')],['2',X('Moyen','Medium','Media')],['3',X('Difficile','Hard','Difícil')]].map(d=>`<button class="chip ${BD===d[0]?'on':''}" data-bd="${d[0]}">${d[0]!=='all'?lvlDots(+d[0]):''}${d[1]}</button>`).join('');
   const done=new Set(RES.map(r=>r.q).filter(Boolean));
-  $('#bankL').innerHTML=BANK.filter(q=>(BF==='all'||q.s===BF)&&(BD==='all'||String(DIF[q.id]||2)===BD)).map(q=>`<article class="qcard ${PICK.has(q.id)?'pick':''}" style="--c:${sColor(q.s)}"><div class="qtop"><span class="qs">${ico(q.s==='tok'?'tok':q.s)}${esc(sName(q.s))}</span><span class="badge">${q.p}</span>${lvlDots(DIF[q.id]||2)}${done.has(q.id)?'<span class="badge ok">✓</span>':''}</div><h3>${esc(q.t)}</h3><p class="small muted">${q.m} ${X('points','marks','puntos')} · ${q.min} min</p><div class="row"><button class="btn pri sm" data-start="${q.id}">${ico('play')}${X('S’entraîner','Practise','Practicar')}</button><button class="btn sm" data-peek="${q.id}">${X('Aperçu','Preview','Vista previa')}</button><button class="btn sm" data-pick="${q.id}">${PICK.has(q.id)?'✓ '+X('Ajouté','Added','Añadido'):'+ '+X('Mon examen','My exam','Mi examen')}</button></div><div class="peek" hidden></div></article>`).join('')||`<p class="muted">${X('Aucun sujet pour ce filtre.','No question for this filter.','Sin resultados.')}</p>`;
+  $('#bankL').innerHTML=BANK.filter(q=>(BF==='all'||q.s===BF)&&(BD==='all'||String(DIF[q.id]||2)===BD)).map(q=>`<article class="qcard ${PICK.has(q.id)?'pick':''}" style="--c:${sColor(q.s)}"><div class="qtop"><span class="qs">${ico(q.s==='tok'?'tok':q.s)}${esc(sName(q.s))}</span><span class="badge">${q.p}</span>${lvlDots(DIF[q.id]||2)}${done.has(q.id)?'<span class="badge ok">✓</span>':''}</div><h3>${esc(q.t)}</h3><p class="small muted">${q.m} ${X('points','marks','puntos')} · ${q.min} min · <span class="tag gold" style="font-size:11px">${X('Exercice original SAPIENS','Original SAPIENS exercise','Ejercicio original SAPIENS')}</span></p><div class="row"><button class="btn pri sm" data-start="${q.id}">${ico('play')}${X('S’entraîner','Practise','Practicar')}</button><button class="btn sm" data-peek="${q.id}">${X('Aperçu','Preview','Vista previa')}</button><button class="btn sm" data-pick="${q.id}">${PICK.has(q.id)?'✓ '+X('Ajouté','Added','Añadido'):'+ '+X('Mon examen','My exam','Mi examen')}</button></div><div class="peek" hidden></div></article>`).join('')||`<p class="muted">${X('Aucun sujet pour ce filtre.','No question for this filter.','Sin resultados.')}</p>`;
   const sel=BANK.filter(q=>PICK.has(q.id)),mk=sel.reduce((a,q)=>a+q.m,0),mn=sel.reduce((a,q)=>a+q.min,0);
   $('#bankBuild').hidden=!sel.length;
-  $('#bankBuild').innerHTML=`<span><b class="serif" style="font-size:18px">${X('Mon examen sur mesure','My custom exam','Mi examen a medida')}</b><br><span style="color:#a9b8e0;font-size:13.5px">${sel.length} ${X('question(s)','question(s)','pregunta(s)')} · ${mk} ${X('points','marks','puntos')} · ${mn} min</span></span><span class="row"><button class="btn ghost sm" data-clear>${X('Vider','Clear','Vaciar')}</button><button class="btn pri sm" data-build>${ico('play')}${X('Lancer l’examen','Start exam','Empezar')}</button></span>`;
+  $('#bankBuild').innerHTML=`<span><b class="serif" style="font-size:18px">${X('Mon examen sur mesure','My custom exam','Mi examen a medida')}</b><br><span style="color:#c2b9a6;font-size:13.5px">${sel.length} ${X('question(s)','question(s)','pregunta(s)')} · ${mk} ${X('points','marks','puntos')} · ${mn} min</span></span><span class="row"><button class="btn ghost sm" data-clear>${X('Vider','Clear','Vaciar')}</button><button class="btn pri sm" data-build>${ico('play')}${X('Lancer l’examen','Start exam','Empezar')}</button></span>`;
 }
 $('#bankF').addEventListener('click',e=>{const b=e.target.closest('[data-bf]');if(!b)return;BF=b.dataset.bf;renderBank()});
 $('#bankD').addEventListener('click',e=>{const b=e.target.closest('[data-bd]');if(!b)return;BD=b.dataset.bd;renderBank()});
@@ -2192,7 +2266,8 @@ function finishExam(timeout){
 }
 $('#exMark').addEventListener('click',async e=>{
   if(!EXAM)return;if(!EXAM.ans.trim()){$('#exAI').textContent=t('empty');return}
-  const r=await ask(`You are a strict, fair senior IB examiner for ${(SUBJ.find(x=>x.id===EXAM.s)||{en:'TOK'}).en}. Mark this mock ${EXAM.p} answer exactly as in a real session, using the markscheme. For each question or part: marks awarded / available with justification quoting the student. Then the 3 most important ways to gain marks, and model answer outlines for weak parts. The very last line must be exactly: SCORE: <marks awarded>/<total available>\n\nQUESTIONS:\n${EXAM.q}\n\nMARKSCHEME:\n${EXAM.ms}\n\nSTUDENT ANSWER (written in ${fmtT(EXAM.used)}):\n${EXAM.ans}\n\n${LANGLINE()}`,$('#exAI'),{btn:e.currentTarget});
+  const r=await ask(`You are a strict, fair senior IB examiner for ${(SUBJ.find(x=>x.id===EXAM.s)||{en:'TOK'}).en}. Mark this mock ${EXAM.p} answer exactly as in a real session, using the markscheme. For each question or part: marks awarded / available with justification quoting the student. Then the 3 most important ways to gain marks, and model answer outlines for weak parts. Then, each on its own line, list up to 4 weak concepts exactly as: WEAK: <concept, 2-6 words> :: <the rule or key idea to remember, one sentence> (write these in the student's language). The very last line must be exactly: SCORE: <marks awarded>/<total available>\n\nQUESTIONS:\n${EXAM.q}\n\nMARKSCHEME:\n${EXAM.ms}\n\nSTUDENT ANSWER (written in ${fmtT(EXAM.used)}):\n${EXAM.ans}\n\n${LANGLINE()}`,$('#exAI'),{btn:e.currentTarget,indic:true});
+  if(r&&typeof runEngine==='function'){const w=parseWeak(r);if(w.length&&EXAM.s!=='mix'){const m=runEngine(EXAM.s,EXAM.p+' · '+X('examen blanc','mock','simulacro'),w);$('#exAI').insertAdjacentHTML('beforeend',engineReport(EXAM.s,m))}}
   const m=r&&r.match(/SCORE\s*:\s*(\d+(?:[.,]\d+)?)\s*\/\s*(\d+)/i);if(m){$('#exSelf').value=m[1].replace(',','.');$('#exMax').value=m[2];saveExamRes()}
 });
 function saveExamRes(){const sc=+$('#exSelf').value,mx=+$('#exMax').value;if(!(mx>0)||isNaN(sc)||sc<0||sc>mx){$('#exSaved').textContent=X('Entre une note valide.','Enter a valid score.','Nota no válida.');return}
@@ -2247,18 +2322,18 @@ function renderErr(){
   const open=ERR.filter(x=>!x.ok).length;$('#errCount').textContent=X(`${open} erreur(s) à retravailler · ${ERR.length-open} maîtrisée(s)`,`${open} to work on · ${ERR.length-open} mastered`,`${open} por trabajar · ${ERR.length-open} dominadas`);
   $('#errList').innerHTML=ERR.slice().reverse().map(x=>`<article class="err ${x.ok?'ok':''}" style="--c:${sColor(x.s)}"><div class="qtop"><span class="qs">${esc(sName(x.s))}</span><span class="small muted">${new Date(x.d).toLocaleDateString(LOC())}</span></div><p><b>${esc(x.txt)}</b></p>${x.fix?`<p class="small">→ ${esc(x.fix)}</p>`:''}<div class="row"><button class="btn sm" data-eok="${x.id}">${x.ok?X('Rouvrir','Reopen','Reabrir'):ico('check')+X('Maîtrisée','Mastered','Dominada')}</button><button class="btn sm" data-edel="${x.id}">✕</button></div></article>`).join('')||`<p class="muted">${X('Note ici chaque erreur commise en exercice et la règle à retenir. Relis-les avant chaque examen.','Log every mistake and the rule to remember. Reread them before each exam.','Anota cada error y la regla. Reléelos antes de cada examen.')}</p>`;
 }
-$('#errAdd').addEventListener('click',()=>{const txt=$('#errTxt').value.trim();if(!txt)return;ERR.push({id:String(Date.now()),d:Date.now(),s:$('#errS').value,txt,fix:$('#errFix').value.trim(),ok:false});store.set('err',ERR);$('#errTxt').value='';$('#errFix').value='';logAct(0,'err',5);renderErr()});
+$('#errAdd').addEventListener('click',()=>{const txt=$('#errTxt').value.trim();if(!txt)return;ERR.push({id:String(Date.now()),d:Date.now(),s:$('#errS').value,txt,fix:$('#errFix').value.trim(),ok:false});if($('#errFix').value.trim()&&typeof addUCard==='function'){addUCard($('#errS').value,txt,$('#errFix').value.trim(),X('Carnet d’erreurs','Error log','Errores'));toast(`${ico('bulb')}<b>${X('Flashcard créée','Flashcard created','Tarjeta creada')}</b> · ${X('à partir de ton erreur','from your mistake','de tu error')}`)}store.set('err',ERR);$('#errTxt').value='';$('#errFix').value='';logAct(0,'err',5);renderErr()});
 $('#errList').addEventListener('click',e=>{const a=e.target.closest('[data-eok]'),d=e.target.closest('[data-edel]');if(a){const x=ERR.find(y=>y.id===a.dataset.eok);x.ok=!x.ok}if(d)ERR=ERR.filter(y=>y.id!==d.dataset.edel);if(a||d){store.set('err',ERR);renderErr()}});
 
 /* ---------- navigation mobile ---------- */
 $('#mTabs').addEventListener('click',e=>{const b=e.target.closest('[data-more]');if(b){$('#mSheet').hidden=!$('#mSheet').hidden}});
 $('#mSheet').addEventListener('click',e=>{if(e.target.closest('a')||e.target===$('#mSheet'))$('#mSheet').hidden=true});
 function mTabsSync(){const v=location.hash.slice(1)||'accueil';$$('#mTabs a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));$('#mTabs [data-more]').classList.toggle('on',!['accueil','cours','reviser','matieres'].includes(v))}
-window.addEventListener('hashchange',()=>{mTabsSync();const v=location.hash.slice(1);if(v==='reviser')revTabs();if(v==='matieres')examTabs();if(v==='accueil'){renderDash();renderV4()}});
+window.addEventListener('hashchange',()=>{mTabsSync();const v=location.hash.slice(1);if(v==='reviser')revTabs();if(v==='matieres')examTabs();if(v==='accueil'){renderDash();renderV4()}if(typeof renderV5==='function')renderV5()});
 function renderV3(){renderDash();examTabs();revTabs();mTabsSync();$$('#mTabs [data-ico2]').forEach(e=>e.innerHTML=ico(e.dataset.ico2));$$('#mSheet [data-ico2]').forEach(e=>e.innerHTML=ico(e.dataset.ico2))}
 
 /* =================== V4 : ambiance & motivation =================== */
-Object.assign(IC,{home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',grid:'<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>',play:'<path d="M7 4l13 8-13 8z"/>',pause:'<path d="M8 5v14M16 5v14"/>',print:'<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',fire:'<path d="M12 3c2 5 7 7 7 13a7 7 0 0 1-14 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-7 0-10z"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'});
+Object.assign(IC,{user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>',home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',grid:'<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>',play:'<path d="M7 4l13 8-13 8z"/>',pause:'<path d="M8 5v14M16 5v14"/>',print:'<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',fire:'<path d="M12 3c2 5 7 7 7 13a7 7 0 0 1-14 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-7 0-10z"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'});
 $$('#nav a[data-ic]').forEach(a=>a.insertAdjacentHTML('afterbegin',ico(a.dataset.ic)));
 
 /* ---------- mascottes ---------- */
@@ -2288,10 +2363,10 @@ function mAigle(x,y,s,id='o'){return `<g transform="translate(${x} ${y}) scale($
  <path d="M44 41 Q50 37 56 41 L54.5 49 Q50 56 46 50 Z" fill="#f2bf4e"/><path d="M47 49 Q50 55 53.5 49" stroke="#c98d1f" stroke-width="1.6" fill="none"/>
  <path d="M31 19 L35 4 L43 12 L50 0 L57 12 L65 4 L69 19 Z" fill="#9db4ff"/><rect x="31" y="17" width="38" height="4" rx="2" fill="#e8eeff"/><circle cx="35" cy="4" r="2.6" fill="#fff"/><circle cx="50" cy="0" r="3" fill="#fff"/><circle cx="65" cy="4" r="2.6" fill="#fff"/><circle cx="50" cy="12" r="2" fill="#2146e0"/></g>`}
 function mRenard(x,y,s,id='o'){return `<g transform="translate(${x} ${y}) scale(${s})">
- <defs><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#1d3aa8"/></linearGradient>
+ <defs><linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b7cff"/><stop offset="1" stop-color="#1c2b5e"/></linearGradient>
  <linearGradient id="${id}c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14286e"/><stop offset="1" stop-color="#060d2e"/></linearGradient>
  <linearGradient id="${id}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8dd86"/><stop offset="1" stop-color="#c8962c"/></linearGradient>
- <linearGradient id="${id}t" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1d3aa8"/><stop offset="1" stop-color="#6f8fff"/></linearGradient></defs>
+ <linearGradient id="${id}t" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1c2b5e"/><stop offset="1" stop-color="#d8bb83"/></linearGradient></defs>
  <path d="M60 106 Q98 108 96 78 Q94 58 82 54 Q90 76 78 90 Q70 99 56 102Z" fill="url(#${id}t)"/>
  <path d="M23 60 Q12 88 16 109 L84 109 Q88 88 77 60 Q50 74 23 60Z" fill="url(#${id}c)"/>
  <path d="M34 72 Q30 90 33 108M66 72 Q70 90 67 108M50 90V108" stroke="#2a46b8" stroke-width="1.4" fill="none" opacity=".7"/>
@@ -2299,8 +2374,8 @@ function mRenard(x,y,s,id='o'){return `<g transform="translate(${x} ${y}) scale(
  <path d="M29 66l1 4M37 71l1 4M45 74l1 4M55 74l-1 4M63 71l-1 4M71 66l-1 4" stroke="#0a0f1f" stroke-width="2" stroke-linecap="round"/>
  <path d="M40 46 L60 46 L63 62 L37 62Z" fill="url(#${id}f)"/>
  <path d="M34 59 L39 71 L43 66 L47 77 L50 70 L53 77 L57 66 L61 71 L66 59 Q50 66 34 59Z" fill="#f4f6ff"/>
- <circle cx="50" cy="88" r="5" fill="url(#${id}g)"/><circle cx="50" cy="88" r="2.4" fill="#2146e0"/><circle cx="49.2" cy="87.2" r=".8" fill="#fff"/>
- <path d="M29 27 L23 1 L44 19Z" fill="#1d3aa8"/><path d="M71 27 L77 1 L56 19Z" fill="#1d3aa8"/><path d="M30 22 L27 8 L38 19Z" fill="#dfe7ff"/><path d="M70 22 L73 8 L62 19Z" fill="#dfe7ff"/>
+ <circle cx="50" cy="88" r="5" fill="url(#${id}g)"/><circle cx="50" cy="88" r="2.4" fill="#a8823a"/><circle cx="49.2" cy="87.2" r=".8" fill="#fff"/>
+ <path d="M29 27 L23 1 L44 19Z" fill="#1c2b5e"/><path d="M71 27 L77 1 L56 19Z" fill="#1c2b5e"/><path d="M30 22 L27 8 L38 19Z" fill="#dfe7ff"/><path d="M70 22 L73 8 L62 19Z" fill="#dfe7ff"/>
  <path d="M27 25 Q31 43 43 53 Q50 60 57 53 Q69 43 73 25 Q50 15 27 25Z" fill="url(#${id}f)"/>
  <path d="M36 37 Q43 44 50 57 Q57 44 64 37 Q57 42 50 42 Q43 42 36 37Z" fill="#f4f6ff"/>
  <ellipse cx="40" cy="33" rx="6" ry="3.7" transform="rotate(-16 40 33)" fill="#0a0f1f"/><ellipse cx="60" cy="33" rx="6" ry="3.7" transform="rotate(16 60 33)" fill="#0a0f1f"/>
@@ -2308,7 +2383,7 @@ function mRenard(x,y,s,id='o'){return `<g transform="translate(${x} ${y}) scale(
  <circle cx="41" cy="33.4" r="1.9" fill="#0a0f1f"/><circle cx="59" cy="33.4" r="1.9" fill="#0a0f1f"/><path d="M33.6 31.2Q40 27.2 46.6 30.6M66.4 31.2Q60 27.2 53.4 30.6" stroke="#0a0f1f" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="42" cy="32.3" r=".9" fill="#fff"/><circle cx="60" cy="32.3" r=".9" fill="#fff"/>
  <ellipse cx="50" cy="54.5" rx="2.9" ry="2.1" fill="#0a0f1f"/><path d="M50 56.5v1.6M46.6 58.6Q50 61 53.4 58.6" stroke="#0a0f1f" stroke-width="1.2" fill="none" stroke-linecap="round"/>
  <path d="M35 18 L37 5 L43 12 L50 0 L57 12 L63 5 L65 18Z" fill="url(#${id}g)"/><rect x="34" y="16" width="32" height="4.5" rx="2" fill="url(#${id}g)" stroke="#a87a1e" stroke-width=".6"/>
- <circle cx="50" cy="11" r="2.4" fill="#2146e0"/><circle cx="42" cy="18.2" r="1.2" fill="#fff"/><circle cx="50" cy="18.2" r="1.4" fill="#2146e0"/><circle cx="58" cy="18.2" r="1.2" fill="#fff"/>
+ <circle cx="50" cy="11" r="2.4" fill="#a8823a"/><circle cx="42" cy="18.2" r="1.2" fill="#fff"/><circle cx="50" cy="18.2" r="1.4" fill="#a8823a"/><circle cx="58" cy="18.2" r="1.2" fill="#fff"/>
  <circle cx="37" cy="5" r="1.8" fill="#fff"/><circle cx="50" cy="0" r="2.1" fill="#fff"/><circle cx="63" cy="5" r="1.8" fill="#fff"/>
  <path d="M82 54 Q93 57 95.5 70 Q89 62 82.5 62Z" fill="#f4f6ff"/></g>`}
 var MASC=store.get('masc','renard');
@@ -2329,7 +2404,7 @@ function miniRing(p,txt,sz=48){const r=sz/2-5,C=2*Math.PI*r;return `<svg viewBox
 function renderSideXP(){const l=lvl();$('#sideXP').innerHTML=`${miniRing(l.p,l.i+1)}<div><b>${esc(l.n)}</b><span>${XP} / ${l.next} XP</span><div class="xpbar"><i style="width:${l.p*100}%"></i></div></div>`}
 const tcount=(type,k=todayKey())=>((ACTV[k]||{}).t||{})[type]||0;
 const allCount=type=>Object.values(ACTV).reduce((a,d)=>a+((d.t||{})[type]||0),0);
-function badgeSVG(ic,on){return `<svg viewBox="0 0 48 48"><path d="M16 30l-5 15 7-3 4 5 4-12M32 30l5 15-7-3-4 5-4-12" fill="${on?'#2146e0':'#9aa5c4'}"/><circle cx="24" cy="21" r="17" fill="url(#gb)"/><circle cx="24" cy="21" r="13" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/><g transform="translate(15 12) scale(.75)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${IC[ic]||''}</g></svg>`}
+function badgeSVG(ic,on){return `<svg viewBox="0 0 48 48"><path d="M16 30l-5 15 7-3 4 5 4-12M32 30l5 15-7-3-4 5-4-12" fill="${on?'#a8823a':'#9aa5c4'}"/><circle cx="24" cy="21" r="17" fill="url(#gb)"/><circle cx="24" cy="21" r="13" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/><g transform="translate(15 12) scale(.75)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${IC[ic]||''}</g></svg>`}
 function badges(){const full=CORDER.some(k=>nDone(k)===CO[k].l.length),st=streak(),cards=allCount('card'),best=RES.reduce((a,r)=>Math.max(a,r.sc/r.mx*100),0);
  return [['book',X('1re leçon','1st lesson','1ª lección'),DONE.size>=1],['layers',X('10 leçons','10 lessons','10 lecciones'),DONE.size>=10],['trophy',X('Cours terminé','Course done','Curso hecho'),full],['fire',X('3 jours','3 days','3 días'),st>=3],['fire',X('7 jours','7 days','7 días'),st>=7],['fire',X('30 jours','30 days','30 días'),st>=30],['bulb',X('100 cartes','100 cards','100 tarjetas'),cards>=100],['bulb',X('500 cartes','500 cards','500 tarjetas'),cards>=500],['target',X('1er examen','1st mock','1er examen'),RES.length>=1],['star',X('Note de 7','Grade 7','Nota 7'),best>=75],['target',X('10 examens','10 mocks','10 exámenes'),RES.length>=10],['moon',X('10 h de focus','10 h focus','10 h foco'),totMin()>=600]]}
 function renderRank(){const l=lvl(),bd=badges(),won=bd.filter(b=>b[2]).length;
@@ -2342,7 +2417,7 @@ function renderMissions(){const k=todayKey(),m=(ACTV[k]||{}).m||0;
 function renderResume(){let k=CS,i=0;const n=CO[k].l.length;for(let j=0;j<n;j++)if(!DONE.has(k+':'+j)){i=j;break}
  const l=CO[k].l[i];$('#qResume').innerHTML=`<span class="muted small">${X('Reprendre où tu en étais','Pick up where you left off','Continúa donde lo dejaste')}</span><h3>${esc(l.t)}</h3><span class="muted small">${esc(L(CMETA[k].n))} · ${X('leçon','lesson','lección')} ${i+1}/${n} · ${nDone(k)} ${X('acquises','done','hechas')}</span><a class="btn" href="#cours" data-res="${k}:${i}">${ico('play')}${X('Continuer','Continue','Continuar')}</a>`}
 $('#qResume').addEventListener('click',e=>{const a=e.target.closest('[data-res]');if(!a)return;const [k,i]=a.dataset.res.split(':');CS=k;CL=+i;store.set('cs',CS);store.set('cl',CL)});
-function greet(){const h=new Date().getHours(),st=streak();$('#hGreet span').textContent=(h<12?X('Bonjour','Good morning','Buenos días'):h<18?X('Bon après-midi','Good afternoon','Buenas tardes'):X('Bonsoir','Good evening','Buenas noches'))+' · '+(st?X(`série de ${st} jour(s), continue !`,`${st}-day streak, keep going!`,`racha de ${st} día(s)`):X('prêt pour une session ?','ready for a session?','¿listo para estudiar?'))}
+function greet(){const h=new Date().getHours(),st=streak();$('#hGreet span').textContent=(h<12?X('Bonjour','Good morning','Buenos días'):h<18?X('Bon après-midi','Good afternoon','Buenas tardes'):X('Bonsoir','Good evening','Buenas noches'))+(PROF&&PROF.name?' '+PROF.name:'')+' · '+(st?X(`série de ${st} jour(s), continue !`,`${st}-day streak, keep going!`,`racha de ${st} día(s)`):X('prêt pour une session ?','ready for a session?','¿listo para estudiar?'))}
 
 /* ---------- salle d'étude ---------- */
 const QUOTES=[['La régularité bat le talent quand le talent n’est pas régulier.','Consistency beats talent when talent is not consistent.','La constancia vence al talento cuando el talento no es constante.'],['Un 7 se construit une session à la fois.','A 7 is built one session at a time.','Un 7 se construye sesión a sesión.'],['Ferme les onglets, ouvre ton esprit.','Close the tabs, open your mind.','Cierra las pestañas, abre tu mente.'],['Ce que tu révises aujourd’hui, tu le sauras le jour de l’examen.','What you revise today, you will know on exam day.','Lo que repasas hoy lo sabrás el día del examen.'],['Petits efforts, grands diplômes.','Small efforts, great diplomas.','Pequeños esfuerzos, grandes diplomas.'],['Le futur étudiant de tes rêves te remercie déjà.','Your future self already thanks you.','Tu yo futuro ya te lo agradece.'],['Concentration profonde : une seule tâche, toute ton attention.','Deep focus: one task, all your attention.','Concentración profunda: una tarea, toda tu atención.']];
@@ -2359,7 +2434,7 @@ function playSnd(kind){stopSnd();if(kind==='none')return;try{AC=AC||new (window.
  if(kind==='waves'){const lfo=AC.createOscillator(),lg=AC.createGain();lfo.frequency.value=0.11;lg.gain.value=+$('#fVol').value*0.7;lfo.connect(lg).connect(g.gain);lfo.start();SN.lfo=lfo}}catch(e){}}
 $('#fVol').addEventListener('input',e=>{if(SN&&!SN.lfo)SN.g.gain.value=+e.target.value;else if(SN)playSnd(FOC.snd)});
 function fRing(){const tot=FOC.len*60,left=FOC.left??tot,p=1-left/tot,r=128,C=2*Math.PI*r;
- $('#fRing').innerHTML=`<defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b7c8ff"/><stop offset="1" stop-color="#2146e0"/></linearGradient></defs><circle cx="150" cy="150" r="${r}" fill="none" stroke="#ffffff14" stroke-width="14"/><circle cx="150" cy="150" r="${r}" fill="none" stroke="url(#fg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="${(C*p).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 150 150)"/>${Array.from({length:60},(_,i)=>{const a=i/60*2*Math.PI;return `<line x1="${150+112*Math.cos(a)}" y1="${150+112*Math.sin(a)}" x2="${150+(i%5?108:104)*Math.cos(a)}" y2="${150+(i%5?108:104)*Math.sin(a)}" stroke="#ffffff${i%5?'22':'44'}" stroke-width="${i%5?1:2}"/>`}).join('')}<text x="150" y="162" text-anchor="middle" class="tt">${fmtT(left)}</text><text x="150" y="192" text-anchor="middle" class="ts">${esc(FOC.run?X('concentration','focus','concentración'):FOC.left!=null?X('en pause','paused','en pausa'):X('prêt','ready','listo'))}</text>`;
+ $('#fRing').innerHTML=`<defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eadbb8"/><stop offset="1" stop-color="#a8823a"/></linearGradient></defs><circle cx="150" cy="150" r="${r}" fill="none" stroke="#ffffff14" stroke-width="14"/><circle cx="150" cy="150" r="${r}" fill="none" stroke="url(#fg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="${(C*p).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 150 150)"/>${Array.from({length:60},(_,i)=>{const a=i/60*2*Math.PI;return `<line x1="${150+112*Math.cos(a)}" y1="${150+112*Math.sin(a)}" x2="${150+(i%5?108:104)*Math.cos(a)}" y2="${150+(i%5?108:104)*Math.sin(a)}" stroke="#ffffff${i%5?'22':'44'}" stroke-width="${i%5?1:2}"/>`}).join('')}<text x="150" y="162" text-anchor="middle" class="tt">${fmtT(left)}</text><text x="150" y="192" text-anchor="middle" class="ts">${esc(FOC.run?X('concentration','focus','concentración'):FOC.left!=null?X('en pause','paused','en pausa'):X('prêt','ready','listo'))}</text>`;
  $('#fGo').innerHTML=ico(FOC.run?'pause':'play')+(FOC.run?t('p_pause'):X('Commencer','Start','Empezar'));document.title=FOC.run?fmtT(left)+' · Sapiens':'Sapiens · par Pacha Académie IB'}
 function renderFocus(){
  const cur=$('#fSubj').value;$('#fSubj').innerHTML=CORDER.map(k=>`<option value="${k}">${esc(L(CMETA[k].n))}</option>`).join('');if(cur)$('#fSubj').value=cur;
@@ -2383,13 +2458,13 @@ let BD='all',PICK=new Set();
 const lvlDots=d=>`<span class="lvl" title="${['',X('Facile','Easy','Fácil'),X('Moyen','Medium','Media'),X('Difficile','Hard','Difícil')][d]}">${[1,2,3].map(i=>`<i class="${i<=d?'on':''}"></i>`).join('')}</span>`;
 
 /* ---------- fiche express ---------- */
-function renderSheet(){const c=CO[CS];$('#cLesson').innerHTML=`<header class="lhead" style="--c:${CMETA[CS].c}"><div class="lnum">${ico('layers').replace('<svg','<svg style="width:64px;height:64px;stroke:#9db4ff"')}</div><div><p class="ltag">${esc(L(CMETA[CS].n))} · ${c.l.length} ${X('leçons','lessons','lecciones')}</p><h1>${X('Fiche express','Quick sheet','Ficha exprés')}</h1><p class="lsum">${X('Tout l’essentiel du cours sur une page : relis-la la veille de l’examen.','The whole course on one page: reread it the night before the exam.','Todo el curso en una página.')}</p></div></header>
+function renderSheet(){const c=CO[CS];$('#cLesson').innerHTML=`<header class="lhead" style="--c:${CMETA[CS].c}"><div class="lnum">${ico('layers').replace('<svg','<svg style="width:64px;height:64px;stroke:#dcc59a"')}</div><div><p class="ltag">${esc(L(CMETA[CS].n))} · ${c.l.length} ${X('leçons','lessons','lecciones')}</p><h1>${X('Fiche express','Quick sheet','Ficha exprés')}</h1><p class="lsum">${X('Tout l’essentiel du cours sur une page : relis-la la veille de l’examen.','The whole course on one page: reread it the night before the exam.','Todo el curso en una página.')}</p></div></header>
  <div class="row"><button class="btn sm" id="shBack">${ico('arrowL')}${X('Retour à la leçon','Back to lesson','Volver')}</button><button class="btn sm" id="shPrint">${ico('print')}${X('Imprimer','Print','Imprimir')}</button></div>
  <div class="panel sheet">${c.l.map((l,i)=>`<div class="lsec"><h3>${i+1}. ${esc(l.t)}</h3><ul>${l.k.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="dl">${l.d.map(d=>`<b>${esc(d[0])}</b> : ${esc(d[1])}`).join(' · ')}</p></div>`).join('')}</div>`;scrollTo(0,0)}
 $('#cSheet').addEventListener('click',renderSheet);
 $('#cLesson').addEventListener('click',e=>{if(e.target.closest('#shBack'))renderCours();if(e.target.closest('#shPrint'))try{window.print()}catch(err){}});
 
-function renderV4(){renderSideXP();$('#cSheet').innerHTML=ico('layers')+X('Fiche express du cours','Course quick sheet','Ficha exprés del curso');$('#hFocus').innerHTML=ico('moon')+X('Salle d’étude','Study room','Sala de estudio');
+function renderV4(){renderSideXP();$('#cSheet').innerHTML=ico('layers')+X('Fiche express du cours','Course quick sheet','Ficha exprés del curso');$('#hFocus').innerHTML=ico('moon')+X('Salle d’étude','Study room','Sala de estudio');$('#hAsk').innerHTML=ico('spark')+X('Demander à Pacha IA','Ask Pacha IA','Preguntar a Pacha IA');
  $$('[data-ico2]').forEach(e=>e.innerHTML=ico(e.dataset.ico2));if($('#qRank')){greet();renderRank();renderMissions();renderResume()}renderFocus()}
 
 /* ---------- signature officielle ---------- */
@@ -2398,7 +2473,7 @@ function sealSVG(id,fox,size,dark){
  const leaves=(side)=>Array.from({length:7},(_,i)=>{const a=(side<0?200:340)+(side<0?-1:1)*(i*13);const r=a*Math.PI/180;const x=120+90*Math.cos(r),y=120-90*Math.sin(r)*-1;const rot=(side<0?a+90:a-90);return `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="7" ry="3" transform="rotate(${(-a+ (side<0?60:120)).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})" fill="${gold}"/>`}).join('');
  return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs><linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8e3a0"/><stop offset=".5" stop-color="#d9ad4a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient>
- <radialGradient id="${id}n" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#1d3aa8"/><stop offset="1" stop-color="#060a18"/></radialGradient>
+ <radialGradient id="${id}n" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#1c2b5e"/><stop offset="1" stop-color="#060a18"/></radialGradient>
  <path id="${id}t" d="M120 120 m-94 0 a94 94 0 1 1 188 0 a94 94 0 1 1 -188 0"/><path id="${id}b" d="M23.4 94.1 A100 100 0 1 0 216.6 94.1"/>
  <clipPath id="${id}c"><circle cx="120" cy="120" r="62"/></clipPath></defs>
  <circle cx="120" cy="120" r="116" fill="${dark?'#060a18':'#0b1430'}"/>
@@ -2414,7 +2489,7 @@ function sealSVG(id,fox,size,dark){
  <ellipse cx="97.1" cy="190.4" rx="6.5" ry="2.6" transform="rotate(168 97.1 190.4)" fill="${gold}"/><ellipse cx="81.9" cy="183.4" rx="6.5" ry="2.6" transform="rotate(181 81.9 183.4)" fill="${gold}"/><ellipse cx="68.6" cy="173.2" rx="6.5" ry="2.6" transform="rotate(194 68.6 173.2)" fill="${gold}"/><ellipse cx="57.9" cy="160.3" rx="6.5" ry="2.6" transform="rotate(207 57.9 160.3)" fill="${gold}"/><ellipse cx="50.5" cy="145.3" rx="6.5" ry="2.6" transform="rotate(220 50.5 145.3)" fill="${gold}"/><ellipse cx="142.9" cy="190.4" rx="6.5" ry="2.6" transform="rotate(192 142.9 190.4)" fill="${gold}"/><ellipse cx="158.1" cy="183.4" rx="6.5" ry="2.6" transform="rotate(179 158.1 183.4)" fill="${gold}"/><ellipse cx="171.4" cy="173.2" rx="6.5" ry="2.6" transform="rotate(166 171.4 173.2)" fill="${gold}"/><ellipse cx="182.1" cy="160.3" rx="6.5" ry="2.6" transform="rotate(153 182.1 160.3)" fill="${gold}"/><ellipse cx="189.5" cy="145.3" rx="6.5" ry="2.6" transform="rotate(140 189.5 145.3)" fill="${gold}"/>
  <path d="M114 196 L120 201 L126 196" fill="none" stroke="${gold}" stroke-width="1.8"/>
  </svg>`}
-function sigBlock(id,fox,dark){const ink=dark?'#eef2ff':'#0a0f1f',sub=dark?'#a9b8e0':'#5a6584';
+function sigBlock(id,fox,dark){const ink=dark?'#eef2ff':'#0a0f1f',sub=dark?'#c2b9a6':'#5a6584';
  return `<svg viewBox="0 0 720 250" width="720" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs><linearGradient id="${id}G" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f8e3a0"/><stop offset=".5" stop-color="#d9ad4a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient></defs>
  <g>${sealSVG(id,fox,240,dark).replace('<svg ','<svg x="0" y="0" ')}</g>
@@ -2426,6 +2501,112 @@ function sigBlock(id,fox,dark){const ink=dark?'#eef2ff':'#0a0f1f',sub=dark?'#a9b
  </svg>`}
 
 function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
+/* =================== V5 : Master Plan (phase 1) =================== */
+let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
+let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
+UC.forEach(c=>CARDS.push(c));
+const VERSION='v5 · nov. 2026';
+function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
+const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
+
+/* ---------- moteur d'apprentissage ---------- */
+function findLesson(s,concept){const L0=CO[s];if(!L0)return null;const ws=norm2(concept).split(/[^a-z0-9]+/).filter(w=>w.length>3);if(!ws.length)return null;let best=null,bs=0;
+  L0.l.forEach((l,i)=>{const hay=norm2(l.t+' '+l.k.join(' ')+' '+l.d.map(d=>d[0]+' '+d[1]).join(' '));const sc=ws.reduce((a,w)=>a+(hay.includes(w)?(norm2(l.t).includes(w)?3:1):0),0);if(sc>bs){bs=sc;best=i}});return bs>=2?best:null}
+function runEngine(s,src,items){/* items: [{c, r}] */
+  const made={cards:0,errs:0,lessons:[],rev:null};
+  items.slice(0,5).forEach(it=>{if(!it.c)return;
+    ERR.push({id:String(Date.now())+made.errs,d:Date.now(),s,txt:`${src} : ${it.c}`,fix:it.r||'',ok:false,auto:true});made.errs++;
+    if(it.r){addUCard(s,it.c,it.r,src);made.cards++}
+    const li=findLesson(s,it.c+' '+(it.r||''));WEAK.push({s,c:it.c,d:Date.now(),lesson:li,done:false});if(li!=null&&!made.lessons.includes(li))made.lessons.push(li)});
+  if(made.errs){store.set('err',ERR);store.set('weak',WEAK.slice(-60));
+    const d=new Date();d.setDate(d.getDate()+2);const ds=todayKey(d);
+    P.dl.push({id:'rv'+Date.now(),name:X('Révision : ','Revision: ','Repaso: ')+items.slice(0,2).map(x=>x.c).join(', '),date:ds});store.set('plan',P);made.rev=ds}
+  return made}
+function engineReport(s,m){if(!m.errs)return '';
+  return `<div class="engine"><b>${ico('spark')}${X('Moteur Sapiens','Sapiens engine','Motor Sapiens')}</b><ul>
+  <li>${m.errs} ${X('point(s) faible(s) ajouté(s) au carnet d’erreurs','weak point(s) added to the error log','punto(s) débil(es) añadido(s)')}</li>
+  ${m.cards?`<li>${m.cards} ${X('flashcard(s) créée(s) automatiquement','flashcard(s) created automatically','tarjeta(s) creada(s)')}</li>`:''}
+  ${m.rev?`<li>${X('Révision planifiée le','Revision scheduled on','Repaso planificado el')} ${dfmt(m.rev+'T00:00')}</li>`:''}
+  ${m.lessons.map(i=>`<li>${X('Leçon recommandée','Recommended lesson','Lección recomendada')} : <a href="#cours" data-golesson="${s}:${i}">${esc(CO[s].l[i].t)}</a></li>`).join('')}</ul>
+  <p class="small muted" style="margin:0">${X('Pourquoi : ces notions t’ont fait perdre des points. Les revoir maintenant, puis en cartes espacées, évite de refaire les mêmes erreurs.','Why: these ideas cost you marks. Reviewing them now, then as spaced cards, prevents repeating the same mistakes.','Por qué: estas nociones te costaron puntos.')}</p></div>`}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-golesson]');if(!a)return;const [s,i]=a.dataset.golesson.split(':');CS=s;CL=+i;store.set('cs',CS);store.set('cl',CL);const w=WEAK.find(x=>x.s===s&&x.lesson===+i&&!x.done);if(w){w.done=true;store.set('weak',WEAK)}});
+function parseWeak(txt){return (txt||'').split('\n').map(l=>l.match(/^\s*(?:[-*]\s*)?WEAK\s*:\s*(.+?)\s*(?:::|—|–|\|)\s*(.+)$/i)).filter(Boolean).map(m=>({c:m[1].replace(/\*\*/g,'').trim(),r:m[2].replace(/\*\*/g,'').trim()}))}
+
+/* ---------- maîtrise et recommandations ---------- */
+function mastery(id){const n=CO[id]?CO[id].l.length:0,les=n?nDone(id)/n:0;const cards=CARDS.filter(c=>c.s===id);const fm=cards.length?cards.filter(c=>FC[c.id]&&FC[c.id].b>=3).length/cards.length:0;
+  const rs=RES.filter(r=>r.s===id).slice(-3);const ex=rs.length?rs.reduce((a,r)=>a+r.sc/r.mx,0)/rs.length:null;
+  const parts=[[les,.3],[fm,.3]];if(ex!=null)parts.push([ex,.4]);const w=parts.reduce((a,p)=>a+p[1],0);return {v:parts.reduce((a,p)=>a+p[0]*p[1],0)/w,les,fm,ex}}
+function nextLesson(id){const n=CO[id].l.length;for(let i=0;i<n;i++)if(!DONE.has(id+':'+i))return i;return null}
+function recos(){const R=[],now=Date.now();
+  const due=dueList('all').filter(c=>FC[c.id]).length;
+  if(due)R.push({i:'bulb',t:X(`Réviser ${due} carte(s) dues`,`Review ${due} due card(s)`,`Repasar ${due} tarjeta(s)`),w:X('Elles reviennent juste au moment où tu risques de les oublier (répétition espacée).','They come back just as you are about to forget them (spaced repetition).','Vuelven justo cuando ibas a olvidarlas.'),h:'#reviser',p:90});
+  upcomingDl().filter(d=>d.left<=7).slice(0,2).forEach(d=>R.push({i:'cal',t:d.name,w:X(`Échéance dans ${d.left} jour(s).`,`Due in ${d.left} day(s).`,`Vence en ${d.left} día(s).`),h:'#planning',p:96-d.left}));
+  WEAK.filter(w=>!w.done&&w.lesson!=null&&CO[w.s]).slice(-2).forEach(w=>R.push({i:'book',t:X('Revoir','Review','Repasar')+' « '+CO[w.s].l[w.lesson].t+' »',w:X(`Point faible repéré le ${dfmt(w.d)} : ${w.c}.`,`Weak point found on ${dfmt(w.d)}: ${w.c}.`,`Punto débil del ${dfmt(w.d)}: ${w.c}.`),go:`${w.s}:${w.lesson}`,p:85}));
+  const ranked=SUBJ.map(s=>({s,m:mastery(s.id)})).sort((a,b)=>(a.m.v-(a.s.hl?.05:0))-(b.m.v-(b.s.hl?.05:0)));
+  const ws=ranked[0];if(ws){const li=nextLesson(ws.s.id);if(li!=null)R.push({i:'target',t:X('Leçon suivante en ','Next lesson in ','Siguiente lección en ')+L(ws.s.n)+' : '+CO[ws.s.id].l[li].t,w:X(`C’est ta matière la moins maîtrisée (${Math.round(ws.m.v*100)} %)${ws.s.hl?', et elle est en HL':''}.`,`Your least mastered subject (${Math.round(ws.m.v*100)}%)${ws.s.hl?', and it is HL':''}.`,`Tu asignatura menos dominada (${Math.round(ws.m.v*100)} %).`),go:`${ws.s.id}:${li}`,p:80})}
+  const oe=ERR.filter(e=>!e.ok);if(oe.length>=3)R.push({i:'alert',t:X(`Relire tes ${oe.length} erreurs ouvertes`,`Reread your ${oe.length} open mistakes`,`Relee tus ${oe.length} errores`),w:X('Relire ses erreurs avant un examen évite de les refaire.','Rereading mistakes before an exam stops you repeating them.','Releer los errores evita repetirlos.'),h:'#reviser',rt:'err',p:70});
+  const mk=ranked.slice(0,3).map(x=>({x,last:Math.max(0,...RES.filter(r=>r.s===x.s.id).map(r=>r.d))})).sort((a,b)=>a.last-b.last)[0];
+  if(mk&&now-mk.last>10*864e5)R.push({i:'target',t:X('Examen blanc : ','Mock exam: ','Simulacro: ')+L(mk.x.s.n),w:mk.last?X(`Dernier examen blanc dans cette matière il y a ${Math.floor((now-mk.last)/864e5)} jours.`,`Last mock in this subject ${Math.floor((now-mk.last)/864e5)} days ago.`,`Último simulacro hace ${Math.floor((now-mk.last)/864e5)} días.`):X('Tu n’as encore jamais passé d’examen blanc dans cette matière faible.','You have never sat a mock in this weak subject.','Nunca hiciste un simulacro en esta asignatura.'),h:'#matieres',xt:'sim',p:65});
+  if(((ACTV[todayKey()]||{}).m||0)<25)R.push({i:'moon',t:X('Une session de 25 min en salle d’étude','A 25-min session in the study room','Una sesión de 25 min'),w:X('Une session courte aujourd’hui entretient ta régularité.','A short session today keeps your consistency.','Una sesión corta mantiene tu constancia.'),h:'#focus',p:55});
+  return R.sort((a,b)=>b.p-a.p).slice(0,5)}
+function renderRecos(el){const R=recos();el.innerHTML=R.length?R.map(r=>`<div class="reco"><span class="ri">${ico(r.i)}</span><div><b>${esc(r.t)}</b><span class="why">${X('Pourquoi','Why','Por qué')} : ${esc(r.w)}</span></div><a class="btn sm" href="${r.go?'#cours':r.h}" ${r.go?`data-golesson="${r.go}"`:''} ${r.rt?`data-rt="${r.rt}"`:''} ${r.xt?`data-xt="${r.xt}"`:''}>${X('Y aller','Go','Ir')}</a></div>`).join(''):`<p class="muted">${X('Tout est à jour. Profite-en pour avancer dans un cours.','All caught up. Move ahead in a course.','Todo al día.')}</p>`}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-rt],[data-xt]');if(!a)return;if(a.dataset.rt){RT=a.dataset.rt;store.set('rtab',RT)}if(a.dataset.xt){XT=a.dataset.xt;store.set('xtab',XT)}});
+
+/* ---------- performance ---------- */
+function weekBars(){const W=8,out=[],d=new Date();d.setHours(0,0,0,0);const mon=new Date(d);mon.setDate(d.getDate()-((d.getDay()+6)%7));
+  for(let w=W-1;w>=0;w--){const s=new Date(mon);s.setDate(mon.getDate()-7*w);let m=0,n=0;for(let i=0;i<7;i++){const x=new Date(s);x.setDate(s.getDate()+i);const a=ACTV[todayKey(x)];if(a){m+=a.m||0;n+=a.n||0}}out.push({s,m,n})}
+  const mx=Math.max(60,...out.map(o=>o.m));const H=150;
+  return `<svg viewBox="0 0 ${W*60} ${H+30}" class="wbars">${out.map((o,i)=>{const h=Math.max(3,o.m/mx*H);return `<rect x="${i*60+12}" y="${H-h}" width="36" height="${h}" rx="8" class="${i===W-1?'cur':''}"><title>${Math.round(o.m)} min · ${o.n} ${X('actions','actions','acciones')}</title></rect><text x="${i*60+30}" y="${H-h-6}" text-anchor="middle" class="wv">${o.m>=60?Math.round(o.m/6)/10+' h':Math.round(o.m)+'′'}</text><text x="${i*60+30}" y="${H+20}" text-anchor="middle" class="wl">${o.s.toLocaleDateString(LOC(),{day:'numeric',month:'short'})}</text>`}).join('')}</svg>`}
+function renderPerf(){
+  const subs=SUBJ.map(s=>({s,m:mastery(s.id)})),glob=subs.reduce((a,x)=>a+x.m.v,0)/subs.length;
+  const cardsM=CARDS.filter(c=>FC[c.id]&&FC[c.id].b>=4).length,avg=RES.length?Math.round(RES.reduce((a,r)=>a+r.sc/r.mx*100,0)/RES.length):null;
+  $('#pfKpi').innerHTML=[[Math.round(glob*100)+' %',X('maîtrise globale','overall mastery','dominio global')],[totD()+'/'+totL(),X('leçons acquises','lessons done','lecciones')],[cardsM,X('cartes maîtrisées','cards mastered','tarjetas dominadas')],[avg!=null?avg+' %':'—',X('moyenne aux examens blancs','mock average','media simulacros')],[Math.round(totMin()/6)/10+' h',X('de concentration','of focus','de foco')],[streak()+' j',X('de série','streak','racha')]].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${esc(k[1])}</span></div>`).join('');
+  $('#pfMast').innerHTML=subs.map(({s,m})=>`<div class="mrow"><span class="mn"><i style="background:${s.c}"></i>${esc(L(s.n))}</span><span class="mb"><b style="width:${Math.round(m.v*100)}%;background:${s.c}"></b></span><b class="mv">${Math.round(m.v*100)} %</b><span class="md">${X('cours','lessons','lecciones')} ${Math.round(m.les*100)} % · ${X('cartes','cards','tarjetas')} ${Math.round(m.fm*100)} % · ${X('examens','mocks','exámenes')} ${m.ex==null?'—':Math.round(m.ex*100)+' %'}</span></div>`).join('');
+  $('#pfTime').innerHTML=weekBars();$('#pfRes').innerHTML=resChart(RES.slice(-30));$('#pfHeat').innerHTML=heatmap();
+  const by={};ERR.forEach(e=>{const o=by[e.s]=by[e.s]||{o:0,c:0,a:0};e.ok?o.c++:o.o++;if(e.auto)o.a++});
+  $('#pfErr').innerHTML=Object.keys(by).length?`<table class="stack"><thead><tr><th>${t('hw_subj')}</th><th class="n">${X('ouvertes','open','abiertos')}</th><th class="n">${X('maîtrisées','mastered','dominados')}</th><th class="n">${X('détectées par l’IA','found by AI','por la IA')}</th></tr></thead><tbody>${Object.entries(by).map(([s,o])=>`<tr><td>${esc(sName(s))}</td><td class="n">${o.o}</td><td class="n">${o.c}</td><td class="n">${o.a}</td></tr>`).join('')}</tbody></table>`:`<p class="muted small">${X('Aucune erreur notée pour l’instant.','No mistakes logged yet.','Sin errores todavía.')}</p>`;
+  renderRecos($('#pfReco'));
+}
+
+/* ---------- profil, données ---------- */
+function renderProfil(){
+  $('#prName').value=PROF.name||'';$('#prYear').value=PROF.year||'DP2';$('#prTarget').value=PTS.target;$('#prExam').value=P.exam;$('#prMasc').value=mascM();
+  $('#prAI').innerHTML=S?X('Pacha IA utilise Claude (version claude.ai) : aucune clé nécessaire.','Pacha IA uses Claude (claude.ai version): no key needed.','Pacha IA usa Claude.'):AIK&&AIK.k?X('Clé enregistrée sur cet appareil : ','Key saved on this device: ','Clave guardada: ')+({gemini:'Google Gemini',groq:'Groq',anthropic:'Anthropic Claude'}[AIK.p]||AIK.p):X('Aucune clé d’IA sur cet appareil.','No AI key on this device.','Sin clave de IA.');
+  const keys=Object.keys(localStorage||{}).filter(k=>k.startsWith('atib_'));let bytes=0;try{keys.forEach(k=>bytes+=(localStorage.getItem(k)||'').length)}catch(e){}
+  $('#prData').textContent=X(`${keys.length} éléments enregistrés sur cet appareil (${Math.round(bytes/1024)} Ko).`,`${keys.length} items saved on this device (${Math.round(bytes/1024)} KB).`,`${keys.length} elementos guardados (${Math.round(bytes/1024)} KB).`);
+}
+$('#prSave').addEventListener('click',()=>{PROF.name=$('#prName').value.trim().slice(0,40);PROF.year=$('#prYear').value;store.set('prof',PROF);PTS.target=+$('#prTarget').value||PTS.target;store.set('pts',PTS);if($('#prExam').value){P.exam=$('#prExam').value;store.set('plan',P)}
+  const m=$('#prMasc').value;if(m!==mascM()){$('#mascSel').value=m;$('#mascSel').dispatchEvent(new Event('change'))}toast(`${ico('check')}<b>${X('Profil enregistré','Profile saved','Perfil guardado')}</b>`);renderAll()});
+$('#prKey').addEventListener('click',()=>{$('#bot').classList.add('open');$('#setBox').hidden=false;setRender()});
+function exportData(){const o={app:'Sapiens',version:VERSION,date:new Date().toISOString(),data:{}};try{Object.keys(localStorage).filter(k=>k.startsWith('atib_')&&k!=='atib_aikey').forEach(k=>o.data[k]=localStorage.getItem(k))}catch(e){}return JSON.stringify(o)}
+$('#prExport').addEventListener('click',()=>{const j=exportData();try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([j],{type:'application/json'}));a.download='sapiens-sauvegarde-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove()}catch(e){}
+  $('#prOut').hidden=false;$('#prOutT').value=j;$('#prMsg').textContent=X('Si le téléchargement ne démarre pas, copie le texte ci-dessous et garde-le dans tes notes.','If the download does not start, copy the text below and keep it in your notes.','Si no se descarga, copia el texto.')});
+$('#prCopy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('#prOutT').value);$('#prMsg').textContent=X('Copié ✓','Copied ✓','Copiado ✓')}catch(e){$('#prOutT').select()}});
+$('#prImport').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const o=JSON.parse(await f.text());if(o.app!=='Sapiens'||!o.data)throw 0;Object.entries(o.data).forEach(([k,v])=>{if(k.startsWith('atib_'))localStorage.setItem(k,v)});$('#prMsg').textContent=X('Sauvegarde restaurée : la page va se recharger.','Backup restored: reloading.','Restaurado.');setTimeout(()=>location.reload(),900)}catch(err){$('#prMsg').textContent=X('Fichier de sauvegarde invalide.','Invalid backup file.','Archivo no válido.')}});
+let delArm=0;$('#prDel').addEventListener('click',()=>{if(!delArm){delArm=1;$('#prDel').textContent=X('Confirmer : tout effacer définitivement','Confirm: erase everything permanently','Confirmar: borrar todo');setTimeout(()=>{delArm=0;$('#prDel').textContent=X('Effacer toutes mes données','Erase all my data','Borrar mis datos')},6000);return}
+  try{Object.keys(localStorage).filter(k=>k.startsWith('atib_')).forEach(k=>localStorage.removeItem(k))}catch(e){}location.reload()});
+
+/* ---------- intelligence ---------- */
+const INTEL=[['spark',['Discuter avec Pacha IA','Chat with Pacha IA','Hablar con Pacha IA'],['Explications de notions, dans ta langue, à toute heure.','Concept explanations, in your language, any time.','Explicaciones a cualquier hora.'],'bot'],
+['pen',['Résolution guidée','Guided problem solving','Resolución guiada'],['La réponse, puis chaque étape expliquée.','The answer, then every step explained.','La respuesta y cada paso.'],'hw:full'],
+['q',['Mode socratique','Socratic mode','Modo socrático'],['Pacha IA te pose des questions pour que tu trouves toi-même.','Pacha IA asks questions so you find the answer yourself.','Preguntas para que encuentres la respuesta.'],'hw:socratic'],
+['doc',['Feedback sur un travail','Feedback on your work','Feedback sobre tu trabajo'],['Essai, IA, EE, TOK : critère par critère, sans réécrire.','Essay, IA, EE, TOK: criterion by criterion, no rewriting.','Criterio por criterio.'],'#coeur'],
+['target',['Question de recherche','Research question','Pregunta de investigación'],['5 questions pour ton EE ou ton IA, avec faisabilité.','5 questions for your EE or IA, with feasibility.','5 preguntas para tu EE o IA.'],'#coeur'],
+['cal',['Plan de révision personnalisé','Personal revision plan','Plan de repaso'],['Semaine par semaine jusqu’aux examens.','Week by week until exams.','Semana a semana.'],'#planning'],
+['layers',['Analyse de document','Document analysis','Análisis de documento'],['Joins une photo ou un PDF à Pacha IA (📎).','Attach a photo or PDF to Pacha IA (📎).','Adjunta una foto o PDF.'],'bot']];
+function renderIntel(){$('#inGrid').innerHTML=INTEL.map(x=>`<a class="tile" href="${x[3].startsWith('#')?x[3]:x[3].startsWith('hw')?'#devoirs':'#intel'}" data-in="${x[3]}"><span class="ti">${ico(x[0])}</span><span><b>${esc(L(x[1]))}</b><span>${esc(L(x[2]))}</span></span></a>`).join('')}
+$('#inGrid').addEventListener('click',e=>{const a=e.target.closest('[data-in]');if(!a)return;const v=a.dataset.in;if(v==='bot'){e.preventDefault();$('#bot').classList.add('open');botRender();setTimeout(()=>$('#botIn').focus(),60)}else if(v.startsWith('hw:')){setTimeout(()=>{$('#hwMode').value=v.slice(3)},60)}});
+
+/* ---------- étiquettes, notes, favoris ---------- */
+function aiTag(indic){return `<p class="aitag">${ico('spark')}${X('Généré par Pacha IA · à vérifier','Generated by Pacha IA · check it','Generado por Pacha IA · verifícalo')}${indic?' · <b>'+X('évaluation indicative, pas une note officielle de l’IB','indicative assessment, not an official IB grade','evaluación indicativa, no oficial del IB')+'</b>':''}</p>`}
+$('#cLesson').addEventListener('input',e=>{if(e.target.id!=='lNote')return;NOTES[CS+':'+CL]=e.target.value.slice(0,5000);clearTimeout(window._nt);window._nt=setTimeout(()=>{store.set('notes',NOTES);$('#lNoteS').textContent=X('Enregistré ✓','Saved ✓','Guardado ✓')},400)});
+$('#cLesson').addEventListener('click',e=>{if(!e.target.closest('#lFav'))return;const k=CS+':'+CL;FAV.has(k)?FAV.delete(k):FAV.add(k);store.set('fav',[...FAV]);renderCours()});
+
+function renderV5(){if($('#qReco'))renderRecos($('#qReco'));if(location.hash==='#perf')renderPerf();if(location.hash==='#profil')renderProfil();renderIntel()}
+
+const INRULES=[['Pacha IA t’aide à comprendre ; le travail évalué (IA, EE, TOK) doit rester le tien.','Pacha IA helps you understand; assessed work (IA, EE, TOK) must stay your own.','Pacha IA te ayuda; el trabajo evaluado debe ser tuyo.'],['Ne copie jamais une réponse de l’IA dans un travail rendu : reformule et cite.','Never paste AI output into submitted work: rephrase and cite.','No copies respuestas de la IA: reformula y cita.'],['Vérifie les faits, les dates et les chiffres : l’IA peut se tromper.','Check facts, dates and figures: AI can be wrong.','Verifica datos: la IA puede equivocarse.'],['Les notes données par l’IA sont indicatives, jamais une note officielle de l’IB.','AI marks are indicative, never an official IB grade.','Las notas de la IA son indicativas.'],['Un taux de similitude n’est pas une preuve de plagiat : ce qui compte, c’est de citer.','A similarity score is not proof of plagiarism: what matters is citing.','La similitud no es prueba de plagio.']];
+function renderIntelText(){$('#inRules').innerHTML=INRULES.map(x=>`<li style="margin:6px 0">${esc(L(x))}</li>`).join('');$('#inCiteEx').textContent=X(`Pacha IA (Sapiens, assistant IA). (${new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}). Réponse à l’invite « Explique l’élasticité-prix de la demande avec un exemple ». Utilisé pour : comprendre la notion, idées reformulées dans mes mots.`,`Pacha IA (Sapiens AI assistant). (${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}). Response to the prompt “Explain price elasticity of demand with an example”. Used to understand the concept; ideas rephrased in my own words.`,`Pacha IA (asistente IA de Sapiens). (${new Date().toLocaleDateString('es-ES')}). Respuesta a la pregunta «…». Usado para comprender el concepto.`);$('#prVer').textContent=VERSION}
+$('#hAsk').addEventListener('click',()=>{$('#bot').classList.add('open');botRender();setTimeout(()=>$('#botIn').focus(),60)});
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;$('#installBtn').hidden=false});
@@ -2433,7 +2614,7 @@ $('#installBtn').addEventListener('click',async()=>{if(!instEvt)return;instEvt.p
 {const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(ios&&!standalone){$('#installTip').hidden=false;$('#installTip').textContent=t('inst_ios')}}
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!/claude\.(ai|site)|claudeusercontent/.test(location.host)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 /* ---------- démarrage ---------- */
-function renderAll(){if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
+function renderAll(){if(typeof renderV5==='function'){renderV5();renderIntelText()}if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
 initMath();renderFns();applyLang();route();
 (async()=>{try{for(let i=0;i<12&&!window.claude;i++)await new Promise(r=>setTimeout(r,250));if(window.claude&&window.claude.use){S=await window.claude.use('sample');if(S&&S.limits){try{imgOK=!!(await S.limits()).images}catch(e){}}}}catch(e){S=null}
   if(!S&&/^https?:$/.test(location.protocol)){try{const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ping:1})});const j=await r.json();if(r.ok&&j.ok)API='/api/chat'}catch(e){}}
