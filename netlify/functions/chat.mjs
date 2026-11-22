@@ -42,7 +42,7 @@ async function take(key, limit) {
   return true;
 }
 
-async function gemini(p, messages, files) {
+async function gemini(p, messages, files, hq) {
   const contents = messages.map((m, i) => ({
     role: m.role === "assistant" ? "model" : "user",
     parts: [
@@ -50,23 +50,23 @@ async function gemini(p, messages, files) {
       { text: m.content }
     ]
   }));
-  const models = [p.model, "gemini-flash-latest", "gemini-2.5-flash", "gemini-2.0-flash"].filter((v, i, a) => v && a.indexOf(v) === i);
+  const models = [...(hq ? ["gemini-2.5-pro"] : []), p.model, "gemini-flash-latest", "gemini-2.5-flash", "gemini-2.0-flash"].filter((v, i, a) => v && a.indexOf(v) === i);
   let last = { status: 502, message: "AI error" };
   for (const model of models) {
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-goog-api-key": p.key },
-      body: JSON.stringify({ contents, generationConfig: { maxOutputTokens: 4000, temperature: 0.4 } })
+      body: JSON.stringify({ contents, generationConfig: { maxOutputTokens: 16000, temperature: 0.3 } })
     });
     const j = await r.json().catch(() => ({}));
-    if (r.ok) return (j.candidates?.[0]?.content?.parts || []).map(x => x.text || "").join("");
+    if (r.ok) return (j.candidates?.[0]?.content?.parts || []).filter(x => !x.thought).map(x => x.text || "").join("");
     last = { status: r.status, message: j.error?.message || "AI error" };
-    if (!(r.status === 404 || (r.status === 400 && /model|not found|not supported/i.test(last.message)))) break;
+    if (!(r.status === 404 || r.status === 429 || r.status >= 500 || (r.status === 400 && /model|not found|not supported/i.test(last.message)))) break;
   }
   throw last;
 }
 
-async function anthropic(p, messages, files) {
+async function anthropic(p, messages, files, hq) {
   const msgs = messages.map((m, i) => (i === messages.length - 1 && files.length)
     ? { role: m.role, content: [
         ...files.map(f => f.mime === "application/pdf"
@@ -74,14 +74,19 @@ async function anthropic(p, messages, files) {
           : { type: "image", source: { type: "base64", media_type: f.mime, data: f.data } }),
         { type: "text", text: m.content }] }
     : m);
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-api-key": p.key, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model: p.model, max_tokens: 4000, messages: msgs })
-  });
-  const j = await r.json().catch(() => ({}));
-  if (!r.ok) throw { status: r.status, message: j?.error?.message || "AI error" };
-  return (j.content || []).filter(c => c.type === "text").map(c => c.text).join("");
+  const models = hq && !process.env.AI_MODEL ? ["claude-sonnet-5-5", p.model] : [p.model];
+  let last;
+  for (const model of models) {
+    const r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-api-key": p.key, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({ model, max_tokens: 6000, messages: msgs })
+    });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok) return (j.content || []).filter(c => c.type === "text").map(c => c.text).join("");
+    last = { status: r.status, message: j?.error?.message || "AI error" };
+  }
+  throw last;
 }
 
 async function groq(p, messages, files) {
@@ -126,8 +131,9 @@ export default async (req, context) => {
     .slice(0, 4);
 
   try {
-    const text = p.kind === "anthropic" ? await anthropic(p, messages, files)
-      : p.kind === "gemini" ? await gemini(p, messages, files)
+    const hq = !!body.hq;
+    const text = p.kind === "anthropic" ? await anthropic(p, messages, files, hq)
+      : p.kind === "gemini" ? await gemini(p, messages, files, hq)
       : await groq(p, messages, files);
     return json({ text });
   } catch (e) {

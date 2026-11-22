@@ -450,6 +450,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .pgraph text{font:13px system-ui,sans-serif;fill:var(--mut)}.pgraph .gt{font:600 17px var(--serif,Georgia,serif);fill:var(--ink)}.pgraph .gx{font:600 13px system-ui;fill:var(--ink)}.pfig{cursor:zoom-in}.pfig.big{position:fixed;inset:4vh 4vw;z-index:200;overflow:auto;cursor:zoom-out;box-shadow:0 20px 60px rgba(0,0,0,.45);display:flex;flex-direction:column;justify-content:center}.pfig.big .pgraph{max-height:80vh}.pgraph .gname{font-weight:600}.pgraph .gp{fill:var(--ink)}
 .glegend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;margin-top:6px}.glegend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}.pfig figcaption{font-size:12px;color:var(--mut);margin-top:4px}
 @media (max-width:640px){.bothead small{display:none}}
+.bacts{display:flex;gap:6px;align-items:center;margin-top:6px}.bacts .bspk{margin-top:0}.bchk{font:inherit;font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer}.bchk:hover{color:var(--ink);border-color:var(--acc)}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -2608,7 +2609,7 @@ const t=k=>{const a=T[k];return a?L(a):k};
 const LANGN=()=>['French','English','Spanish'][LI()];
 const TONE=()=>store.get('tone','human');
 const HUMANV=()=>`VOICE — write like a real person, a friendly and sharp tutor who knows this student, so that nobody could tell the text was generated. Write flowing paragraphs where each sentence leads into the next with natural linking words (in French: alors, du coup, en fait, d’ailleurs, par contre, c’est pour ça que, bref; in English: so, actually, that’s why, anyway, mind you; in Spanish: entonces, o sea, de hecho, por eso, en cambio). Vary sentence length: some short, some longer. Explain the way you would out loud, with an everyday example when it helps. Avoid the tell-tale signs of AI text: no bullet-point lists unless there are real steps or the student asked for a list, no headings in short answers, bold at most once or twice, no em dashes to chain ideas, no "Firstly / Secondly / In conclusion" scaffolding, no symmetrical lists of three adjectives, no words like "crucial", "essentiel", "delve", "plonger", "n’hésite pas", "il est important de noter", no filler opener ("Great question!", "Certainly!", "Bien sûr !"), no announcing what you will do, no closing like "I hope this helps" or "Feel free to ask". Start with the point itself.`;
-const LANGLINE=()=>`${typeof GRAPHLINE!=='undefined'?GRAPHLINE+' ':''}Write your whole answer in ${LANGN()}. ${TONE()==='human'?HUMANV()+' For long explanations you may use a few ## headings to separate parts, but the text under them must stay flowing prose.':'Format with Markdown: short headings (##), bullet lists, **bold** for key terms, tables where useful.'} Never use LaTeX: write maths in plain text with Unicode symbols (x², √, π, ∫, ≤, →, Δ).`;
+const LANGLINE=()=>`${typeof ACCURACYLINE!=='undefined'?ACCURACYLINE+' ':''}${typeof GRAPHLINE!=='undefined'?GRAPHLINE+' ':''}Write your whole answer in ${LANGN()}. ${TONE()==='human'?HUMANV()+' For long explanations you may use a few ## headings to separate parts, but the text under them must stay flowing prose.':'Format with Markdown: short headings (##), bullet lists, **bold** for key terms, tables where useful.'} Never use LaTeX: write maths in plain text with Unicode symbols (x², √, π, ∫, ≤, →, Δ).`;
 const CHATLINE=()=>`Write in ${LANGN()}. ${TONE()==='human'?HUMANV()+` This is a chat, so talk like a human in a chat: match the length to the message — a quick question or a "merci" gets one to three sentences; a real explanation gets a few short paragraphs, with a list only if there are genuinely steps. Use contractions and everyday words (in French, tutoie the student; in Spanish, tutea). React to what they actually said: if they sound stressed, tired or discouraged, acknowledge it in a sentence before helping. Use their first name now and then (not every message). When something is unclear, ask one short question instead of guessing at length. You may end with one natural follow-up question when it really helps the student move on, never a menu of options. No filler openers, no "As an AI", no robotic sign-offs. Plain-text maths with Unicode symbols, no LaTeX.`:'Format with Markdown: short headings, bullet lists, bold key terms. Plain-text maths with Unicode symbols, no LaTeX.'}`;
 
 /* ---------- matières (curriculum en vigueur pour mai 2027) ---------- */
@@ -2698,21 +2699,22 @@ async function directChat(messages,files=[]){
   if(files.length&&p==='groq')throw {message:X('Groq ne lit pas les photos ni les PDF : choisis Google Gemini dans Pacha IA ⚙.','Groq cannot read photos or PDFs: choose Google Gemini in Pacha IA ⚙.','Groq no lee fotos ni PDF: elige Google Gemini.')};
   const att=[];for(const f of files){const g=await shrinkImg(f);att.push({mime:/^image\//.test(fileMime(f))?(g.type||'image/jpeg'):fileMime(f),data:await toB64(g)})}
   if(p==='gemini'){
-    const body=JSON.stringify({contents:messages.map((m,i)=>({role:m.role==='assistant'?'model':'user',parts:[...(i===messages.length-1?att.map(a=>({inline_data:{mime_type:a.mime,data:a.data}})):[]),{text:m.content}]})),generationConfig:{maxOutputTokens:4000,temperature:.4}});
-    const models=[store.get('gmodel',null),'gemini-flash-latest','gemini-2.5-flash','gemini-2.0-flash'].filter((v,i,a)=>v&&a.indexOf(v)===i);let last;
+    const body=JSON.stringify({contents:messages.map((m,i)=>({role:m.role==='assistant'?'model':'user',parts:[...(i===messages.length-1?att.map(a=>({inline_data:{mime_type:a.mime,data:a.data}})):[]),{text:m.content}]})),generationConfig:{maxOutputTokens:16000,temperature:.3}});
+    const models=[...(HQ?['gemini-2.5-pro']:[]),store.get('gmodel',null),'gemini-flash-latest','gemini-2.5-flash','gemini-2.0-flash'].filter((v,i,a)=>v&&a.indexOf(v)===i);let last;
     for(const mdl of models){
       r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent`,{method:'POST',headers:{'content-type':'application/json','x-goog-api-key':k},body});
       j=await r.json().catch(()=>({}));
-      if(r.ok){store.set('gmodel',mdl);return (j.candidates?.[0]?.content?.parts||[]).map(x=>x.text||'').join('')}
+      if(r.ok){if(mdl!=='gemini-2.5-pro')store.set('gmodel',mdl);return (j.candidates?.[0]?.content?.parts||[]).filter(x=>!x.thought).map(x=>x.text||'').join('')}
       last={code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};
-      if(!(r.status===404||(r.status===400&&/model|not found|not supported/i.test(last.message))))throw last;
+      if(!(r.status===404||r.status===429||r.status>=500||(r.status===400&&/model|not found|not supported/i.test(last.message)))||mdl===models[models.length-1])throw last;
     }
     throw last;
   }
   if(p==='anthropic'){
-    r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-5-5',max_tokens:4000,messages:messages.map((m,i)=>i===messages.length-1&&att.length?{role:m.role,content:[...att.map(a=>a.mime==='application/pdf'?{type:'document',source:{type:'base64',media_type:a.mime,data:a.data}}:{type:'image',source:{type:'base64',media_type:a.mime,data:a.data}}),{type:'text',text:m.content}]}:m)})});
-    j=await r.json().catch(()=>({}));if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};
-    return (j.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('');
+    for(const mdl of (HQ?['claude-sonnet-5-5','claude-haiku-5-5']:['claude-haiku-5-5'])){
+    r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:mdl,max_tokens:6000,messages:messages.map((m,i)=>i===messages.length-1&&att.length?{role:m.role,content:[...att.map(a=>a.mime==='application/pdf'?{type:'document',source:{type:'base64',media_type:a.mime,data:a.data}}:{type:'image',source:{type:'base64',media_type:a.mime,data:a.data}}),{type:'text',text:m.content}]}:m)})});
+    j=await r.json().catch(()=>({}));if(r.ok)return (j.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('');
+    if(mdl==='claude-haiku-5-5'||!(r.status===404||r.status===429||r.status>=500||r.status===400))throw {code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};}
   }
   r=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{'content-type':'application/json',authorization:'Bearer '+k},body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:4000,temperature:.4,messages})});
   j=await r.json().catch(()=>({}));if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error?.message||('HTTP '+r.status)};
@@ -2724,7 +2726,7 @@ async function apiChat(input,files=[]){
   if(files.length&&AIK&&AIK.k&&AIK.p!=='groq')return directChat(messages,files);
   const att=[];let size=0;for(const f of files){const g=await shrinkImg(f);const d=await toB64(g);size+=d.length;att.push({mime:/^image\//.test(fileMime(f))?(g.type||'image/jpeg'):fileMime(f),data:d})}
   if(size>4.4e6)throw {message:X('Fichiers trop lourds (environ 3 Mo maximum) : envoie moins de pages ou une photo plus petite.','Files too large (about 3 MB max): send fewer pages or a smaller photo.','Archivos demasiado grandes (máx. 3 MB).')};
-  const r=await fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages,files:att})});
+  const r=await fetch(API,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages,files:att,hq:HQ})});
   let j={};try{j=await r.json()}catch(e){}
   if(!r.ok)throw {code:r.status===429?'rate_limited':'api',message:j.error||('HTTP '+r.status)};
   return j.text||'';
@@ -3325,6 +3327,7 @@ function botContext(){
 function botSystem(){return `You are "Pacha IA", the built-in assistant of Sapiens (made by Pacha Académie IB; motto: "Think beyond." — values: Intelligence, Knowledge, Excellence), a study app for IB Diploma students. The student takes Economics HL, Global Politics HL, French A Language & Literature HL, English B SL, Mathematics AA SL, ESS SL, plus TOK, the Extended Essay, and prepares the Digital SAT.
 The app's pages (top menu): Accueil (home: countdown, progress rings, today's plan), Cours (70 lessons with diagrams, definitions, examples, pitfalls, self-test questions, AI buttons: explain more simply, go deeper, quiz, model answers, translate; search box; "mark as done"), Navigation follows six environments: Learn (Cours), Practice (Réviser), Exam (Centre d’examens), Intelligence (Pacha IA hub, Devoirs with Socratic mode, IA·TOK·EE), Performance (mastery by subject, study time, exam history, error tracking, recommendations that explain why), Tools (Planning, Salle d’étude, Calculatrice, SAT, Similitudes), plus Profil et réglages (name, target, exam date, AI key, backup/restore/erase data). The Sapiens learning engine turns weak points from AI-marked mocks into error-log entries, auto flashcards, recommended lessons and a scheduled revision. Lessons have personal notes and bookmarks. Salle d’étude / study room (focus timer 25-90 min with ambient sounds rain, brown noise, waves; study time per subject), XP points, ranks from Apprenti to Grand Pacha, badges and 4 daily missions on the home page, a 'quick sheet' summary per course, a custom exam builder in the question bank (pick several questions, filter by difficulty), Réviser (spaced-repetition flashcards from every lesson's definitions and the IB command terms; command terms glossary; error log), Examens / exam centre (tabs: papers and criteria with AI question generator; a bank of original past-paper-style questions with markschemes; timed mock exams from the bank or AI-generated full papers, marked by AI or self-marked; 'My results' with a progress chart), Accueil also shows a diploma points calculator /45 with the TOK/EE matrix and diploma conditions, a streak and activity heatmap, IA·TOK·EE (criteria, guides, "mark my work" against official criteria, research question generator), Planning (exam date, hours, confidence sliders, deadlines, weekly timetable, Pomodoro, AI detailed plan), Calculatrice (graphing calculator: 6 functions, zeros, max/min, intersections, derivative, integral, table, console, equation solver, polynomial roots, 1- and 2-variable statistics with regression, normal and binomial distributions, matrices, RAD/DEG), SAT (structure, strategy, practice MCQs, timer), Devoirs (homework help: direct answer + step-by-step, hints mode, check-my-answer), Similitudes (similarity checker against pasted sources + AI citation check). Language buttons FR/EN/ES in the top right.
 Your job: be a complete, general-purpose AI assistant for this student. Answer ANY question, school-related or not (any subject, writing, maths, coding, university applications, everyday questions), and questions about using the app (say exactly where to click). For IB work, give accurate IB-level content, examples and exam technique. You are talking with a teenager preparing the IB in Douala, Cameroon: be the kind of tutor they would actually want to talk to — human, encouraging but honest, never preachy or stiff. When a question is ambiguous, answer the most likely reading. Follow IB academic integrity: never write an assessed IA, EE, TOK essay or exhibition for the student; guide and give feedback instead. If you are not sure of a fact (dates, official IB rules), say so and suggest checking the official subject guide.
+${ACCURACYLINE}
 ${GRAPHLINE}
 ${READLINE}
 Context about the student right now:${PROF&&PROF.name?`\nFirst name: ${PROF.name}`:''}
@@ -3333,18 +3336,18 @@ ${CHATLINE()}`}
 function botRender(){
   const box=$('#botMsgs');
   box.innerHTML=(BOT.length?'':`<div class="bm a"><p>${esc(PROF&&PROF.name?t('bot_hello').replace(/^(Salut|Hey|¡Hola)( !|!)?/,(m0,a)=>a+' '+PROF.name+(lang==='fr'?' !':'!')):t('bot_hello'))}</p></div><div class="chips" style="margin:4px 0 8px">${BOT_SUG.map((x,i)=>`<button class="chip" data-sug="${i}">${esc(L(x))}</button>`).join('')}</div>`)+
-  BOT.map((m,i)=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.show||m.content):md(m.content)+(VX.tts?`<button class="bspk" data-spk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:'')}</div>`).join('');
+  BOT.map((m,i)=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.show||m.content):md(m.content)+`<span class="bacts">${VX.tts?`<button class="bspk" data-spk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:''}<button class="bchk" data-chk="${i}">${esc(X('Revérifier','Double-check','Revisar'))}</button></span>`}</div>`).join('');
   box.scrollTop=box.scrollHeight;
 }
 function botStatus(){const ok=aiOK();$('#botWarn').hidden=ok;$('#botWarn').textContent=t('noai');$('#aiNote')&&($('#aiNote').textContent=ok?'':t('noai'))}
-async function botSend(text){
+async function botSend(text,hidden){
   text=text.trim();if(!text)return;
-  const full=withDocs(text),shown=full===text?null:text+'\n📎 '+X('document joint','attached document','documento adjunto');BOT.push(shown?{role:'user',content:full,show:shown}:{role:'user',content:text});botRender();$('#botIn').value='';
+  const full=withDocs(text)+(hidden?'\n\n'+hidden:''),shown=full===text?null:text+(botDocs.length||/\[Attached document/.test(full)?'\n📎 '+X('document joint','attached document','documento adjunto'):'');BOT.push(shown?{role:'user',content:full,show:shown}:{role:'user',content:text});botRender();$('#botIn').value='';
   const out=document.createElement('div');out.className='bm a';$('#botMsgs').appendChild(out);
   const hist=BOT.slice(-14).map(m=>({role:m.role,content:m.content}));
   while(hist.length&&hist[0].role!=='user')hist.shift();
   hist[0]={role:'user',content:botSystem()+'\n\n---\nSTUDENT: '+hist[0].content};
-  const r=await ask(hist,out,{btn:$('#botGo'),tier:'default',images:botFiles,notag:true,typing:true});botFiles=[];$('#botFN').textContent='';
+  if(botFiles.length)BOTMEDIA=[...botFiles];const r=await ask(hist,out,{btn:$('#botGo'),tier:'complex',images:botFiles.length?botFiles:BOTMEDIA,notag:true,typing:true});botFiles=[];$('#botFN').textContent='';
   if(r){BOT.push({role:'assistant',content:r});store.set('bot',BOT.slice(-30));botRender();if(typeof onBotReply==='function')onBotReply(r)}else BOT.pop();
   $('#botMsgs').scrollTop=$('#botMsgs').scrollHeight;
 }
@@ -4232,7 +4235,7 @@ $('#botAtt').addEventListener('click',()=>$('#botFile').click());
 $('#botFile').setAttribute('accept','image/*,application/pdf,.pdf,.docx,.pptx,.xlsx,.csv,.txt,.md,.json');
 $('#botFile').replaceWith($('#botFile').cloneNode(true));
 $('#botFile').addEventListener('change',async e=>{const fs=[...e.target.files].slice(0,6);botFiles=[];botDocs=[];const names=[],warn=[];
-  for(const f of fs){if(isMedia(f)){if(canFiles()||S)botFiles.push(f);else warn.push(f.name||'photo');names.push(f.name||'photo');continue}
+  for(const f of fs){if(isMedia(f)){if(isPdf(f)||canFiles()||S)botFiles.push(f);else warn.push(f.name||'photo');names.push(f.name||'photo');continue}
     try{const tx=await fileToText(f);if(tx&&tx.trim()){botDocs.push({n:f.name,t:tx.slice(0,60000)});names.push(f.name)}else warn.push(f.name)}catch(err){warn.push(f.name)}}
   botFiles=botFiles.slice(0,4);$('#botFN').textContent=(names.length?'📎 '+names.join(', '):'')+(warn.length?' · '+X(`Pour lire les photos et les PDF, active Gemini ou Claude dans ⚙ (${warn.join(', ')}).`,`To read photos and PDFs, set up Gemini or Claude in ⚙ (${warn.join(', ')}).`,`Para leer fotos y PDF, activa Gemini o Claude en ⚙.`):'');e.target.value=''});
 function withDocs(text){if(!botDocs.length)return text;const d=botDocs.map(x=>`[Attached document: ${x.n}]\n${x.t}`).join('\n\n');botDocs=[];return `${text}\n\n${d}`}
@@ -4240,7 +4243,7 @@ function withDocs(text){if(!botDocs.length)return text;const d=botDocs.map(x=>`[
 /* ---------- graphiques dessinés par Pacha ---------- */
 const GPAL=['#b8924a','#3c5591','#c0392b','#5f7d6e','#8c6d46','#6a7697'];
 function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r/5||1))),m=r/5/p;return (m<1.5?1:m<3.5?2:m<7.5?5:10)*p}
-function evalFn(src){src=String(src).replace(/^\s*y\s*=\s*|^\s*f\(x\)\s*=\s*/i,'').replace(/²/g,'^2').replace(/³/g,'^3').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/−/g,'-').replace(/×/g,'*').replace(/(\d)\s*x/g,'$1*x');
+function evalFn(src){src=String(src).replace(/^\s*y\s*=\s*|^\s*f\(x\)\s*=\s*/i,'').replace(/²/g,'^2').replace(/³/g,'^3').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/−/g,'-').replace(/×/g,'*').replace(/·/g,'*').replace(/\bln\s*\(/g,'log(').replace(/(\d)\s*x/g,'$1*x').replace(/(^|[^a-zA-Z_0-9.])(\d+(?:\.\d+)?)\s*\(/g,'$1$2*(').replace(/(^|[^a-zA-Z_])x\s*\(/g,'$1x*(').replace(/\)\s*\(/g,')*(').replace(/\)\s*(x|\d)/g,')*$1');
   if(window.math&&math.compile){const c=math.compile(src);return x=>{try{const v=c.evaluate({x,e:Math.E,pi:Math.PI});return typeof v==='number'?v:NaN}catch(e){return NaN}}}
   if(/[^0-9x+\-*/^().,\s a-z]/i.test(src))return ()=>NaN;const js=src.replace(/\^/g,'**').replace(/\b(sin|cos|tan|sqrt|log|exp|abs)\b/g,'Math.$1').replace(/\bln\b/g,'Math.log').replace(/\bpi\b/g,'Math.PI');try{const f=new Function('x','return '+js);return x=>{try{return f(x)}catch(e){return NaN}}}catch(e){return ()=>NaN}}
 function plotSVG(g){const W=460,H=310,L=46,R=16,T=g.title?36:16,B=42,pw=W-L-R,ph=H-T-B;const series=[];let x0,x1,y0,y1,cats=null;
@@ -4278,9 +4281,51 @@ const GRAPHLINE=`GRAPHS: you can draw real graphs in your answer. When a graph, 
 \`\`\`graph
 {"type":"function","title":"f(x) = x² − 4","fns":["x^2-4"],"xmin":-4,"xmax":4}
 \`\`\`
-Types: "function" (fns: expressions in x using + - * / ^ sqrt sin cos tan log exp abs pi; xmin, xmax, optional ymin, ymax); "line" or "scatter" (series: [{"name":"…","points":[[x,y],…]}]); "bar" (labels: […], series: [{"name":"…","values":[…]}]). For economics diagrams use "line" with straight lines as two-point series (e.g. D: [[1,9],[9,1]], S: [[1,1],[9,9]]), "dash":true for shifted curves, and "points":[{"x":5,"y":5,"label":"E"}] for equilibria; always set "xlabel" and "ylabel" (e.g. "Quantité", "Prix"). Keep labels in the answer's language. Never draw ASCII art.`;
+Before writing the JSON, compute the key values (intercepts, vertex, equilibrium, asymptotes) and make sure the graph matches your explanation exactly; choose xmin/xmax/ymin/ymax so the important features are visible. Types: "function" (fns: expressions in x using + - * / ^ sqrt sin cos tan exp abs pi, ln(x) for natural log, log10(x) for base 10, explicit * for multiplication; xmin, xmax, optional ymin, ymax); "line" or "scatter" (series: [{"name":"…","points":[[x,y],…]}]); "bar" (labels: […], series: [{"name":"…","values":[…]}]). For economics diagrams use "line" with straight lines as two-point series (e.g. D: [[1,9],[9,1]], S: [[1,1],[9,9]]), "dash":true for shifted curves, and "points":[{"x":5,"y":5,"label":"E"}] for equilibria; always set "xlabel" and "ylabel" (e.g. "Quantité", "Prix"). Keep labels in the answer's language. Never draw ASCII art.`;
 const READLINE=`READING FILES: when the student attaches photos, scans, screenshots, PDFs or documents, read EVERYTHING on them, not only the printed words: handwriting, equations, tables, numbers, graphs and charts (axes, units, scales, values, trends, intersections), diagrams, maps, annotations and crossed-out work. If they ask, transcribe the data from a chart into a table. If something is blurred or cut off, say exactly which part you cannot read instead of guessing.`;
 
+/* ================= Sapiens v11 : fiabilité — PDF lus partout, meilleur modèle, mémoire des pièces jointes, vérification ================= */
+const PDFB='https://cdn.jsdelivr.net/npm/pdfjs-dist@6.2.108/legacy/build/';
+let PDFJS=null;
+async function loadPdf(){if(PDFJS)return PDFJS;const m=await import(PDFB+'pdf.min.mjs');
+  try{const src=await (await fetch(PDFB+'pdf.worker.min.mjs')).text();m.GlobalWorkerOptions.workerPort=new Worker(URL.createObjectURL(new Blob([src],{type:'text/javascript'})),{type:'module'})}catch(e){m.GlobalWorkerOptions.workerSrc=PDFB+'pdf.worker.min.mjs'}
+  PDFJS=m;return m}
+const isPdf=f=>fileMime(f)==='application/pdf'||/\.pdf$/i.test(f.name||'');
+async function pdfRead(file,maxImg=8){const lib=await loadPdf();const doc=await lib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;let text='';const imgs=[];
+  for(let i=1;i<=doc.numPages;i++){const pg=await doc.getPage(i);try{const tc=await pg.getTextContent();text+=`--- Page ${i} ---\n`+tc.items.map(t0=>t0.str+(t0.hasEOL?'\n':' ')).join('')+'\n'}catch(e){}
+    if(imgs.length<maxImg){const vp=pg.getViewport({scale:1.7});const c=document.createElement('canvas');c.width=Math.round(vp.width);c.height=Math.round(vp.height);
+      await pg.render({canvasContext:c.getContext('2d'),canvas:c,viewport:vp}).promise;const b=await new Promise(r=>c.toBlob(r,'image/jpeg',.88));if(b)imgs.push(new File([b],`${(file.name||'doc').replace(/\.pdf$/i,'')}-page${i}.jpg`,{type:'image/jpeg'}))}
+    if(text.length>90000)break}
+  return {text:text.slice(0,90000),imgs,n:doc.numPages}}
+const nativePdf=()=>!S&&((API&&APIF&&!AIK?.k)||(AIK&&AIK.k&&(AIK.p==='gemini'||AIK.p==='anthropic')));
+const appendTo=(input,extra)=>{if(!extra)return input;if(typeof input==='string')return input+extra;const m=input.map(x=>({...x}));m[m.length-1].content+=extra;return m};
+/* prépare les pièces jointes : PDF → images + texte quand le fournisseur ne lit pas les PDF lui-même */
+async function prepFiles(input,files,out){if(!files||!files.length)return {input,files:[]};let extra='',outFiles=[];
+  for(const f of files){if(isPdf(f)&&!nativePdf()){try{out&&(out.innerHTML=`<p class="muted">${esc(X('Lecture du PDF…','Reading the PDF…','Leyendo el PDF…'))}</p>`);const r=await pdfRead(f);outFiles.push(...r.imgs);
+        extra+=`\n\n[PDF “${f.name||'document'}”, ${r.n} page(s). The page images are attached (first ${r.imgs.length}). Extracted text layer below — it may be empty for scans or miss text inside figures, so always rely on the images too.]\n${r.text||'(no text layer: scanned document)'}`}
+      catch(e){extra+=`\n\n[A PDF “${f.name||''}” was attached but could not be opened in the browser. Tell the student to send screenshots or photos of the pages instead.]`}}
+    else outFiles.push(f)}
+  const imgCap=S?true:canFiles();
+  if(!imgCap){outFiles=outFiles.filter(f=>!/^image\//.test(fileMime(f)));extra=extra.replace('The page images are attached','Page images could not be sent with this AI provider, so rely on the text below; if figures matter, ask the student for a screenshot')}
+  return {input:appendTo(input,extra),files:outFiles.slice(0,10)}}
+/* images plus nettes pour l’écriture et les graphiques */
+shrinkImg=async function(f){try{if(!/^image\//.test(f.type)||f.size<1500000)return f;const bm=await createImageBitmap(f);const sc=Math.min(1,2300/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*sc);c.height=Math.round(bm.height*sc);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(b=>r(b||f),'image/jpeg',.9))}catch(e){return f}};
+/* consignes d’exactitude */
+const ACCURACYLINE=`ACCURACY (most important): think carefully before answering. Work out every calculation step by step and check the final result (substitute back, estimate the order of magnitude, check units and signs). When the question is about the student's photos or documents, base your answer only on what is actually in them and say where you read it (page, question number, axis…); read numbers digit by digit and never round or "correct" what is written. Never invent numbers, quotations, sources, dates or data. If part of a document is unreadable or the question is ambiguous, say so precisely and ask. For IB marking, follow the official criteria strictly and do not inflate marks. If you are not sure of something, say how sure you are.`;
+/* appel IA : meilleur modèle, nouvelle tentative, PDF préparés */
+const ask0=ask;
+ask=async function(input,out,o={}){const files=o.images||[];let inp=input;
+  if(files.length&&(S||!nativePdf())&&files.some(isPdf)){const p=await prepFiles(input,files,out);inp=p.input;o={...o,images:p.files}}
+  if(o.hq==null)o={...o,hq:!!(files.length||o.indic||o.tier==='complex')};
+  HQ=o.hq;try{return await ask0(inp,out,o)}finally{HQ=false}};
+let HQ=false;
+const apiChat0=apiChat;
+apiChat=async function(input,files=[]){let last;for(let k=0;k<2;k++){try{return await apiChat0(input,files)}catch(e){last=e;const m=String(e&&e.message||'');if(!(e&&(e.code==='rate_limited'||/HTTP 5\d\d|overloaded|unavailable|fetch|network|timeout/i.test(m)))||k)throw e;await new Promise(r=>setTimeout(r,1800))}}throw last};
+/* conversation : Pacha garde les photos/PDF de la conversation pour les questions suivantes */
+let BOTMEDIA=[];
+$('#botNew').addEventListener('click',()=>{BOTMEDIA=[];botDocs=[]});
+
+$('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-chk]');if(!b)return;botSend(X('Revérifie ta réponse, s’il te plaît.','Please double-check your answer.','Revisa tu respuesta, por favor.'),'[Instruction for Pacha: re-check your previous answer very carefully against the question and any attached photos/documents: re-read the figures, redo every calculation independently, check the logic and the graph data. Then say plainly whether it was right. If you find a mistake, say exactly what was wrong and give the corrected answer in full.]')});
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;$('#installBtn').hidden=false});
