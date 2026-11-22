@@ -391,6 +391,37 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
 .view{display:none}.view.on{display:block;animation:fi .3s ease}
 @media(prefers-reduced-motion:reduce){.view.on{animation:none}}
 @media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;white-space:normal;color:var(--mut);font-size:12px}.stack td:empty{display:none}}
+.nblib{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px}
+.nbcov{position:relative;aspect-ratio:3/4;border:0;border-radius:6px 14px 14px 6px;background:linear-gradient(145deg,var(--c),color-mix(in srgb,var(--c) 70%,#000));color:#fff;text-align:left;padding:0;cursor:pointer;box-shadow:0 10px 24px -12px rgba(0,0,0,.45);overflow:hidden;font:inherit;transition:transform .15s}
+.nbcov:hover{transform:translateY(-3px) rotate(-.4deg)}
+.nbspine{position:absolute;left:0;top:0;bottom:0;width:14px;background:rgba(0,0,0,.22)}
+.nbcin{position:absolute;left:26px;right:14px;bottom:18px;top:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.nbcin b{font-family:var(--serif,Georgia,serif);font-size:20px;line-height:1.15}.nbcin .small{opacity:.85}.nbbrand{letter-spacing:.3em;position:absolute;top:0;font-size:10px}
+.nbhead{align-items:center;gap:12px;margin-bottom:12px}.nbhead b{font-size:22px}
+.nbgrid{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:start}
+.nbplan{position:sticky;top:12px;max-height:calc(100vh - 40px);overflow:auto;padding:14px}.nbplan h3{margin:0 0 8px}
+.nbch{display:flex;align-items:center;gap:4px;border-radius:10px}.nbch.on{background:var(--sky)}
+.nbch button{flex:1;display:flex;gap:8px;align-items:center;text-align:left;background:none;border:0;padding:7px 6px;font:inherit;font-size:13px;color:inherit;cursor:pointer}
+.nbch i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;border:1.5px solid var(--c);color:var(--c)}
+.nbch em{margin-left:auto;font-style:normal;font-size:11px;background:var(--c);color:#fff;border-radius:99px;padding:1px 7px}
+.nbch a{font-size:11px;color:var(--mut);text-decoration:none;padding-right:6px;white-space:nowrap}
+.nbmain{min-width:0;display:grid;gap:10px}
+.nbbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;border:1px solid var(--line);border-radius:14px;background:var(--card,var(--bg));position:sticky;top:6px;z-index:5}
+.nbgrp{display:flex;gap:4px;align-items:center;padding-right:8px;border-right:1px solid var(--line)}.nbgrp:last-child{border:0}
+.nbt{width:38px;height:38px;border-radius:10px;border:1px solid transparent;background:none;color:inherit;display:grid;place-items:center;cursor:pointer}
+.nbt svg{width:20px;height:20px}.nbt.on{background:var(--ink);color:var(--bg)}.nbt:disabled{opacity:.3}
+.nbw i{display:block;border-radius:50%;background:currentColor}
+.nbsw{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line);cursor:pointer}.nbsw.on{box-shadow:0 0 0 2px var(--acc)}
+.nbbar select{font:inherit;font-size:13px;padding:6px;border-radius:8px;border:1px solid var(--line);background:transparent;color:inherit}
+.nbwrap{overflow-x:auto;border-radius:6px}
+.nbpage{position:relative;margin:0 auto;box-shadow:0 8px 30px -14px rgba(0,0,0,.4);border-radius:4px;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.nbpage canvas{display:block}#nbL{position:absolute;inset:0;touch-action:none;cursor:crosshair}
+.nbnav{align-items:center;gap:8px}
+#nbPrint{display:none}
+body.nbfull .nbmain{position:fixed;inset:0;z-index:120;background:var(--bg);padding:8px;display:flex;flex-direction:column;gap:8px}
+body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbfull #botFab,body.nbfull .mtabs{display:none!important}
+@media (max-width:900px){.nbgrid{grid-template-columns:1fr}.nbplan{position:static;max-height:240px}}
+@media print{body.printnb>*{display:none!important}body.printnb #nbPrint{display:block!important}#nbPrint img{width:100%;display:block;page-break-after:always}#nbPrint h1{font-size:28px}}
 .wklist{display:grid;gap:8px;margin-top:12px}
 .wkrow{display:flex;gap:14px;align-items:center;justify-content:space-between;text-align:left;width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card,transparent);color:inherit;font:inherit;cursor:pointer}
 .wkrow:hover{border-color:var(--acc)}.wkrow.done{opacity:.65}
@@ -419,6 +450,7 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
     <a href="#accueil" data-ic="home"><span data-i="n_dash">Tableau de bord</span></a>
     <div class="grp" data-i="g_learn">Learn · Apprendre</div>
     <a href="#cours" data-ic="book"><span data-i="n_cours">Cours</span></a>
+    <a href="#cahiers" data-ic="pen"><span data-i="n_nb">Mes cahiers</span></a>
     <div class="grp" data-i="g_prac">Practice · S’exercer</div>
     <a href="#reviser" data-ic="bulb"><span data-i="n_rev">Réviser</span></a>
     <div class="grp" data-i="g_exam">Exam · Examens</div>
@@ -525,6 +557,24 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
 </div></section>
 
 <!-- PERFORMANCE -->
+<!-- MES CAHIERS -->
+<section class="view" id="v-cahiers"><div class="phead"><div class="band"><span class="picon" data-ico="pen"></span><div><h1 data-i="n_nb">Mes cahiers</h1><p data-i="nb_lead">Un cahier par matière, organisé selon le plan du programme. Écris à la main avec ton Apple Pencil.</p></div></div></div>
+<div class="band stackv">
+  <div id="nbLib" class="nblib"></div>
+  <div id="nbBook" hidden>
+    <div class="row nbhead"><button class="btn sm" id="nbBack" data-i="nb_back">← Mes cahiers</button><b id="nbTitle" class="serif"></b><span class="small muted" id="nbSave"></span></div>
+    <div class="nbgrid">
+      <aside class="panel nbplan"><h3 data-i="nb_plan">Plan du programme</h3><div id="nbPlan"></div></aside>
+      <div class="nbmain">
+        <div class="nbbar" id="nbBar"></div>
+        <div class="nbwrap" id="nbWrap"><div class="nbpage" id="nbPage"><canvas id="nbC"></canvas><canvas id="nbL"></canvas></div></div>
+        <div class="row nbnav"><button class="btn sm" id="nbPrev">‹</button><span class="small" id="nbPg"></span><button class="btn sm" id="nbNext">›</button><button class="btn sm" id="nbAdd" data-i="nb_add">+ Page</button><span style="flex:1"></span><button class="btn sm" id="nbAsk" data-i="nb_ask">Pacha IA : vérifier ma page</button><button class="btn sm" id="nbPng">PNG</button><button class="btn sm" id="nbPdf" data-i="nb_pdf">Cahier en PDF</button><button class="btn sm" id="nbDelP"></button></div>
+        <div class="ai-out ai-box" id="nbAI"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <!-- MES TRAVAUX -->
 <section class="view" id="v-travaux"><div class="phead"><div class="band"><span class="picon" data-ico="layers"></span><div><h1 data-i="n_works">Mes travaux</h1><p data-i="wk_lead">IA, EE, TOK : échéances, brouillons et retour de Pacha IA critère par critère.</p></div></div></div>
 <div class="band stackv"><div class="kpis" id="wkKpi"></div>
@@ -779,7 +829,7 @@ footer{padding:34px 20px 44px;text-align:center;font-size:13.5px;color:var(--mut
 </div>
 
 <nav class="mtabs" id="mTabs"><a href="#accueil"><span data-ico2="home"></span><b data-i="n_home">Accueil</b></a><a href="#cours"><span data-ico2="book"></span><b data-i="n_learn">Learn</b></a><a href="#reviser"><span data-ico2="bulb"></span><b data-i="n_prac">Practice</b></a><a href="#matieres"><span data-ico2="target"></span><b data-i="n_exam">Exam</b></a><button data-more><span data-ico2="grid"></span><b data-i="n_more">Plus</b></button></nav>
-<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
+<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#cahiers"><span data-ico2="pen"></span><b data-i="n_nb">Mes cahiers</b></a><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
 <button id="botFab" aria-expanded="false" aria-controls="bot"></button>
 <section id="bot" aria-label="Pacha IA">
   <div class="bothead"><span class="owlmark" style="width:42px;height:42px;display:block"></span><div><b>Pacha IA</b><small data-i="bot_sub">Ton assistant d’études, disponible partout dans l’app</small></div><button id="botSet" title="Réglages">⚙</button><button id="botNew" title="Nouvelle conversation">↺</button><button id="botX" aria-label="Fermer">✕</button></div>
@@ -1407,6 +1457,7 @@ const LOC=()=>({fr:'fr-FR',en:'en-GB',es:'es-ES'})[lang];
 
 /* ---------- textes de l'interface ---------- */
 const T={
+n_nb:['Mes cahiers','My notebooks','Mis cuadernos'],nb_lead:['Un cahier par matière, organisé selon le plan du programme. Écris à la main avec ton Apple Pencil.','One notebook per subject, organised by the syllabus. Write by hand with your Apple Pencil.','Un cuaderno por asignatura. Escribe a mano con tu Apple Pencil.'],nb_back:['← Mes cahiers','← My notebooks','← Mis cuadernos'],nb_plan:['Plan du programme','Syllabus outline','Plan del programa'],nb_add:['+ Page','+ Page','+ Página'],nb_ask:['Pacha IA : vérifier ma page','Pacha IA: check my page','Pacha IA: revisar mi página'],nb_pdf:['Cahier en PDF','Notebook as PDF','Cuaderno en PDF'],
 n_works:['Mes travaux','My coursework','Mis trabajos'],wk_lead:['IA, EE, TOK : échéances, brouillons et retour de Pacha IA critère par critère.','IA, EE, TOK: deadlines, drafts and criterion-by-criterion feedback from Pacha IA.','IA, Monografía, TdC: fechas, borradores y comentarios por criterio.'],wk_list:['Mes travaux évalués','My assessed work','Mis trabajos evaluados'],wk_seed:['Ajouter mes travaux IB','Add my IB coursework','Añadir mis trabajos IB'],wk_new:['+ Nouveau travail','+ New piece','+ Nuevo trabajo'],wk_t:['Titre ou question de recherche','Title or research question','Título o pregunta'],wk_due:['Date de remise','Due date','Fecha de entrega'],wk_st:['Étape','Stage','Etapa'],wk_txt:['Mon brouillon (enregistré automatiquement)','My draft (saved automatically)','Mi borrador (guardado automático)'],wk_notes:['Notes, commentaires du professeur, sources','Notes, teacher comments, sources','Notas, comentarios, fuentes'],wk_ai:['Retour de Pacha IA critère par critère','Pacha IA feedback by criterion','Comentarios por criterio'],wk_next:['Mes prochaines étapes','My next steps','Mis próximos pasos'],wk_close:['Fermer','Close','Cerrar'],wk_int:['Pacha IA donne un retour mais n’écrit pas ton travail à ta place : le travail évalué doit rester le tien.','Pacha IA gives feedback but does not write your work: assessed work must stay your own.','Pacha IA comenta pero no escribe tu trabajo.'],
 d_defi:['Défi du jour','Daily challenge','Reto diario'],d_count:['Compte à rebours des épreuves','Exam countdown','Cuenta atrás'],pf_pred:['Note estimée /7 et total /45','Estimated grade /7 and total /45','Nota estimada /7 y total /45'],pr_rem:['Rappel quotidien','Daily reminder','Recordatorio diario'],pr_rem2:['Ajoute un rappel chaque jour dans l’agenda de ton téléphone pour ton défi et tes révisions.','Add a daily reminder to your phone calendar for your challenge and revision.','Añade un recordatorio diario a tu agenda.'],pr_remt:['Heure','Time','Hora'],pr_remgo:['Ajouter à mon agenda','Add to my calendar','Añadir a mi agenda'],x_real:['Mode vraie épreuve : 5 minutes de lecture avant de pouvoir écrire (comme le jour J)','Real exam mode: 5 minutes of reading time before you can write (as on the day)','Modo examen real: 5 minutos de lectura'],
 n_dash:['Tableau de bord','Dashboard','Panel'],n_intel:['Pacha IA','Pacha IA','Pacha IA'],n_perf:['Mes performances','My performance','Mi rendimiento'],n_prof:['Profil et réglages','Profile & settings','Perfil y ajustes'],n_learn:['Learn','Learn','Learn'],n_prac:['Practice','Practice','Practice'],n_exam:['Exam','Exam','Exam'],
@@ -1688,8 +1739,8 @@ function quiz(el,qs){
 const QJSON='Return ONLY JSON of this shape: {"questions":[{"passage":"string (empty if none)","q":"string","choices":["A text","B text","C text","D text"],"answer":0,"explain":"string: why the right answer is right and why each distractor is wrong"}]}. "answer" is the 0-based index of the single correct choice. Plain text, Unicode maths, no LaTeX.';
 
 /* ---------- navigation et langue ---------- */
-const VIEWS=['accueil','cours','reviser','focus','intel','perf','profil','travaux','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
-function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();if(v==='perf'&&typeof renderPerf==='function')renderPerf();if(typeof renderV6==='function')renderV6();if(v==='profil'&&typeof renderProfil==='function')renderProfil();if(v==='devoirs'&&typeof renderHW==='function')renderHW();window.scrollTo(0,0)}
+const VIEWS=['accueil','cours','cahiers','reviser','focus','intel','perf','profil','travaux','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
+function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();if(v==='perf'&&typeof renderPerf==='function')renderPerf();if(typeof renderV6==='function')renderV6();if(v==='cahiers'&&typeof renderCahiers==='function')renderCahiers();else if(typeof nbFlush==='function'){document.body.classList.remove('nbfull');nbFlush()}if(v==='profil'&&typeof renderProfil==='function')renderProfil();if(v==='devoirs'&&typeof renderHW==='function')renderHW();window.scrollTo(0,0)}
 window.addEventListener('hashchange',route);
 function applyLang(){
   document.documentElement.lang=lang;
@@ -2849,6 +2900,141 @@ addEventListener('online',()=>{netBadge();toast(`${ico('check')}<b>${X('De nouve
 function renderV6(){renderDefi();renderCount();renderPred();netBadge();
   const v=location.hash.slice(1);if(v==='travaux')renderTravaux()}
 
+/* ================= Sapiens v7 : Mes cahiers (écriture manuscrite, Apple Pencil) ================= */
+const PW=1000,PH=1414;
+const NDB={db:null,mem:null,
+  open(){if(this.db)return this.db;this.db=new Promise((res,rej)=>{try{const r=indexedDB.open('sapiens-cahiers',1);r.onupgradeneeded=()=>{const s=r.result.createObjectStore('pages',{keyPath:'id'});s.createIndex('nb','nb')};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});return this.db},
+  async tx(mode,fn){try{const db=await this.open();return await new Promise((res,rej)=>{const t=db.transaction('pages',mode),q=fn(t.objectStore('pages'));t.oncomplete=()=>res(q?q.result:undefined);t.onerror=()=>rej(t.error)})}
+    catch(e){this.mem=this.mem||new Map();const m=this.mem;return fn({getAll:()=>({result:[...m.values()]}),index:()=>({getAll:nb=>({result:[...m.values()].filter(p=>p.nb===nb)})}),put:p=>(m.set(p.id,p),{result:p.id}),delete:id=>(m.delete(id),{result:undefined})}).result}},
+  all(){return this.tx('readonly',s=>s.getAll())},
+  of(nb){return this.tx('readonly',s=>s.index('nb').getAll(nb))},
+  put(p){return this.tx('readwrite',s=>s.put(p))},
+  del(id){return this.tx('readwrite',s=>s.delete(id))}};
+const NBINK=['#0b1530','#111111','#2457c5','#c0392b','#1e8449','#b8924a'],NBHL=['#ffe14d','#7ee08a','#ff8fc7','#8fd0ff'],NBW=[2,3.5,6];
+const NBPAPER=[['lines',['Ligné','Lined','Rayado']],['grid',['Quadrillé','Grid','Cuadriculado']],['dots',['Pointillé','Dotted','Puntos']],['blank',['Blanc','Blank','Blanco']]];
+let NBM=Object.assign({tool:'pen',ink:0,hl:0,w:1,paper:'lines',zoom:1,finger:'auto'},store.get('nbmeta',{}));
+const saveNBM=()=>store.set('nbmeta',NBM);
+let NB=null,NBPAGES=[],PG=null,UNDO=[],REDO=[],PENSEEN=false,nbSaveT=null,nbCounts={};
+const nbKeys=()=>[...CORDER,'libre'];
+const nbName=k=>k==='libre'?X('Cahier libre','Free notebook','Cuaderno libre'):sName(k)==='TOK'?L(CMETA.tok.n):sName(k);
+const nbColor=k=>k==='libre'?'#5f6270':sColor(k);
+const nbChapters=k=>k==='libre'?[X('Notes libres','Free notes','Notas libres')]:[...CO[k].l.map(l=>l.t),X('Notes libres','Free notes','Notas libres')];
+
+/* ---------- bibliothèque ---------- */
+async function renderCahiers(){if(NB){renderBook();return}
+  $('#nbLib').hidden=false;$('#nbBook').hidden=true;
+  const all=await NDB.all()||[];nbCounts={};all.forEach(p=>{if(p.s&&p.s.length)nbCounts[p.nb]=(nbCounts[p.nb]||0)+1});
+  $('#nbLib').innerHTML=nbKeys().map(k=>{const n=nbCounts[k]||0,ch=nbChapters(k).length;return `<button class="nbcov" data-nb="${k}" style="--c:${nbColor(k)}"><span class="nbspine"></span><span class="nbcin"><span class="small nbbrand">SAPIENS</span><b>${esc(nbName(k))}</b><span class="small">${ch} ${X('chapitres','chapters','capítulos')} · ${n} ${X('page(s) écrite(s)','page(s) written','página(s)')}</span></span></button>`}).join('')}
+$('#nbLib').addEventListener('click',e=>{const b=e.target.closest('[data-nb]');if(!b)return;openBook(b.dataset.nb)});
+
+async function openBook(k,ch){NB={k,ch:ch??(NBM['ch_'+k]??0)};NBPAGES=(await NDB.of(k))||[];await openChapter(NB.ch);location.hash='cahiers';renderBook()}
+async function openChapter(ch,last){NB.ch=ch;NBM['ch_'+NB.k]=ch;saveNBM();
+  let pages=NBPAGES.filter(p=>p.ch===ch).sort((a,b)=>a.n-b.n);
+  if(!pages.length){const p=newPage(ch,0);NBPAGES.push(p);pages=[p]}
+  setPage(last?pages[pages.length-1]:pages[0])}
+function newPage(ch,n){return {id:NB.k+':'+ch+':'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),nb:NB.k,ch,n,paper:NBM.paper,s:[],u:Date.now()}}
+function chPages(){return NBPAGES.filter(p=>p.ch===NB.ch).sort((a,b)=>a.n-b.n)}
+function setPage(p){PG=p;UNDO=[];REDO=[];$('#nbAI').innerHTML='';sizeCanvas();renderBar();renderNav()}
+
+function renderBook(){if(!NB)return;$('#nbLib').hidden=true;$('#nbBook').hidden=false;
+  $('#nbTitle').textContent=nbName(NB.k);$('#nbBook').style.setProperty('--c',nbColor(NB.k));
+  const chs=nbChapters(NB.k);
+  $('#nbPlan').innerHTML=chs.map((t0,i)=>{const n=NBPAGES.filter(p=>p.ch===i&&p.s.length).length,isL=NB.k!=='libre'&&i<chs.length-1,done=isL&&DONE.has(NB.k+':'+i);
+    return `<div class="nbch ${i===NB.ch?'on':''}"><button data-ch="${i}"><i>${done?'✓':isL?i+1:'✎'}</i><span>${esc(t0)}</span>${n?`<em>${n}</em>`:''}</button>${isL?`<a class="small" href="#cours" data-les="${i}" title="${esc(X('Ouvrir la leçon','Open the lesson','Abrir la lección'))}">${X('leçon','lesson','lección')} →</a>`:''}</div>`}).join('');
+  renderBar();renderNav();requestAnimationFrame(sizeCanvas)}
+$('#nbPlan').addEventListener('click',async e=>{const l=e.target.closest('[data-les]');if(l){CS=NB.k;CL=+l.dataset.les;store.set('cs',CS);store.set('cl',CL);return}
+  const b=e.target.closest('[data-ch]');if(!b)return;await nbFlush();await openChapter(+b.dataset.ch);renderBook();if(innerWidth<900)$('#nbWrap').scrollIntoView({behavior:'smooth'})});
+$('#nbBack').addEventListener('click',async()=>{await nbFlush();NB=null;document.body.classList.remove('nbfull');renderCahiers()});
+
+/* ---------- barre d'outils ---------- */
+const NBI={pen:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>',hl:'<path d="M9 15l-4 5h6l2-2"/><path d="M9 15l7-11 4 3-7 11z"/>',er:'<path d="M5 15l8-8 6 6-6 6H9z"/><path d="M9 19h11"/>',undo:'<path d="M9 7L4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-3"/>',redo:'<path d="M15 7l5 5-5 5"/><path d="M20 12H9a5 5 0 0 0 0 10h3"/>',full:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',hand:'<path d="M8 13V5a1.5 1.5 0 0 1 3 0v6M11 11V4a1.5 1.5 0 0 1 3 0v7M14 11V6a1.5 1.5 0 0 1 3 0v8c0 4-3 7-6 7s-4-1-6-4l-2-3a1.5 1.5 0 0 1 2.5-1.6L8 15"/>'};
+const nbi=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${NBI[k]}</svg>`;
+function renderBar(){if(!PG)return;const tl=NBM.tool;
+  const colors=tl==='hl'?NBHL.map((c,i)=>`<button class="nbsw ${NBM.hl===i?'on':''}" data-hl="${i}" style="background:${c}" aria-label="${c}"></button>`).join(''):tl==='pen'?NBINK.map((c,i)=>`<button class="nbsw ${NBM.ink===i?'on':''}" data-ink="${i}" style="background:${c}" aria-label="${c}"></button>`).join(''):'';
+  $('#nbBar').innerHTML=`<div class="nbgrp">${[['pen',X('Stylo','Pen','Bolígrafo')],['hl',X('Surligneur','Highlighter','Resaltador')],['er',X('Gomme','Eraser','Borrador')]].map(t0=>`<button class="nbt ${tl===t0[0]?'on':''}" data-tool="${t0[0]}" title="${t0[1]}">${nbi(t0[0])}</button>`).join('')}</div>
+  <div class="nbgrp">${colors}${tl==='pen'?NBW.map((w,i)=>`<button class="nbt nbw ${NBM.w===i?'on':''}" data-w="${i}" title="${w}"><i style="width:${4+i*4}px;height:${4+i*4}px"></i></button>`).join(''):''}</div>
+  <div class="nbgrp"><button class="nbt" data-act="undo" title="${X('Annuler','Undo','Deshacer')}" ${UNDO.length?'':'disabled'}>${nbi('undo')}</button><button class="nbt" data-act="redo" title="${X('Rétablir','Redo','Rehacer')}" ${REDO.length?'':'disabled'}>${nbi('redo')}</button></div>
+  <div class="nbgrp"><select id="nbPaper" title="${X('Papier','Paper','Papel')}">${NBPAPER.map(p=>`<option value="${p[0]}" ${PG.paper===p[0]?'selected':''}>${esc(L(p[1]))}</option>`).join('')}</select><select id="nbZoom">${[1,1.5,2].map(z=>`<option value="${z}" ${NBM.zoom===z?'selected':''}>${z*100} %</option>`).join('')}</select>
+  <button class="nbt ${NBM.finger==='scroll'||(NBM.finger==='auto'&&PENSEEN)?'on':''}" data-act="finger" title="${X('Doigt : défiler (Pencil seul écrit)','Finger scrolls (Pencil only writes)','Dedo: desplazar')}">${nbi('hand')}</button><button class="nbt" data-act="full" title="${X('Plein écran','Full screen','Pantalla completa')}">${nbi('full')}</button></div>`}
+$('#nbBar').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.dataset.tool){NBM.tool=b.dataset.tool}else if(b.dataset.ink){NBM.ink=+b.dataset.ink;NBM.tool='pen'}else if(b.dataset.hl){NBM.hl=+b.dataset.hl}else if(b.dataset.w){NBM.w=+b.dataset.w}
+  else if(b.dataset.act==='undo')nbUndo();else if(b.dataset.act==='redo')nbRedo();
+  else if(b.dataset.act==='finger'){const on=NBM.finger==='scroll'||(NBM.finger==='auto'&&PENSEEN);NBM.finger=on?'draw':'scroll';toast(NBM.finger==='scroll'?X('Le doigt fait défiler, seul le Pencil écrit.','Finger scrolls, only the Pencil writes.','El dedo desplaza.'):X('Le doigt écrit aussi.','Finger writes too.','El dedo escribe.'))}
+  else if(b.dataset.act==='full'){document.body.classList.toggle('nbfull');requestAnimationFrame(sizeCanvas)}
+  saveNBM();renderBar()});
+$('#nbBar').addEventListener('change',e=>{if(e.target.id==='nbPaper'){PG.paper=NBM.paper=e.target.value;saveNBM();nbDirty();redraw()}if(e.target.id==='nbZoom'){NBM.zoom=+e.target.value;saveNBM();sizeCanvas()}});
+
+/* ---------- navigation des pages ---------- */
+function renderNav(){if(!PG||!NB)return;const ps=chPages(),i=ps.indexOf(PG);
+  $('#nbPg').textContent=`${nbChapters(NB.k)[NB.ch]} · ${X('page','page','página')} ${i+1}/${ps.length}`;
+  $('#nbPrev').disabled=i<=0;$('#nbNext').disabled=i>=ps.length-1;$('#nbDelP').textContent=X('Supprimer la page','Delete page','Borrar página');$('#nbDelP').dataset.arm=''}
+$('#nbPrev').addEventListener('click',async()=>{await nbFlush();const ps=chPages(),i=ps.indexOf(PG);if(i>0)setPage(ps[i-1])});
+$('#nbNext').addEventListener('click',async()=>{await nbFlush();const ps=chPages(),i=ps.indexOf(PG);if(i<ps.length-1)setPage(ps[i+1])});
+$('#nbAdd').addEventListener('click',async()=>{await nbFlush();const ps=chPages(),p=newPage(NB.ch,(ps.at(-1)?.n??-1)+1);NBPAGES.push(p);await NDB.put(p);setPage(p);renderBook()});
+$('#nbDelP').addEventListener('click',async e=>{const b=e.currentTarget;if(!b.dataset.arm){b.dataset.arm='1';b.textContent=X('Confirmer : supprimer','Confirm: delete','Confirmar');return}
+  const ps=chPages(),i=ps.indexOf(PG);await NDB.del(PG.id);NBPAGES=NBPAGES.filter(p=>p!==PG);clearTimeout(nbSaveT);
+  const rest=chPages();if(rest.length)setPage(rest[Math.max(0,i-1)]);else await openChapter(NB.ch);renderBook()});
+
+/* ---------- dessin ---------- */
+const cM=()=>$('#nbC'),cL=()=>$('#nbL');let SC=1,DPR=1;
+function sizeCanvas(){const wrap=$('#nbWrap');if(!wrap||!PG||$('#nbBook').hidden)return;
+  const base=Math.min(wrap.clientWidth-2,1100);if(base<=0)return;const cw=Math.round(base*NBM.zoom);SC=cw/PW;DPR=Math.min(window.devicePixelRatio||1,2.5);
+  [cM(),cL()].forEach(c=>{c.width=Math.round(cw*DPR);c.height=Math.round(PH*SC*DPR);c.style.width=cw+'px';c.style.height=Math.round(PH*SC)+'px'});
+  $('#nbPage').style.width=cw+'px';redraw()}
+addEventListener('resize',()=>{if(location.hash==='#cahiers')sizeCanvas()});
+function paper(ctx,p,sc){ctx.fillStyle='#fffdf8';ctx.fillRect(0,0,PW*sc,PH*sc);ctx.lineWidth=Math.max(1,sc);
+  if(p.paper==='lines'){ctx.strokeStyle='#c9d6ea';for(let y=160;y<PH-40;y+=40){ctx.beginPath();ctx.moveTo(0,y*sc);ctx.lineTo(PW*sc,y*sc);ctx.stroke()}ctx.strokeStyle='#ec9a9a';ctx.beginPath();ctx.moveTo(90*sc,0);ctx.lineTo(90*sc,PH*sc);ctx.stroke()}
+  else if(p.paper==='grid'){ctx.strokeStyle='#dbe3ef';for(let x=0;x<=PW;x+=25){ctx.beginPath();ctx.moveTo(x*sc,0);ctx.lineTo(x*sc,PH*sc);ctx.stroke()}for(let y=0;y<=PH;y+=25){ctx.beginPath();ctx.moveTo(0,y*sc);ctx.lineTo(PW*sc,y*sc);ctx.stroke()}}
+  else if(p.paper==='dots'){ctx.fillStyle='#b9c3d3';for(let x=25;x<PW;x+=25)for(let y=25;y<PH;y+=25){ctx.beginPath();ctx.arc(x*sc,y*sc,1.4*sc,0,7);ctx.fill()}}
+  if(NB){const ps=NBPAGES.filter(q=>q.ch===p.ch).sort((a,b)=>a.n-b.n);ctx.fillStyle='#8a90a0';ctx.font=`${15*sc}px system-ui,sans-serif`;ctx.textAlign='right';ctx.fillText(`${nbName(p.nb)} · ${nbChapters(p.nb)[p.ch]||''} · ${ps.indexOf(p)+1}`.slice(0,90),(PW-30)*sc,40*sc);ctx.textAlign='left'}}
+function drawStroke(ctx,s,sc){const p=s.p;if(p.length<3)return;ctx.lineCap='round';ctx.lineJoin='round';
+  if(s.t==='hl'){ctx.save();ctx.globalAlpha=.38;ctx.globalCompositeOperation='multiply';ctx.strokeStyle=s.c;ctx.lineWidth=s.w*sc;ctx.beginPath();ctx.moveTo(p[0]*sc,p[1]*sc);for(let i=3;i<p.length;i+=3)ctx.lineTo(p[i]*sc,p[i+1]*sc);if(p.length===3)ctx.lineTo(p[0]*sc+.1,p[1]*sc);ctx.stroke();ctx.restore();return}
+  ctx.strokeStyle=s.c;ctx.fillStyle=s.c;
+  if(p.length===3){ctx.beginPath();ctx.arc(p[0]*sc,p[1]*sc,s.w*(.35+.9*p[2])*sc/2,0,7);ctx.fill();return}
+  for(let i=3;i<p.length;i+=3){const x0=p[i-3],y0=p[i-2],x1=p[i],y1=p[i+1],pr=(p[i-1]+p[i+2])/2;
+    let mx0=x0,my0=y0;if(i>=6){mx0=(p[i-6]+x0)/2;my0=(p[i-5]+y0)/2}
+    ctx.lineWidth=Math.max(.6,s.w*(.35+.9*pr)*sc);ctx.beginPath();ctx.moveTo(i>=6?mx0*sc:x0*sc,i>=6?my0*sc:y0*sc);ctx.quadraticCurveTo(x0*sc,y0*sc,(x0+x1)/2*sc,(y0+y1)/2*sc);ctx.lineTo(x1*sc,y1*sc);ctx.stroke()}}
+function redraw(){if(!PG)return;const c=cM(),ctx=c.getContext('2d');ctx.setTransform(DPR,0,0,DPR,0,0);paper(ctx,PG,SC);PG.s.forEach(s=>drawStroke(ctx,s,SC));const l=cL().getContext('2d');l.setTransform(1,0,0,1,0,0);l.clearRect(0,0,cL().width,cL().height)}
+let CUR=null,ERASED=null,PAN=null;
+function pt(e){const r=cL().getBoundingClientRect();return [(e.clientX-r.left)/SC,(e.clientY-r.top)/SC,e.pointerType==='pen'?(e.pressure||.5):.5]}
+function fingerScrolls(e){return e.pointerType==='touch'&&(NBM.finger==='scroll'||(NBM.finger==='auto'&&PENSEEN))}
+function onDown(e){if(!PG)return;if(e.pointerType==='pen'&&!PENSEEN){PENSEEN=true;renderBar()}
+  if(fingerScrolls(e)){PAN={x:e.clientX,y:e.clientY,sx:$('#nbWrap').scrollLeft,sy:scrollY,wy:$('#nbWrap').scrollTop};return}
+  if(e.button>0)return;e.preventDefault();try{cL().setPointerCapture(e.pointerId)}catch(_){}
+  if(NBM.tool==='er'){ERASED=[];eraseAt(pt(e));return}
+  const hl=NBM.tool==='hl';CUR={t:hl?'hl':'pen',c:hl?NBHL[NBM.hl]:NBINK[NBM.ink],w:hl?22:NBW[NBM.w],p:pt(e).map(v=>Math.round(v*100)/100)};liveDraw()}
+function onMove(e){if(PAN){const dy=e.clientY-PAN.y,dx=e.clientX-PAN.x;const w=$('#nbWrap');w.scrollLeft=PAN.sx-dx;if(document.body.classList.contains('nbfull'))w.scrollTop=PAN.wy-dy;else scrollTo(0,PAN.sy-dy);return}
+  if(!CUR&&!ERASED)return;e.preventDefault();let evs=e.getCoalescedEvents?e.getCoalescedEvents():[];if(!evs.length)evs=[e];
+  if(ERASED){evs.forEach(ev=>eraseAt(pt(ev)));return}
+  evs.forEach(ev=>{const q=pt(ev),n=CUR.p.length;if(Math.hypot(q[0]-CUR.p[n-3],q[1]-CUR.p[n-2])<1.2)return;CUR.p.push(Math.round(q[0]*100)/100,Math.round(q[1]*100)/100,Math.round(q[2]*100)/100)});liveDraw()}
+function onUp(){if(PAN){PAN=null;return}
+  if(ERASED){if(ERASED.length){UNDO.push({a:'del',items:ERASED});REDO=[];nbDirty();renderBar()}ERASED=null;return}
+  if(!CUR)return;PG.s.push(CUR);UNDO.push({a:'add',s:CUR});REDO=[];const ctx=cM().getContext('2d');drawStroke(ctx,CUR,SC);CUR=null;const l=cL().getContext('2d');l.setTransform(1,0,0,1,0,0);l.clearRect(0,0,cL().width,cL().height);nbDirty();renderBar()}
+function liveDraw(){const l=cL().getContext('2d');l.setTransform(1,0,0,1,0,0);l.clearRect(0,0,cL().width,cL().height);l.setTransform(DPR,0,0,DPR,0,0);drawStroke(l,CUR,SC)}
+function eraseAt(q){const r=14;let hit=false;for(let i=PG.s.length-1;i>=0;i--){const p=PG.s[i].p;for(let j=0;j<p.length;j+=3){if(Math.hypot(p[j]-q[0],p[j+1]-q[1])<r+PG.s[i].w/2){ERASED.push([i,PG.s[i]]);PG.s.splice(i,1);hit=true;break}}}if(hit)redraw()}
+function nbUndo(){const op=UNDO.pop();if(!op)return;if(op.a==='add'){PG.s.splice(PG.s.lastIndexOf(op.s),1)}else{op.items.slice().reverse().forEach(([i,s])=>PG.s.splice(i,0,s))}REDO.push(op);redraw();nbDirty()}
+function nbRedo(){const op=REDO.pop();if(!op)return;if(op.a==='add')PG.s.push(op.s);else op.items.forEach(([i,s])=>{const k=PG.s.indexOf(s);if(k>=0)PG.s.splice(k,1)});UNDO.push(op);redraw();nbDirty()}
+function nbDirty(){PG.u=Date.now();$('#nbSave').textContent=X('…','…','…');clearTimeout(nbSaveT);nbSaveT=setTimeout(nbFlush,700)}
+async function nbFlush(){clearTimeout(nbSaveT);if(!PG)return;await NDB.put(PG);$('#nbSave').textContent=X('Enregistré','Saved','Guardado');logAct(0,'note')}
+{const l=$('#nbL');l.addEventListener('pointerdown',onDown);l.addEventListener('pointermove',onMove);l.addEventListener('pointerup',onUp);l.addEventListener('pointercancel',onUp);l.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')onUp()})}
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&PG)nbFlush()});
+window.__nb=()=>({n:PG?PG.s.length:0,pen:PENSEEN});
+document.addEventListener('keydown',e=>{if(location.hash!=='#cahiers'||!PG||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?nbRedo():nbUndo();renderBar()}});
+
+/* ---------- export et Pacha IA ---------- */
+function pageCanvas(p,sc=1.6){const c=document.createElement('canvas');c.width=PW*sc;c.height=PH*sc;const ctx=c.getContext('2d');paper(ctx,p,sc);p.s.forEach(s=>drawStroke(ctx,s,sc));return c}
+$('#nbPng').addEventListener('click',async()=>{await nbFlush();pageCanvas(PG,2).toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`cahier-${NB.k}-ch${NB.ch+1}-p${chPages().indexOf(PG)+1}.png`;document.body.appendChild(a);a.click();a.remove()},'image/png')});
+$('#nbPdf').addEventListener('click',async()=>{await nbFlush();const pages=NBPAGES.filter(p=>p.s.length).sort((a,b)=>a.ch-b.ch||a.n-b.n);if(!pages.length){toast(X('Ce cahier est encore vide.','This notebook is still empty.','Cuaderno vacío.'));return}
+  $('#nbPrint').innerHTML=`<h1 class="serif">${esc(nbName(NB.k))}</h1>`+pages.map(p=>`<img src="${pageCanvas(p,1.4).toDataURL('image/jpeg',.9)}" alt="">`).join('');document.body.classList.add('printnb');setTimeout(()=>{window.print();setTimeout(()=>document.body.classList.remove('printnb'),500)},150)});
+$('#nbAsk').addEventListener('click',async e=>{await nbFlush();if(!PG.s.length){$('#nbAI').innerHTML=`<p class="warn">${esc(X('Écris d’abord quelque chose sur la page.','Write something on the page first.','Escribe algo primero.'))}</p>`;return}
+  if(typeof canFiles==='function'&&!canFiles()&&!S){$('#nbAI').innerHTML=`<p class="warn">${esc(X('Pour que Pacha IA lise ton écriture, il faut Google Gemini ou Claude dans Pacha IA ⚙ (ou le site Netlify).','For Pacha IA to read your handwriting, use Google Gemini or Claude in Pacha IA ⚙ (or the Netlify site).','Usa Gemini o Claude en Pacha IA ⚙.'))}</p>`;return}
+  const blob=await new Promise(r=>pageCanvas(PG,1.2).toBlob(r,'image/jpeg',.85)),file=new File([blob],'page.jpg',{type:'image/jpeg'});
+  const chap=nbChapters(NB.k)[NB.ch],subj=NB.k==='libre'?'any subject':(SUBJ.find(x=>x.id===NB.k)||{en:nbName(NB.k)}).en;
+  const r=await ask(`The attached image is a page of a student's handwritten notes (written with an Apple Pencil) for IB ${subj}, chapter: "${chap}". 1) Briefly say what the page covers (a short transcription of the key points). 2) Point out any errors, confusions or missing key ideas compared with what the IB expects for this topic. 3) Give one tip to make these notes more useful for revision. 4) Then write 3 to 5 flashcards drawn from the page, each on its own line exactly as: CARTE: <question> :: <answer>. ${LANGLINE()}`,$('#nbAI'),{btn:e.currentTarget,images:[file],indic:true});
+  if(r){const cards=[...r.matchAll(/CARTE\s*:\s*(.+?)\s*::\s*(.+)/g)].map(m=>[m[1].trim(),m[2].trim()]);
+    if(cards.length&&typeof addUCard==='function')$('#nbAI').insertAdjacentHTML('beforeend',`<div class="row" style="margin-top:10px"><button class="btn pri" id="nbCards" data-n="${cards.length}">${ico('bulb')}${X(`Ajouter ces ${cards.length} flashcards à mes révisions`,`Add these ${cards.length} flashcards to my reviews`,`Añadir ${cards.length} tarjetas`)}</button></div>`),NB._cards=cards}});
+$('#nbAI').addEventListener('click',e=>{const b=e.target.closest('#nbCards');if(!b||!NB||!NB._cards)return;const s=NB.k==='libre'?'eco':NB.k;NB._cards.forEach(c=>addUCard(CO[s]?s:'eco',c[0],c[1],X('Mon cahier','My notebook','Mi cuaderno')+' · '+nbChapters(NB.k)[NB.ch]));b.disabled=true;b.textContent='✓ '+X('Ajoutées','Added','Añadidas');NB._cards=null});
+
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;$('#installBtn').hidden=false});
@@ -2864,5 +3050,6 @@ initMath();renderFns();applyLang();route();
 }
 
 </script>
+<div id="nbPrint"></div>
 </body>
 </html>
