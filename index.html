@@ -439,6 +439,12 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .netoff{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:90;background:var(--ink);color:var(--bg);font-size:12px;padding:5px 12px;border-radius:99px}
 @media (max-width:640px){.wkrow{flex-direction:column;align-items:stretch}.wkside{justify-items:start;grid-auto-flow:column;align-items:center;justify-content:start;gap:10px}.cdrow{grid-template-columns:1fr auto 52px}}
 .typing i{display:inline-block;animation:tdot 1.2s infinite;font-style:normal;font-weight:700}.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}@keyframes tdot{0%,60%,100%{opacity:.2}30%{opacity:1}}
+#botVoice.on{background:var(--acc);color:#fff;border-radius:8px}
+#botMic.rec,#orAnsMic.rec,#orRecBtn.rec{background:#c0392b;color:#fff;border-color:#c0392b;animation:recp 1.2s infinite}
+@keyframes recp{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}50%{box-shadow:0 0 0 8px rgba(192,57,43,0)}}
+.bm.a{position:relative}.bspk{display:inline-grid;place-items:center;width:28px;height:28px;margin-top:6px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer}.bspk svg{width:15px;height:15px}.bspk.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.orclockbox{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.orclock{font-family:var(--serif,Georgia,serif);font-size:56px;font-weight:700;letter-spacing:.02em;line-height:1}.orclock.late{color:#c0392b}
+.ordia{display:grid;gap:8px;max-height:420px;overflow:auto}.ordia .bm{max-width:88%}.ordia .bm.u{justify-self:end}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -461,6 +467,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
     <a href="#devoirs" data-ic="pen"><span data-i="n_hw">Devoirs</span></a>
     <a href="#coeur" data-ic="doc"><span data-i="n_core">IA · TOK · EE</span></a>
     <a href="#travaux" data-ic="layers"><span data-i="n_works">Mes travaux</span></a>
+    <a href="#oral" data-ic="mic"><span data-i="n_oral">Préparer un oral</span></a>
     <div class="grp" data-i="g_perf">Performance</div>
     <a href="#perf" data-ic="graph"><span data-i="n_perf">Mes performances</span></a>
     <div class="grp" data-i="g_tools">Tools · Outils</div>
@@ -574,6 +581,26 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
       </div>
     </div>
   </div>
+</div></section>
+
+<!-- ORAL -->
+<section class="view" id="v-oral"><div class="phead"><div class="band"><span class="picon" data-ico="mic"></span><div><h1 data-i="n_oral">Préparer un oral</h1><p data-i="or_lead">Prépare, entraîne-toi à voix haute, réponds aux questions de l’examinateur et reçois un retour, comme le jour J.</p></div></div></div>
+<div class="band stackv">
+  <div class="panel"><div class="chips" id="orTypes"></div><div id="orInfo" style="margin-top:10px"></div><p class="small muted" data-i="or_int" style="margin:10px 0 0">Ton oral doit rester le tien.</p></div>
+  <div class="panel stackv"><h2 data-i="or_s1">1. Préparer ma structure</h2><div id="orFields" class="stackv"></div>
+    <div class="row"><button class="btn pri" id="orPlanGo" data-i="or_plan">Organiser mes idées avec Pacha</button><button class="btn" id="orPlanSpeak" data-i="or_listen">Écouter</button></div><div class="ai-out ai-box" id="orPlan"></div></div>
+  <div class="panel stackv"><h2 data-i="or_s2">2. M’entraîner à voix haute</h2><p class="small muted" data-i="or_s2t" style="margin:0"></p>
+    <div class="orclockbox"><div class="orclock" id="orClock">00:00</div><div class="chips" id="orPh"></div></div>
+    <div class="row"><button class="btn pri" id="orStart">Démarrer</button><button class="btn" id="orRecBtn"><span data-i="or_mic">Micro</span></button><button class="btn" id="orNext" data-i="or_next">Partie suivante</button><button class="btn" id="orReset" data-i="or_reset">Remettre à zéro</button></div>
+    <p class="small warn" id="orSR" style="margin:0"></p>
+    <label class="f"><span data-i="or_tr">Ce que tu as dit</span><textarea id="orTr" style="min-height:160px"></textarea></label>
+    <div class="row" id="orStats"></div>
+    <span class="small muted" id="orAudioL" hidden data-i="or_rel">Réécoute-toi</span><audio id="orAudio" controls hidden style="width:100%"></audio></div>
+  <div class="panel stackv"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0" data-i="or_s3">3. Questions de l’examinateur</h2><button class="btn sm" id="orDiaNew" data-i="or_dianew">Recommencer</button></div>
+    <div id="orDia" class="ordia"></div>
+    <div class="row"><button class="btn pri" id="orDiaGo">Commencer l’échange</button></div>
+    <div class="botin" style="padding:0;border:0"><textarea id="orAns" rows="2" data-ip="or_ans"></textarea><button class="btn" id="orAnsMic" style="min-width:46px;padding:0 10px" aria-label="Micro"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button class="btn" id="orAnsGo" data-i="or_send">Envoyer</button></div></div>
+  <div class="panel stackv"><h2 data-i="or_s4">4. Mon retour</h2><div class="row"><button class="btn pri" id="orFbGo" data-i="or_fb">Évaluer ma prestation</button><button class="btn" id="orFbSpeak" data-i="or_listen">Écouter</button></div><div class="ai-out ai-box" id="orFb"></div></div>
 </div></section>
 
 <!-- MES TRAVAUX -->
@@ -830,10 +857,10 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 </div>
 
 <nav class="mtabs" id="mTabs"><a href="#accueil"><span data-ico2="home"></span><b data-i="n_home">Accueil</b></a><a href="#cours"><span data-ico2="book"></span><b data-i="n_learn">Learn</b></a><a href="#reviser"><span data-ico2="bulb"></span><b data-i="n_prac">Practice</b></a><a href="#matieres"><span data-ico2="target"></span><b data-i="n_exam">Exam</b></a><button data-more><span data-ico2="grid"></span><b data-i="n_more">Plus</b></button></nav>
-<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#cahiers"><span data-ico2="pen"></span><b data-i="n_nb">Mes cahiers</b></a><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
+<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#cahiers"><span data-ico2="pen"></span><b data-i="n_nb">Mes cahiers</b></a><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#oral"><span data-ico2="mic"></span><b data-i="n_oral">Préparer un oral</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
 <button id="botFab" aria-expanded="false" aria-controls="bot"></button>
 <section id="bot" aria-label="Pacha IA">
-  <div class="bothead"><span class="owlmark" style="width:42px;height:42px;display:block"></span><div><b>Pacha IA</b><small data-i="bot_sub">Ton assistant d’études, disponible partout dans l’app</small></div><button id="botSet" title="Réglages">⚙</button><button id="botNew" title="Nouvelle conversation">↺</button><button id="botX" aria-label="Fermer">✕</button></div>
+  <div class="bothead"><span class="owlmark" style="width:42px;height:42px;display:block"></span><div><b>Pacha IA</b><small data-i="bot_sub">Ton assistant d’études, disponible partout dans l’app</small></div><button id="botVoice" title="Voix">🔊</button><button id="botSet" title="Réglages">⚙</button><button id="botNew" title="Nouvelle conversation">↺</button><button id="botX" aria-label="Fermer">✕</button></div>
   <div id="setBox" hidden style="padding:14px;border-bottom:1px solid var(--line);gap:10px">
     <b data-i="set_t" class="serif">Réglages de l’IA</b>
     <label class="f"><span data-i="set_p">Fournisseur</span><select id="setP"><option value="gemini">Google Gemini (gratuit)</option><option value="groq">Groq (gratuit)</option><option value="anthropic">Anthropic Claude (payant)</option></select></label>
@@ -846,7 +873,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
   <div id="botMsgs"></div>
   <p class="warn" id="botWarn" hidden></p>
   <p class="small muted" id="botFN" style="margin:0 14px"></p>
-  <div class="botin"><button class="btn" id="botAtt" aria-label="Joindre une photo ou un PDF" style="min-width:46px;padding:0 10px">📎</button><input type="file" id="botFile" accept="image/*,application/pdf" multiple hidden><textarea id="botIn" data-ip="bot_ph" rows="1"></textarea><button class="btn pri" id="botGo" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg></button></div>
+  <div class="botin"><button class="btn" id="botAtt" aria-label="Joindre une photo ou un PDF" style="min-width:46px;padding:0 10px">📎</button><input type="file" id="botFile" accept="image/*,application/pdf" multiple hidden><textarea id="botIn" data-ip="bot_ph" rows="1"></textarea><button class="btn" id="botMic" aria-label="Parler" style="min-width:46px;padding:0 10px"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button class="btn pri" id="botGo" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg></button></div>
 </section>
 <div class="toast" id="toast"></div>
 
@@ -2466,6 +2493,7 @@ const LOC=()=>({fr:'fr-FR',en:'en-GB',es:'es-ES'})[lang];
 
 /* ---------- textes de l'interface ---------- */
 const T={
+n_oral:['Préparer un oral','Oral practice','Preparar un oral'],or_lead:['Prépare, entraîne-toi à voix haute, réponds aux questions de l’examinateur et reçois un retour, comme le jour J.','Prepare, practise aloud, answer the examiner’s questions and get feedback, just like on the day.','Prepara, practica en voz alta, responde al examinador y recibe comentarios.'],or_s1:['1. Préparer ma structure','1. Build my structure','1. Preparar mi estructura'],or_plan:['Organiser mes idées avec Pacha','Organise my ideas with Pacha','Organizar mis ideas con Pacha'],or_listen:['Écouter','Listen','Escuchar'],or_s2:['2. M’entraîner à voix haute','2. Practise aloud','2. Practicar en voz alta'],or_s2t:['Lance le chrono et parle : Sapiens écrit ce que tu dis et t’enregistre pour que tu puisses te réécouter.','Start the timer and speak: Sapiens writes down what you say and records you so you can listen back.','Inicia el cronómetro y habla: Sapiens transcribe y te graba.'],or_next:['Partie suivante','Next part','Siguiente parte'],or_reset:['Remettre à zéro','Reset','Reiniciar'],or_mic:['Micro','Mic','Micro'],or_tr:['Ce que tu as dit (tu peux corriger)','What you said (you can edit)','Lo que dijiste (puedes corregir)'],or_rel:['Réécoute-toi','Listen back','Escúchate'],or_s3:['3. Questions de l’examinateur, en direct','3. Live examiner questions','3. Preguntas del examinador en directo'],or_ans:['Ta réponse (parle ou écris)','Your answer (speak or type)','Tu respuesta'],or_send:['Envoyer','Send','Enviar'],or_dianew:['Recommencer','Restart','Reiniciar'],or_s4:['4. Mon retour','4. My feedback','4. Mi evaluación'],or_fb:['Évaluer ma prestation','Assess my performance','Evaluar mi actuación'],or_int:['Ton oral doit rester le tien : Pacha t’aide à structurer tes propres idées et te pose des questions, il n’écrit pas ton exposé.','Your oral must stay your own: Pacha helps you structure your own ideas and asks you questions; it does not write your talk.','Tu oral debe ser tuyo: Pacha te ayuda a estructurar tus ideas.'],
 pr_tone:['Ton de Pacha IA','Pacha IA’s tone','Tono de Pacha IA'],pr_tone_h:['Naturel, comme une vraie personne','Natural, like a real person','Natural, como una persona real'],pr_tone_s:['Structuré (titres et listes)','Structured (headings and lists)','Estructurado (títulos y listas)'],
 n_nb:['Mes cahiers','My notebooks','Mis cuadernos'],nb_lead:['Un cahier par matière, organisé selon le plan du programme. Écris à la main avec ton Apple Pencil.','One notebook per subject, organised by the syllabus. Write by hand with your Apple Pencil.','Un cuaderno por asignatura. Escribe a mano con tu Apple Pencil.'],nb_back:['← Mes cahiers','← My notebooks','← Mis cuadernos'],nb_plan:['Plan du programme','Syllabus outline','Plan del programa'],nb_add:['+ Page','+ Page','+ Página'],nb_ask:['Pacha IA : vérifier ma page','Pacha IA: check my page','Pacha IA: revisar mi página'],nb_pdf:['Cahier en PDF','Notebook as PDF','Cuaderno en PDF'],
 n_works:['Mes travaux','My coursework','Mis trabajos'],wk_lead:['IA, EE, TOK : échéances, brouillons et retour de Pacha IA critère par critère.','IA, EE, TOK: deadlines, drafts and criterion-by-criterion feedback from Pacha IA.','IA, Monografía, TdC: fechas, borradores y comentarios por criterio.'],wk_list:['Mes travaux évalués','My assessed work','Mis trabajos evaluados'],wk_seed:['Ajouter mes travaux IB','Add my IB coursework','Añadir mis trabajos IB'],wk_new:['+ Nouveau travail','+ New piece','+ Nuevo trabajo'],wk_t:['Titre ou question de recherche','Title or research question','Título o pregunta'],wk_due:['Date de remise','Due date','Fecha de entrega'],wk_st:['Étape','Stage','Etapa'],wk_txt:['Mon brouillon (enregistré automatiquement)','My draft (saved automatically)','Mi borrador (guardado automático)'],wk_notes:['Notes, commentaires du professeur, sources','Notes, teacher comments, sources','Notas, comentarios, fuentes'],wk_ai:['Retour de Pacha IA critère par critère','Pacha IA feedback by criterion','Comentarios por criterio'],wk_next:['Mes prochaines étapes','My next steps','Mis próximos pasos'],wk_close:['Fermer','Close','Cerrar'],wk_int:['Pacha IA donne un retour mais n’écrit pas ton travail à ta place : le travail évalué doit rester le tien.','Pacha IA gives feedback but does not write your work: assessed work must stay your own.','Pacha IA comenta pero no escribe tu trabajo.'],
@@ -2574,9 +2602,9 @@ d1:['Facile','Easy','Fácil'],d2:['Moyen','Medium','Media'],d3:['Difficile (nive
 const t=k=>{const a=T[k];return a?L(a):k};
 const LANGN=()=>['French','English','Spanish'][LI()];
 const TONE=()=>store.get('tone','human');
-const HUMANV=()=>`VOICE: write like a real person — a friendly, sharp tutor who knows this student — not like a machine. Natural sentences, the way you would actually say it out loud; warm, direct, sometimes a little humour. Never open with filler ("Great question!", "Certainly!", "Of course!", "As an AI…"), never announce what you are about to do, never end with a generic "I hope this helps" or "Feel free to ask". Get to the point in the first sentence. Use headings, lists or tables only when the content really needs steps, a comparison or a structure; otherwise write in short paragraphs.`;
-const LANGLINE=()=>`Write your whole answer in ${LANGN()}. ${TONE()==='human'?HUMANV()+' Markdown is allowed (bold for key terms, lists or ## headings when useful).':'Format with Markdown: short headings (##), bullet lists, **bold** for key terms, tables where useful.'} Never use LaTeX: write maths in plain text with Unicode symbols (x², √, π, ∫, ≤, →, Δ).`;
-const CHATLINE=()=>`Write in ${LANGN()}. ${TONE()==='human'?`This is a chat, so talk like a human in a chat: match the length to the message — a quick question or a "merci" gets one to three sentences; a real explanation gets a few short paragraphs, with a list only if there are genuinely steps. Use contractions and everyday words (in French, tutoie the student; in Spanish, tutea). React to what they actually said: if they sound stressed, tired or discouraged, acknowledge it in a sentence before helping. Use their first name now and then (not every message). When something is unclear, ask one short question instead of guessing at length. You may end with one natural follow-up question when it really helps the student move on, never a menu of options. No filler openers, no "As an AI", no robotic sign-offs. Plain-text maths with Unicode symbols, no LaTeX.`:'Format with Markdown: short headings, bullet lists, bold key terms. Plain-text maths with Unicode symbols, no LaTeX.'}`;
+const HUMANV=()=>`VOICE — write like a real person, a friendly and sharp tutor who knows this student, so that nobody could tell the text was generated. Write flowing paragraphs where each sentence leads into the next with natural linking words (in French: alors, du coup, en fait, d’ailleurs, par contre, c’est pour ça que, bref; in English: so, actually, that’s why, anyway, mind you; in Spanish: entonces, o sea, de hecho, por eso, en cambio). Vary sentence length: some short, some longer. Explain the way you would out loud, with an everyday example when it helps. Avoid the tell-tale signs of AI text: no bullet-point lists unless there are real steps or the student asked for a list, no headings in short answers, bold at most once or twice, no em dashes to chain ideas, no "Firstly / Secondly / In conclusion" scaffolding, no symmetrical lists of three adjectives, no words like "crucial", "essentiel", "delve", "plonger", "n’hésite pas", "il est important de noter", no filler opener ("Great question!", "Certainly!", "Bien sûr !"), no announcing what you will do, no closing like "I hope this helps" or "Feel free to ask". Start with the point itself.`;
+const LANGLINE=()=>`Write your whole answer in ${LANGN()}. ${TONE()==='human'?HUMANV()+' For long explanations you may use a few ## headings to separate parts, but the text under them must stay flowing prose.':'Format with Markdown: short headings (##), bullet lists, **bold** for key terms, tables where useful.'} Never use LaTeX: write maths in plain text with Unicode symbols (x², √, π, ∫, ≤, →, Δ).`;
+const CHATLINE=()=>`Write in ${LANGN()}. ${TONE()==='human'?HUMANV()+` This is a chat, so talk like a human in a chat: match the length to the message — a quick question or a "merci" gets one to three sentences; a real explanation gets a few short paragraphs, with a list only if there are genuinely steps. Use contractions and everyday words (in French, tutoie the student; in Spanish, tutea). React to what they actually said: if they sound stressed, tired or discouraged, acknowledge it in a sentence before helping. Use their first name now and then (not every message). When something is unclear, ask one short question instead of guessing at length. You may end with one natural follow-up question when it really helps the student move on, never a menu of options. No filler openers, no "As an AI", no robotic sign-offs. Plain-text maths with Unicode symbols, no LaTeX.`:'Format with Markdown: short headings, bullet lists, bold key terms. Plain-text maths with Unicode symbols, no LaTeX.'}`;
 
 /* ---------- matières (curriculum en vigueur pour mai 2027) ---------- */
 const SUBJ=[
@@ -2752,8 +2780,8 @@ function quiz(el,qs){
 const QJSON='Return ONLY JSON of this shape: {"questions":[{"passage":"string (empty if none)","q":"string","choices":["A text","B text","C text","D text"],"answer":0,"explain":"string: why the right answer is right and why each distractor is wrong"}]}. "answer" is the 0-based index of the single correct choice. Plain text, Unicode maths, no LaTeX.';
 
 /* ---------- navigation et langue ---------- */
-const VIEWS=['accueil','cours','cahiers','reviser','focus','intel','perf','profil','travaux','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
-function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();if(v==='perf'&&typeof renderPerf==='function')renderPerf();if(typeof renderV6==='function')renderV6();if(v==='cahiers'&&typeof renderCahiers==='function')renderCahiers();else if(typeof nbFlush==='function'){document.body.classList.remove('nbfull');nbFlush()}if(v==='profil'&&typeof renderProfil==='function')renderProfil();if(v==='devoirs'&&typeof renderHW==='function')renderHW();window.scrollTo(0,0)}
+const VIEWS=['accueil','cours','cahiers','oral','reviser','focus','intel','perf','profil','travaux','matieres','coeur','planning','gdc','sat','devoirs','similitudes'];
+function route(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'accueil';$$('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));$$('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v));if(v==='gdc')requestAnimationFrame(draw);if(v==='accueil')renderHome();if(v==='cours')renderCours();if(v==='focus'&&typeof renderFocus==='function')renderFocus();if(v==='perf'&&typeof renderPerf==='function')renderPerf();if(typeof renderV6==='function')renderV6();if(v==='oral'&&typeof renderOral==='function')renderOral();if(v!=='oral'&&typeof orStop==='function'&&OPH&&OPH.run)orStop();if(v==='cahiers'&&typeof renderCahiers==='function')renderCahiers();else if(typeof nbFlush==='function'){document.body.classList.remove('nbfull');nbFlush()}if(v==='profil'&&typeof renderProfil==='function')renderProfil();if(v==='devoirs'&&typeof renderHW==='function')renderHW();window.scrollTo(0,0)}
 window.addEventListener('hashchange',route);
 function applyLang(){
   document.documentElement.lang=lang;applyCourseLang();applyBankLang();if(typeof rebuildCards==='function')rebuildCards();
@@ -2765,6 +2793,7 @@ $$('.langs').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest(
 
 /* ---------- icônes ---------- */
 const IC={
+mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h7"/>',
 target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
 doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13l2 2 4-4"/>',
@@ -3297,7 +3326,7 @@ ${CHATLINE()}`}
 function botRender(){
   const box=$('#botMsgs');
   box.innerHTML=(BOT.length?'':`<div class="bm a"><p>${esc(PROF&&PROF.name?t('bot_hello').replace(/^(Salut|Hey|¡Hola)( !|!)?/,(m0,a)=>a+' '+PROF.name+(lang==='fr'?' !':'!')):t('bot_hello'))}</p></div><div class="chips" style="margin:4px 0 8px">${BOT_SUG.map((x,i)=>`<button class="chip" data-sug="${i}">${esc(L(x))}</button>`).join('')}</div>`)+
-  BOT.map(m=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)}</div>`).join('');
+  BOT.map((m,i)=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)+(VX.tts?`<button class="bspk" data-spk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:'')}</div>`).join('');
   box.scrollTop=box.scrollHeight;
 }
 function botStatus(){const ok=aiOK();$('#botWarn').hidden=ok;$('#botWarn').textContent=t('noai');$('#aiNote')&&($('#aiNote').textContent=ok?'':t('noai'))}
@@ -3309,7 +3338,7 @@ async function botSend(text){
   while(hist.length&&hist[0].role!=='user')hist.shift();
   hist[0]={role:'user',content:botSystem()+'\n\n---\nSTUDENT: '+hist[0].content};
   const r=await ask(hist,out,{btn:$('#botGo'),tier:'default',images:botFiles,notag:true,typing:true});botFiles=[];$('#botFN').textContent='';
-  if(r){BOT.push({role:'assistant',content:r});store.set('bot',BOT.slice(-30))}else BOT.pop();
+  if(r){BOT.push({role:'assistant',content:r});store.set('bot',BOT.slice(-30));botRender();if(typeof onBotReply==='function')onBotReply(r)}else BOT.pop();
   $('#botMsgs').scrollTop=$('#botMsgs').scrollHeight;
 }
 $('#botFab').addEventListener('click',()=>{const o=$('#bot').classList.toggle('open');$('#botFab').setAttribute('aria-expanded',o);if(o){botRender();setTimeout(()=>$('#botIn').focus(),50)}});
@@ -3520,7 +3549,7 @@ window.addEventListener('hashchange',()=>{mTabsSync();const v=location.hash.slic
 function renderV3(){renderDash();examTabs();revTabs();mTabsSync();$$('#mTabs [data-ico2]').forEach(e=>e.innerHTML=ico(e.dataset.ico2));$$('#mSheet [data-ico2]').forEach(e=>e.innerHTML=ico(e.dataset.ico2))}
 
 /* =================== V4 : ambiance & motivation =================== */
-Object.assign(IC,{user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>',home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',grid:'<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>',play:'<path d="M7 4l13 8-13 8z"/>',pause:'<path d="M8 5v14M16 5v14"/>',print:'<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',fire:'<path d="M12 3c2 5 7 7 7 13a7 7 0 0 1-14 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-7 0-10z"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'});
+Object.assign(IC,{mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>',home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',grid:'<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>',play:'<path d="M7 4l13 8-13 8z"/>',pause:'<path d="M8 5v14M16 5v14"/>',print:'<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',fire:'<path d="M12 3c2 5 7 7 7 13a7 7 0 0 1-14 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-7 0-10z"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9 17h6"/>',layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'});
 $$('#nav a[data-ic]').forEach(a=>a.insertAdjacentHTML('afterbegin',ico(a.dataset.ic)));
 
 /* ---------- mascottes ---------- */
@@ -4059,6 +4088,123 @@ $('#nbAsk').addEventListener('click',async e=>{await nbFlush();if(!PG.s.length){
     if(cards.length&&typeof addUCard==='function')$('#nbAI').insertAdjacentHTML('beforeend',`<div class="row" style="margin-top:10px"><button class="btn pri" id="nbCards" data-n="${cards.length}">${ico('bulb')}${X(`Ajouter ces ${cards.length} flashcards à mes révisions`,`Add these ${cards.length} flashcards to my reviews`,`Añadir ${cards.length} tarjetas`)}</button></div>`),NB._cards=cards}});
 $('#nbAI').addEventListener('click',e=>{const b=e.target.closest('#nbCards');if(!b||!NB||!NB._cards)return;const s=NB.k==='libre'?'eco':NB.k;NB._cards.forEach(c=>addUCard(CO[s]?s:'eco',c[0],c[1],X('Mon cahier','My notebook','Mi cuaderno')+' · '+nbChapters(NB.k)[NB.ch]));b.disabled=true;b.textContent='✓ '+X('Ajoutées','Added','Añadidas');NB._cards=null});
 
+/* ================= Sapiens v9 : voix (écoute + parole) et coach d’oral ================= */
+const VX={sr:window.SpeechRecognition||window.webkitSpeechRecognition||null,tts:'speechSynthesis' in window};
+let VOICE_ON=store.get('voiceon',false),VLOOP=false,REC=null;
+const vcode=l=>({fr:'fr-FR',en:'en-GB',es:'es-ES'})[l||lang]||'fr-FR';
+function pickVoice(l){if(!VX.tts)return null;const vs=speechSynthesis.getVoices(),lc=(l||lang);const c=vs.filter(v=>(v.lang||'').toLowerCase().replace('_','-').startsWith(lc));
+  const good=/premium|enhanced|natural|neural|siri|google|amélie|amelie|thomas|audrey|daniel|serena|kate|arthur|mónica|monica|jorge|paulina|marisol/i;
+  return c.find(v=>good.test(v.name)&&v.lang.replace('_','-')===vcode(lc))||c.find(v=>good.test(v.name))||c.find(v=>v.lang.replace('_','-')===vcode(lc))||c[0]||null}
+if(VX.tts){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}
+function speakable(s){return String(s||'').replace(/```[\s\S]*?```/g,' ').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/^#{1,6}\s*/gm,'').replace(/\*\*|__|\*|`|>/g,'').replace(/^\s*[-•]\s+/gm,'').replace(/^\s*\d+[.)]\s+/gm,'').replace(/\|/g,', ').replace(/→/g,', donc ').replace(/[–—]/g,', ').replace(/\n{2,}/g,'. ').replace(/\n/g,' ').replace(/\s{2,}/g,' ').trim()}
+function unlockTTS(){if(!VX.tts||unlockTTS.done)return;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u);unlockTTS.done=true}catch(e){}}
+function speak(text,o={}){if(!VX.tts){o.onend&&o.onend();return}speechSynthesis.cancel();const l=o.lang||lang,v=pickVoice(l),txt=speakable(text);
+  const parts=(txt.match(/[^.!?…]+[.!?…]*\s*/g)||[txt]).reduce((a,s)=>{if(a.length&&(a[a.length-1]+s).length<200)a[a.length-1]+=s;else a.push(s);return a},[]).filter(x=>x.trim());
+  if(!parts.length){o.onend&&o.onend();return}
+  parts.forEach((p,i)=>{const u=new SpeechSynthesisUtterance(p);u.lang=vcode(l);if(v)u.voice=v;u.rate=store.get('vrate',1);u.pitch=1;if(i===parts.length-1)u.onend=()=>o.onend&&o.onend();speechSynthesis.speak(u)})}
+function stopSpeak(){if(VX.tts)speechSynthesis.cancel()}
+function dictate(o={}){if(!VX.sr)return null;stopDictate();const r=new VX.sr();r.lang=vcode(o.lang);r.interimResults=true;r.continuous=!!o.continuous;r.maxAlternatives=1;let fin='';
+  r.onresult=e=>{let interim='';for(let i=e.resultIndex;i<e.results.length;i++){const tx=e.results[i][0].transcript;if(e.results[i].isFinal)fin+=tx.trim()+' ';else interim+=tx}o.onText&&o.onText(fin,interim)};
+  r.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){r._keep=false;toast(X('Autorise le micro pour Sapiens dans les réglages du navigateur.','Allow the microphone for Sapiens in your browser settings.','Permite el micrófono en los ajustes del navegador.'))}};
+  r.onend=()=>{if(r._keep&&REC===r){try{r.start();return}catch(e){}}if(REC===r)REC=null;o.onEnd&&o.onEnd(fin.trim())};
+  r._keep=!!o.continuous;REC=r;try{r.start()}catch(e){REC=null;return null}return r}
+function stopDictate(){if(REC){const r=REC;r._keep=false;try{r.stop()}catch(e){}}}
+const MICSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+const SPKSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>';
+
+/* ---------- Pacha IA à la voix ---------- */
+function botVoiceUI(){const b=$('#botVoice');if(b){b.classList.toggle('on',VOICE_ON);b.title=VOICE_ON?X('Pacha lit ses réponses à voix haute','Pacha reads replies aloud','Pacha lee sus respuestas'):X('Activer la voix de Pacha','Turn on Pacha’s voice','Activar la voz')}
+  const m=$('#botMic');if(m){m.hidden=false;m.title=VX.sr?X('Parler à Pacha','Talk to Pacha','Hablar con Pacha'):X('Dictée : utilise le micro de ton clavier','Dictation: use your keyboard’s mic','Usa el micrófono del teclado')}}
+$('#botVoice').addEventListener('click',()=>{VOICE_ON=!VOICE_ON;store.set('voiceon',VOICE_ON);unlockTTS();if(!VOICE_ON){stopSpeak();VLOOP=false}botVoiceUI();
+  toast(VOICE_ON?`${ico('check')}<b>${X('Voix activée','Voice on','Voz activada')}</b> · ${X('touche le micro pour parler avec Pacha','tap the mic to talk with Pacha','toca el micro para hablar')}`:X('Voix coupée','Voice off','Voz desactivada'))});
+function botListen(){if(!VX.sr){$('#botIn').focus();toast(X('Ton navigateur ne gère pas la reconnaissance vocale : utilise la dictée du clavier (🎤).','Your browser has no speech recognition: use your keyboard dictation (🎤).','Usa el dictado del teclado (🎤).'));return}
+  if(REC){stopDictate();return}stopSpeak();unlockTTS();const base=$('#botIn').value?$('#botIn').value+' ':'';$('#botMic').classList.add('rec');
+  dictate({onText:(f,i)=>{$('#botIn').value=base+f+i},onEnd:fin=>{$('#botMic').classList.remove('rec');const txt=(base+fin).trim();if(txt&&VOICE_ON){VLOOP=true;botSend(txt)}}})}
+$('#botMic').addEventListener('click',botListen);
+$('#botGo').addEventListener('click',unlockTTS,true);
+function onBotReply(r){if(!VOICE_ON)return;speak(r,{onend:()=>{if(VLOOP&&$('#bot').classList.contains('open'))botListen()}})}
+$('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-spk]');if(!b)return;unlockTTS();const m=BOT[+b.dataset.spk];if(!m)return;if(b.classList.contains('on')){stopSpeak();b.classList.remove('on');return}$$('#botMsgs [data-spk].on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(m.content,{onend:()=>b.classList.remove('on')})});
+$('#botX').addEventListener('click',()=>{stopSpeak();stopDictate();VLOOP=false});
+
+/* ---------- coach d’oral ---------- */
+const ORALS={
+ 'fr-io':{n:['Français A : oral individuel','French A: individual oral','Francés A: oral individual'],a:'fr-io',l:'fr',
+   phases:[[['Exposé','Presentation','Exposición'],600],[['Questions de l’examinateur','Examiner’s questions','Preguntas del examinador'],300]],
+   info:['10 min d’exposé puis 5 min de questions. Un extrait d’œuvre littéraire et un extrait de texte non littéraire (40 lignes max chacun), reliés par un enjeu mondial. Tu as droit à un plan de 10 points maximum.','10 min presentation then 5 min of questions. One extract from a literary work and one from a non-literary text (40 lines max each), linked by a global issue. You may bring an outline of up to 10 bullet points.','10 min de exposición y 5 min de preguntas. Un fragmento literario y uno no literario (40 líneas máx.), unidos por un asunto global. Esquema de 10 puntos como máximo.'],
+   f:[['issue',['Enjeu mondial','Global issue','Asunto global']],['work',['Œuvre littéraire et extrait choisi','Literary work and chosen extract','Obra literaria y fragmento']],['text',['Texte non littéraire et extrait','Non-literary text and extract','Texto no literario y fragmento']],['ideas',['Mes idées, procédés repérés, citations','My ideas, techniques, quotations','Mis ideas, recursos, citas']]]},
+ 'en-io':{n:['English B: individual oral (SL)','English B: individual oral (SL)','English B: oral individual (NM)'],a:'en-io',l:'en',
+   phases:[[['Préparation','Preparation','Preparación'],900],[['Présentation du support','Presentation of the stimulus','Presentación del estímulo'],240],[['Discussion sur le support','Discussion of the stimulus','Conversación sobre el estímulo'],300],[['Discussion générale','General discussion','Conversación general'],360]],
+   info:['15 min de préparation avec deux images, puis 12 à 15 min : présentation (3–4 min), discussion sur l’image (4–5 min), discussion générale sur un autre thème (5–6 min). Tout se passe en anglais.','15 min preparation with two images, then 12–15 min: presentation (3–4 min), discussion of the image (4–5 min), general discussion of another theme (5–6 min).','15 min de preparación con dos imágenes y luego 12–15 min: presentación, conversación sobre la imagen y conversación general. Todo en inglés.'],
+   f:[['theme',['Thème (Identities, Experiences…)','Theme (Identities, Experiences…)','Tema']],['stim',['Décris l’image et sa légende','Describe the image and its caption','Describe la imagen y su pie']],['ideas',['Mes idées et exemples de pays anglophones','My ideas and examples from English-speaking countries','Mis ideas y ejemplos anglófonos']]]},
+ 'pres':{n:['Exposé ou présentation de classe','Class presentation','Presentación en clase'],a:null,l:null,
+   phases:[[['Présentation','Presentation','Presentación'],600],[['Questions','Questions','Preguntas'],300]],
+   info:['Pour un exposé en classe, un débat ou une présentation de groupe : Pacha t’aide à structurer, te chronomètre, puis te pose les questions du public.','For a class talk, debate or group presentation: Pacha helps you structure it, times you, then asks the audience’s questions.','Para una exposición o un debate en clase: Pacha te ayuda a estructurar, te cronometra y te hace las preguntas del público.'],
+   f:[['topic',['Sujet et consigne','Topic and task','Tema y consigna']],['aud',['Public, durée, ma partie','Audience, length, my part','Público, duración, mi parte']],['ideas',['Mes idées et exemples','My ideas and examples','Mis ideas y ejemplos']]]}};
+let OR=Object.assign({t:'fr-io',v:{},plan:'',tr:'',dia:[],fb:''},store.get('oral',{}));
+const saveOR=()=>store.set('oral',OR);
+const oL=()=>ORALS[OR.t].l||lang, oName=k=>L(ORALS[k].n);
+let OPH={i:0,left:0,iv:null,run:false,t0:0,spoke:0},MREC=null,MCH=[];
+function renderOral(){const o=ORALS[OR.t],a=o.a?ASSESS.find(x=>x.id===o.a):null;
+  $('#orTypes').innerHTML=Object.keys(ORALS).map(k=>`<button class="chip ${OR.t===k?'on':''}" data-ot="${k}">${esc(oName(k))}</button>`).join('');
+  $('#orInfo').innerHTML=`<p style="margin:0">${esc(L(o.info))}</p>${a?`<details style="margin-top:8px"><summary>${X('Critères d’évaluation','Assessment criteria','Criterios')}</summary>${critTable(a)}</details>`:''}`;
+  $('#orFields').innerHTML=o.f.map(f=>`<label class="f"><span>${esc(L(f[1]))}</span><textarea data-of="${f[0]}" style="min-height:${f[0]==='ideas'?120:60}px">${esc(OR.v[f[0]]||'')}</textarea></label>`).join('');
+  $('#orPlan').innerHTML=OR.plan?`${aiTag(false)}${md(OR.plan)}`:'';
+  $('#orTr').value=OR.tr||'';orWc();renderPhases();renderDia();$('#orFb').innerHTML=OR.fb?`${aiTag(true)}${md(OR.fb)}`:'';
+  $('#orSR').textContent=VX.sr?'':X('Ton navigateur ne transcrit pas la voix : utilise la dictée de ton clavier (🎤) dans la zone de texte, ou écris tes notes.','Your browser cannot transcribe speech: use your keyboard dictation (🎤) in the text box, or type your notes.','Tu navegador no transcribe la voz: usa el dictado del teclado.')}
+document.addEventListener('input',e=>{const f=e.target.closest('[data-of]');if(!f)return;OR.v[f.dataset.of]=f.value;saveOR()});
+$('#orTypes').addEventListener('click',e=>{const b=e.target.closest('[data-ot]');if(!b)return;orStop();OR={t:b.dataset.ot,v:{},plan:'',tr:'',dia:[],fb:''};saveOR();OPH={i:0,left:0,iv:null,run:false,t0:0,spoke:0};renderOral()});
+$('#orPlanGo').addEventListener('click',async e=>{const o=ORALS[OR.t];const given=o.f.map(f=>`${L(f[1])}: ${OR.v[f[0]]||'(empty)'}`).join('\n');
+  if(!o.f.some(f=>(OR.v[f[0]]||'').trim())){$('#orPlan').innerHTML=`<p class="warn">${esc(X('Note d’abord tes idées, même en vrac : Pacha les organise.','Jot down your ideas first, even roughly: Pacha will organise them.','Anota primero tus ideas.'))}</p>`;return}
+  const r=await ask(`You are an experienced IB teacher helping a student prepare: ${L(o.n)} (${o.a?ASSESS.find(x=>x.id===o.a).en:'class presentation'}). Format: ${o.phases.map(p=>p[0][1]+' '+Math.round(p[1]/60)+' min').join(', ')}.\nThe student's own material:\n${given}\n\nBuild a spoken-presentation STRUCTURE from the student's own ideas (do not invent their analysis or write their speech: this is assessed work). Give: the opening (how to hook and state the issue/thesis in one or two sentences, as advice), the parts in order with a target time for each and what to cover, the transitions to use between parts, and the closing. Then a draft of the 10-bullet-point outline card they are allowed to bring (keywords only, no sentences). Then point out what is missing or weak in their material and 3 questions they should be ready for. Write it as a teacher talking to the student. ${o.l?`Write the advice in ${LANGN()}, but keep any quoted wording or keywords for the card in ${o.l==='fr'?'French':'English'} (the language of the exam).`:''} ${LANGLINE()}`,$('#orPlan'),{btn:e.currentTarget});
+  if(r){OR.plan=r;saveOR()}});
+$('#orPlanSpeak').addEventListener('click',()=>{unlockTTS();if(OR.plan)speak(OR.plan)});
+/* minuteur par phases */
+function renderPhases(){const o=ORALS[OR.t];if(!OPH.left&&!OPH.run)OPH.left=o.phases[OPH.i]?o.phases[OPH.i][1]:0;
+  $('#orPh').innerHTML=o.phases.map((p,i)=>`<span class="tag ${i===OPH.i?'gold':''}">${esc(L(p[0]))} · ${Math.round(p[1]/60)} min</span>`).join('');
+  $('#orClock').textContent=fmtT(Math.max(0,OPH.left));$('#orClock').classList.toggle('late',OPH.left<=30&&OPH.run);
+  $('#orStart').textContent=OPH.run?X('Pause','Pause','Pausa'):X('Démarrer','Start','Empezar');$('#orRecBtn').classList.toggle('rec',!!REC&&OPH.run)}
+function orTick(){OPH.left--;if(OPH.left===60)toast(X('Plus qu’une minute pour cette partie','One minute left for this part','Queda un minuto'));if(OPH.left<=0){const o=ORALS[OR.t];if(OPH.i<o.phases.length-1){OPH.i++;OPH.left=o.phases[OPH.i][1];toast(`${ico('clock')}<b>${esc(L(o.phases[OPH.i][0]))}</b>`);if(VX.tts&&store.get('voiceon',false))speak(L(o.phases[OPH.i][0]),{lang:oL()})}else{orStop();toast(X('Temps écoulé','Time is up','Tiempo terminado'))}}renderPhases()}
+function orStart(){unlockTTS();if(OPH.run){clearInterval(OPH.iv);OPH.run=false;stopDictate();if(MREC&&MREC.state==='recording')MREC.pause();renderPhases();return}
+  OPH.run=true;OPH.t0=OPH.t0||Date.now();OPH.iv=setInterval(orTick,1000);orListen();orRecord();renderPhases()}
+function orStop(){clearInterval(OPH.iv);OPH.run=false;stopDictate();if(MREC&&MREC.state!=='inactive')MREC.stop();if(OPH.t0){OPH.spoke+=(Date.now()-OPH.t0)/1000;OPH.t0=0}}
+$('#orStart').addEventListener('click',orStart);
+$('#orNext').addEventListener('click',()=>{const o=ORALS[OR.t];if(OPH.i<o.phases.length-1){OPH.i++;OPH.left=o.phases[OPH.i][1];renderPhases()}});
+$('#orReset').addEventListener('click',()=>{orStop();OPH={i:0,left:0,iv:null,run:false,t0:0,spoke:0};renderPhases()});
+function orListen(){if(!VX.sr)return;const base=$('#orTr').value?$('#orTr').value.trim()+' ':'';dictate({lang:oL(),continuous:true,onText:(f,i)=>{$('#orTr').value=base+f+i;OR.tr=base+f;orWc()},onEnd:f=>{OR.tr=(base+f).trim();saveOR();renderPhases()}})}
+$('#orRecBtn').addEventListener('click',()=>{if(REC){stopDictate();renderPhases();return}orListen();renderPhases()});
+async function orRecord(){if(MREC&&MREC.state==='paused'){MREC.resume();return}if(!navigator.mediaDevices||!window.MediaRecorder||(MREC&&MREC.state==='recording'))return;
+  try{const st=await navigator.mediaDevices.getUserMedia({audio:true});MCH=[];MREC=new MediaRecorder(st);MREC.ondataavailable=e=>e.data.size&&MCH.push(e.data);
+    MREC.onstop=()=>{st.getTracks().forEach(t0=>t0.stop());const b=new Blob(MCH,{type:MREC.mimeType||'audio/mp4'});const a=$('#orAudio');a.src=URL.createObjectURL(b);a.hidden=false;$('#orAudioL').hidden=false};MREC.start(1000)}catch(e){}}
+$('#orTr').addEventListener('input',()=>{OR.tr=$('#orTr').value;saveOR();orWc()});
+const FILLERS={fr:/\b(euh+|heu+|bah|ben|genre|du coup|en fait|voilà|quoi)\b/gi,en:/\b(um+|uh+|er+|like|you know|basically|actually|so yeah)\b/gi,es:/\b(eh+|este|o sea|pues|bueno|tipo)\b/gi};
+function orWc(){const tx=$('#orTr').value,n=wcount(tx),fl=(tx.match(FILLERS[oL()]||FILLERS.fr)||[]).length,sec=OPH.spoke+(OPH.t0?(Date.now()-OPH.t0)/1000:0),wpm=sec>20?Math.round(n/(sec/60)):null;
+  $('#orStats').innerHTML=`<span class="tag">${n} ${t('words')}</span>${wpm?`<span class="tag ${wpm<100||wpm>170?'':'gold'}">${wpm} ${X('mots/min','words/min','palabras/min')}</span>`:''}<span class="tag">${fl} ${X('tics de langage','filler words','muletillas')}</span>`}
+/* échange avec l’examinateur */
+function renderDia(){$('#orDia').innerHTML=OR.dia.map((m,i)=>`<div class="bm ${m.r==='s'?'u':'a'}">${m.r==='s'?esc(m.c):md(m.c)}${m.r==='e'?`<button class="bspk" data-ospk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:''}</div>`).join('')||`<p class="small muted">${esc(X('Pacha joue l’examinateur : il te pose une question à voix haute, tu réponds en parlant, il relance comme le jour J.','Pacha plays the examiner: he asks a question aloud, you answer by speaking, he follows up like on the day.','Pacha hace de examinador: pregunta en voz alta, respondes hablando.'))}</p>`;
+  $('#orDiaGo').textContent=OR.dia.length?X('Continuer l’échange','Continue the exchange','Continuar'):X('Commencer l’échange','Start the exchange','Empezar');$('#orDia').scrollTop=1e6}
+$('#orDia').addEventListener('click',e=>{const b=e.target.closest('[data-ospk]');if(b){unlockTTS();speak(OR.dia[+b.dataset.ospk].c,{lang:oL()})}});
+async function examinerTurn(btn){const o=ORALS[OR.t],exl=o.l==='en'?'English':o.l==='fr'?'French':LANGN();
+  const ctx=o.f.map(f=>`${L(f[1])}: ${OR.v[f[0]]||''}`).join('\n');
+  const hist=OR.dia.map(m=>`${m.r==='s'?'STUDENT':'EXAMINER'}: ${m.c}`).join('\n');
+  const out=document.createElement('div');out.className='bm a';$('#orDia').appendChild(out);
+  const r=await ask(`You are an IB examiner conducting the question part of: ${L(o.n)}. Speak in ${exl}, as a real, kind but demanding examiner would speak out loud: one or two short spoken sentences, no lists, no markdown. Ask ONE open question at a time that pushes the student to develop, justify, link to the whole work / global issue / their own experience. If the student just answered, react in a few natural words (without grading) and ask the next question. After about 5 questions, thank them and close.\nStudent's material:\n${ctx}\nTheir presentation (transcript, may contain recognition errors):\n${(OR.tr||'').slice(-3000)}\nConversation so far:\n${hist||'(none yet: ask the first question)'}`,out,{btn,typing:true,notag:true});
+  out.remove();if(!r)return;OR.dia.push({r:'e',c:r.trim()});saveOR();renderDia();
+  speak(r,{lang:oL(),onend:()=>{if(VX.sr&&$('#v-oral').classList.contains('on'))orAnswer()}})}
+function orAnswer(){if(!VX.sr){$('#orAns').focus();return}$('#orAnsMic').classList.add('rec');const base='';dictate({lang:oL(),onText:(f,i)=>{$('#orAns').value=base+f+i},onEnd:f=>{$('#orAnsMic').classList.remove('rec');const v=($('#orAns').value||f).trim();if(v)orSendAns(v)}})}
+function orSendAns(v){OR.dia.push({r:'s',c:v});$('#orAns').value='';saveOR();renderDia();if(OR.dia.filter(m=>m.r==='e').length<6)examinerTurn($('#orDiaGo'))}
+$('#orDiaGo').addEventListener('click',e=>{unlockTTS();stopDictate();examinerTurn(e.currentTarget)});
+$('#orAnsMic').addEventListener('click',()=>{unlockTTS();if(REC){stopDictate();return}stopSpeak();orAnswer()});
+$('#orAnsGo').addEventListener('click',()=>{const v=$('#orAns').value.trim();if(v)orSendAns(v)});
+$('#orDiaNew').addEventListener('click',()=>{stopSpeak();stopDictate();OR.dia=[];saveOR();renderDia()});
+/* retour final */
+$('#orFbGo').addEventListener('click',async e=>{const o=ORALS[OR.t],a=o.a?ASSESS.find(x=>x.id===o.a):null;const tx=(OR.tr||'').trim();
+  if(wcount(tx)<60&&!OR.dia.length){$('#orFb').innerHTML=`<p class="warn">${esc(X('Entraîne-toi d’abord à voix haute (ou colle la transcription) pour que Pacha puisse t’écouter.','Practise aloud first (or paste the transcript) so Pacha can listen to you.','Practica primero en voz alta.'))}</p>`;return}
+  const crit=a?a.crit.map(c=>`- ${c[0]}: ${c[1][1]} (max ${c[2]})`).join('\n'):'- Content and accuracy; structure and timing; delivery and language; handling questions';
+  const sec=Math.round(OPH.spoke);
+  const r=await ask(`You are an experienced IB examiner and speaking coach. Give feedback on this practice of: ${L(o.n)}. It was captured by speech recognition, so ignore small transcription errors and do not judge spelling. Speaking time measured: ${sec?Math.round(sec/60)+' min':'unknown'}; target: ${o.phases.map(p=>Math.round(p[1]/60)+' min').join(' + ')}.\nCriteria:\n${crit}\n\nFor each criterion: the band it would probably reach, what you heard that justifies it (quote a few words), and the one change that would raise it. Then comment like a coach on the delivery: structure you could hear, transitions, pace, filler words, how they handled the questions. End with the three things to practise before the next run. This is indicative feedback, not an official IB mark.\n\nPRESENTATION TRANSCRIPT:\n${tx.slice(0,9000)}\n\nQUESTION–ANSWER EXCHANGE:\n${OR.dia.map(m=>(m.r==='s'?'STUDENT: ':'EXAMINER: ')+m.c).join('\n')}\n\n${LANGLINE()}`,$('#orFb'),{btn:e.currentTarget,indic:true});
+  if(r){OR.fb=r;saveOR();logAct(Math.round(sec/60),'oral',40)}});
+$('#orFbSpeak').addEventListener('click',()=>{unlockTTS();if(OR.fb)speak(OR.fb)});
+
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;$('#installBtn').hidden=false});
@@ -4066,7 +4212,7 @@ $('#installBtn').addEventListener('click',async()=>{if(!instEvt)return;instEvt.p
 {const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(ios&&!standalone){$('#installTip').hidden=false;$('#installTip').textContent=t('inst_ios')}}
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!/claude\.(ai|site)|claudeusercontent/.test(location.host)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 /* ---------- démarrage ---------- */
-function renderAll(){if(typeof renderV5==='function'){renderV5();renderIntelText()}if(typeof renderV6==='function')renderV6();if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
+function renderAll(){if(typeof botVoiceUI==='function')botVoiceUI();if(location.hash==='#oral'&&typeof renderOral==='function')renderOral();if(typeof renderV5==='function'){renderV5();renderIntelText()}if(typeof renderV6==='function')renderV6();if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
 initMath();renderFns();applyLang();route();
 (async()=>{try{for(let i=0;i<12&&!window.claude;i++)await new Promise(r=>setTimeout(r,250));if(window.claude&&window.claude.use){S=await window.claude.use('sample');if(S&&S.limits){try{imgOK=!!(await S.limits()).images}catch(e){}}}}catch(e){S=null}
   if(!S&&/^https?:$/.test(location.protocol)){try{const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ping:1})});const j=await r.json();if(r.ok&&j.ok){API='/api/chat';APIF=!!j.files}}catch(e){}}
