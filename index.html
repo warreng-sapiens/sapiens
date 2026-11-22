@@ -3808,6 +3808,712 @@ Le top des copies combine plusieurs stratégies et conclut que les approches de 
 q:[{m:4,q:`Explique un avantage et un inconvénient des IDE pour un pays en développement. [4]`,ms:`Avantage expliqué (2) : capital, emplois, technologie, recettes fiscales. Inconvénient expliqué (2) : rapatriement des profits, dépendance, pollution, faibles salaires, concurrence pour les entreprises locales.`},
 {m:15,q:`Évalue l’efficacité de l’aide étrangère comme stratégie de développement. [15]`,ms:`Bandes de niveau. Pour : financement des infrastructures, santé (vaccins), éducation, urgence humanitaire, comblement du manque d’épargne. Contre : dépendance, corruption, aide liée, priorités des donateurs, effets sur les producteurs locaux (aide alimentaire). Conditions de réussite (bonne gouvernance, appropriation locale). Exemples. Jugement.`}]}
 );
+/* Fiches SAPIENS — ESS SL (programme : premières évaluations 2026) */
+window.ESSRC={
+ IB:['IB — Guide Systèmes de l’environnement et sociétés (premières évaluations 2026)','https://ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides/environmental-systems-societies-guide.pdf'],
+ iucn:['UICN — Mise à jour de la Liste rouge (octobre 2025)','https://iucn.org/press-release/202510/arctic-seals-threatened-climate-change-birds-decline-globally-iucn-red-list'],
+ wmo:['OMM — 2024, année la plus chaude jamais enregistrée (1,55 °C)','https://wmo.int/news/media-centre/wmo-report-documents-spiralling-weather-and-climate-impacts'],
+ food:['PNUE — Rapport 2024 sur l’indice de gaspillage alimentaire','https://wedocs.unep.org/bitstream/handle/20.500.11822/45275/Food-Waste-Index-2024-key-messages.pdf?sequence=4'],
+ wpp:['ONU — Perspectives de la population mondiale 2024','https://population.un.org/WPP/Publications/Files/WPP2024_Key-Messages.pdf'],
+ cmpop:['UNFPA — Cameroun, population 2025','https://www.unfpa.org/fr/data/world-population/CM'],
+ nacht:['Banque mondiale — Barrage de Nachtigal et électricité au Cameroun (2025)','https://www.worldbank.org/en/news/feature/2025/01/16/cameroon-journey-toward-affordable-reliable-and-universal-electricity-access-for-all'],
+ acaps:['ACAPS — Cameroun : crises humanitaires','https://www.acaps.org/en/countries/cameroon']
+};
+FICHES.ess={units:[
+{id:'t1',t:['Thème 1 — Fondements','Topic 1 — Foundation','Tema 1 — Fundamentos']},
+{id:'t2',t:['Thème 2 — Écologie','Topic 2 — Ecology','Tema 2 — Ecología']},
+{id:'t3',t:['Thème 3 — Biodiversité et conservation','Topic 3 — Biodiversity and conservation','Tema 3 — Biodiversidad y conservación']},
+{id:'t4',t:['Thème 4 — L’eau','Topic 4 — Water','Tema 4 — El agua']},
+{id:'t5',t:['Thème 5 — Les terres','Topic 5 — Land','Tema 5 — La tierra']},
+{id:'t6',t:['Thème 6 — Atmosphère et changement climatique','Topic 6 — Atmosphere and climate change','Tema 6 — Atmósfera y cambio climático']},
+{id:'t7',t:['Thème 7 — Ressources naturelles','Topic 7 — Natural resources','Tema 7 — Recursos naturales']},
+{id:'t8',t:['Thème 8 — Populations humaines et systèmes urbains','Topic 8 — Human populations and urban systems','Tema 8 — Poblaciones humanas y sistemas urbanos']},
+{id:'ev',t:['Évaluation — Épreuves et investigation','Assessment — Papers and investigation','Evaluación — Pruebas e investigación']}],notes:[]};
+FICHES.ess.notes.push(
+{id:'ess-1.1',u:'t1',n:'1.1',t:['Les perspectives environnementales','Perspectives','Perspectivas'],body:`
+## L’essentiel
+Une **perspective** (ou système de valeurs environnementales) est la façon dont une personne ou une société voit sa relation avec la nature. Elle influence les décisions environnementales.
+
+## Le spectre des valeurs
+| Perspective | Idée centrale | Exemple de position |
+|---|---|---|
+| **Technocentrique** | la technologie et le marché résoudront les problèmes | captage du carbone, OGM, croissance verte |
+| **Anthropocentrique** | l’humain gère la nature de façon durable par des règles | taxes, quotas, parcs nationaux |
+| **Écocentrique** | la nature a une valeur propre ; limiter nos besoins | décroissance, droits de la nature, agriculture biologique |
+
+- Les **cornucopiens** (très technocentriques) pensent que les ressources sont presque illimitées grâce à l’innovation.
+- Les **écologistes profonds** (très écocentriques) placent la valeur de la nature au même niveau que celle des humains.
+
+## Ce qui influence une perspective
+Culture, religion, éducation, revenus, médias, expérience personnelle, contexte politique. Les savoirs **autochtones** et locaux (par exemple les Baka des forêts du Sud-Est du Cameroun) reflètent souvent une relation étroite avec les écosystèmes.
+
+## Repères historiques
+*Printemps silencieux* de Rachel Carson (1962), conférence de Stockholm (1972), rapport Brundtland (1987), Sommet de la Terre de Rio (1992), accord de Paris (2015).
+
+## Erreurs fréquentes
+- Présenter une perspective comme « juste » et les autres comme « fausses ».
+
+## Conseils d’examen
+Pour une question « justifie une perspective », identifie le système de valeurs et explique **pourquoi** il mène à la solution proposée.`,
+q:[{m:4,q:`Compare la façon dont un technocentrique et un écocentrique répondraient au problème de la pollution plastique. [4]`,ms:`Technocentrique : solutions techniques (recyclage avancé, bioplastiques, incinération avec récupération d’énergie) (2). Écocentrique : réduire la consommation, interdire les plastiques à usage unique, changer les modes de vie (2).`}],src:[ESSRC.IB]},
+{id:'ess-1.2',u:'t1',n:'1.2',t:['Les systèmes','Systems','Sistemas'],body:`
+## L’essentiel
+Un **système** est un ensemble de parties en interaction (stocks et flux) qui forme un tout. L’approche systémique est au cœur d’ESS.
+
+## Vocabulaire
+- **Stocks** (stores) : réserves (biomasse, eau d’un lac, carbone d’une forêt).
+- **Flux** : entrées et sorties. **Transferts** (changement de lieu sans changement d’état) et **transformations** (changement d’état ou de nature : photosynthèse, évaporation).
+- **Système ouvert** (échange matière et énergie : un écosystème), **fermé** (énergie seulement : la Terre, presque), **isolé** (rien, théorique).
+- **Modèles** : représentations simplifiées d’un système (diagrammes, équations, simulations) ; utiles mais limités.
+
+## Équilibres et rétroactions
+- **Équilibre dynamique (steady state)** : les entrées compensent les sorties.
+- **Rétroaction négative** : stabilise (une population de proies augmente → les prédateurs augmentent → les proies diminuent).
+- **Rétroaction positive** : amplifie (la fonte de la glace réduit l’albédo → plus de chaleur absorbée → plus de fonte).
+- **Points de bascule** : seuil au-delà duquel le système change d’état (blanchissement des coraux, savanisation d’une forêt).
+- **Résilience** : capacité à résister et à se rétablir après une perturbation.
+
+## Lois de la thermodynamique
+- **Première loi** : l’énergie se conserve.
+- **Deuxième loi** : à chaque transformation, une partie de l’énergie est dégradée en chaleur (entropie) : c’est pourquoi les chaînes alimentaires sont courtes.
+
+## Erreurs fréquentes
+- Confondre transfert et transformation.
+- Penser que « rétroaction positive » veut dire « bonne ».
+
+## Conseils d’examen
+Dessine des diagrammes de systèmes clairs : boîtes pour les stocks, flèches annotées pour les flux.`,
+q:[{m:4,q:`Explique, avec un exemple, la différence entre rétroaction positive et rétroaction négative. [4]`,ms:`Négative : ramène vers l’équilibre, exemple (2). Positive : éloigne de l’équilibre, amplifie le changement, exemple (2).`}],src:[ESSRC.IB]},
+{id:'ess-1.3',u:'t1',n:'1.3',t:['La durabilité','Sustainability','Sostenibilidad'],body:`
+## L’essentiel
+La **durabilité** est l’utilisation des ressources à un rythme qui permet leur renouvellement et ne compromet pas les générations futures. Elle a trois piliers : **environnemental, social, économique**.
+
+## Capital naturel
+- **Capital naturel** : stocks de ressources (forêts, sols, poissons, minerais).
+- **Revenu naturel** : biens et services qu’il produit chaque année (bois, poissons pêchés, purification de l’eau).
+- Vivre durablement, c’est vivre du **revenu** sans entamer le **capital**.
+
+## Services écosystémiques
+- **Approvisionnement** (nourriture, eau, bois), **régulation** (climat, inondations, pollinisation), **culturels** (loisirs, valeur spirituelle), **de soutien** (formation des sols, cycles des nutriments).
+
+## Outils et cadres
+- **Empreinte écologique** : surface nécessaire pour produire ce qu’une population consomme et absorber ses déchets. Si elle dépasse la **biocapacité**, la consommation n’est pas durable.
+- **Limites planétaires** (Rockström et al., 2009) : neuf processus (climat, biodiversité, cycles de l’azote et du phosphore…) avec un espace de fonctionnement sûr.
+- **Économie du donut** (Raworth) : un plancher social et un plafond écologique.
+- **Économie circulaire** : réduire, réutiliser, recycler, concevoir sans déchets.
+- **Objectifs de développement durable** (ONU, 2015–2030).
+- **Évaluation d’impact environnemental (EIE)** avant les grands projets.
+
+## Erreurs fréquentes
+- Réduire la durabilité à l’environnement.
+
+## Conseils d’examen
+Utilise le vocabulaire **capital naturel / revenu naturel** pour juger si une exploitation est durable.`,
+q:[{m:4,q:`Explique comment l’empreinte écologique peut indiquer si un mode de vie est durable. [4]`,ms:`Définition de l’empreinte (1) ; comparaison avec la biocapacité (1) ; empreinte > biocapacité = non durable (1) ; exemple ou limite de l’indicateur (1).`}],src:[ESSRC.IB]},
+{id:'ess-2.1',u:'t2',n:'2.1',t:['Individus, populations, communautés et écosystèmes','Individuals, populations, communities and ecosystems','Individuos, poblaciones, comunidades y ecosistemas'],body:`
+## L’essentiel
+- **Espèce** : groupe d’organismes pouvant se reproduire entre eux et avoir une descendance fertile.
+- **Population** : individus d’une même espèce dans une zone. **Communauté** : populations en interaction. **Écosystème** : communauté + milieu physique.
+- **Habitat** : lieu de vie. **Niche** : rôle et conditions d’une espèce (fondamentale = possible ; réalisée = effective à cause de la compétition).
+
+## Facteurs et interactions
+- **Facteurs abiotiques** : température, lumière, eau, pH, sol. **Biotiques** : prédation, compétition, parasitisme, mutualisme.
+- **Facteurs limitants** : celui qui manque le plus limite la croissance.
+
+## Croissance des populations
+- **Courbe en J** : croissance exponentielle sans limite, puis effondrement.
+- **Courbe en S** (logistique) : croissance puis stabilisation à la **capacité de charge (K)** par rétroaction négative.
+
+~~~graph
+{"type":"function","title":"Croissance logistique (courbe en S), K = 1 000","fns":[{"f":"1000/(1+99*exp(-0.5x))","name":"population"},{"f":"1000","name":"capacité de charge K"}],"xmin":0,"xmax":25,"ymin":0,"ymax":1100,"xlabel":"temps","ylabel":"effectif"}
+~~~
+
+## Mesurer les populations
+- Plantes et animaux fixes : **quadrats** (densité, fréquence, pourcentage de couverture).
+- Animaux mobiles : **capture-marquage-recapture** (indice de Lincoln) : **N = (M × C) / R**, où M = marqués au départ, C = capturés la 2ᵉ fois, R = marqués recapturés.
+**Exemple** : 40 marqués, 50 capturés ensuite dont 8 marqués → N = 40 × 50 / 8 = **250**.
+- **Stratégies r et K** : r = beaucoup de petits, peu de soins (insectes) ; K = peu de petits, beaucoup de soins (éléphants).
+
+## Conseils d’examen
+Pour le calcul de Lincoln, cite les hypothèses : pas de migration, marques non perdues, marquage sans effet sur la survie.`,
+q:[{m:3,q:`On capture et marque 60 escargots. Une semaine plus tard, on en capture 45, dont 9 marqués. Estime la taille de la population et donne une hypothèse de la méthode. [3]`,ms:`N = 60 × 45 / 9 (M1) = **300** (A1) ; une hypothèse valable (population fermée, marques non perdues, mélange aléatoire…) (1).`}],src:[ESSRC.IB]},
+{id:'ess-2.2',u:'t2',n:'2.2',t:['Énergie et biomasse dans les écosystèmes','Energy and biomass in ecosystems','Energía y biomasa en los ecosistemas'],body:`
+## L’essentiel
+L’énergie entre par la **photosynthèse**, circule **dans un seul sens** le long des chaînes alimentaires et est perdue sous forme de **chaleur** à chaque niveau. La matière, elle, est **recyclée**.
+
+## Niveaux trophiques
+Producteurs → consommateurs primaires (herbivores) → secondaires → tertiaires ; décomposeurs à tous les niveaux.
+
+## Productivité
+- **Productivité primaire brute (PPB)** : énergie fixée par photosynthèse.
+- **Productivité primaire nette (PPN) = PPB − respiration**.
+- **Productivité secondaire nette = énergie assimilée − respiration** ; énergie assimilée = énergie ingérée − pertes fécales.
+
+**Exemple** : un herbivore ingère 2 000 kJ, rejette 1 200 kJ dans ses fèces et respire 600 kJ. Assimilé = 800 kJ ; PSN = **200 kJ**.
+
+## Efficacité des transferts
+Environ **10 %** (souvent moins) de l’énergie passe au niveau suivant : pertes par respiration, parties non mangées, non digérées. D’où des pyramides d’énergie toujours plus larges à la base et des chaînes de 4 à 5 niveaux maximum.
+
+~~~graph
+{"type":"bar","title":"Pyramide d’énergie (kJ m⁻² an⁻¹, exemple)","labels":["Producteurs","Consommateurs I","Consommateurs II","Consommateurs III"],"series":[{"name":"énergie","values":[20000,2000,200,20]}]}
+~~~
+
+## Bioaccumulation et bioamplification
+Les polluants non biodégradables (mercure, DDT) s’**accumulent** dans un organisme et se **concentrent** le long de la chaîne : les grands prédateurs (thons, rapaces, humains) sont les plus exposés.
+
+## Conseils d’examen
+Explique toujours les pertes d’énergie par la **deuxième loi de la thermodynamique** et la respiration.`,
+q:[{m:3,q:`Explique pourquoi les chaînes alimentaires dépassent rarement cinq niveaux trophiques. [3]`,ms:`Seuls ~10 % de l’énergie passent au niveau suivant (1) ; pertes par respiration/chaleur, parties non consommées ou non digérées (1) ; énergie insuffisante pour soutenir un niveau supplémentaire (1).`}],src:[ESSRC.IB]},
+{id:'ess-2.3',u:'t2',n:'2.3',t:['Les cycles biogéochimiques','Biogeochemical cycles','Ciclos biogeoquímicos'],body:`
+## L’essentiel
+Les éléments (carbone, azote) circulent entre **stocks** (réservoirs) par des **flux**. Un écosystème est un **puits** s’il absorbe plus qu’il n’émet, une **source** dans le cas inverse.
+
+## Le cycle du carbone
+- **Stocks** : roches sédimentaires et combustibles fossiles (les plus grands), océans, sols, biomasse, atmosphère.
+- **Flux** : photosynthèse, respiration, décomposition, combustion, dissolution dans l’océan, sédimentation.
+- **Impact humain** : combustion des énergies fossiles, déforestation, changement d’usage des sols → hausse du CO₂ atmosphérique.
+- **Acidification des océans** : le CO₂ dissous forme de l’acide carbonique ; le pH baisse, ce qui gêne les organismes à coquille ou squelette calcaire (coraux, mollusques).
+- Une forêt intacte est un **puits** ; une forêt brûlée ou défrichée devient une **source**.
+
+## Le cycle de l’azote
+- L’azote atmosphérique (N₂) n’est pas utilisable directement par la plupart des êtres vivants.
+- **Fixation** (bactéries libres ou symbiotiques des légumineuses, éclairs, procédé industriel Haber-Bosch) ; **nitrification** (ammonium → nitrites → nitrates) ; **assimilation** par les plantes ; **ammonification** (décomposition) ; **dénitrification** (nitrates → N₂, en milieu pauvre en oxygène).
+- **Impact humain** : engrais azotés, élevage intensif, rejets → eutrophisation (fiche 4.4).
+
+## Conseils d’examen
+Pour un diagramme de cycle, distingue clairement **stocks** (boîtes) et **flux** (flèches nommées), et indique les effets humains.`,
+q:[{m:4,q:`Décris deux façons dont les activités humaines modifient le cycle du carbone. [4]`,ms:`Combustion des fossiles : transfert du carbone stocké vers l’atmosphère (2). Déforestation : réduit la photosynthèse et libère du carbone par combustion/décomposition (2). Autres acceptés (cimenterie, agriculture).`}],src:[ESSRC.IB]},
+{id:'ess-2.4',u:'t2',n:'2.4',t:['Climat et biomes','Climate and biomes','Clima y biomas'],body:`
+## L’essentiel
+- **Météo** : état de l’atmosphère à court terme. **Climat** : moyenne sur environ **30 ans**.
+- Un **biome** est un grand ensemble d’écosystèmes au climat et à la végétation semblables. Il dépend surtout de la **température** et des **précipitations**.
+
+## Les grands biomes
+| Biome | Climat | Productivité | Exemple |
+|---|---|---|---|
+| Forêt tropicale humide | chaud, très humide toute l’année | très élevée | Sud du Cameroun, bassin du Congo |
+| Savane | chaud, saison sèche marquée | moyenne | Nord du Cameroun |
+| Désert | très sec | très faible | Sahara |
+| Forêt tempérée | saisons marquées | élevée | Europe de l’Ouest |
+| Toundra | froid, sol gelé (pergélisol) | faible | Arctique |
+
+## Circulation atmosphérique et océanique
+- Les **cellules de Hadley, Ferrel et polaire** redistribuent la chaleur de l’équateur vers les pôles ; la **zone de convergence intertropicale** apporte les pluies tropicales.
+- Les **courants océaniques** transportent la chaleur (Gulf Stream).
+- **ENSO** (El Niño et La Niña) : variations irrégulières des températures du Pacifique qui modifient pluies, sécheresses et productivité marine dans le monde.
+
+## Changement climatique et biomes
+Le réchauffement déplace les biomes vers les **pôles** et en **altitude** ; certaines espèces ne peuvent pas migrer assez vite.
+
+## Conseils d’examen
+Sache lire un **climatogramme** (températures en courbe, précipitations en barres) et en déduire le biome.`,
+q:[{m:3,q:`Explique pourquoi la productivité primaire est plus élevée dans les forêts tropicales humides que dans les déserts. [3]`,ms:`Températures élevées toute l’année (1) ; précipitations abondantes, eau non limitante (1) ; lumière intense et saison de croissance continue → photosynthèse plus forte (1).`}],src:[ESSRC.IB]},
+{id:'ess-2.5',u:'t2',n:'2.5',t:['Zonation, succession et changement des écosystèmes','Zonation, succession and change in ecosystems','Zonación, sucesión y cambio en los ecosistemas'],body:`
+## L’essentiel
+- **Zonation** : changement des communautés dans l’**espace**, le long d’un gradient (altitude, distance à la mer). On l’étudie avec des **transects**.
+- **Succession** : changement des communautés dans le **temps**, par étapes (stades seraux) jusqu’à une **communauté climacique**.
+
+## Types de succession
+- **Primaire** : sur un substrat nouveau sans sol (coulée de lave, dune). Espèces pionnières (lichens, mousses) → herbes → arbustes → forêt.
+- **Secondaire** : après une perturbation, sur un sol existant (champ abandonné, forêt brûlée) ; plus rapide.
+
+## Ce qui change pendant la succession
+Profondeur et matière organique du sol ↑, biodiversité ↑ (puis peut se stabiliser), biomasse ↑, recyclage des nutriments plus efficace, PPB et respiration se rapprochent au climax (productivité nette faible).
+
+## Exemple
+Le **mont Cameroun** montre une zonation altitudinale nette : forêt dense de basse altitude, forêt de montagne, prairies d’altitude près du sommet. Ses éruptions (par exemple celle de 2000) offrent des exemples de succession primaire sur les coulées.
+
+## Perturbations humaines
+Défrichement, feux, pâturage peuvent bloquer la succession à un stade intermédiaire (**plagioclimax**).
+
+## Conseils d’examen
+Pour une question sur la résilience : plus un écosystème est **divers**, plus il résiste et se rétablit facilement.`,
+q:[{m:4,q:`Décris les changements qui se produisent dans le sol et la biodiversité au cours d’une succession primaire. [4]`,ms:`Sol : formation à partir de la roche, augmentation de l’épaisseur, de la matière organique et de la rétention d’eau (2). Biodiversité : augmente avec la diversité des habitats et des niches, se stabilise au climax (2).`}],src:[ESSRC.IB]},
+{id:'ess-3.1',u:'t3',n:'3.1',t:['Biodiversité et évolution','Biodiversity and evolution','Biodiversidad y evolución'],body:`
+## L’essentiel
+La **biodiversité** existe à trois niveaux : **diversité des habitats**, **diversité des espèces**, **diversité génétique**. Elle résulte de l’**évolution** par sélection naturelle.
+
+## Sélection naturelle et spéciation
+Variation entre individus → surproduction → compétition → les mieux adaptés survivent et se reproduisent → les caractères favorables deviennent fréquents. La **spéciation** se produit quand des populations isolées (géographiquement ou reproductivement) divergent.
+
+## Mesurer la diversité
+- **Richesse** : nombre d’espèces. **Régularité** (*evenness*) : répartition des effectifs.
+- **Indice de Simpson réciproque** : **D = N(N − 1) / Σ n(n − 1)**, N = total des individus, n = individus par espèce. Plus D est grand, plus la diversité est élevée.
+
+**Exemple** : 3 espèces avec 10, 10 et 10 individus. N = 30 ; Σ n(n − 1) = 3 × 90 = 270 ; D = 30 × 29 / 270 = **3,22**. Avec 28, 1 et 1 : Σ = 756 ; D = 870 / 756 = **1,15** (même richesse, régularité plus faible).
+
+## Points chauds de biodiversité
+Régions très riches en espèces endémiques et très menacées. Les forêts du **golfe de Guinée** et le **bassin du Congo** sont d’une importance mondiale.
+
+## Conseils d’examen
+Les calculs de Simpson sont fréquents : écris la formule, le tableau n(n − 1) et interprète le résultat en comparant deux sites.`,
+q:[{m:4,q:`Site A : espèces avec 5, 5, 5, 5 individus. Site B : 17, 1, 1, 1. Calcule l’indice de Simpson réciproque pour chaque site et interprète. [4]`,ms:`A : N = 20, Σ = 4 × 20 = 80, D = 380 / 80 = **4,75** (A1). B : Σ = 272, D = 380 / 272 = **1,40** (A1) ; méthode (M1) ; A plus divers car plus régulier, même richesse (R1).`}],src:[ESSRC.IB]},
+{id:'ess-3.2',u:'t3',n:'3.2',t:['Impacts humains sur la biodiversité','Human impact on biodiversity','Impacto humano en la biodiversidad'],body:`
+## L’essentiel
+La biodiversité recule à cause de menaces **directes** et **indirectes**, qui se combinent et s’amplifient.
+
+## Les menaces
+- **Destruction et fragmentation des habitats** (agriculture, routes, mines, urbanisation) : la première cause.
+- **Surexploitation** : chasse, braconnage (viande de brousse, ivoire), surpêche, exploitation forestière illégale.
+- **Espèces exotiques envahissantes** : concurrence, prédation, maladies (jacinthe d’eau dans les lacs africains).
+- **Pollution** : pesticides, plastiques, eutrophisation.
+- **Changement climatique** : déplacement des aires de répartition, blanchissement des coraux.
+
+## La Liste rouge de l’UICN
+Classe les espèces selon leur risque d’extinction (préoccupation mineure, quasi menacée, vulnérable, en danger, en danger critique, éteinte à l’état sauvage, éteinte) selon la taille de la population, son déclin, son aire de répartition et les menaces.
+En **octobre 2025**, la Liste rouge comptait **172 620 espèces évaluées**, dont **48 646 menacées d’extinction**.
+
+## Exemple
+Le **gorille de la rivière Cross**, à la frontière Cameroun-Nigeria, est classé **en danger critique** : petite population fragmentée, menacée par la perte d’habitat et la chasse.
+
+## Conseils d’examen
+Pour expliquer pourquoi une espèce est vulnérable, cite ses caractéristiques (petite population, reproduction lente, aire restreinte, spécialisation) **et** les menaces.`,
+q:[{m:4,q:`Explique deux raisons pour lesquelles les forêts tropicales perdent leur biodiversité. [4]`,ms:`Deux raisons développées (défrichement agricole, exploitation forestière, chasse, fragmentation, feux, changement climatique) avec mécanisme (2 + 2).`}],src:[ESSRC.IB,ESSRC.iucn]},
+{id:'ess-3.3',u:'t3',n:'3.3',t:['Conservation et régénération','Conservation and regeneration','Conservación y regeneración'],body:`
+## L’essentiel
+La conservation vise à protéger les espèces et les habitats ; la **régénération** (dont le *rewilding*) vise à restaurer les processus naturels.
+
+## Pourquoi conserver ?
+Arguments **esthétiques**, **écologiques** (services écosystémiques), **économiques** (tourisme, médicaments, pêche), **éthiques** (valeur intrinsèque) et **sociaux/culturels**.
+
+## Stratégies
+- **In situ** : parcs nationaux et réserves (au Cameroun : réserve de faune du Dja, inscrite au patrimoine mondial de l’UNESCO ; parc national de Waza).
+- **Ex situ** : zoos, jardins botaniques, banques de graines, programmes d’élevage et de réintroduction.
+- **Approche par espèce** (espèces phares, espèces clés) contre **approche par habitat** (protéger l’écosystème entier).
+- Conception des réserves : grande taille, forme compacte, **corridors** entre réserves, zones tampons, implication des communautés.
+
+## Accords internationaux
+- **Convention sur la diversité biologique** (1992) et **Cadre mondial de Kunming-Montréal** (2022), avec l’objectif de protéger **30 % des terres et des mers d’ici 2030**.
+- **CITES** : réglemente le commerce international des espèces menacées.
+
+## Facteurs de réussite
+Soutien et bénéfices pour les communautés locales, financements durables, lois appliquées, recherche et suivi.
+
+## Conseils d’examen
+Évalue toujours une stratégie : avantages, limites (coûts, conflits avec les populations, efficacité réelle).`,
+q:[{m:7,q:`Évalue l’efficacité des aires protégées pour conserver la biodiversité. [7]`,ms:`Bandes de niveau. Avantages : protection des habitats, espèces clés, tourisme. Limites : braconnage, manque de moyens, « parcs de papier », conflits avec les communautés, changement climatique. Exemples. Conclusion.`}],src:[ESSRC.IB]}
+);
+FICHES.ess.notes.push(
+{id:'ess-4.1',u:'t4',n:'4.1',t:['Les systèmes hydrologiques','Water systems','Sistemas hídricos'],body:`
+## L’essentiel
+Le **cycle de l’eau** est alimenté par l’**énergie solaire** (évaporation) et la **gravité** (précipitations, ruissellement). Il se compose de **stocks** et de **flux**.
+
+## Stocks et flux
+- **Stocks** : océans (environ 97 % de l’eau de la planète), glaces, eaux souterraines (aquifères), lacs, sols, atmosphère, biomasse. L’eau douce liquide accessible ne représente qu’une petite fraction.
+- **Flux** : évaporation, transpiration (évapotranspiration), condensation, précipitations, infiltration, percolation, ruissellement, écoulement souterrain.
+
+## Impacts humains
+- **Déforestation** : moins d’interception et d’infiltration → plus de ruissellement, d’érosion et de crues.
+- **Urbanisation** : surfaces imperméables → crues éclair (inondations fréquentes à Douala en saison des pluies).
+- **Agriculture** : irrigation, drainage, prélèvements.
+- **Barrages** : modifient les débits et les sédiments.
+
+## Exploitation durable
+Un lac ou un aquifère est exploité durablement si les **prélèvements ne dépassent pas la recharge** (équilibre dynamique). Sinon, le niveau baisse (exemple : assèchement partiel de la mer d’Aral à cause de l’irrigation).
+
+## Conseils d’examen
+Utilise le vocabulaire des systèmes (stocks, flux, transferts, transformations) pour décrire le cycle.`,
+q:[{m:3,q:`Explique comment l’urbanisation peut augmenter le risque d’inondation. [3]`,ms:`Surfaces imperméables réduisent l’infiltration (1) ; ruissellement plus rapide et plus important (1) ; réseaux d’évacuation saturés, pic de crue plus élevé et plus rapide (1).`}],src:[ESSRC.IB]},
+{id:'ess-4.2',u:'t4',n:'4.2',t:['Accès à l’eau, usages et sécurité hydrique','Water access, use and security','Acceso, uso y seguridad del agua'],body:`
+## L’essentiel
+La **sécurité hydrique** est l’accès à une eau **suffisante, saine et abordable**. Elle dépend de facteurs physiques mais aussi **sociaux, économiques, culturels et politiques**.
+
+## Rareté de l’eau
+- **Physique** : pas assez d’eau disponible (régions arides).
+- **Économique** : l’eau existe mais manque d’infrastructures ou de moyens pour y accéder (fréquent en Afrique subsaharienne).
+
+## Usages
+Agriculture (la majorité des prélèvements mondiaux), industrie, usage domestique.
+
+## Augmenter l’offre
+Barrages et réservoirs, puits et forages, transferts d’eau, **dessalement**, récupération des eaux de pluie, protection des zones humides.
+
+## Réduire la demande
+Irrigation goutte-à-goutte, réparation des fuites des réseaux, recyclage des eaux grises, tarification, sensibilisation.
+
+## Eau et conflits
+Les bassins partagés peuvent créer des tensions ou de la coopération : le **lac Tchad** est géré par la Commission du bassin du lac Tchad (Cameroun, Niger, Nigeria, Tchad, Libye, Centrafrique) ; le grand barrage de la Renaissance éthiopienne sur le Nil oppose Éthiopie, Égypte et Soudan.
+
+## Conseils d’examen
+Pour évaluer une solution, compare son coût, son impact environnemental, son équité et sa durabilité.`,
+q:[{m:7,q:`Évalue les stratégies permettant d’améliorer la sécurité hydrique dans un pays en développement. [7]`,ms:`Bandes de niveau. Offre (forages, barrages, récupération des pluies) et demande (fuites, irrigation efficace, tarification) ; coûts, impacts, équité, gouvernance. Exemples. Conclusion.`}],src:[ESSRC.IB]},
+{id:'ess-4.3',u:'t4',n:'4.3',t:['Systèmes de production alimentaire aquatique','Aquatic food production systems','Sistemas de producción de alimentos acuáticos'],body:`
+## L’essentiel
+Le **phytoplancton** et les **macrophytes** sont la base des réseaux alimentaires aquatiques. La demande croissante en produits de la mer a conduit à la **surexploitation** de nombreux stocks.
+
+## Problèmes
+- **Surpêche** : prélèvements supérieurs au renouvellement.
+- **Méthodes destructrices** : chalutage de fond, pêche à la dynamite, prises accessoires (dauphins, tortues).
+- **Effondrement des stocks** : la morue des **Grands Bancs de Terre-Neuve** s’est effondrée au début des années 1990 ; le Canada a imposé un moratoire en **1992** et le stock ne s’est jamais complètement rétabli.
+
+## Gestion durable
+- **Rendement maximal durable (RMD)** : la plus grande prise possible sans réduire le stock à long terme.
+- Quotas, saisons de pêche, tailles minimales des mailles, aires marines protégées, labels (pêche durable), lutte contre la pêche illégale.
+
+## Aquaculture
+Peut réduire la pression sur les stocks sauvages, mais provoque pollution (déchets, antibiotiques), destruction de mangroves (élevages de crevettes), maladies et évasions d’espèces.
+
+## Conseils d’examen
+Sache expliquer pourquoi le RMD est difficile à appliquer : données incertaines, pression économique, pêche illégale.`,
+q:[{m:4,q:`Explique pourquoi l’effondrement d’un stock de poissons peut être difficile à inverser. [4]`,ms:`Population sous le seuil de reproduction viable (1) ; changement de l’écosystème, autres espèces occupent la niche (1) ; prises accessoires continuent (1) ; reproduction lente des grandes espèces / pression économique (1).`}],src:[ESSRC.IB]},
+{id:'ess-4.4',u:'t4',n:'4.4',t:['La pollution de l’eau','Water pollution','Contaminación del agua'],body:`
+## L’essentiel
+La pollution de l’eau vient d’eaux usées, du ruissellement agricole, des effluents industriels, des marées noires et des **plastiques**. On la mesure par des indicateurs physiques, chimiques et biologiques.
+
+## Sources
+- **Ponctuelles** (un point identifiable : une usine) ou **diffuses** (ruissellement agricole sur un bassin).
+- **Plastiques** : s’accumulent dans les océans et entrent dans les chaînes alimentaires sous forme de **microplastiques**.
+
+## Mesurer la qualité de l’eau
+- Oxygène dissous, pH, température, nitrates et phosphates, turbidité.
+- **DBO** (demande biochimique en oxygène) : quantité d’oxygène consommée par les micro-organismes pour décomposer la matière organique ; une DBO élevée signale une pollution organique.
+- **Espèces indicatrices** : certains invertébrés ne vivent que dans une eau propre (larves d’éphémères), d’autres tolèrent la pollution (vers tubifex).
+
+## L’eutrophisation (rétroaction positive)
+Apport de nitrates et phosphates → prolifération d’algues → la lumière ne pénètre plus → mort des plantes aquatiques → décomposition par les bactéries → **chute de l’oxygène** → mort des poissons → plus de décomposition.
+
+## Gestion (trois niveaux)
+1. Modifier l’**activité humaine** (moins d’engrais, lessives sans phosphates).
+2. Réduire les **rejets** (stations d’épuration, zones tampons végétalisées).
+3. **Restaurer** (dragage, réoxygénation, nettoyage) : le moins efficace.
+
+## Conseils d’examen
+Décris l’eutrophisation comme une **chaîne de causes et d’effets**, étape par étape.`,
+q:[{m:4,q:`Décris le processus d’eutrophisation d’un lac. [4]`,ms:`Apport de nutriments (1) ; prolifération d’algues (1) ; mort et décomposition, bactéries consomment l’oxygène (1) ; hypoxie et mort des organismes aquatiques (1).`}],src:[ESSRC.IB]},
+{id:'ess-5.1',u:'t5',n:'5.1',t:['Les sols','Soil','El suelo'],body:`
+## L’essentiel
+Le **sol** est un système dynamique, avec entrées, sorties, stocks et flux. Il se compose de **minéraux**, de **matière organique**, d’**eau** et d’**air**, et il se forme très lentement.
+
+## Le profil du sol
+Horizons : **O** (litière), **A** (horizon riche en humus), **B** (accumulation), **C** (roche altérée), roche mère. La matière organique est concentrée près de la surface.
+
+## Fonctions
+Support des plantes, habitat d’une immense biodiversité, recyclage des nutriments, stockage du carbone et de l’eau.
+
+## Texture
+- **Sableux** : drainage rapide, faible rétention d’eau et de nutriments.
+- **Argileux** : forte rétention, mais mal drainé et mal aéré.
+- **Limoneux / loams** (mélange équilibré avec humus) : les plus fertiles.
+On utilise le **triangle des textures** pour classer un sol.
+
+## Dégradation des sols
+Érosion (eau, vent), perte de fertilité, salinisation (irrigation mal drainée), compaction, pollution, désertification. Causes : déforestation, surpâturage, monoculture, labour excessif.
+
+## Conservation
+Terrasses, cultures de couverture, rotation des cultures, agroforesterie, brise-vent, paillage, compost. Au Cameroun, les terrasses des monts Mandara sont un exemple traditionnel de lutte contre l’érosion.
+
+## Conseils d’examen
+Explique l’effet de la texture sur la **productivité** : rétention d’eau, nutriments, aération.`,
+q:[{m:4,q:`Explique deux méthodes de conservation des sols. [4]`,ms:`Deux méthodes développées avec leur mécanisme : terrasses (ralentissent le ruissellement), cultures de couverture (protègent du vent et de la pluie, ajoutent de la matière organique), rotation, agroforesterie (2 + 2).`}],src:[ESSRC.IB]},
+{id:'ess-5.2',u:'t5',n:'5.2',t:['Agriculture et alimentation','Agriculture and food','Agricultura y alimentación'],body:`
+## L’essentiel
+Les terres sont **limitées** : environ **70 %** des terres libres de glace sont utilisées pour l’agriculture et la foresterie. Le monde produit assez de nourriture pour tous, mais elle est **inégalement répartie** et une grande partie est **perdue ou gaspillée**.
+
+## Gaspillage et pertes
+Selon le PNUE, **1,05 milliard de tonnes** de nourriture ont été gaspillées en 2022, soit **19 %** de la nourriture disponible pour les consommateurs (commerce, restauration, ménages), en plus d’environ **13 %** perdus le long de la chaîne d’approvisionnement (FAO). Les ménages représentent environ 60 % du gaspillage.
+
+## Systèmes agricoles
+- **Intensif** (beaucoup d’intrants : engrais, pesticides, machines, irrigation) contre **extensif**.
+- **Commercial** contre **de subsistance**.
+- Monoculture contre polyculture.
+- Impacts : déforestation, érosion, pollution par les engrais, perte de biodiversité, émissions de gaz à effet de serre (méthane de l’élevage et des rizières).
+
+## Agriculture durable
+Conservation des sols, rotation et association de cultures, légumineuses (fixation de l’azote), engrais organiques, lutte biologique, agroécologie, réduction du gaspillage, régimes alimentaires moins carnés.
+
+## Sécurité alimentaire
+Disponibilité, accès, utilisation, stabilité. Au Cameroun, les conflits et les déplacements aggravent l’insécurité alimentaire (3,1 millions de personnes en insécurité alimentaire sévère fin 2025 selon l’UNICEF).
+
+## Conseils d’examen
+Relie toujours un choix alimentaire à son impact environnemental (niveau trophique : manger végétal demande moins de terres).`,
+q:[{m:7,q:`Évalue les stratégies pour rendre la production alimentaire plus durable. [7]`,ms:`Bandes de niveau. Côté production (agroécologie, conservation des sols, efficacité de l’eau), côté consommation (réduire le gaspillage, régimes), limites (rendements, coûts, culture, accès). Exemples, chiffres. Conclusion.`}],src:[ESSRC.IB,ESSRC.food,['UNICEF — Tableau de bord humanitaire Cameroun, fin 2025','https://reliefweb.int/report/cameroon/unicef-cameroon-humanitarian-dashboard-year-end-2025']]},
+{id:'ess-6.1',u:'t6',n:'6.1',t:['Introduction à l’atmosphère','Introduction to the atmosphere','Introducción a la atmósfera'],body:`
+## L’essentiel
+L’atmosphère est la frontière entre la Terre et l’espace. Sa **circulation** redistribue la chaleur de l’équateur vers les pôles. Les **gaz à effet de serre (GES)** maintiennent une température compatible avec la vie.
+
+## Composition et couches
+Azote (~78 %), oxygène (~21 %), argon, CO₂ (faible proportion mais rôle majeur), vapeur d’eau. Couches : troposphère (météo), stratosphère (couche d’ozone), mésosphère, thermosphère.
+
+## L’effet de serre naturel
+Le Soleil émet un rayonnement de courte longueur d’onde ; la Terre réémet de l’**infrarouge** ; les GES (vapeur d’eau, CO₂, méthane, protoxyde d’azote) l’absorbent et le réémettent, ce qui réchauffe la surface. Sans eux, la température moyenne serait d’environ −18 °C au lieu d’environ +15 °C.
+**Effet de serre renforcé** : les activités humaines augmentent la concentration des GES (fiche 6.2).
+
+## Variations naturelles du climat
+Les **cycles de Milankovitch** (variations de l’orbite et de l’inclinaison de la Terre) expliquent les glaciations sur des dizaines de milliers d’années, mais **pas** le réchauffement actuel, beaucoup trop rapide.
+
+## Albédo
+Proportion du rayonnement réfléchie : élevée pour la neige et la glace, faible pour l’océan et la forêt.
+
+## Conseils d’examen
+Distingue bien **effet de serre naturel** (indispensable) et **effet de serre renforcé** (problème).`,
+q:[{m:3,q:`Explique le fonctionnement de l’effet de serre naturel. [3]`,ms:`Rayonnement solaire de courte longueur d’onde traverse l’atmosphère (1) ; la Terre réémet de l’infrarouge (1) ; les GES absorbent et réémettent cet infrarouge vers la surface, la réchauffant (1).`}],src:[ESSRC.IB]},
+{id:'ess-6.2',u:'t6',n:'6.2',t:['Changement climatique : causes et impacts','Climate change: causes and impacts','Cambio climático: causas e impactos'],body:`
+## L’essentiel
+Les émissions humaines de CO₂ ont fortement augmenté depuis la révolution industrielle, et encore plus vite après 1950. Elles renforcent l’effet de serre et réchauffent la planète.
+
+## Les preuves
+- **Carottes de glace** : corrélation positive entre CO₂ et température sur des centaines de milliers d’années.
+- **Mesures directes** du CO₂ (Mauna Loa depuis 1958). En 2023, la concentration moyenne mondiale atteignait **420 ppm**, soit **151 %** du niveau préindustriel (OMM).
+- **Températures** : selon l’OMM, **2024** a été l’année la plus chaude jamais enregistrée, à environ **1,55 °C** au-dessus de la moyenne 1850–1900 ; les dix années 2015–2024 sont les dix plus chaudes.
+
+~~~graph
+{"type":"line","title":"CO₂ atmosphérique moyen (ppm, ordres de grandeur)","xlabel":"Année","ylabel":"ppm","series":[{"name":"CO₂","points":[[1960,317],[1970,326],[1980,339],[1990,354],[2000,370],[2010,390],[2020,414],[2023,420]]}]}
+~~~
+
+## Impacts
+- **Écosystèmes** : blanchissement des coraux, déplacement des biomes, désertification, acidification des océans.
+- **Sociétés** : sécheresses et inondations plus intenses, baisse des rendements agricoles, stress hydrique, maladies (paludisme), montée du niveau de la mer, migrations.
+- Les pays et populations les **plus pauvres** sont souvent les plus touchés tout en ayant le moins contribué (justice climatique).
+
+## Rétroactions
+Fonte des glaces (albédo ↓), dégel du pergélisol (méthane libéré), feux de forêt : **rétroactions positives** qui peuvent mener à des points de bascule.
+
+## Conseils d’examen
+Cite des chiffres sourcés et distingue **corrélation** (carottes de glace) et **mécanisme** (absorption de l’infrarouge).`,
+q:[{m:4,q:`Décris deux preuves que les activités humaines sont à l’origine du changement climatique actuel. [4]`,ms:`Hausse du CO₂ depuis la révolution industrielle corrélée aux émissions fossiles (2) ; réchauffement rapide, sans équivalent avec les cycles naturels (Milankovitch) / signature isotopique du carbone fossile (2).`}],src:[ESSRC.IB,ESSRC.wmo]},
+{id:'ess-6.3',u:'t6',n:'6.3',t:['Changement climatique : atténuation et adaptation','Climate change: mitigation and adaptation','Cambio climático: mitigación y adaptación'],body:`
+## L’essentiel
+- **Atténuation** : réduire les causes (émissions de GES) ou retirer le CO₂ de l’atmosphère.
+- **Adaptation** : réduire la vulnérabilité aux impacts.
+Les deux sont nécessaires, et une **action mondiale** est indispensable.
+
+## Atténuation
+- **Réduire les émissions** : énergies renouvelables, efficacité énergétique, transports publics, électrification, réduction du méthane (élevage, décharges).
+- **Instruments économiques** : **taxe carbone**, marchés de quotas d’émissions.
+- **Retirer le CO₂** : reboisement, protection des forêts, sols agricoles, **captage et stockage du carbone (CSC)** (coûteux, encore limité).
+- **Objectifs** : décarbonation, **neutralité carbone** (zéro émission nette).
+
+## Adaptation
+- **Structurelle** : digues, réservoirs, irrigation, bâtiments adaptés.
+- **Non structurelle** : aménagement du territoire (pas de construction en zone inondable), cultures résistantes à la sécheresse, systèmes d’alerte, assurances.
+
+## Cadre international
+- **CCNUCC** (1992), **protocole de Kyoto** (1997), **accord de Paris** (2015) : limiter le réchauffement bien en dessous de 2 °C et poursuivre les efforts pour 1,5 °C ; chaque pays présente une **contribution déterminée au niveau national (CDN)**.
+- Débat sur le **financement climatique** des pays riches vers les pays en développement.
+
+## Exemple
+Le Cameroun produit une grande partie de son électricité par l’hydroélectricité ; le barrage de **Nachtigal** (420 MW, mis en service complètement en 2025) augmente d’environ **30 %** la capacité de production du pays selon la Banque mondiale.
+
+## Conseils d’examen
+Pour évaluer une stratégie : efficacité, coût, faisabilité, équité, effets secondaires (un barrage déplace des populations et modifie les rivières).`,
+q:[{m:7,q:`Évalue l’utilisation d’une taxe carbone comme stratégie d’atténuation. [7]`,ms:`Bandes de niveau. Avantages : signal-prix, internalisation de l’externalité, recettes réinvestissables. Limites : effets régressifs, acceptabilité, fuites de carbone, niveau du prix. Exemples. Conclusion.`}],src:[ESSRC.IB,ESSRC.nacht]},
+{id:'ess-6.4',u:'t6',n:'6.4',t:['L’ozone stratosphérique','Stratospheric ozone','El ozono estratosférico'],body:`
+## L’essentiel
+La **couche d’ozone** (O₃) de la stratosphère absorbe la plupart des **UVB** et tous les **UVC**, ce qui protège les êtres vivants.
+
+## Destruction de l’ozone
+- Les **substances appauvrissant la couche d’ozone** (SACO) : **CFC** (anciens réfrigérants et aérosols), halons, bromure de méthyle.
+- Dans la stratosphère, les UV libèrent des atomes de **chlore** ou de brome qui détruisent l’ozone en chaîne (un atome de chlore peut détruire des milliers de molécules).
+- Le « **trou** » est surtout marqué au-dessus de l’Antarctique au printemps austral (nuages stratosphériques polaires).
+
+## Conséquences d’un excès d’UV
+Dommages à l’ADN, cancers de la peau, cataractes, baisse de la productivité du **phytoplancton** (base des réseaux marins) et des cultures.
+
+## Le protocole de Montréal (1987)
+- Élimination progressive des CFC et autres SACO ; ratifié par **tous les États membres de l’ONU**.
+- Considéré comme l’exemple le plus réussi de coopération environnementale internationale.
+- La couche d’ozone se reconstitue lentement : un retour aux niveaux de 1980 est attendu vers le milieu du siècle (plus tard au-dessus de l’Antarctique).
+- L’**amendement de Kigali** (2016) élimine aussi les HFC, qui ne détruisent pas l’ozone mais sont de puissants GES.
+
+## Pourquoi ce succès ?
+Peu de producteurs, substituts disponibles, preuve scientifique claire, fonds d’aide aux pays en développement.
+
+## Conseils d’examen
+Ne confonds pas trou de la couche d’ozone et changement climatique : ce sont deux problèmes différents, même si certains gaz jouent sur les deux.`,
+q:[{m:4,q:`Explique pourquoi le protocole de Montréal est considéré comme un succès. [4]`,ms:`Forte baisse de l’usage des SACO (1) ; ratification universelle (1) ; reconstitution progressive de la couche d’ozone (1) ; raisons : substituts, consensus scientifique, fonds multilatéral (1).`}],src:[ESSRC.IB]}
+);
+FICHES.ess.notes.push(
+{id:'ess-7.1',u:'t7',n:'7.1',t:['Ressources naturelles : usages et gestion','Natural resources: uses and management','Recursos naturales: usos y gestión'],body:`
+## L’essentiel
+Le **capital naturel** fournit un **revenu naturel** : des **biens** (bois, poissons, minerais) et des **services** (prévention des inondations, purification de l’eau, pollinisation).
+
+## Types de ressources
+- **Renouvelables** : se régénèrent (forêts, poissons, eau). Elles deviennent **non renouvelables** si on les exploite plus vite qu’elles ne se renouvellent.
+- **Non renouvelables** : stocks finis à l’échelle humaine (pétrole, minerais).
+- La **valeur** d’une ressource change avec la culture, la technologie et le marché (le coltan est devenu précieux avec l’électronique).
+
+## Sécurité des ressources
+Garantir la disponibilité à long terme pour répondre à la demande : diversification, recyclage, substitution, gestion durable, accords internationaux.
+
+## Exemple : la forêt camerounaise
+Capital naturel majeur (bois, produits forestiers non ligneux, carbone, biodiversité). Gestion : plans d’aménagement des concessions forestières, certification, forêts communautaires, lutte contre l’exploitation illégale.
+
+## Les biens communs
+La « **tragédie des communs** » (Hardin, 1968) : une ressource en accès libre tend à être surexploitée. Solutions : règles locales de gestion (Elinor Ostrom), quotas, droits de propriété, régulation publique.
+
+## Conseils d’examen
+Pour juger la durabilité, compare le **rythme d’exploitation** et le **rythme de renouvellement**.`,
+q:[{m:4,q:`Explique comment une ressource renouvelable peut devenir non renouvelable. [4]`,ms:`Définition du renouvelable (1) ; exploitation plus rapide que le renouvellement (1) ; stock qui s’effondre, seuil franchi (1) ; exemple (surpêche, déforestation, aquifère) (1).`}],src:[ESSRC.IB]},
+{id:'ess-7.2',u:'t7',n:'7.2',t:['Sources d’énergie : usages et gestion','Energy sources: uses and management','Fuentes de energía: usos y gestión'],body:`
+## L’essentiel
+Les sources d’énergie sont **renouvelables** (solaire, éolien, hydraulique, géothermie, biomasse) ou **non renouvelables** (charbon, pétrole, gaz, nucléaire). La consommation mondiale augmente avec la population et la demande par habitant.
+
+## Comparer les sources
+| Source | Avantages | Inconvénients |
+|---|---|---|
+| Fossiles | fiables, stockables, infrastructures existantes | GES, pollution de l’air, ressources finies |
+| Hydraulique | renouvelable, pilotable | déplacement de populations, écosystèmes fluviaux, dépend des pluies |
+| Solaire et éolien | faibles émissions, coûts en baisse | intermittence, besoin de stockage, matériaux |
+| Nucléaire | faibles émissions, production stable | déchets, risque d’accident, coût |
+| Biomasse | locale, renouvelable si gérée | déforestation, fumées (cuisson au bois) |
+
+## Choix énergétiques
+Ils dépendent des ressources disponibles, du coût, de la technologie, de la politique, de la sécurité d’approvisionnement et des valeurs (perspectives environnementales).
+
+## Exemple : le Cameroun
+L’électricité provient majoritairement de l’**hydroélectricité** (Song Loulou, Édéa, Memve’ele, Nachtigal, avec le barrage-réservoir de Lom Pangar) complétée par du thermique. Une grande partie de la population dépend encore de la **biomasse** (bois de chauffe) pour cuisiner.
+
+## Stockage et efficacité
+Batteries, stations de pompage, réseaux intelligents ; isolation, appareils efficaces, réduction des pertes du réseau.
+
+## Conseils d’examen
+Justifie un mix énergétique par plusieurs critères, pas seulement les émissions.`,
+q:[{m:7,q:`Évalue les avantages et les inconvénients de l’hydroélectricité pour un pays en développement. [7]`,ms:`Bandes de niveau. Avantages : renouvelable, bas carbone, pilotable, électricité bon marché. Inconvénients : coûts initiaux, déplacements, écosystèmes, sécheresses, sédiments, dette. Exemple réel. Conclusion.`}],src:[ESSRC.IB,ESSRC.nacht]},
+{id:'ess-7.3',u:'t7',n:'7.3',t:['Les déchets solides','Solid waste','Residuos sólidos'],body:`
+## L’essentiel
+Les déchets se classent selon leur **origine** (domestiques, industriels, agricoles) et leur **type** (organiques, plastiques, papiers, métaux, verre, déchets électroniques, biomédicaux). Il y a **pollution** quand les substances sont ajoutées plus vite qu’elles ne sont transformées en substances inoffensives.
+
+## Options de traitement
+| Option | Avantages | Inconvénients |
+|---|---|---|
+| Décharge contrôlée | simple, bon marché | occupe des terres, méthane, lixiviats |
+| Décharge sauvage / brûlage à l’air libre | aucun coût apparent | pollution de l’air, de l’eau, maladies |
+| Incinération | réduit le volume, énergie récupérable | émissions, coût, cendres toxiques |
+| Recyclage | économise ressources et énergie | tri nécessaire, marchés instables |
+| Compostage | valorise les déchets organiques, fertilise | tri, gestion des odeurs |
+
+## La hiérarchie des déchets
+**Réduire → réutiliser → recycler → valoriser (énergie) → éliminer**. La **prévention** est plus durable que le traitement.
+
+## Exemple
+À Douala et Yaoundé, la collecte n’atteint pas tous les quartiers ; les déchets bouchent les caniveaux et aggravent les inondations. Le Cameroun a interdit les emballages plastiques non biodégradables de faible épaisseur en **2014**, mais l’application reste difficile.
+
+## Conseils d’examen
+Utilise la **hiérarchie des déchets** pour évaluer une stratégie et pense aux acteurs (ménages, municipalités, entreprises, récupérateurs informels).`,
+q:[{m:7,q:`Évalue les stratégies de gestion des déchets solides domestiques dans une grande ville. [7]`,ms:`Bandes de niveau. Hiérarchie des déchets, avantages/inconvénients de chaque option, rôle des acteurs, coûts, contexte (économie informelle). Exemples. Conclusion.`}],src:[ESSRC.IB]},
+{id:'ess-8.1',u:'t8',n:'8.1',t:['Les populations humaines','Human populations','Poblaciones humanas'],body:`
+## L’essentiel
+Les **naissances** et l’**immigration** sont des entrées ; les **décès** et l’**émigration** des sorties. La population mondiale a atteint environ **8,2 milliards** en 2024 ; l’ONU prévoit un pic d’environ **10,3 milliards** vers le milieu des années 2080.
+
+## Indicateurs démographiques
+- **Taux brut de natalité / mortalité** (pour 1 000 habitants).
+- **Taux d’accroissement naturel** (%) = (natalité − mortalité) / 10.
+- **Indice synthétique de fécondité (ISF)** : nombre moyen d’enfants par femme ; seuil de remplacement ≈ **2,1**.
+- **Temps de doublement** ≈ **70 / taux de croissance (%)**.
+- **Espérance de vie**.
+
+**Exemple** : natalité 34 ‰, mortalité 8 ‰ → accroissement naturel = 2,6 % ; temps de doublement ≈ 70 / 2,6 ≈ **27 ans**.
+
+## Le modèle de transition démographique
+1. Natalité et mortalité élevées. 2. Mortalité en baisse (santé, nourriture) → forte croissance. 3. Natalité en baisse (urbanisation, éducation des filles, contraception). 4. Natalité et mortalité basses. 5. Natalité inférieure à la mortalité (vieillissement).
+
+~~~graph
+{"type":"line","title":"Transition démographique (schéma)","xlabel":"Stades 1 → 5","ylabel":"taux pour 1 000","series":[{"name":"natalité","points":[[1,40],[2,40],[3,28],[4,12],[5,9]]},{"name":"mortalité","points":[[1,38],[2,20],[3,12],[4,10],[5,11]]}]}
+~~~
+
+## Pyramides des âges
+Base large = forte fécondité (Cameroun : population de près de **30 millions** en 2025, très jeune) ; pyramide en urne = vieillissement (Japon).
+
+## Politiques démographiques
+Directes (politique de l’enfant unique en Chine de 1980 à 2015) ou indirectes (éducation des filles, santé, retraites, aides familiales).
+
+## Conseils d’examen
+Montre que la pression environnementale dépend aussi de la **consommation par habitant**, pas seulement du nombre d’habitants.`,
+q:[{m:3,q:`Un pays a une natalité de 30 ‰ et une mortalité de 9 ‰. Calcule le taux d’accroissement naturel et le temps de doublement approximatif. [3]`,ms:`(30 − 9) / 10 = **2,1 %** (M1 A1) ; 70 / 2,1 ≈ **33 ans** (A1).`}],src:[ESSRC.IB,ESSRC.wpp,ESSRC.cmpop]},
+{id:'ess-8.2',u:'t8',n:'8.2',t:['Systèmes urbains et planification urbaine','Urban systems and urban planning','Sistemas urbanos y planificación urbana'],body:`
+## L’essentiel
+Une ville est un **système** avec des composantes biotiques et abiotiques, des entrées (énergie, eau, nourriture, matériaux, personnes) et des sorties (déchets, pollution, chaleur). L’**urbanisation** et la **périurbanisation** transforment l’environnement local.
+
+## Impacts de l’urbanisation
+Imperméabilisation des sols (inondations), îlot de chaleur urbain, pollution de l’air et de l’eau, perte d’habitats, consommation de ressources, quartiers informels sans services.
+
+## Planification urbaine
+Objectifs : logement, transports, espaces verts, efficacité énergétique, gestion des déchets et de l’eau, réduction des risques.
+- **Ville compacte** et mixité des fonctions (moins de déplacements).
+- **Transports publics** et mobilité douce.
+- **Infrastructures vertes** : parcs, toitures végétalisées, zones humides urbaines.
+- Bâtiments économes en énergie.
+
+## Planification écologique
+Considérer la ville comme un **écosystème** : écologie urbaine, agriculture urbaine, corridors verts, recyclage des eaux, économie circulaire.
+
+## Exemple
+Douala, ville portuaire en forte croissance, cumule inondations, embouteillages, quartiers informels et gestion difficile des déchets : un cas utile pour proposer des solutions de planification.
+
+## Conseils d’examen
+Utilise un **diagramme de système** de la ville (entrées, sorties) pour structurer ta réponse.`,
+q:[{m:7,q:`Évalue les stratégies qui peuvent rendre une ville plus durable. [7]`,ms:`Bandes de niveau. Transports, énergie, espaces verts, déchets, eau, logement ; coûts, acceptabilité, équité, gouvernance. Exemples. Conclusion.`}],src:[ESSRC.IB]},
+{id:'ess-8.3',u:'t8',n:'8.3',t:['La pollution de l’air urbain','Urban air pollution','Contaminación del aire urbano'],body:`
+## L’essentiel
+Les **polluants primaires** (émis directement) viennent surtout de la **combustion des énergies fossiles** : oxydes d’azote (NOx), dioxyde de soufre (SO₂), monoxyde de carbone (CO), particules fines (PM). Les **polluants secondaires** se forment dans l’atmosphère (ozone troposphérique, smog photochimique).
+
+## Effets
+- **Pluies acides** : NOx et SO₂ forment des acides qui endommagent forêts, lacs (acidification), bâtiments et santé.
+- **Santé** : maladies respiratoires et cardiovasculaires ; les particules fines sont les plus dangereuses.
+- **Smog photochimique** : ozone formé par les NOx et les composés organiques volatils sous le soleil ; aggravé par les **inversions thermiques** qui bloquent l’air pollué près du sol.
+- **Pollution intérieure** : la cuisson au bois ou au charbon de bois expose fortement les femmes et les enfants.
+
+## Gestion
+1. **Modifier l’activité** : énergies alternatives, transports publics, urbanisme, cuisson propre (gaz, foyers améliorés).
+2. **Réduire les émissions** : pots catalytiques, filtres, épurateurs (*scrubbers*) dans les centrales, normes sur les carburants.
+3. **Restaurer** : chaulage des lacs acidifiés, végétalisation.
+
+## Conseils d’examen
+Pour chaque polluant, retiens : **source → effet → solution**.`,
+q:[{m:4,q:`Explique comment se forment les pluies acides et donne un de leurs effets. [4]`,ms:`Émission de SO₂ et NOx par la combustion (1) ; réaction avec l’eau et l’oxygène de l’atmosphère pour former des acides (1) ; dépôt humide ou sec (1) ; effet (acidification des lacs, dépérissement des forêts, corrosion) (1).`}],src:[ESSRC.IB]},
+{id:'ess-ev1',u:'ev',n:'É.1',t:['Épreuve 1 : étude de cas','Paper 1: case study','Prueba 1: estudio de caso'],body:`
+## L’essentiel
+**1 h**, **25 %**, **35 points**. Questions obligatoires sur une **étude de cas inconnue** (livret de ressources : textes, cartes, graphiques, données).
+
+## Méthode
+- Lis rapidement tout le livret, puis les questions.
+- Repère les **commandes** : *identifie, décris, explique, évalue, justifie*.
+- Cite les données du livret (chiffres, unités, figures) dans tes réponses.
+- Applique les concepts du cours : systèmes, durabilité, perspectives, rétroactions.
+- Gère le temps : environ 1,5 min par point.
+
+## Erreurs fréquentes
+- Répondre avec ses connaissances générales sans utiliser le livret.
+- Donner une description quand on demande une explication.`,
+q:[{m:4,q:`Entraînement : choisis un graphique d’une fiche ESS, décris sa tendance avec des chiffres, puis explique-la. Fais corriger ta réponse par Pacha.`,ms:`Indicatif : tendance générale, chiffres et unités, anomalies, explication causale.`}],src:[ESSRC.IB]},
+{id:'ess-ev2',u:'ev',n:'É.2',t:['Épreuve 2 : questions courtes et dissertation','Paper 2: short answers and essay','Prueba 2: respuestas cortas y ensayo'],body:`
+## L’essentiel
+**2 h**, **50 %**, **60 points**. **Section A** (40 points) : questions courtes et sur données. **Section B** (20 points) : **une dissertation structurée** au choix parmi deux.
+
+## Réussir la dissertation
+- Plan clair : introduction (définitions), développement par parties, conclusion qui répond à la question.
+- Utilise des **exemples précis** (lieux, chiffres, dates), des **diagrammes** annotés quand c’est utile.
+- Pour « évalue » ou « discute » : avantages **et** limites, perspectives différentes, jugement final.
+- Mobilise les concepts transversaux : **perspectives, systèmes, durabilité**.
+
+## Erreurs fréquentes
+- Réponses génériques sans exemples réels.
+- Oublier de conclure.`,
+q:[{m:9,q:`Entraînement : rédige un plan détaillé pour « Évalue les stratégies d’atténuation du changement climatique » avec trois exemples précis. Fais-le corriger par Pacha.`,ms:`Indicatif : définitions, stratégies variées (réduction, captage, instruments économiques), évaluation, exemples chiffrés, conclusion.`}],src:[ESSRC.IB]},
+{id:'ess-ev3',u:'ev',n:'É.3',t:['L’investigation individuelle (évaluation interne)','The individual investigation (internal assessment)','La investigación individual (evaluación interna)'],body:`
+## L’essentiel
+**25 %**, **30 points**, **3 000 mots maximum** (graphiques, tableaux, équations, citations, bibliographie et titres non comptés). Tu mènes une investigation sur une question environnementale de ton choix.
+
+## Les critères
+| Critère | Points |
+|---|---|
+| A. Question de recherche et enquête | 4 |
+| B. Stratégie | 4 |
+| C. Méthode | 4 |
+| D. Traitement des données | 6 |
+| E. Analyse et conclusion | 6 |
+| F. Évaluation | 6 |
+
+## Conseils
+- Une **question de recherche** précise, mesurable, liée à un enjeu environnemental et social.
+- Une méthode **reproductible** : variables, échantillonnage, matériel, éthique et sécurité.
+- Des données suffisantes (et répétées) ; traitement statistique adapté ; graphiques clairs.
+- Conclusion qui répond à la question avec les données ; évaluation des limites et des améliorations.
+
+## Important
+L’investigation doit rester **ton travail** : Pacha peut t’aider à vérifier la méthode ou la clarté, mais ne la rédige pas à ta place.`,
+q:[{m:4,q:`Formule une question de recherche pour ton investigation ESS et identifie la variable indépendante et la variable dépendante. Fais-la commenter par Pacha.`,ms:`Indicatif : question précise et mesurable, variables identifiées, faisabilité, lien environnement-société.`}],src:[ESSRC.IB]}
+);
 /* Fiches SAPIENS — Global Politics HL (programme : premières évaluations 2026) */
 (function(){
 const IB=['IB — Aperçu du cours Global Politics NM/NS (premières évaluations 2026)','https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/global-politics-sl-hl-subject-brief-en.pdf'];
