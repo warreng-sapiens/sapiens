@@ -2794,7 +2794,7 @@ function applyLang(){
   document.documentElement.lang=lang;applyCourseLang();applyBankLang();if(typeof rebuildCards==='function')rebuildCards();
   $$('[data-i]').forEach(e=>{e.textContent=t(e.dataset.i)});$$('.brand small').forEach(e=>e.textContent=X('par Pacha Académie · IB','by Pacha Académie · IB','por Pacha Académie · IB'));$$('[data-ip]').forEach(e=>{e.placeholder=t(e.dataset.ip)});
   $$('.langs button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
-  renderAll();
+  renderAll();if(typeof onLangChange==='function')onLangChange();
 }
 $$('.langs').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.l;store.set('lang',lang);applyLang()}));
 
@@ -3336,7 +3336,7 @@ ${CHATLINE()}`}
 function botRender(){
   const box=$('#botMsgs');
   box.innerHTML=(BOT.length?'':`<div class="bm a"><p>${esc(PROF&&PROF.name?t('bot_hello').replace(/^(Salut|Hey|¡Hola)( !|!)?/,(m0,a)=>a+' '+PROF.name+(lang==='fr'?' !':'!')):t('bot_hello'))}</p></div><div class="chips" style="margin:4px 0 8px">${BOT_SUG.map((x,i)=>`<button class="chip" data-sug="${i}">${esc(L(x))}</button>`).join('')}</div>`)+
-  BOT.map((m,i)=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.show||m.content):md(m.content)+`<span class="bacts">${VX.tts?`<button class="bspk" data-spk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:''}<button class="bchk" data-chk="${i}">${esc(X('Revérifier','Double-check','Revisar'))}</button></span>`}</div>`).join('');
+  BOT.map((m,i)=>`<div class="bm ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.show||m.content):md(trc(m.content))+`<span class="bacts">${VX.tts?`<button class="bspk" data-spk="${i}" aria-label="${esc(X('Écouter','Listen','Escuchar'))}">${SPKSVG}</button>`:''}<button class="bchk" data-chk="${i}">${esc(X('Revérifier','Double-check','Revisar'))}</button></span>`}</div>`).join('');
   box.scrollTop=box.scrollHeight;
 }
 function botStatus(){const ok=aiOK();$('#botWarn').hidden=ok;$('#botWarn').textContent=t('noai');$('#aiNote')&&($('#aiNote').textContent=ok?'':t('noai'))}
@@ -3732,7 +3732,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v5 · nov. 2026';
+const VERSION='v12 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -3851,19 +3851,19 @@ function renderTravaux(){
   const open=WORKS.filter(w=>w.st!=='rendu'),done=WORKS.length-open.length;
   const next=open.filter(w=>w.due&&dleft(w.due)>=0).sort((a,b)=>a.due.localeCompare(b.due))[0];
   const words=WORKS.reduce((s,w)=>s+wcount(w.txt||''),0);
-  $('#wkKpi').innerHTML=[[WORKS.length,X('travaux suivis','pieces tracked','trabajos')],[done,X('rendus','submitted','entregados')],[next?jtag(dleft(next.due)):'—',next?esc(next.t):X('prochaine échéance','next deadline','próxima fecha')],[words.toLocaleString(),X('mots écrits','words written','palabras')]].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
+  $('#wkKpi').innerHTML=[[WORKS.length,X('travaux suivis','pieces tracked','trabajos')],[done,X('rendus','submitted','entregados')],[next?jtag(dleft(next.due)):'—',next?esc(workTitle(next)):X('prochaine échéance','next deadline','próxima fecha')],[words.toLocaleString(),X('mots écrits','words written','palabras')]].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
   const list=[...WORKS].sort((a,b)=>(a.st==='rendu')-(b.st==='rendu')||(a.due||'9').localeCompare(b.due||'9'));
   $('#wkList').innerHTML=list.length?list.map(w=>{const a=aOf(w),n=dleft(w.due),i=stIdx(w.st),wc=wcount(w.txt||''),late=n!=null&&n<14&&w.st!=='rendu';
-    return `<button class="wkrow ${w.st==='rendu'?'done':''}" data-wk="${w.id}"><div class="wkmain"><b>${esc(w.t)}</b><span class="small muted">${w.t!==L(a.n)?esc(L(a.n))+' · ':''}${a.words?`${wc}/${a.words} ${t('words')}`:`${wc} ${t('words')}`}</span><div class="wksteps">${WST.map((s,j)=>`<i class="${j<=i?'on':''}" title="${esc(L(s[1]))}"></i>`).join('')}</div></div><div class="wkside"><span class="tag ${w.st==='rendu'?'gold':''}">${esc(L(WST[i][1]))}</span>${w.due?`<span class="wkdue ${late?'late':''}">${jtag(n)}</span><span class="small muted">${new Date(w.due+'T00:00').toLocaleDateString(lang,{day:'numeric',month:'short'})}</span>`:`<span class="small muted">${X('pas de date','no date','sin fecha')}</span>`}</div></button>`}).join('')
+    return `<button class="wkrow ${w.st==='rendu'?'done':''}" data-wk="${w.id}"><div class="wkmain"><b>${esc(workTitle(w))}</b><span class="small muted">${workTitle(w)!==L(a.n)?esc(L(a.n))+' · ':''}${a.words?`${wc}/${a.words} ${t('words')}`:`${wc} ${t('words')}`}</span><div class="wksteps">${WST.map((s,j)=>`<i class="${j<=i?'on':''}" title="${esc(L(s[1]))}"></i>`).join('')}</div></div><div class="wkside"><span class="tag ${w.st==='rendu'?'gold':''}">${esc(L(WST[i][1]))}</span>${w.due?`<span class="wkdue ${late?'late':''}">${jtag(n)}</span><span class="small muted">${new Date(w.due+'T00:00').toLocaleDateString(lang,{day:'numeric',month:'short'})}</span>`:`<span class="small muted">${X('pas de date','no date','sin fecha')}</span>`}</div></button>`}).join('')
   :`<p class="muted">${X('Aucun travail pour l’instant. Ajoute tes travaux IB en un clic, puis donne une date à chacun.','No work yet. Add your IB pieces in one click, then give each one a date.','Aún no hay trabajos.')}</p>`;
   $('#wkEd').hidden=!WK;if(WK)renderWkEd();
 }
 function renderWkEd(){
   const w=WORKS.find(x=>x.id===WK);if(!w){WK=null;$('#wkEd').hidden=true;return}
-  $('#wkT').value=w.t;$('#wkA').innerHTML=ASSESS.map(a=>`<option value="${a.id}" ${a.id===w.a?'selected':''}>${esc(L(a.n))}</option>`).join('');
+  $('#wkT').value=workTitle(w);$('#wkA').innerHTML=ASSESS.map(a=>`<option value="${a.id}" ${a.id===w.a?'selected':''}>${esc(L(a.n))}</option>`).join('');
   $('#wkD').value=w.due||'';$('#wkS').innerHTML=WST.map(s=>`<option value="${s[0]}" ${s[0]===w.st?'selected':''}>${esc(L(s[1]))}</option>`).join('');
   $('#wkTxt').value=w.txt||'';$('#wkN').value=w.notes||'';$('#wkCrit').innerHTML=critTable(aOf(w));wkWc();
-  $('#wkFb').innerHTML=w.fb?`<details><summary>${X('Dernier retour de Pacha IA','Last Pacha IA feedback','Último comentario')} · ${new Date(w.fbd).toLocaleDateString(lang)}</summary><div class="ai-out">${aiTag(true)}${md(w.fb)}</div></details>`:'';
+  $('#wkFb').innerHTML=w.fb?`<details><summary>${X('Dernier retour de Pacha IA','Last Pacha IA feedback','Último comentario')} · ${new Date(w.fbd).toLocaleDateString(lang)}</summary><div class="ai-out">${aiTag(true)}${md(trc(w.fb))}</div></details>`:'';
   $('#wkOut').innerHTML='';$('#wkDel').textContent=X('Supprimer','Delete','Eliminar');wkDelArm=false;
 }
 function wkWc(){const w=WORKS.find(x=>x.id===WK);if(!w)return;const a=aOf({a:$('#wkA').value}),n=wcount($('#wkTxt').value);$('#wkWc').textContent=`${n} ${t('words')}`+(a.words?` / ${t('limit')} ${a.words}`:'');$('#wkWc').classList.toggle('over',!!a.words&&n>a.words)}
@@ -4133,7 +4133,7 @@ function botListen(){if(!VX.sr){$('#botIn').focus();toast(X('Ton navigateur ne g
 $('#botMic').addEventListener('click',botListen);
 $('#botGo').addEventListener('click',unlockTTS,true);
 function onBotReply(r){if(!VOICE_ON)return;speak(r,{onend:()=>{if(VLOOP&&$('#bot').classList.contains('open'))botListen()}})}
-$('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-spk]');if(!b)return;unlockTTS();const m=BOT[+b.dataset.spk];if(!m)return;if(b.classList.contains('on')){stopSpeak();b.classList.remove('on');return}$$('#botMsgs [data-spk].on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(m.content,{onend:()=>b.classList.remove('on')})});
+$('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-spk]');if(!b)return;unlockTTS();const m=BOT[+b.dataset.spk];if(!m)return;if(b.classList.contains('on')){stopSpeak();b.classList.remove('on');return}$$('#botMsgs [data-spk].on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(trc(m.content),{onend:()=>b.classList.remove('on')})});
 $('#botX').addEventListener('click',()=>{stopSpeak();stopDictate();VLOOP=false});
 
 /* ---------- coach d’oral ---------- */
@@ -4158,8 +4158,8 @@ function renderOral(){const o=ORALS[OR.t],a=o.a?ASSESS.find(x=>x.id===o.a):null;
   $('#orTypes').innerHTML=Object.keys(ORALS).map(k=>`<button class="chip ${OR.t===k?'on':''}" data-ot="${k}">${esc(oName(k))}</button>`).join('');
   $('#orInfo').innerHTML=`<p style="margin:0">${esc(L(o.info))}</p>${a?`<details style="margin-top:8px"><summary>${X('Critères d’évaluation','Assessment criteria','Criterios')}</summary>${critTable(a)}</details>`:''}`;
   $('#orFields').innerHTML=o.f.map(f=>`<label class="f"><span>${esc(L(f[1]))}</span><textarea data-of="${f[0]}" style="min-height:${f[0]==='ideas'?120:60}px">${esc(OR.v[f[0]]||'')}</textarea></label>`).join('');
-  $('#orPlan').innerHTML=OR.plan?`${aiTag(false)}${md(OR.plan)}`:'';
-  $('#orTr').value=OR.tr||'';orWc();renderPhases();renderDia();$('#orFb').innerHTML=OR.fb?`${aiTag(true)}${md(OR.fb)}`:'';
+  $('#orPlan').innerHTML=OR.plan?`${aiTag(false)}${md(trc(OR.plan))}`:'';
+  $('#orTr').value=OR.tr||'';orWc();renderPhases();renderDia();$('#orFb').innerHTML=OR.fb?`${aiTag(true)}${md(trc(OR.fb))}`:'';
   $('#orSR').textContent=VX.sr?'':X('Ton navigateur ne transcrit pas la voix : utilise la dictée de ton clavier (🎤) dans la zone de texte, ou écris tes notes.','Your browser cannot transcribe speech: use your keyboard dictation (🎤) in the text box, or type your notes.','Tu navegador no transcribe la voz: usa el dictado del teclado.')}
 document.addEventListener('input',e=>{const f=e.target.closest('[data-of]');if(!f)return;OR.v[f.dataset.of]=f.value;saveOR()});
 $('#orTypes').addEventListener('click',e=>{const b=e.target.closest('[data-ot]');if(!b)return;orStop();OR={t:b.dataset.ot,v:{},plan:'',tr:'',dia:[],fb:''};saveOR();OPH={i:0,left:0,iv:null,run:false,t0:0,spoke:0};renderOral()});
@@ -4167,7 +4167,7 @@ $('#orPlanGo').addEventListener('click',async e=>{const o=ORALS[OR.t];const give
   if(!o.f.some(f=>(OR.v[f[0]]||'').trim())){$('#orPlan').innerHTML=`<p class="warn">${esc(X('Note d’abord tes idées, même en vrac : Pacha les organise.','Jot down your ideas first, even roughly: Pacha will organise them.','Anota primero tus ideas.'))}</p>`;return}
   const r=await ask(`You are an experienced IB teacher helping a student prepare: ${L(o.n)} (${o.a?ASSESS.find(x=>x.id===o.a).en:'class presentation'}). Format: ${o.phases.map(p=>p[0][1]+' '+Math.round(p[1]/60)+' min').join(', ')}.\nThe student's own material:\n${given}\n\nBuild a spoken-presentation STRUCTURE from the student's own ideas (do not invent their analysis or write their speech: this is assessed work). Give: the opening (how to hook and state the issue/thesis in one or two sentences, as advice), the parts in order with a target time for each and what to cover, the transitions to use between parts, and the closing. Then a draft of the 10-bullet-point outline card they are allowed to bring (keywords only, no sentences). Then point out what is missing or weak in their material and 3 questions they should be ready for. Write it as a teacher talking to the student. ${o.l?`Write the advice in ${LANGN()}, but keep any quoted wording or keywords for the card in ${o.l==='fr'?'French':'English'} (the language of the exam).`:''} ${LANGLINE()}`,$('#orPlan'),{btn:e.currentTarget});
   if(r){OR.plan=r;saveOR()}});
-$('#orPlanSpeak').addEventListener('click',()=>{unlockTTS();if(OR.plan)speak(OR.plan)});
+$('#orPlanSpeak').addEventListener('click',()=>{unlockTTS();if(OR.plan)speak(trc(OR.plan))});
 /* minuteur par phases */
 function renderPhases(){const o=ORALS[OR.t];if(!OPH.left&&!OPH.run)OPH.left=o.phases[OPH.i]?o.phases[OPH.i][1]:0;
   $('#orPh').innerHTML=o.phases.map((p,i)=>`<span class="tag ${i===OPH.i?'gold':''}">${esc(L(p[0]))} · ${Math.round(p[1]/60)} min</span>`).join('');
@@ -4213,7 +4213,7 @@ $('#orFbGo').addEventListener('click',async e=>{const o=ORALS[OR.t],a=o.a?ASSESS
   const sec=Math.round(OPH.spoke);
   const r=await ask(`You are an experienced IB examiner and speaking coach. Give feedback on this practice of: ${L(o.n)}. It was captured by speech recognition, so ignore small transcription errors and do not judge spelling. Speaking time measured: ${sec?Math.round(sec/60)+' min':'unknown'}; target: ${o.phases.map(p=>Math.round(p[1]/60)+' min').join(' + ')}.\nCriteria:\n${crit}\n\nFor each criterion: the band it would probably reach, what you heard that justifies it (quote a few words), and the one change that would raise it. Then comment like a coach on the delivery: structure you could hear, transitions, pace, filler words, how they handled the questions. End with the three things to practise before the next run. This is indicative feedback, not an official IB mark.\n\nPRESENTATION TRANSCRIPT:\n${tx.slice(0,9000)}\n\nQUESTION–ANSWER EXCHANGE:\n${OR.dia.map(m=>(m.r==='s'?'STUDENT: ':'EXAMINER: ')+m.c).join('\n')}\n\n${LANGLINE()}`,$('#orFb'),{btn:e.currentTarget,indic:true});
   if(r){OR.fb=r;saveOR();logAct(Math.round(sec/60),'oral',40)}});
-$('#orFbSpeak').addEventListener('click',()=>{unlockTTS();if(OR.fb)speak(OR.fb)});
+$('#orFbSpeak').addEventListener('click',()=>{unlockTTS();if(OR.fb)speak(trc(OR.fb))});
 
 /* ================= Sapiens v10 : Pacha lit tout (photos, PDF, Word, Excel, PowerPoint) et trace des graphiques ================= */
 async function loadZip(){if(!window.JSZip)await new Promise((ok,ko)=>{const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';sc.onload=ok;sc.onerror=ko;document.head.appendChild(sc)})}
@@ -4326,6 +4326,43 @@ let BOTMEDIA=[];
 $('#botNew').addEventListener('click',()=>{BOTMEDIA=[];botDocs=[]});
 
 $('#botMsgs').addEventListener('click',e=>{const b=e.target.closest('[data-chk]');if(!b)return;botSend(X('Revérifie ta réponse, s’il te plaît.','Please double-check your answer.','Revisa tu respuesta, por favor.'),'[Instruction for Pacha: re-check your previous answer very carefully against the question and any attached photos/documents: re-read the figures, redo every calculation independently, check the logic and the graph data. Then say plainly whether it was right. If you find a mistake, say exactly what was wrong and give the corrected answer in full.]')});
+/* ================= Sapiens v12 : tout le contenu suit la langue, y compris les réponses de Pacha déjà affichées ================= */
+function detectLang(s){s=' '+String(s||'').toLowerCase().replace(/[^a-zà-ÿñ’' ]+/g,' ')+' ';const c=(re)=>(s.match(re)||[]).length;
+  const fr=c(/ (le|la|les|des|est|et|pour|que|une|dans|du|pas|tu|ce|qui|avec) /g),en=c(/ (the|and|is|to|of|that|you|for|with|this|are|it|in) /g),es=c(/ (el|los|las|que|es|para|por|una|con|del|tu|lo|como|más) /g);
+  const m=Math.max(fr,en,es);if(m<2)return lang;return m===fr?'fr':m===en?'en':'es'}
+function hstr(s){let h=5381;for(let i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36)+s.length}
+let TRC=store.get('trc',{});
+const saveTRC=()=>{const k=Object.keys(TRC);if(k.length>400)k.slice(0,k.length-400).forEach(x=>delete TRC[x]);store.set('trc',TRC)};
+function trc(text){if(!text)return text;if(detectLang(text)===lang)return text;const e=TRC[hstr(text)];return e&&e[lang]||text}
+function needsTr(text){return text&&detectLang(text)!==lang&&!(TRC[hstr(text)]||{})[lang]}
+async function aiTranslate(text){const prompt=`Translate the following text into ${LANGN()}. Keep exactly the same Markdown structure (headings, lists, bold, tables). Inside \`\`\`graph code blocks keep valid JSON and translate only the values of "title", "name", "label", "xlabel", "ylabel" and "caption". Keep numbers, formulas, proper names and quotations from literary works unchanged. Write naturally, as a native speaker would. Output only the translation, nothing else.\n\n---\n${text}`;
+  if(S){const r=await S(prompt,{modelTier:'default',cache:false});return r.text}return await apiChat(prompt)}
+let trBusy=false;
+async function translateScreen(){if(trBusy)return;const texts=new Set();
+  BOT.forEach(m=>{if(m.role==='assistant'&&needsTr(m.content))texts.add(m.content)});
+  [OR.plan,OR.fb].forEach(x=>{if(needsTr(x))texts.add(x)});WORKS.forEach(w=>{if(needsTr(w.fb))texts.add(w.fb)});
+  $$('[data-raw]').forEach(el=>{if(needsTr(el.dataset.raw))texts.add(el.dataset.raw)});
+  if(!texts.size)return;
+  if(!aiOK()){toast(X('Les réponses de Pacha déjà affichées seront traduites dès que l’IA sera connectée.','Pacha’s earlier answers will be translated once the AI is connected.','Las respuestas anteriores se traducirán cuando la IA esté conectada.'));return}
+  trBusy=true;const L0=lang;let n=0;toast(`${ico('spark')}${X('Traduction des réponses de Pacha…','Translating Pacha’s answers…','Traduciendo las respuestas de Pacha…')}`);
+  try{for(const t0 of texts){if(lang!==L0)break;try{const tr=await aiTranslate(t0);if(tr&&tr.trim()){const h=hstr(t0);TRC[h]=TRC[h]||{};TRC[h][L0]=tr.trim();saveTRC();n++;refreshTranslated()}}catch(e){}}}
+  finally{trBusy=false}
+  if(n)toast(`${ico('check')}<b>${X('Traduit','Translated','Traducido')}</b>`)}
+function refreshTranslated(){if($('#botMsgs')&&$('#bot').classList.contains('open'))botRender();else if($('#botMsgs'))botRender();
+  $$('[data-raw]').forEach(el=>{el.innerHTML=(el.dataset.notag?'':aiTag(el.dataset.indic==='1'))+md(trc(el.dataset.raw))});
+  if(location.hash==='#oral'&&typeof renderOral==='function'){$('#orPlan').innerHTML=OR.plan?`${aiTag(false)}${md(trc(OR.plan))}`:'';$('#orFb').innerHTML=OR.fb?`${aiTag(true)}${md(trc(OR.fb))}`:''}
+  if(location.hash==='#travaux'&&WK&&typeof renderWkEd==='function')renderWkEd()}
+/* les réponses de Pacha retiennent leur texte brut pour pouvoir être traduites */
+const ask1=ask;
+ask=async function(input,out,o={}){const r=await ask1(input,out,o);if(r&&out&&!o.view){out.dataset.raw=r;if(o.notag)out.dataset.notag='1';else delete out.dataset.notag;out.dataset.indic=o.indic?'1':''}return r};
+/* examen en cours : le sujet suit la langue */
+function examLang(){try{if(EXAM&&EXAM.qid){const q=BANK.find(x=>x.id===EXAM.qid);if(q){EXAM.q=q.q;EXAM.ms=q.ms;EXAM.t=q.t;$('#exQ').innerHTML=md(q.q);$('#exTitle').textContent=`${sName(EXAM.s)} · ${EXAM.p} · ${q.t}`;if(!$('#simAfter').hidden)$('#exMS').innerHTML=md(q.ms)}}}catch(e){}}
+/* titres par défaut des travaux : affichés dans la langue choisie */
+const ASSESS_NAMES=new Map();ASSESS.forEach(a=>a.n.forEach(n=>ASSESS_NAMES.set(n,a)));
+function workTitle(w){const a=ASSESS_NAMES.get(w.t);return a?L(a.n):w.t}
+let LASTLANG=lang;
+function onLangChange(){if(LASTLANG===lang)return;LASTLANG=lang;examLang();refreshTranslated();setTimeout(translateScreen,300)}
+
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;$('#installBtn').hidden=false});
