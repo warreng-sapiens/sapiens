@@ -475,6 +475,10 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .gcard{perspective:1000px;max-width:560px;margin:10px auto}.gin{border:1px solid var(--line);border-radius:18px;padding:26px;min-height:190px;display:grid;place-items:center;text-align:center;cursor:pointer;background:var(--card,#fff)}.gin h3{font-size:24px;margin:0}
 .glrow{padding:8px 0;border-bottom:1px solid var(--line)}.glrow b{display:block}
 .gxwrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px}@media(max-width:860px){.gxwrap{grid-template-columns:1fr}}.gxsvg{width:100%;height:auto;touch-action:none;background:var(--card,#fff);border:1px solid var(--line);border-radius:14px}.gxctl label{display:block;margin:10px 0 2px;font-size:13px;font-weight:600}.gxctl input[type=range]{width:100%}.gxout{font-size:14px;line-height:1.7}
+.mmap{margin-top:16px;border:1px solid var(--line);border-radius:16px;padding:14px}.mmc{font-family:Georgia,serif;font-weight:700;font-size:18px;text-align:center;padding:10px 14px;border-radius:12px;background:color-mix(in srgb,var(--c,#b8924a) 14%,transparent);margin-bottom:12px}.mmb{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.mmn{border-left:4px solid var(--c,#b8924a);padding:6px 10px;border-radius:8px;background:color-mix(in srgb,var(--c,#b8924a) 6%,transparent)}.mmn b{display:block;margin-bottom:4px}.mmn span{display:block;font-size:13px;color:var(--muted)}
+body.easyread .fbody,body.easyread #cLesson,body.easyread .bmsg{letter-spacing:.04em;word-spacing:.12em;line-height:1.85!important;font-style:normal!important}body.easyread .fbody em,body.easyread .fbody i{font-style:normal;font-weight:600}body.easyread .fbody p{text-align:left!important}
+body.hicon{--muted:#222;--line:#555}body.hicon .fbody,body.hicon .panel{color:#000}body.hicon.dark .fbody,body.hicon.dark .panel{color:#fff}
+@media print{body.printfiche *{visibility:hidden!important}body.printfiche #fMain .fiche,body.printfiche #fMain .fiche *{visibility:visible!important}body.printfiche #fMain .fiche{position:absolute;left:0;top:0;width:100%;border:0;box-shadow:none}body.printfiche .ftools,body.printfiche .frate,body.printfiche .fnav,body.printfiche #fQuiz{display:none!important}}
 .fsrc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.fsrc ul{margin:8px 0 10px;padding-left:18px;display:grid;gap:6px}.fsrc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;word-break:break-word}
 .fnav{margin-top:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr}.ftocbox{position:static;max-height:none}.fiche h1{font-size:24px}}
@@ -6884,6 +6888,87 @@ A = ∫₀² (2x − x²) dx = [x² − x³/3]₀² = 4 − 8/3 = **4/3**.
 En Paper 2, la calculatrice calcule ∫|v(t)|dt directement : écris l’intégrale complète avec ses bornes avant de donner le résultat.`,
 q:[{m:7,q:`La vitesse d’une particule est v(t) = 6 − 2t (m/s), 0 ≤ t ≤ 5.\n\n(a) Trouve l’accélération. [1]\n\n(b) Trouve à quel instant la particule change de sens. [1]\n\n(c) Trouve le déplacement entre t = 0 et t = 5. [2]\n\n(d) Trouve la distance parcourue entre t = 0 et t = 5. [3]`,ms:`(a) **a = −2 m/s²** (A1).\n\n(b) **t = 3 s** (A1).\n\n(c) [6t − t²]₀⁵ (M1) = **5 m** (A1).\n\n(d) ∫₀³ v dt = 9 et ∫₃⁵ v dt = −4 (M1 A1) → distance **13 m** (A1).`}]}
 );
+FICHES.math.units.push({id:'form',t:['Formulaire expliqué','Formulas explained','Fórmulas explicadas']});
+FICHES.math.notes.push(
+{id:'m-form1',u:'form',n:'F.1',t:['Formulaire AA SL : chaque formule expliquée avec un exemple','AA SL formulas: each one explained with an example','Fórmulas AA SL explicadas'],body:`
+## L’essentiel
+À l’examen, tu disposes du **livret de formules** de l’IB. Mais une formule ne sert à rien si tu ne sais pas **quand** l’utiliser et **ce que signifie chaque lettre**. Cette fiche reprend les formules du programme AA SL, avec un exemple rapide pour chacune. Certaines choses ne sont **pas** dans le livret : elles sont signalées ⚠️.
+
+## Thème 1 — Nombres et algèbre
+| Formule | Quand l’utiliser | Exemple |
+|---|---|---|
+| uₙ = u₁ + (n − 1)d | terme d’une suite arithmétique | u₁ = 3, d = 4 : u₁₀ = 39 |
+| Sₙ = n/2 (2u₁ + (n − 1)d) | somme arithmétique | S₁₀ = 5 × (6 + 36) = 210 |
+| uₙ = u₁ rⁿ⁻¹ | terme d’une suite géométrique | u₁ = 2, r = 3 : u₅ = 162 |
+| Sₙ = u₁(rⁿ − 1)/(r − 1) | somme géométrique | S₅ = 2(243 − 1)/2 = 242 |
+| S∞ = u₁/(1 − r), avec −1 < r < 1 | somme infinie | 8 + 4 + 2 + … = 16 |
+| VF = VA(1 + r/(100k))^(kn) | intérêts composés | 1 000 à 5 %, annuel, 3 ans : 1 157,63 |
+| aˣ = b ⇔ x = logₐ b | passer d’exponentielle à logarithme | 2ˣ = 8 ⇔ x = 3 |
+| logₐ x = ln x / ln a | changement de base | log₂ 10 ≈ 3,32 |
+| ⁿCᵣ = n!/(r!(n − r)!) | coefficients du binôme | ⁵C₂ = 10 |
+| (a + b)ⁿ = Σ ⁿCᵣ aⁿ⁻ʳ bʳ | développer une puissance | (x + 1)³ = x³ + 3x² + 3x + 1 |
+
+⚠️ **À connaître par cœur** : les lois des exposants et des logarithmes (log(xy) = log x + log y, etc.), l’erreur en pourcentage.
+
+## Thème 2 — Fonctions
+| Formule | Quand l’utiliser | Exemple |
+|---|---|---|
+| m = (y₂ − y₁)/(x₂ − x₁) | pente d’une droite | (1, 3) et (4, 9) : m = 2 |
+| y − y₁ = m(x − x₁) | équation de droite | y − 3 = 2(x − 1) |
+| x = −b/(2a) | axe de symétrie d’une parabole | 2x² − 8x + 6 : x = 2 |
+| x = (−b ± √Δ)/(2a), Δ = b² − 4ac | racines du second degré | x² − 5x + 6 : x = 2 ou 3 |
+
+⚠️ **À connaître** : droites perpendiculaires m₁m₂ = −1 ; asymptotes de (ax + b)/(cx + d) : x = −d/c et y = a/c ; transformations de graphiques.
+
+## Thème 3 — Géométrie et trigonométrie
+| Formule | Quand l’utiliser | Exemple |
+|---|---|---|
+| d = √((x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²) | distance dans l’espace | (0,0,0)-(2,3,6) : 7 |
+| a/sin A = b/sin B = c/sin C | loi des sinus | deux angles et un côté |
+| c² = a² + b² − 2ab cos C | loi des cosinus | deux côtés et l’angle compris |
+| Aire = ½ ab sin C | aire d’un triangle | a = 5, b = 6, C = 30° : 7,5 |
+| l = rθ ; A = ½ r²θ (θ en radians) | arc et secteur | r = 4, θ = 1 : l = 4, A = 8 |
+| sin²θ + cos²θ = 1 | identité fondamentale | sin θ = 0,6 ⇒ cos θ = ±0,8 |
+| sin 2θ = 2 sin θ cos θ ; cos 2θ = cos²θ − sin²θ | angle double | — |
+| V cône = ⅓πr²h ; V sphère = (4/3)πr³ | volumes | r = 3 : sphère ≈ 113 |
+
+⚠️ **À connaître** : valeurs exactes de sin, cos, tan pour 0, π/6, π/4, π/3, π/2 ; période 2π/b pour a sin(bx) ; SOH-CAH-TOA.
+
+## Thème 4 — Statistiques et probabilités
+| Formule | Quand l’utiliser | Exemple |
+|---|---|---|
+| IQR = Q₃ − Q₁ ; aberrant si < Q₁ − 1,5 IQR ou > Q₃ + 1,5 IQR | dispersion, valeurs aberrantes | Q₁ = 10, Q₃ = 20 : bornes −5 et 35 |
+| x̄ = Σfx/Σf | moyenne | — |
+| P(A ∪ B) = P(A) + P(B) − P(A ∩ B) | réunion | 0,5 + 0,4 − 0,2 = 0,7 |
+| P(A sachant B) = P(A ∩ B)/P(B) | probabilité conditionnelle | 0,2/0,4 = 0,5 |
+| E(X) = Σ x P(X = x) | espérance | — |
+| X ~ B(n, p) : E(X) = np, Var(X) = np(1 − p) | loi binomiale | B(10 ; 0,3) : E = 3 |
+| z = (x − μ)/σ | loi normale centrée réduite | μ = 50, σ = 10, x = 65 : z = 1,5 |
+
+⚠️ **À connaître** : indépendance P(A ∩ B) = P(A)P(B) ; la calculatrice pour binompdf, binomcdf, normalcdf, invNorm, régression et r.
+
+## Thème 5 — Analyse
+| Formule | Quand l’utiliser | Exemple |
+|---|---|---|
+| f′(x) = lim (f(x+h) − f(x))/h | définition de la dérivée | — |
+| (xⁿ)′ = nxⁿ⁻¹ | dériver une puissance | (x⁵)′ = 5x⁴ |
+| (sin x)′ = cos x ; (cos x)′ = −sin x ; (eˣ)′ = eˣ ; (ln x)′ = 1/x | fonctions usuelles | — |
+| Chaîne : dy/dx = dy/du × du/dx | fonction composée | ((2x+1)³)′ = 6(2x+1)² |
+| Produit : (uv)′ = u′v + uv′ ; quotient : (u/v)′ = (u′v − uv′)/v² | produits et quotients | (x eˣ)′ = eˣ(1 + x) |
+| ∫xⁿ dx = xⁿ⁺¹/(n+1) + C | primitive d’une puissance | ∫x² dx = x³/3 + C |
+| ∫(1/x) dx = ln(x) + C pour x > 0 ; ∫eˣ dx = eˣ + C ; ∫sin x dx = −cos x + C ; ∫cos x dx = sin x + C | primitives usuelles | — |
+| A = ∫ₐᵇ y dx (si y ≥ 0 ; sinon valeur absolue) | aire entre la courbe et l’axe | ∫₀² x² dx = 8/3 |
+| v = ds/dt ; a = dv/dt ; distance = intégrale de la valeur absolue de v | cinématique | — |
+
+⚠️ **À connaître** : la condition de point stationnaire f′(x) = 0 ; la nature par f″ ; l’équation de la tangente y − f(a) = f′(a)(x − a) ; la normale de pente −1/f′(a).
+
+## Conseils d’examen
+- Avant l’épreuve, feuillette le livret pour savoir **où** se trouve chaque formule : tu gagneras du temps.
+- Recopie la formule utilisée avec les valeurs : c’est souvent un point de méthode (M1).
+- Les fiches de chaque thème détaillent les méthodes et les erreurs fréquentes.`,
+q:[{m:6,q:`Sans regarder la fiche, écris la formule qui convient puis résous : (a) la somme des 20 premiers termes de 5 + 8 + 11 + … ; (b) l’aire d’un secteur de rayon 6 cm et d’angle 0,8 rad ; (c) P(A | B) si P(A ∩ B) = 0,12 et P(B) = 0,3.`,ms:`(a) S₂₀ = 10(10 + 57) = **670** (M1 A1) ; (b) ½ × 36 × 0,8 = **14,4 cm²** (M1 A1) ; (c) 0,12/0,3 = **0,4** (M1 A1).`}],
+src:[['IB — Guide Mathématiques : analyse et approches (premières évaluations 2021)','https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-analysis-and-approaches-guide-en.pdf']]}
+);
 /* Fiches SAPIENS — Théorie de la connaissance (TOK) */
 window.TKSRC={
  IB:['IB — Aperçu du cours de théorie de la connaissance (première évaluation 2022)','https://ibo.org/globalassets/new-structure/programmes/dp/pdfs/tok-sb-english.pdf'],
@@ -8061,7 +8146,8 @@ const LANGN=()=>['French','English','Spanish'][LI()];
 const TONE=()=>store.get('tone','human');
 const HUMANV=()=>`VOICE — write like a real person, a friendly and sharp tutor who knows this student, so that nobody could tell the text was generated. Write flowing paragraphs where each sentence leads into the next with natural linking words (in French: alors, du coup, en fait, d’ailleurs, par contre, c’est pour ça que, bref; in English: so, actually, that’s why, anyway, mind you; in Spanish: entonces, o sea, de hecho, por eso, en cambio). Vary sentence length: some short, some longer. Explain the way you would out loud, with an everyday example when it helps. Avoid the tell-tale signs of AI text: no bullet-point lists unless there are real steps or the student asked for a list, no headings in short answers, bold at most once or twice, no em dashes to chain ideas, no "Firstly / Secondly / In conclusion" scaffolding, no symmetrical lists of three adjectives, no words like "crucial", "essentiel", "delve", "plonger", "n’hésite pas", "il est important de noter", no filler opener ("Great question!", "Certainly!", "Bien sûr !"), no announcing what you will do, no closing like "I hope this helps" or "Feel free to ask". Start with the point itself.`;
 const LANGLINE=()=>`${typeof ACCURACYLINE!=='undefined'?ACCURACYLINE+' ':''}${typeof GRAPHLINE!=='undefined'?GRAPHLINE+' ':''}Write your whole answer in ${LANGN()}. ${TONE()==='human'?HUMANV()+' For long explanations you may use a few ## headings to separate parts, but the text under them must stay flowing prose.':'Format with Markdown: short headings (##), bullet lists, **bold** for key terms, tables where useful.'} Never use LaTeX: write maths in plain text with Unicode symbols (x², √, π, ∫, ≤, →, Δ).`;
-const CHATLINE=()=>`Write in ${LANGN()}. ${TONE()==='human'?HUMANV()+` This is a chat, so talk like a human in a chat: match the length to the message — a quick question or a "merci" gets one to three sentences; a real explanation gets a few short paragraphs, with a list only if there are genuinely steps. Use contractions and everyday words (in French, tutoie the student; in Spanish, tutea). React to what they actually said: if they sound stressed, tired or discouraged, acknowledge it in a sentence before helping. Use their first name now and then (not every message). When something is unclear, ask one short question instead of guessing at length. You may end with one natural follow-up question when it really helps the student move on, never a menu of options. No filler openers, no "As an AI", no robotic sign-offs. Plain-text maths with Unicode symbols, no LaTeX.`:'Format with Markdown: short headings, bullet lists, bold key terms. Plain-text maths with Unicode symbols, no LaTeX.'}`;
+const SOCR='TUTOR MODE (Socratic): the student asked you to guide them rather than give answers. Unless they explicitly ask for the full answer, do not solve the problem or write the text for them: ask one or two guiding questions at a time, give hints, check their reasoning, and let them reach the answer themselves; when they get it, confirm and summarise briefly. ';
+const CHATLINE=()=>`${store.get('socr',false)?SOCR:''}Write in ${LANGN()}. ${TONE()==='human'?HUMANV()+` This is a chat, so talk like a human in a chat: match the length to the message — a quick question or a "merci" gets one to three sentences; a real explanation gets a few short paragraphs, with a list only if there are genuinely steps. Use contractions and everyday words (in French, tutoie the student; in Spanish, tutea). React to what they actually said: if they sound stressed, tired or discouraged, acknowledge it in a sentence before helping. Use their first name now and then (not every message). When something is unclear, ask one short question instead of guessing at length. You may end with one natural follow-up question when it really helps the student move on, never a menu of options. No filler openers, no "As an AI", no robotic sign-offs. Plain-text maths with Unicode symbols, no LaTeX.`:'Format with Markdown: short headings, bullet lists, bold key terms. Plain-text maths with Unicode symbols, no LaTeX.'}`;
 
 /* ---------- matières (curriculum en vigueur pour mai 2027) ---------- */
 const SUBJ=[
@@ -9183,7 +9269,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v16 · nov. 2026';
+const VERSION='v17 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -10097,8 +10183,8 @@ $('#fMain').addEventListener('click',async e=>{const f=fichesOf(FSJ).find(x=>x.i
     if(!j||!Array.isArray(j.questions)){return}const qs=j.questions.filter(q=>q&&q.q&&Array.isArray(q.c)&&q.c.length>=2&&Number.isInteger(+q.a)).map(q=>({q:String(q.q),c:q.c.map(String),a:+q.a,e:q.e?String(q.e):''})).slice(0,6);
     if(!qs.length){box.innerHTML=`<p class="warn">${X('Le quiz n’a pas pu être créé, réessaie.','Could not create the quiz, try again.','No se pudo crear.')}</p>`;return}
     FQZ={id:f.id,qs,i:0,a:null,ok:0};drawQuiz()}});
-{const _ra=renderAll;renderAll=function(){_ra.apply(this,arguments);try{renderLearn()}catch(e){}}}
-setTimeout(()=>{try{renderLearn()}catch(e){}},700);
+{const _ra=renderAll;renderAll=function(){_ra.apply(this,arguments);try{renderLearn()}catch(e){console.error("renderLearn",e)}}}
+setTimeout(()=>{try{renderLearn()}catch(e){console.error("renderLearn",e)}},700);
 /* nouveautés à chaque mise à jour */
 setTimeout(()=>{const seenV=store.get('seenver','');if(seenV&&seenV!==VERSION)toast(`${ico('star')}<b>${X('Sapiens a été mis à jour','Sapiens was updated','Sapiens se actualizó')}</b> · ${X('synchronisation entre appareils, fiches du jour, quiz, carte de maîtrise, écoute des fiches. Détails dans Profil › À propos.','device sync, daily notes, quizzes, mastery map, listen to notes. Details in Profile › About.','novedades en Perfil.')}`);store.set('seenver',VERSION)},1500);
 
@@ -10272,6 +10358,45 @@ function routeV16(){const v=location.hash.slice(1);if(v==='diplome')renderDiplom
 addEventListener('hashchange',routeV16);
 {const _ra=renderAll;renderAll=function(){_ra.apply(this,arguments);try{routeV16()}catch(e){}}}
 if(['diplome','glossaire','graphes'].includes(location.hash.slice(1))){route();routeV16()}
+
+Object.assign(IC,{plus:'<path d="M12 5v14M5 12h14"/>'});
+/* ---------- v17 : erreurs à retravailler, tuteur socratique, plus de questions, impression, lecture facilitée, cartes mentales ---------- */
+/* mémoire des erreurs (quiz de fiches) */
+{const _dq=drawQuiz;drawQuiz=function(){if(FQZ&&FQZ.a!=null&&!FQZ['lg'+FQZ.i]){FQZ['lg'+FQZ.i]=1;const q=FQZ.qs[FQZ.i];if(FQZ.a!==q.a){const E=store.get('errlog',[]);E.push({id:FQZ.id,s:FSJ,q:q.q,c:q.c,a:q.a,e:q.e,d:todayKey()});store.set('errlog',E.slice(-150))}}_dq()}}
+addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(v==='perf'||v==='accueil'){try{renderLearn()}catch(e){}}});
+function errHTML(){const E=store.get('errlog',[]);if(!E.length)return `<p class="muted small">${X('Aucune erreur enregistrée. Les questions ratées dans les quiz de fiches apparaîtront ici pour que tu les retravailles.','No mistakes recorded yet. Missed quiz questions will appear here.','Sin errores registrados.')}</p>`;
+  return E.slice().reverse().slice(0,25).map((r,i)=>`<div class="glrow"><b>${esc(r.q)}</b><span class="small">✅ ${esc(r.c[r.a]||'')}${r.e?' — '+esc(r.e):''}</span><span class="small"> · <a href="#fiches" data-ofi="${r.s}|${r.id}">${X('revoir la fiche','review the notes','ver la ficha')}</a> · <a href="#" data-errok="${E.length-1-i}">${X('compris, retirer','got it, remove','entendido')}</a></span></div>`).join('')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-errok]');if(!b)return;e.preventDefault();const E=store.get('errlog',[]);E.splice(+b.dataset.errok,1);store.set('errlog',E);renderLearn()});
+{const _rl=renderLearn;renderLearn=function(){_rl();if($('#v-perf')&&!$('#lrnErr')){const p=document.createElement('div');p.className='panel';p.innerHTML=`<h2>${X('Mes erreurs à retravailler','Mistakes to work on','Errores a trabajar')}</h2><div id="lrnErr"></div>`;const a=$('#lrnAnn')?.closest('.panel');if(a)a.after(p)}const el=$('#lrnErr');if(el)el.innerHTML=errHTML()}}
+/* tuteur socratique : réglage */
+{const p=$('#prAI')?.closest('.panel');if(p&&!$('#prSocr')){const d=document.createElement('label');d.id='prSocr';d.className='small';d.style.cssText='display:flex;gap:8px;align-items:flex-start;margin-top:10px';d.innerHTML=`<input type="checkbox" ${store.get('socr',false)?'checked':''}> <span><b>${X('Mode tuteur','Tutor mode','Modo tutor')}</b> — ${X('Pacha te guide par des questions et des indices au lieu de donner directement la réponse.','Pacha guides you with questions and hints instead of giving the answer.','Pacha te guía con preguntas.')}</span>`;p.appendChild(d);d.querySelector('input').addEventListener('change',e=>{store.set('socr',e.target.checked);toast(e.target.checked?X('Mode tuteur activé','Tutor mode on','Modo tutor activado'):X('Mode tuteur désactivé','Tutor mode off','Modo tutor desactivado'))})}}
+/* lecture facilitée et contraste élevé */
+const applyA11y=()=>{document.body.classList.toggle('easyread',!!store.get('easyread',false));document.body.classList.toggle('hicon',!!store.get('hicon',false))};applyA11y();
+{const p=$('#prData')?.closest('.panel')?.parentElement;if(p&&!$('#prA11y')){const d=document.createElement('div');d.className='panel';d.id='prA11y';d.innerHTML=`<h2>${X('Confort de lecture','Reading comfort','Comodidad de lectura')}</h2>
+  <label class="small" style="display:flex;gap:8px;margin:6px 0"><input type="checkbox" data-a11y="easyread" ${store.get('easyread',false)?'checked':''}> ${X('Lecture facilitée (espacement plus grand, sans italique, adaptée à la dyslexie)','Easy reading (more spacing, no italics, dyslexia-friendly)','Lectura facilitada')}</label>
+  <label class="small" style="display:flex;gap:8px;margin:6px 0"><input type="checkbox" data-a11y="hicon" ${store.get('hicon',false)?'checked':''}> ${X('Contraste élevé','High contrast','Alto contraste')}</label>
+  <div class="row" style="gap:6px;align-items:center"><span class="small">${X('Taille du texte des fiches et des cours','Text size for notes and lessons','Tamaño del texto')}</span><button class="btn sm" data-fz="-0.1">A−</button><button class="btn sm" data-fz="0.1">A+</button></div>`;p.appendChild(d)}}
+document.addEventListener('change',e=>{const c=e.target.closest('[data-a11y]');if(!c)return;store.set(c.dataset.a11y,c.checked);applyA11y()});
+/* plus de questions, impression, carte mentale, correction de dessin sur chaque fiche */
+{const _rf=renderFiche;renderFiche=function(){_rf();const tb=$('#fMain .ftools');if(!tb||tb.querySelector('[data-ft2]'))return;
+  tb.insertAdjacentHTML('beforeend',`<button class="btn sm" data-ft2="more">${ico('plus')} ${X('Plus de questions','More questions','Más preguntas')}</button><button class="btn sm" data-ft2="map">${ico('layers')} ${X('Carte mentale','Mind map','Mapa mental')}</button><button class="btn sm" data-ft2="draw">${ico('pen')} ${X('Corriger mon schéma','Check my diagram','Corregir mi esquema')}</button><button class="btn sm" data-ft2="share">${ico('cmp')} ${X('Partager','Share','Compartir')}</button><button class="btn sm" data-ft2="print">${ico('doc')} ${X('Imprimer / PDF','Print / PDF','Imprimir / PDF')}</button>`);
+  if(!$('#fMore')){const fq=$('#fQuiz');if(fq)fq.insertAdjacentHTML('afterend','<div id="fMore"></div><div id="fMap"></div>')}}}
+function mindMap(f){const heads=String(f.body).split('\n').filter(l=>/^##\s/.test(l)).map(l=>l.replace(/^##\s*/,'').trim()).filter(h=>!/^(erreurs fréquentes|conseils|l’essentiel|exemple corrigé)/i.test(h));
+  const sub=h=>{const lines=String(f.body).split('\n');const i=lines.findIndex(l=>l.replace(/^##\s*/,'').trim()===h);const out=[];for(let j=i+1;j<lines.length&&!/^##\s/.test(lines[j]);j++){const m=lines[j].match(/^\s*[-*]\s+\*\*([^*]{2,50})\*\*/)||lines[j].match(/^\s*\d+\.\s+\*\*([^*]{2,50})\*\*/);if(m)out.push(m[1])}return out.slice(0,5)};
+  return `<div class="mmap"><div class="mmc">${esc(fTrT(f.t))}</div><div class="mmb">${heads.map(h=>`<div class="mmn"><b>${esc(fTr(h))}</b>${sub(h).map(x=>`<span>${esc(fTr(x))}</span>`).join('')}</div>`).join('')}</div></div>`}
+$('#fMain').addEventListener('click',async e=>{const b=e.target.closest('[data-ft2]');if(!b)return;const f=fichesOf(FSJ).find(x=>x.id===FCID);if(!f)return;const a=b.dataset.ft2;
+  if(a==='share'){const txt=`${fTrT(f.t)} (${sName(FSJ)})\n\n${ficheText().slice(0,6000)}\n\n— Sapiens, par Pacha Académie IB`;try{if(navigator.share){await navigator.share({title:fTrT(f.t),text:txt});return}}catch(err){if(err&&err.name==='AbortError')return}try{await navigator.clipboard.writeText(txt);toast(X('Fiche copiée : colle-la dans un message pour la partager.','Notes copied: paste them in a message to share.','Ficha copiada.'))}catch(err){toast(X('Partage impossible ici.','Sharing not available here.','No disponible.'))}return}
+  if(a==='print'){document.body.classList.add('printfiche');setTimeout(()=>{try{print()}catch(err){}setTimeout(()=>document.body.classList.remove('printfiche'),800)},60);return}
+  if(a==='map'){const m=$('#fMap');m.innerHTML=m.innerHTML?'':mindMap(f);if(m.innerHTML)m.scrollIntoView({behavior:'smooth',block:'center'});return}
+  if(a==='draw'){$('#bot').classList.add('open');botRender();$('#botIn').value=X(`Voici la photo de mon schéma pour la fiche « ${fTrT(f.t)} » (${sName(FSJ)}). Vérifie-le comme un examinateur IB : titre, axes et légendes, courbes et déplacements, points d’équilibre, annotations, et dis-moi ce qui coûterait des points.`,`Here is a photo of my diagram for “${fTrT(f.t)}”. Check it like an IB examiner: title, axes, labels, curves, shifts, equilibria, annotations.`,`Foto de mi esquema: revísalo.`);toast(X('Ajoute la photo de ton schéma avec le trombone 📎, puis envoie.','Attach a photo of your diagram with the paperclip 📎, then send.','Adjunta la foto 📎.'));try{$('#botFile').click()}catch(err){}return}
+  if(a==='more'){const box=$('#fMore');box.scrollIntoView({behavior:'smooth',block:'center'});
+    const j=await askJSON(`You are an experienced IB Diploma examiner. Based ONLY on these revision notes, write 3 NEW exam-style questions in ${({fr:'French',en:'English',es:'Spanish'})[lang]} in the style of the IB ${sName(FSJ)} papers (use IB command terms; vary: one short 2–4 marks, one data/calculation or application 4–6 marks, one extended 8–15 marks where relevant). For each give an indicative markscheme (bullet points; mark allocations; for extended answers, the key points and evaluation expected). Return JSON {"questions":[{"m":4,"q":"...","ms":"..."}]}.\n\nNOTES (${sName(FSJ)} — ${fTrT(f.t)}):\n${ficheText().slice(0,9000)}`,box,b);
+    if(!j||!Array.isArray(j.questions))return;const qs=j.questions.filter(q=>q&&q.q).slice(0,4);window.__fmore={id:f.id,qs};
+    box.innerHTML=`<h3 class="serif">${X('Nouvelles questions type examen','New exam-style questions','Nuevas preguntas')}</h3><p class="small muted">${X('Générées par Pacha à partir de la fiche ; barème indicatif.','Generated by Pacha from the notes; indicative markscheme.','Generadas por Pacha.')}</p>`+qs.map((q,i)=>`<div class="fq"><div class="row" style="justify-content:space-between"><b>${X('Question','Question','Pregunta')} ${i+1}</b><span class="tag">${+q.m||4} ${X('points','marks','puntos')}</span></div><div>${fmd(String(q.q))}</div><details><summary class="small">${X('Barème indicatif','Indicative markscheme','Baremo indicativo')}</summary><div class="small">${fmd(String(q.ms||''))}</div></details><button class="btn sm" data-fmq="${i}">${X('Répondre et faire corriger','Answer and get feedback','Responder')}</button></div>`).join('');return}});
+$('#fMain').addEventListener('click',e=>{const b=e.target.closest('[data-fmq]');if(!b||!window.__fmore)return;const f=fichesOf(FSJ).find(x=>x.id===FCID);const q=window.__fmore.qs[+b.dataset.fmq];startExam({s:FSJ,p:X('Fiche','Notes','Ficha')+' '+f.n,t:fTrT(f.t),q:String(q.q),ms:String(q.ms||''),mx:+q.m||4,min:Math.max(5,Math.round((+q.m||4)*1.5))})});
+/* bouton « corriger mon dessin » sur les graphiques interactifs */
+{const _rg=renderGraphes;renderGraphes=function(){_rg();const btn=$('[data-gxask]');if(btn&&!$('[data-gxdraw]'))btn.insertAdjacentHTML('afterend',` <button class="btn sm" data-gxdraw="1" style="margin-top:8px">${ico('pen')} ${X('Faire corriger mon dessin','Check my drawing','Corregir mi dibujo')}</button>`)}}
+document.addEventListener('click',e=>{if(!e.target.closest('[data-gxdraw]'))return;$('#bot').classList.add('open');botRender();$('#botIn').value=X('Voici la photo de mon graphique d’Économie dessiné à la main. Vérifie-le comme un examinateur IB (titre, axes, légendes, courbes, déplacements, équilibres, zones de surplus ou de perte sèche) et dis-moi ce qui coûterait des points.','Here is a photo of my hand-drawn economics graph. Check it like an IB examiner.','Foto de mi gráfico: revísalo.');toast(X('Ajoute la photo avec le trombone 📎, puis envoie.','Attach the photo with 📎, then send.','Adjunta la foto 📎.'));try{$('#botFile').click()}catch(err){}});
 
 window.__sync={NDB,get SYNC(){return SYNC}};
 setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
