@@ -468,6 +468,13 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .mrow{margin:10px 0}.mhead{display:flex;justify-content:space-between;margin-bottom:5px}.mgrid{display:flex;flex-wrap:wrap;gap:4px}.mcell{width:18px;height:18px;border-radius:4px;border:0;cursor:pointer;padding:0}.mcell:hover{outline:2px solid var(--ink)}
 .quizq{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}.qopt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card,transparent);color:inherit;font:inherit;cursor:pointer}.qopt.ok{border-color:#2e7d32;background:color-mix(in srgb,#4caf50 15%,transparent)}.qopt.ko{border-color:#c62828;background:color-mix(in srgb,#e53935 13%,transparent)}
 .fiche .fbody,.fiche .fq,#cLesson .lcard,#cLesson .ldefs,#cLesson .lsum{font-size:calc(100% * var(--fz,1))}
+.dpgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.dpstat{border:1px solid var(--line);border-radius:14px;padding:12px}.dpstat b{font-size:24px;display:block}
+.casx{border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}.casx h4{margin:0 0 4px}.strand{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-right:4px;color:#fff}.strand.C{background:#8e44ad}.strand.A{background:#e67e22}.strand.S{background:#16a085}
+.lo{display:flex;gap:8px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}.lo i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;flex:none;background:var(--line)}.lo.ok i{background:#4caf50;color:#fff}
+.msl{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}.msl input[type=checkbox]{width:18px;height:18px}.msl .grow{flex:1}.msl.late .grow b{color:#c62828}
+.gcard{perspective:1000px;max-width:560px;margin:10px auto}.gin{border:1px solid var(--line);border-radius:18px;padding:26px;min-height:190px;display:grid;place-items:center;text-align:center;cursor:pointer;background:var(--card,#fff)}.gin h3{font-size:24px;margin:0}
+.glrow{padding:8px 0;border-bottom:1px solid var(--line)}.glrow b{display:block}
+.gxwrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px}@media(max-width:860px){.gxwrap{grid-template-columns:1fr}}.gxsvg{width:100%;height:auto;touch-action:none;background:var(--card,#fff);border:1px solid var(--line);border-radius:14px}.gxctl label{display:block;margin:10px 0 2px;font-size:13px;font-weight:600}.gxctl input[type=range]{width:100%}.gxout{font-size:14px;line-height:1.7}
 .fsrc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.fsrc ul{margin:8px 0 10px;padding-left:18px;display:grid;gap:6px}.fsrc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;word-break:break-word}
 .fnav{margin-top:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr}.ftocbox{position:static;max-height:none}.fiche h1{font-size:24px}}
@@ -485,6 +492,8 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
     <a href="#cours" data-ic="book"><span data-i="n_cours">Cours</span></a>
     <a href="#fiches" data-ic="layers"><span data-i="n_fiches">Fiches de révision</span></a>
     <a href="#cahiers" data-ic="pen"><span data-i="n_nb">Mes cahiers</span></a>
+    <a href="#glossaire" data-ic="book"><span data-i="n_glos">Glossaire et flashcards</span></a>
+    <a href="#graphes" data-ic="graph"><span data-i="n_grx">Graphiques interactifs</span></a>
     <div class="grp" data-i="g_prac">Practice · S’exercer</div>
     <a href="#reviser" data-ic="bulb"><span data-i="n_rev">Réviser</span></a>
     <div class="grp" data-i="g_exam">Exam · Examens</div>
@@ -495,6 +504,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
     <a href="#coeur" data-ic="doc"><span data-i="n_core">IA · TOK · EE</span></a>
     <a href="#travaux" data-ic="layers"><span data-i="n_works">Mes travaux</span></a>
     <a href="#oral" data-ic="mic"><span data-i="n_oral">Préparer un oral</span></a>
+    <a href="#diplome" data-ic="star"><span data-i="n_dip">Mon diplôme : CAS et échéances</span></a>
     <div class="grp" data-i="g_perf">Performance</div>
     <a href="#perf" data-ic="graph"><span data-i="n_perf">Mes performances</span></a>
     <div class="grp" data-i="g_tools">Tools · Outils</div>
@@ -637,6 +647,9 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 </div></section>
 
 <!-- MES TRAVAUX -->
+<section class="view" id="v-diplome"><div class="phead"><div class="band"><span class="picon" data-ico="star"></span><div><h1 data-i="n_dip">Mon diplôme : CAS et échéances</h1><p data-i="dp_lead">Ton journal CAS, tes échéances IB étape par étape et les conditions d’obtention du diplôme.</p></div></div></div><div class="band stackv" id="dpMain"></div></section>
+<section class="view" id="v-glossaire"><div class="phead"><div class="band"><span class="picon" data-ico="book"></span><div><h1 data-i="n_glos">Glossaire et flashcards</h1><p data-i="gl_lead">Les termes clés de toutes tes fiches, avec leur définition, à réviser en flashcards.</p></div></div></div><div class="band stackv" id="glMain"></div></section>
+<section class="view" id="v-graphes"><div class="phead"><div class="band"><span class="picon" data-ico="graph"></span><div><h1 data-i="n_grx">Graphiques interactifs</h1><p data-i="gx_lead">Fais bouger les courbes d’Économie et observe ce qui change : prix, quantités, surplus, perte sèche.</p></div></div></div><div class="band stackv" id="gxMain"></div></section>
 <section class="view" id="v-travaux"><div class="phead"><div class="band"><span class="picon" data-ico="layers"></span><div><h1 data-i="n_works">Mes travaux</h1><p data-i="wk_lead">IA, EE, TOK : échéances, brouillons et retour de Pacha IA critère par critère.</p></div></div></div>
 <div class="band stackv"><div class="kpis" id="wkKpi"></div>
   <div class="panel"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0" data-i="wk_list">Mes travaux évalués</h2><div class="row"><button class="btn" id="wkSeed" data-i="wk_seed">Ajouter mes travaux IB</button><button class="btn pri" id="wkNew" data-i="wk_new">+ Nouveau travail</button></div></div><div id="wkList" class="wklist"></div></div>
@@ -890,7 +903,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 </div>
 
 <nav class="mtabs" id="mTabs"><a href="#accueil"><span data-ico2="home"></span><b data-i="n_home">Accueil</b></a><a href="#cours"><span data-ico2="book"></span><b data-i="n_learn">Learn</b></a><a href="#reviser"><span data-ico2="bulb"></span><b data-i="n_prac">Practice</b></a><a href="#matieres"><span data-ico2="target"></span><b data-i="n_exam">Exam</b></a><button data-more><span data-ico2="grid"></span><b data-i="n_more">Plus</b></button></nav>
-<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#fiches"><span data-ico2="layers"></span><b data-i="n_fiches">Fiches de révision</b></a><a href="#cahiers"><span data-ico2="pen"></span><b data-i="n_nb">Mes cahiers</b></a><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#oral"><span data-ico2="mic"></span><b data-i="n_oral">Préparer un oral</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
+<div class="msheet" id="mSheet" hidden><div class="msin"><a href="#fiches"><span data-ico2="layers"></span><b data-i="n_fiches">Fiches de révision</b></a><a href="#cahiers"><span data-ico2="pen"></span><b data-i="n_nb">Mes cahiers</b></a><a href="#intel"><span data-ico2="spark"></span>Pacha IA</a><a href="#perf"><span data-ico2="graph"></span><b data-i="n_perf">Mes performances</b></a><a href="#devoirs"><span data-ico2="pen"></span><b data-i="n_hw">Devoirs</b></a><a href="#coeur"><span data-ico2="doc"></span>IA · TOK · EE</a><a href="#travaux"><span data-ico2="layers"></span><b data-i="n_works">Mes travaux</b></a><a href="#oral"><span data-ico2="mic"></span><b data-i="n_oral">Préparer un oral</b></a><a href="#diplome"><span data-ico2="star"></span><b data-i="n_dip">Mon diplôme</b></a><a href="#glossaire"><span data-ico2="book"></span><b data-i="n_glos">Glossaire</b></a><a href="#graphes"><span data-ico2="graph"></span><b data-i="n_grx">Graphiques</b></a><a href="#planning"><span data-ico2="cal"></span><b data-i="n_plan">Planning</b></a><a href="#focus"><span data-ico2="moon"></span><b data-i="n_focus">Salle d’étude</b></a><a href="#gdc"><span data-ico2="graph"></span><b data-i="n_gdc">Calculatrice</b></a><a href="#sat"><span data-ico2="sat"></span>SAT</a><a href="#similitudes"><span data-ico2="cmp"></span><b data-i="n_sim">Similitudes</b></a><a href="#profil"><span data-ico2="user"></span><b data-i="n_prof">Profil</b></a></div></div>
 <button id="botFab" aria-expanded="false" aria-controls="bot"></button>
 <section id="bot" aria-label="Pacha IA">
   <div class="bothead"><span class="owlmark" style="width:42px;height:42px;display:block"></span><div><b>Pacha IA</b><small data-i="bot_sub">Ton assistant d’études, disponible partout dans l’app</small></div><button id="botVoice" title="Voix">🔊</button><button id="botSet" title="Réglages">⚙</button><button id="botNew" title="Nouvelle conversation">↺</button><button id="botX" aria-label="Fermer">✕</button></div>
@@ -7014,6 +7027,190 @@ q:[{m:10,q:`Choisis une question d’orientation et propose trois objets précis
 L’essai doit rester **ton propre travail** : Pacha peut discuter de tes idées et commenter ton plan.`,
 q:[{m:10,q:`Choisis un titre prescrit de ta session, définis ses termes clés et propose un plan en deux domaines avec un exemple réel pour chacun. Fais-le commenter par Pacha.`,ms:`Indicatif : interprétation fidèle du titre, termes définis, deux domaines pertinents, exemples réels, contre-arguments prévus.`}],src:[TKSRC.IB]}
 );
+/* Copies modèles commentées — rédigées par SAPIENS (pas des copies d'élèves ni des sujets officiels) */
+(function(){
+const U={id:'mod',t:['Copies modèles commentées','Annotated model answers','Respuestas modelo comentadas']};
+const add=(k,notes)=>{if(!FICHES[k])return;if(!FICHES[k].units.some(u=>u.id==='mod'))FICHES[k].units.push(U);FICHES[k].notes.push(...notes)};
+const warn='> ℹ️ Copie modèle **rédigée par SAPIENS** pour montrer ce que les critères récompensent. Ce n’est ni une copie d’élève réelle ni un sujet officiel ; la note donnée est **indicative**.';
+add('eco',[{id:'eco-mod1',u:'mod',n:'M.1',t:['Dissertation Épreuve 1 (b) : évaluer une politique (15 points)','Paper 1 (b) essay: evaluating a policy (15 marks)','Ensayo Prueba 1 (b) (15 puntos)'],body:`
+${warn}
+
+## Le sujet
+« Évalue l’efficacité d’une taxe sur les boissons sucrées pour réduire la surconsommation. » [15]
+
+## La copie
+**Introduction.** Une boisson sucrée est un **bien de démérite** : les consommateurs sous-estiment ses effets négatifs sur leur santé (information imparfaite) et leur consommation impose des coûts externes au système de santé. Il y a donc **défaillance du marché** : la quantité consommée dépasse l’optimum social. Une **taxe indirecte spécifique** augmente le prix pour rapprocher la consommation de cet optimum.
+
+> ✅ **Critère A (connaissances)** : définitions précises (bien de démérite, défaillance du marché, taxe spécifique) dès l’introduction.
+
+**Analyse.** La taxe déplace la courbe d’offre vers le haut du montant de la taxe (S → S + taxe). Le prix payé par les consommateurs passe de P* à Pc, la quantité de Q* (marché) à Q1, plus proche de l’optimum social Qopt où MSB = MSC. L’État perçoit des recettes égales à la taxe multipliée par Q1, qui peuvent financer la prévention.
+
+> ✅ **Critère B (application et analyse)** : diagramme d’externalité de consommation avec MPB, MSB, S, S + taxe, entièrement légendé, et explication de chaque déplacement.
+
+**Évaluation.**
+1. **Élasticité-prix** : si la demande est **inélastique** (habitude, faible prix relatif), la baisse de la quantité est faible ; la taxe rapporte beaucoup mais change peu les comportements. Le Mexique, qui a introduit une taxe d’un peso par litre en 2014, a observé une baisse des achats, plus nette chez les ménages modestes.
+2. **Équité** : la taxe est **régressive**, elle pèse davantage sur les revenus faibles ; l’effet peut être compensé si les recettes financent des programmes de santé pour ces ménages.
+3. **Substitution** : les consommateurs peuvent se tourner vers d’autres produits sucrés non taxés.
+4. **Alternatives** : réglementation de la publicité, étiquetage, éducation à la nutrition ; elles agissent sur l’information imparfaite, cause profonde du problème.
+
+> ✅ **Critère C (synthèse et évaluation)** : chaque argument est **pondéré** (dépend de l’élasticité, du contexte, de l’usage des recettes) et appuyé par un **exemple réel**.
+
+**Conclusion.** La taxe est efficace à condition que la demande ne soit pas trop inélastique et qu’elle soit combinée à des mesures d’information ; seule, elle corrige les prix mais pas les habitudes.
+
+> ✅ **Jugement final** : conditionnel et justifié, ce qui distingue les copies du niveau le plus élevé.
+
+## Note indicative et conseils
+**13 à 15 / 15.** Pour viser le maximum : un diagramme exact et intégré au texte, des exemples datés, une évaluation qui hiérarchise les arguments (court terme / long terme, parties prenantes).`,q:[{m:15,q:`À ton tour : « Évalue l’utilisation de prix plafonds pour rendre le logement abordable. » Rédige ta copie puis fais-la corriger par Pacha.`,ms:`Bandes de niveau indicatives (A, B, C). Définition, diagramme de prix plafond avec pénurie, évaluation (qualité, marché noir, files d’attente, alternatives : offre de logements sociaux, subventions), exemple réel, jugement.`}],src:[ECOSRC_IB()]}]);
+function ECOSRC_IB(){return ['IB — Aperçu du cours d’Économie NS (premières évaluations 2022)','https://www.ibo.org/globalassets/new-structure/programmes/dp/pdfs/hl-economics-fr.pdf']}
+add('gp',[{id:'gp-mod1',u:'mod',n:'M.1',t:['Dissertation Épreuve 2 (15 points)','Paper 2 essay (15 marks)','Ensayo Prueba 2 (15 puntos)'],body:`
+${warn}
+
+## Le sujet
+« Les organisations régionales sont plus efficaces que l’ONU pour résoudre les conflits. Discute. » [15]
+
+## Plan de la copie, avec les passages clés
+**Introduction.** Définir *organisation régionale* (Union africaine, CEDEAO, Union européenne…) et *efficacité* (prévenir, arrêter les violences, construire une paix durable). Problématique : la proximité donne-t-elle plus de légitimité et de moyens, ou les organisations régionales restent-elles limitées par leurs membres ?
+
+> ✅ Concepts clés explicites (**légitimité**, **souveraineté**) et termes définis.
+
+**Partie 1 — Les atouts des organisations régionales.** Connaissance du terrain, légitimité locale (« solutions africaines aux problèmes africains »), réactivité : la CEDEAO est intervenue en Gambie en 2017 pour faire respecter le résultat de l’élection, sans combats majeurs.
+
+**Partie 2 — Leurs limites.** Dépendance financière vis-à-vis de partenaires extérieurs, divisions internes, difficulté face aux coups d’État (Mali, Burkina Faso, Niger) et retrait de ces trois pays de la CEDEAO annoncé en 2024 : l’organisation perd son influence quand ses membres contestent sa légitimité.
+
+**Partie 3 — L’ONU, irremplaçable mais bloquée.** Légitimité universelle et opérations de maintien de la paix, mais **veto** des membres permanents et départs de missions demandés par les États hôtes. En réalité, les deux coopèrent : missions hybrides et mandats du Conseil de sécurité appuyant des forces régionales.
+
+> ✅ **Perspectives multiples** : États membres, populations affectées, puissances extérieures ; chaque argument est évalué.
+
+**Conclusion.** L’efficacité dépend moins du niveau (régional ou mondial) que de la **légitimité** auprès des acteurs et des **moyens** disponibles ; les meilleurs résultats viennent de la coopération entre les deux.
+
+## Note indicative et conseils
+**12 à 14 / 15.** Pour gagner des points : des exemples précis et datés, une évaluation dans chaque paragraphe (« cependant… », « cet argument est limité car… ») et un jugement clair.`,q:[{m:15,q:`À ton tour : « La souveraineté des États est le principal obstacle à la protection des droits humains. Discute. » Rédige ta copie et fais-la corriger par Pacha.`,ms:`Bandes de niveau indicatives : définitions, arguments et contre-arguments, exemples précis (CPI, R2P, Conseil des droits de l’homme), perspectives, jugement.`}],src:[GPSRC.IB]}]);
+add('ess',[{id:'ess-mod1',u:'mod',n:'M.1',t:['Dissertation structurée Épreuve 2, section B','Paper 2 section B structured essay','Ensayo estructurado Prueba 2, sección B'],body:`
+${warn}
+
+## Le sujet (partie d’évaluation)
+« Évalue les stratégies de gestion de la pollution plastique des océans. » [9]
+
+## La copie
+Les stratégies peuvent agir à trois niveaux du **modèle de gestion de la pollution** : modifier l’activité humaine, réduire les rejets, ou nettoyer et restaurer.
+
+**1. Modifier l’activité humaine.** Interdire les plastiques à usage unique (le Cameroun interdit depuis 2014 les emballages plastiques non biodégradables de faible épaisseur), taxer les sacs, développer les alternatives réutilisables. C’est la stratégie la plus **durable**, car elle agit à la source, mais elle dépend de l’application des lois et de l’acceptation par les consommateurs et les commerçants.
+
+**2. Réduire les rejets.** Collecte et tri des déchets, recyclage, filets dans les rivières et les caniveaux. Efficace dans les villes équipées ; limité là où la collecte est incomplète et où une part importante des déchets finit dans les cours d’eau.
+
+**3. Nettoyer et restaurer.** Nettoyage des plages, récupération en mer. Visible et mobilisateur, mais **coûteux** et incapable de retirer les microplastiques dispersés : c’est la stratégie la moins efficace à long terme.
+
+> ✅ Utilisation explicite d’un **modèle du cours** (gestion de la pollution) et évaluation de chaque niveau (efficacité, coût, faisabilité).
+
+**Perspectives.** Un **technocentrique** misera sur le recyclage avancé et les bioplastiques ; un **écocentrique** sur la réduction de la consommation.
+
+**Conclusion.** Une combinaison est nécessaire, mais la priorité doit aller à la **prévention**, la seule qui empêche le problème de s’aggraver.
+
+## Note indicative et conseils
+**8 à 9 / 9.** Les correcteurs valorisent : un modèle du cours, des exemples réels, une évaluation équilibrée, la mention des perspectives environnementales et une conclusion argumentée.`,q:[{m:9,q:`À ton tour : « Évalue les stratégies d’adaptation au changement climatique dans une ville côtière. » Rédige ta réponse et fais-la corriger par Pacha.`,ms:`Indicatif : stratégies structurelles et non structurelles, exemples, coûts, équité, efficacité, conclusion.`}],src:[ESSRC.IB]}]);
+add('fr',[{id:'fr-mod1',u:'mod',n:'M.1',t:['Épreuve 1 : analyse modèle d’une affiche','Paper 1: model analysis of a poster','Prueba 1: análisis modelo de un cartel'],body:`
+${warn}
+
+## Le texte (affiche inventée pour l’exercice)
+Affiche de prévention routière : en gros plan, un casque de moto fendu posé sur l’asphalte, éclairé d’une lumière froide. En haut, en lettres blanches capitales : « IL N’AVAIT PAS LE TEMPS. » En bas, en petits caractères : « Une seconde d’attention vaut une vie. Ralentis. » Logo du ministère des Transports en bas à droite.
+**Question d’orientation :** comment cette affiche cherche-t-elle à faire changer le comportement de son destinataire ?
+
+## Extraits de la copie, avec commentaires
+**Introduction.** « Cette affiche de prévention routière, publiée par le ministère des Transports, s’adresse aux jeunes motocyclistes pressés. Par une image choc et un slogan elliptique, elle cherche moins à informer qu’à faire ressentir le danger. Nous verrons comment elle frappe d’abord par l’émotion, puis comment elle transforme ce choc en appel à la responsabilité. »
+
+> ✅ Type de texte, émetteur, destinataire et **problématique** reformulée à partir de la question ; plan en deux axes annoncé.
+
+**Axe 1 (extrait).** « Le gros plan sur le casque fendu, sans corps visible, laisse le spectateur imaginer l’accident : l’absence devient plus forte que la représentation. La lumière froide et les tons gris connotent la mort. Le slogan à l’imparfait, « Il n’avait pas le temps », installe un récit au passé : la victime n’existe déjà plus. L’ironie tragique est double : le motard pressé « n’avait pas le temps » de ralentir, et désormais il n’a plus de temps du tout. Ce recours au **pathos** et au **thanatos** vise à provoquer un choc émotionnel durable. »
+
+> ✅ **Critère B** : procédé nommé → citation ou élément visuel précis → effet → lien avec l’intention. Analyse de l’image **et** du texte, et de leur rapport.
+
+**Axe 2 (extrait).** « Le passage du « il » à l’impératif « Ralentis » rapproche le destinataire : il n’est plus spectateur d’un drame, il devient responsable du prochain. Le chiasme implicite entre « une seconde » et « une vie » oppose une durée infime à une valeur absolue. Enfin, le logo du ministère apporte l’**ethos** institutionnel qui légitime le message. »
+
+**Conclusion.** « L’affiche réussit à convertir la peur en conseil concret ; on peut toutefois se demander si les campagnes choc ne finissent pas par lasser leur public. »
+
+## Note indicative et conseils
+**17 à 19 / 20** pour une copie complète de ce niveau. Pour progresser : une problématique personnelle, une analyse fine de l’image (cadrage, lumière, composition), des connecteurs logiques et une conclusion qui ouvre une réflexion.`,q:[{m:20,q:`À ton tour : analyse une publicité réelle de ton choix avec la question « Quelles stratégies ce texte utilise-t-il pour séduire son public ? » et fais corriger ta copie par Pacha selon les critères A à D.`,ms:`Indicatif /20 : A compréhension et interprétation /5, B analyse et évaluation /5, C cohérence et organisation /5, D langue /5.`}],src:[FRSRC.IB]}]);
+add('en',[{id:'en-mod1',u:'mod',n:'M.1',keep:true,t:['Paper 1 : article modèle (SL)','Paper 1: model article (SL)','Paper 1: artículo modelo'],body:`
+> ℹ️ Model answer **written by SAPIENS** to show what the criteria reward. It is not a real student script or an official task; the mark is **indicative**.
+
+## The task
+Your school is considering banning phones during breaks. Write an **article** for the school magazine giving your opinion. (250–400 words)
+
+## The model answer
+**Phones at break time: switch off or stay connected?**
+*By Michel N., Year 12*
+
+Picture the school courtyard at 10 a.m.: thirty students, thirty screens, and almost no conversation. This is why our principal is considering a ban on phones during breaks. Should we welcome it? I believe a **partial** ban would be the smartest solution.
+
+On the one hand, the benefits of switching off are hard to deny. Breaks are meant to help us rest our minds and talk to each other. Several studies suggest that constant notifications reduce concentration, and many teachers say students come back to class more distracted after scrolling. Moreover, a phone-free courtyard could reduce cyberbullying during school hours.
+
+On the other hand, a total ban ignores how we actually use our phones. Many of us check timetables, revise with flashcard apps or contact our parents about transport. Taking that away completely would feel unfair, and students would probably hide their phones rather than follow the rule.
+
+That is why I suggest a compromise: phone-free mornings and a “digital zone” in the library during the lunch break. This way, we protect real conversations while keeping phones for useful purposes.
+
+In the end, the question is not whether phones are good or bad, but how we choose to use them. Let’s show our school that we can make that choice responsibly.
+
+## Commentary
+- **Criterion A (language)**: varied vocabulary (*hard to deny, compromise, responsibly*), complex sentences, linking words (*on the one hand, moreover, that is why*).
+- **Criterion B (message)**: clear opinion, developed arguments on both sides, a concrete proposal, logical paragraphs.
+- **Criterion C (conceptual understanding)**: article conventions (headline, by-line, engaging opening, direct address to readers, strong ending), register suited to a school magazine.
+
+**Indicative mark: 26–29 / 30.**`,q:[{m:30,q:`Your turn: “Write a blog post about how social media has changed friendship.” (250–400 words). Ask Pacha to mark it with criteria A, B and C.`,ms:`Indicative /30: A language /12; B message /12; C conceptual understanding /6.`}],src:[ENSRC.IB]}]);
+add('math',[{id:'m-mod1',u:'mod',n:'M.1',t:['Question longue de Paper 2 : solution modèle annotée','Paper 2 long question: annotated model solution','Pregunta larga Paper 2: solución modelo'],body:`
+${warn}
+
+## Le problème (inventé pour l’exercice)
+La température d’un café (°C) est modélisée par T(t) = 22 + 68 e^(−0,05t), t en minutes.
+(a) Donne la température initiale. [1]
+(b) Calcule la température après 10 minutes. [2]
+(c) Trouve à quel instant le café atteint 50 °C. [3]
+(d) Calcule T′(10) et interprète ce résultat. [3]
+(e) Donne la température limite et explique-la dans le contexte. [2]
+
+## Solution modèle
+**(a)** T(0) = 22 + 68 = **90 °C**. *(A1)*
+
+**(b)** T(10) = 22 + 68 e^(−0,5) *(M1)* ≈ 22 + 41,24 = **63,2 °C**. *(A1)*
+> ✅ L’expression est écrite **avant** le calcul : le point de méthode est acquis même en cas d’erreur de calculatrice.
+
+**(c)** 22 + 68 e^(−0,05t) = 50 *(M1)* → e^(−0,05t) = 28/68 *(A1)* → t = ln(68/28) / 0,05 ≈ **17,7 minutes**. *(A1)*
+> ✅ Résolution analytique propre ; en Paper 2, on peut aussi utiliser l’intersection à la calculatrice, à condition d’écrire l’équation résolue.
+
+**(d)** T′(t) = 68 × (−0,05) e^(−0,05t) = −3,4 e^(−0,05t) *(M1)*. T′(10) = −3,4 e^(−0,5) ≈ **−2,06** *(A1)*. À t = 10 min, la température **diminue d’environ 2,06 °C par minute**. *(R1)*
+> ✅ L’interprétation donne le **sens** (diminue), la **valeur** et l’**unité** : c’est ce que le point R1 récompense.
+
+**(e)** Quand t → ∞, e^(−0,05t) → 0 donc T → **22 °C** *(A1)* : c’est la température de la pièce, que le café finit par atteindre. *(R1)*
+
+## Ce qui fait la différence
+Réponses arrondies à **3 chiffres significatifs**, unités, méthode visible, interprétation en contexte.`,q:[{m:11,q:`À ton tour : une population de bactéries suit N(t) = 400 e^(0,15t) (t en heures). (a) N(0) ; (b) N(6) ; (c) temps de doublement ; (d) N′(6) et interprétation. Rédige et fais corriger par Pacha.`,ms:`(a) 400 ; (b) ≈ 984 ; (c) ln 2 / 0,15 ≈ 4,62 h ; (d) N′(t) = 60 e^(0,15t), N′(6) ≈ 148 bactéries par heure, la population augmente à ce rythme à t = 6 h.`}],src:[['IB — Guide Mathématiques : analyse et approches','https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-analysis-and-approaches-guide-en.pdf']]}]);
+add('tok',[{id:'tok-mod1',u:'mod',n:'M.1',t:['Essai TOK : plan modèle commenté','TOK essay: annotated model outline','Ensayo TdC: plan modelo'],body:`
+${warn}
+
+## Le titre (titre d’entraînement, pas un titre prescrit)
+« Dans quelle mesure le désaccord entre experts affaiblit-il notre confiance dans la connaissance produite ? » Domaines : **sciences naturelles** et **histoire**.
+
+## Plan modèle
+**Introduction.** Définir *désaccord* (divergence d’interprétations ou de conclusions), *experts* (membres reconnus d’une communauté de connaissance), *confiance* (disposition à accepter une affirmation sans la vérifier soi-même). Thèse : le désaccord peut **renforcer** la confiance quand il fait partie de méthodes qui corrigent les erreurs, mais l’**affaiblit** quand il révèle des intérêts ou des valeurs qui orientent les conclusions.
+
+**Sciences naturelles.**
+- *Argument* : le désaccord est un moteur de fiabilité : hypothèses concurrentes, réplication, évaluation par les pairs. Exemple : les débats sur la dérive des continents, rejetée puis acceptée quand les preuves (fonds océaniques) sont apparues.
+- *Contre-argument* : en période de crise (début d’une pandémie), des avis contradictoires d’experts sur des questions urgentes ont réduit la confiance du public.
+- *Évaluation* : le désaccord affaiblit la confiance **à court terme**, surtout quand il est mal communiqué, mais la méthode la renforce **à long terme**.
+
+**Histoire.**
+- *Argument* : le désaccord est normal car les historiens interprètent des sources incomplètes depuis des perspectives situées ; reconnaître plusieurs récits rend la connaissance plus honnête.
+- *Contre-argument* : quand l’histoire sert des intérêts politiques (récits nationaux concurrents de la colonisation), le désaccord peut traduire des valeurs plutôt que des preuves.
+- *Évaluation* : la confiance dépend de la **transparence des méthodes** (critique des sources, corroboration).
+
+**Conclusion.** Le désaccord n’affaiblit pas en soi la connaissance ; ce qui compte est de savoir **s’il se règle par des preuves** ou s’il reflète des intérêts. Implication : apprendre à évaluer les méthodes, pas seulement les conclusions.
+
+## Pourquoi ce plan fonctionne
+- Réponse **centrée sur le titre**, termes définis, thèse nuancée.
+- **Exemples réels** et précis dans chaque domaine.
+- **Contre-arguments** et évaluation à chaque étape ; **implications** dans la conclusion.
+
+L’essai que tu rendras doit porter sur un **titre prescrit** de ta session et rester **ton propre travail**.`,q:[{m:10,q:`À ton tour : choisis un titre prescrit de ta session, puis rédige l’introduction (définitions, thèse, domaines) et fais-la commenter par Pacha.`,ms:`Indicatif : interprétation fidèle du titre, termes définis, thèse nuancée, deux domaines justifiés.`}],src:[TKSRC.IB]}]);
+})();
 /* Sources de chaque fiche : guide IB officiel, manuels ouverts de référence, institutions (vérifiées nov. 2026) */
 const FICHE_SRC={
 "eco-1.1": [
@@ -7751,6 +7948,7 @@ const LOC=()=>({fr:'fr-FR',en:'en-GB',es:'es-ES'})[lang];
 
 /* ---------- textes de l'interface ---------- */
 const T={
+n_glos:['Glossaire et flashcards','Glossary and flashcards','Glosario y tarjetas'],n_grx:['Graphiques interactifs','Interactive graphs','Gráficos interactivos'],n_dip:['Mon diplôme : CAS et échéances','My diploma: CAS and deadlines','Mi diploma: CAS y plazos'],dp_lead:['Ton journal CAS, tes échéances IB étape par étape et les conditions d’obtention du diplôme.','Your CAS log, IB deadlines step by step and diploma requirements.','Tu diario CAS, tus plazos IB y los requisitos del diploma.'],gl_lead:['Les termes clés de toutes tes fiches, avec leur définition, à réviser en flashcards.','Key terms from all your notes, with definitions, to review as flashcards.','Los términos clave de tus fichas, para repasar en tarjetas.'],gx_lead:['Fais bouger les courbes d’Économie et observe ce qui change : prix, quantités, surplus, perte sèche.','Move the economics curves and see what changes: price, quantity, surplus, deadweight loss.','Mueve las curvas de Economía y observa los cambios.'],
 n_fiches:['Fiches de révision','Revision notes','Fichas de repaso'],f_lead:['Tout le programme officiel, sous-chapitre par sous-chapitre : explications, schémas, exemples corrigés, pièges et questions type examen avec barème.','The whole official syllabus, subtopic by subtopic: explanations, diagrams, worked examples, pitfalls and exam-style questions with markschemes.','Todo el programa oficial, subtema por subtema: explicaciones, esquemas, ejemplos, errores y preguntas con baremo.'],
 n_oral:['Préparer un oral','Oral practice','Preparar un oral'],or_lead:['Prépare, entraîne-toi à voix haute, réponds aux questions de l’examinateur et reçois un retour, comme le jour J.','Prepare, practise aloud, answer the examiner’s questions and get feedback, just like on the day.','Prepara, practica en voz alta, responde al examinador y recibe comentarios.'],or_s1:['1. Préparer ma structure','1. Build my structure','1. Preparar mi estructura'],or_plan:['Organiser mes idées avec Pacha','Organise my ideas with Pacha','Organizar mis ideas con Pacha'],or_listen:['Écouter','Listen','Escuchar'],or_s2:['2. M’entraîner à voix haute','2. Practise aloud','2. Practicar en voz alta'],or_s2t:['Lance le chrono et parle : Sapiens écrit ce que tu dis et t’enregistre pour que tu puisses te réécouter.','Start the timer and speak: Sapiens writes down what you say and records you so you can listen back.','Inicia el cronómetro y habla: Sapiens transcribe y te graba.'],or_next:['Partie suivante','Next part','Siguiente parte'],or_reset:['Remettre à zéro','Reset','Reiniciar'],or_mic:['Micro','Mic','Micro'],or_tr:['Ce que tu as dit (tu peux corriger)','What you said (you can edit)','Lo que dijiste (puedes corregir)'],or_rel:['Réécoute-toi','Listen back','Escúchate'],or_s3:['3. Questions de l’examinateur, en direct','3. Live examiner questions','3. Preguntas del examinador en directo'],or_ans:['Ta réponse (parle ou écris)','Your answer (speak or type)','Tu respuesta'],or_send:['Envoyer','Send','Enviar'],or_dianew:['Recommencer','Restart','Reiniciar'],or_s4:['4. Mon retour','4. My feedback','4. Mi evaluación'],or_fb:['Évaluer ma prestation','Assess my performance','Evaluar mi actuación'],or_int:['Ton oral doit rester le tien : Pacha t’aide à structurer tes propres idées et te pose des questions, il n’écrit pas ton exposé.','Your oral must stay your own: Pacha helps you structure your own ideas and asks you questions; it does not write your talk.','Tu oral debe ser tuyo: Pacha te ayuda a estructurar tus ideas.'],
 pr_tone:['Ton de Pacha IA','Pacha IA’s tone','Tono de Pacha IA'],pr_tone_h:['Naturel, comme une vraie personne','Natural, like a real person','Natural, como una persona real'],pr_tone_s:['Structuré (titres et listes)','Structured (headings and lists)','Estructurado (títulos y listas)'],
@@ -8985,7 +9183,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v15 · nov. 2026';
+const VERSION='v16 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -9916,6 +10114,165 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-fz]');if(!
 <li>${X('Mes fiches du jour, révision espacée, quiz rapide, écoute des fiches, « explique plus simplement », signalement d’erreurs, taille du texte.','Daily notes, spaced repetition, quick quiz, listen, explain simply, error reports, text size.','Fichas del día, repaso espaciado, quiz.')}</li>
 <li>${X('Carte de maîtrise et suivi de tes notes d’épreuves (Mes performances).','Mastery map and exam-results tracker (My performance).','Mapa de dominio y resultados.')}</li>
 <li>${X('Fiches sur Candide et Alcools ; 168 fiches au total, sources vérifiées.','Notes on Candide and Alcools; 168 notes with checked sources.','Fichas sobre Candide y Alcools.')}</li></ul>`;ab.appendChild(d)}}
+/* ---------- v16 : diplôme (CAS, échéances, conditions), glossaire et flashcards, graphiques interactifs, bilan ---------- */
+['diplome','glossaire','graphes'].forEach(v=>{if(!VIEWS.includes(v))VIEWS.push(v)});
+/* ===== CAS ===== */
+const CASLO=[['Identifier ses forces et développer des axes de progrès','Identify own strengths and develop areas for growth','Identificar fortalezas y áreas de mejora'],
+ ['Relever des défis et développer de nouvelles compétences','Undertake challenges, developing new skills','Asumir desafíos y desarrollar habilidades'],
+ ['Lancer et planifier une expérience CAS','Initiate and plan a CAS experience','Iniciar y planificar una experiencia CAS'],
+ ['Faire preuve d’engagement et de persévérance','Show commitment and perseverance','Mostrar compromiso y perseverancia'],
+ ['Travailler en collaboration et en reconnaître les bénéfices','Work collaboratively and recognise the benefits','Trabajar en equipo'],
+ ['S’engager sur des questions d’importance mondiale','Engage with issues of global significance','Comprometerse con cuestiones globales'],
+ ['Réfléchir à l’éthique de ses choix et de ses actions','Recognise and consider the ethics of choices and actions','Considerar la ética de las decisiones']];
+const STR={C:['Créativité','Creativity','Creatividad'],A:['Activité','Activity','Actividad'],S:['Service','Service','Servicio']};
+let CAS=store.get('cas',[]),CASI=store.get('casint',[{n:1,d:'',ok:false},{n:2,d:'',ok:false},{n:3,d:'',ok:false}]),DPT=store.get('dptab','cas');
+const saveCAS=()=>{store.set('cas',CAS);store.set('casint',CASI)};
+function casHTML(){const lo=new Set(CAS.flatMap(e=>e.lo||[]));const cnt=k=>CAS.filter(e=>(e.st||[]).includes(k)).length;const nref=CAS.reduce((a,e)=>a+(e.refl||[]).length,0);const proj=CAS.some(e=>e.proj);
+  return `<div class="panel"><h2>${X('Mon parcours CAS','My CAS journey','Mi CAS')}</h2>
+  <p class="small muted">${X('CAS dure au moins 18 mois et doit équilibrer créativité, activité et service, avec au moins un projet CAS d’un mois minimum, des réflexions régulières et trois entretiens avec ton coordinateur. Vérifie les exigences précises de ton école.','CAS lasts at least 18 months, balancing creativity, activity and service, with at least one CAS project of one month or more, regular reflections and three interviews with your coordinator.','CAS dura al menos 18 meses.')}</p>
+  <div class="dpgrid"><div class="dpstat"><b>${cnt('C')}</b>${L(STR.C)}</div><div class="dpstat"><b>${cnt('A')}</b>${L(STR.A)}</div><div class="dpstat"><b>${cnt('S')}</b>${L(STR.S)}</div><div class="dpstat"><b>${lo.size}/7</b>${X('objectifs atteints','outcomes met','objetivos')}</div><div class="dpstat"><b>${nref}</b>${X('réflexions','reflections','reflexiones')}</div><div class="dpstat"><b>${proj?'✓':'—'}</b>${X('projet CAS','CAS project','proyecto CAS')}</div></div></div>
+  <div class="panel"><h2>${X('Ajouter une expérience','Add an experience','Añadir experiencia')}</h2>
+   <div class="row" style="gap:8px"><input id="caT" placeholder="${X('Titre (ex. Club de débat, nettoyage de la plage de Youpwé)','Title','Título')}" style="flex:2 1 260px"><input id="caD1" type="date" style="width:150px" title="${X('Début','Start','Inicio')}"><input id="caD2" type="date" style="width:150px" title="${X('Fin','End','Fin')}"></div>
+   <div class="row" style="gap:14px;margin:8px 0">${Object.keys(STR).map(k=>`<label><input type="checkbox" data-cast="${k}"> ${L(STR[k])}</label>`).join('')}<label><input type="checkbox" id="caP"> ${X('C’est mon projet CAS','This is my CAS project','Es mi proyecto CAS')}</label></div>
+   <textarea id="caX" placeholder="${X('Description : objectif, ce que tu as fait, avec qui','Description','Descripción')}" style="min-height:70px"></textarea><button class="btn pri sm" id="caAdd" style="margin-top:6px">${X('Ajouter','Add','Añadir')}</button></div>
+  <div class="panel"><h2>${X('Mes expériences','My experiences','Mis experiencias')}</h2>${CAS.length?CAS.slice().reverse().map(e=>`<div class="casx"><h4>${esc(e.t)} ${e.proj?`<span class="tag gold">${X('Projet CAS','CAS project','Proyecto')}</span>`:''}</h4><p class="small">${(e.st||[]).map(k=>`<span class="strand ${k}">${L(STR[k])}</span>`).join('')} <span class="muted">${esc(e.d1||'')}${e.d2?' → '+esc(e.d2):''}</span></p>${e.x?`<p class="small">${esc(e.x)}</p>`:''}
+    <details><summary class="small"><b>${X('Objectifs d’apprentissage','Learning outcomes','Objetivos')}</b> (${(e.lo||[]).length}/7)</summary>${CASLO.map((l,i)=>`<label class="small" style="display:block;margin:4px 0"><input type="checkbox" data-calo="${e.id}|${i+1}" ${(e.lo||[]).includes(i+1)?'checked':''}> ${i+1}. ${esc(L(l))}</label>`).join('')}</details>
+    <details><summary class="small"><b>${X('Réflexions','Reflections','Reflexiones')}</b> (${(e.refl||[]).length})</summary>${(e.refl||[]).map(r=>`<p class="small" style="border-left:3px solid var(--line);padding-left:8px"><span class="muted">${esc(r.d)}</span><br>${esc(r.x)}</p>`).join('')}
+     <textarea data-carx="${e.id}" placeholder="${X('Qu’as-tu fait ? Qu’as-tu ressenti ? Qu’as-tu appris ? Que ferais-tu autrement ?','What did you do, feel, learn? What would you change?','¿Qué hiciste y aprendiste?')}" style="min-height:60px"></textarea><div class="row" style="gap:6px"><button class="btn sm" data-carsave="${e.id}">${X('Enregistrer la réflexion','Save reflection','Guardar')}</button><button class="btn sm" data-cahelp="${e.id}">${ico('spark')} ${X('Pacha m’aide à réfléchir','Pacha helps me reflect','Pacha me ayuda')}</button><button class="btn sm" data-cadel="${e.id}" style="color:#c2413b">${X('Supprimer','Delete','Borrar')}</button></div></details></div>`).join(''):`<p class="muted">${X('Aucune expérience pour l’instant.','No experience yet.','Sin experiencias.')}</p>`}</div>
+  <div class="panel"><h2>${X('Objectifs d’apprentissage (sur l’ensemble du CAS)','Learning outcomes (overall)','Objetivos (global)')}</h2>${CASLO.map((l,i)=>`<div class="lo ${lo.has(i+1)?'ok':''}"><i>${lo.has(i+1)?'✓':i+1}</i><span>${esc(L(l))}</span></div>`).join('')}</div>
+  <div class="panel"><h2>${X('Entretiens avec le coordinateur','Interviews with the coordinator','Entrevistas')}</h2>${CASI.map((c,i)=>`<div class="msl"><input type="checkbox" data-caiok="${i}" ${c.ok?'checked':''}><span class="grow"><b>${X('Entretien','Interview','Entrevista')} ${c.n}</b> <span class="small muted">${[X('début du CAS','start','inicio'),X('milieu','middle','mitad'),X('fin','end','final')][i]}</span></span><input type="date" data-caid="${i}" value="${esc(c.d||'')}" style="width:150px"></div>`).join('')}</div>`}
+/* ===== Échéances IB ===== */
+const MSTEPS=[['Sujet ou question validé','Topic or question approved','Tema aprobado'],['Recherche et données','Research and data','Investigación'],['Premier brouillon','First draft','Primer borrador'],['Retour du professeur','Teacher feedback','Comentarios'],['Version finale remise','Final version submitted','Versión final']];
+const IBITEMS=[['ia-eco',['IA Économie (dossier de 3 commentaires)','Economics IA (portfolio of 3 commentaries)','IA Economía']],['ia-gp',['IA Global Politics (projet d’engagement)','Global Politics IA (engagement project)','IA Política Global']],['ia-math',['IA Maths (exploration)','Maths IA (exploration)','IA Matemáticas']],['ia-ess',['IA ESS (investigation individuelle)','ESS IA (individual investigation)','IA ESS']],['fr-io',['Français : oral individuel','French: individual oral','Francés: oral']],['fr-hl',['Français : composition du NS','French: HL essay','Francés: ensayo NS']],['en-io',['English B : oral individuel','English B: individual oral','Inglés B: oral']],['ee',['Mémoire (EE) : trois séances de réflexion comprises','Extended essay (with three reflection sessions)','Monografía']],['tok-ex',['TOK : exposition','TOK: exhibition','TdC: exposición']],['tok-es',['TOK : essai','TOK: essay','TdC: ensayo']]];
+let IBMS=store.get('ibms',{});
+function msLeft(d){if(!d)return null;const td=new Date();td.setHours(0,0,0,0);return Math.ceil((new Date(d+'T00:00')-td)/864e5)}
+function echHTML(){const all=IBITEMS.map(([id,t])=>{const m=IBMS[id]||{};const done=MSTEPS.filter((_,i)=>m[i]&&m[i].ok).length;return{id,t,m,done}});
+  const next=all.flatMap(it=>MSTEPS.map((s,i)=>({it,s,i,d:it.m[i]&&it.m[i].d,ok:it.m[i]&&it.m[i].ok}))).filter(x=>x.d&&!x.ok).sort((a,b)=>a.d.localeCompare(b.d)).slice(0,5);
+  return `<div class="panel"><h2>${X('Prochaines étapes','Next steps','Próximos pasos')}</h2>${next.length?next.map(x=>{const l=msLeft(x.d);return `<div class="msl ${l<0?'late':''}"><span class="grow"><b>${esc(L(x.it.t))}</b> · ${esc(L(x.s))}</span><b style="color:${l<0?'#c62828':l<=7?'var(--acc)':'inherit'}">${l<0?X(`en retard de ${-l} j`,`${-l} d late`,`${-l} d tarde`):l===0?X('aujourd’hui','today','hoy'):X(`dans ${l} j`,`in ${l} d`,`en ${l} d`)}</b></div>`}).join(''):`<p class="muted small">${X('Ajoute les dates données par tes professeurs ci-dessous : elles apparaîtront ici et dans ton planning.','Add the dates given by your teachers below: they will appear here and in your plan.','Añade las fechas de tus profesores.')}</p>`}</div>
+  ${all.map(it=>`<div class="panel"><div class="row" style="justify-content:space-between;align-items:center"><h3 style="margin:0">${esc(L(it.t))}</h3><span class="small"><b>${it.done}/5</b></span></div><div class="xpbar" style="margin:6px 0"><i style="width:${it.done/5*100}%"></i></div>
+   ${MSTEPS.map((s,i)=>{const v=it.m[i]||{};const l=msLeft(v.d);return `<div class="msl ${l!=null&&l<0&&!v.ok?'late':''}"><input type="checkbox" data-msok="${it.id}|${i}" ${v.ok?'checked':''}><span class="grow">${esc(L(s))}</span><input type="date" data-msd="${it.id}|${i}" value="${esc(v.d||'')}" style="width:150px"></div>`}).join('')}</div>`).join('')}`}
+{const _up=upcomingDl;upcomingDl=function(){const base=_up();const td=new Date();td.setHours(0,0,0,0);
+  const extra=IBITEMS.flatMap(([id,t])=>MSTEPS.map((s,i)=>{const v=(IBMS[id]||{})[i];if(!v||!v.d||v.ok)return null;const left=Math.ceil((new Date(v.d+'T00:00')-td)/864e5);return left>=0?{id:'ms-'+id+i,name:L(t)+' · '+L(s),date:v.d,left}:null}).filter(Boolean));
+  return base.concat(extra).sort((a,b)=>a.left-b.left)}}
+/* ===== Conditions du diplôme ===== */
+function condHTML(){const subj=SUBJ.map(s=>({s,g:+PTS[s.id]||0}));const tot=subj.reduce((a,x)=>a+x.g,0)+(typeof corePts==='function'?(corePts(PTS.ee,PTS.tok)||0):0);
+  const hl=subj.filter(x=>x.s.hl),sl=subj.filter(x=>!x.s.hl);const hlp=hl.reduce((a,x)=>a+x.g,0),slp=sl.reduce((a,x)=>a+x.g,0);
+  const c=[[tot>=24,X(`Au moins 24 points (estimation actuelle : ${tot})`,`At least 24 points (current estimate: ${tot})`,`Al menos 24 puntos (${tot})`)],
+   [!subj.some(x=>x.g===1),X('Aucune note 1','No grade 1','Ninguna nota 1')],[subj.filter(x=>x.g===2).length<=2,X('Pas plus de deux notes 2','No more than two grade 2s','No más de dos notas 2')],[subj.filter(x=>x.g<=3).length<=3,X('Pas plus de trois notes de 3 ou moins','No more than three grades of 3 or below','No más de tres notas ≤ 3')],
+   [hlp>=12,X(`Au moins 12 points au NS (actuellement ${hlp})`,`At least 12 HL points (now ${hlp})`,`Al menos 12 puntos NS (${hlp})`)],[slp>=9,X(`Au moins 9 points au NM (actuellement ${slp})`,`At least 9 SL points (now ${slp})`,`Al menos 9 puntos NM (${slp})`)],
+   [PTS.tok!=='E'&&PTS.ee!=='E',X('Pas de note E en TOK ni au mémoire','No E in TOK or the extended essay','Sin E en TdC ni monografía')],[CAS.length>0&&new Set(CAS.flatMap(e=>e.lo||[])).size===7,X('CAS terminé (les 7 objectifs atteints)','CAS completed (all 7 outcomes)','CAS completado')]];
+  return `<div class="panel"><h2>${X('Conditions d’obtention du diplôme','Diploma requirements','Requisitos del diploma')}</h2><p class="small muted">${X('Calculé avec tes notes estimées (tableau de bord › Mes points du diplôme). Règles générales de l’IB : vérifie le règlement en vigueur auprès de ton coordinateur.','Computed from your estimated grades. General IB rules: check the current regulations with your coordinator.','Calculado con tus notas estimadas.')}</p>${c.map(([ok,t])=>`<div class="lo ${ok?'ok':''}"><i>${ok?'✓':'!'}</i><span>${esc(t)}</span></div>`).join('')}<p class="small muted" style="margin-top:6px">${X('Le diplôme exige aussi d’avoir remis toutes les évaluations et l’absence de manquement à l’intégrité.','The diploma also requires all assessments submitted and no academic misconduct.','También se exige entregar todo y no cometer faltas de integridad.')}</p></div>`}
+function renderDiplome(){const el=$('#dpMain');if(!el)return;
+  el.innerHTML=`<div class="row" style="gap:6px">${[['cas','CAS'],['ech',X('Échéances IB','IB deadlines','Plazos IB')],['cond',X('Conditions du diplôme','Diploma requirements','Requisitos')]].map(([k,t])=>`<button class="chip ${DPT===k?'on':''}" data-dpt="${k}">${t}</button>`).join('')}</div>`+(DPT==='cas'?casHTML():DPT==='ech'?echHTML():condHTML())}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-dpt]');if(t){DPT=t.dataset.dpt;store.set('dptab',DPT);renderDiplome();return}
+  if(e.target.closest('#caAdd')){const t0=$('#caT').value.trim();const st=$$('[data-cast]').filter(c=>c.checked).map(c=>c.dataset.cast);if(!t0||!st.length){toast(X('Donne un titre et coche au moins un volet (C, A ou S).','Give a title and tick at least one strand.','Título y un ámbito.'));return}
+    CAS.push({id:String(Date.now()),t:t0,st,d1:$('#caD1').value,d2:$('#caD2').value,x:$('#caX').value.trim(),proj:$('#caP').checked,lo:[],refl:[]});saveCAS();addXP(10,X('expérience CAS','CAS experience','CAS'));renderDiplome();return}
+  const sv=e.target.closest('[data-carsave]');if(sv){const id=sv.dataset.carsave,ta=$(`[data-carx="${id}"]`),x=ta.value.trim();if(x.length<20){toast(X('Écris au moins une ou deux phrases.','Write at least a sentence or two.','Escribe un poco más.'));return}const en=CAS.find(c=>c.id===id);en.refl=en.refl||[];en.refl.push({d:todayKey(),x});saveCAS();addXP(8,X('réflexion CAS','CAS reflection','reflexión'));renderDiplome();return}
+  const hp=e.target.closest('[data-cahelp]');if(hp){const en=CAS.find(c=>c.id===hp.dataset.cahelp);$('#bot').classList.add('open');botRender();botSend(X(`Je fais une réflexion CAS sur l’expérience « ${en.t} » (${(en.st||[]).map(k=>L(STR[k])).join(', ')}). ${en.x?'Description : '+en.x+'. ':''}Ne rédige PAS la réflexion à ma place : pose-moi 5 questions précises, une à la fois si possible, pour m’aider à réfléchir (ce que j’ai appris, les difficultés, l’éthique, l’impact), et indique quels objectifs d’apprentissage CAS je pourrais démontrer.`,`I am reflecting on my CAS experience “${en.t}”. Do NOT write the reflection for me: ask me 5 precise questions to help me reflect, and say which CAS learning outcomes I might show.`,`Reflexión CAS sobre «${en.t}»: no la escribas, hazme 5 preguntas.`));return}
+  const dl=e.target.closest('[data-cadel]');if(dl){if(!dl.dataset.arm){dl.dataset.arm=1;dl.textContent=X('Confirmer','Confirm','Confirmar');return}CAS=CAS.filter(c=>c.id!==dl.dataset.cadel);saveCAS();renderDiplome()}});
+document.addEventListener('change',e=>{const lo=e.target.closest('[data-calo]');if(lo){const [id,n]=lo.dataset.calo.split('|');const en=CAS.find(c=>c.id===id);en.lo=en.lo||[];const k=+n;en.lo=lo.checked?[...new Set([...en.lo,k])]:en.lo.filter(x=>x!==k);saveCAS();return}
+  const ok=e.target.closest('[data-caiok]');if(ok){CASI[+ok.dataset.caiok].ok=ok.checked;saveCAS();return}
+  const cd=e.target.closest('[data-caid]');if(cd){CASI[+cd.dataset.caid].d=cd.value;saveCAS();return}
+  const mo=e.target.closest('[data-msok]');if(mo){const [id,i]=mo.dataset.msok.split('|');IBMS[id]=IBMS[id]||{};IBMS[id][i]=Object.assign(IBMS[id][i]||{},{ok:mo.checked});store.set('ibms',IBMS);if(mo.checked)addXP(10,X('étape terminée','step done','paso hecho'));renderDiplome();return}
+  const md=e.target.closest('[data-msd]');if(md){const [id,i]=md.dataset.msd.split('|');IBMS[id]=IBMS[id]||{};IBMS[id][i]=Object.assign(IBMS[id][i]||{},{d:md.value});store.set('ibms',IBMS);renderDiplome()}});
+/* ===== Glossaire et flashcards ===== */
+let GLO=null,GSR=store.get('gsr',{}),GLS=store.get('gls','all'),GLQ='',GSES=null;
+function stripMd(s){return String(s).replace(/\*\*|__|`/g,'').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').trim()}
+function buildGlossary(){if(GLO)return GLO;const out=[],seen=new Set();
+  FCSUBJ.forEach(k=>fichesOf(k).forEach(f=>{String(f.body).split('\n').forEach(line=>{const m=line.match(/^\s*(?:[-*]\s+|\d+\.\s+)?\*\*([^*]{2,60})\*\*\s*(?:\([^)]{0,60}\)\s*)?[:：]\s*(.{12,320})$/);if(!m)return;
+    const term=stripMd(m[1]).replace(/[.:]$/,''),def=stripMd(m[2]);if(/^(exemple|attention|astuce|note)/i.test(term))return;const key=k+'|'+term.toLowerCase();if(seen.has(key))return;seen.add(key);out.push({k,key,term,def,f:f.id,fn:f.n})})}));
+  return GLO=out}
+function glList(){const q=GLQ.toLowerCase();return buildGlossary().filter(g=>(GLS==='all'||g.k===GLS)&&(!q||g.term.toLowerCase().includes(q)||g.def.toLowerCase().includes(q)))}
+function renderGlossaire(){const el=$('#glMain');if(!el)return;const all=buildGlossary();const L2=glList();const now=Date.now();
+  const due=L2.filter(g=>GSR[g.key]&&GSR[g.key].d<=now).length,fresh=L2.filter(g=>!GSR[g.key]).length;
+  if(GSES){const g=GSES.cards[GSES.i];if(!g){el.innerHTML=`<div class="panel"><h2>${X('Session terminée','Session complete','Sesión terminada')}</h2><p>${X(`${GSES.ok} carte(s) sue(s) sur ${GSES.cards.length}.`,`${GSES.ok} of ${GSES.cards.length} known.`,`${GSES.ok}/${GSES.cards.length}`)}</p><button class="btn pri" data-gl="back">${X('Retour au glossaire','Back to glossary','Volver')}</button></div>`;return}
+    el.innerHTML=`<div class="panel"><p class="small muted">${X('Carte','Card','Tarjeta')} ${GSES.i+1}/${GSES.cards.length} · ${esc(sName(g.k))} · ${X('fiche','notes','ficha')} ${esc(g.fn)}</p><div class="gcard"><div class="gin" data-gl="flip">${GSES.flip?`<div><p style="font-size:17px;margin:0">${esc(fTr(g.def))}</p></div>`:`<div><h3 class="serif">${esc(fTr(g.term))}</h3><p class="small muted">${X('Touche pour voir la définition','Tap to see the definition','Toca para ver la definición')}</p></div>`}</div></div>
+     ${GSES.flip?`<div class="row" style="justify-content:center;gap:8px"><button class="btn" data-gl="no">🤔 ${X('À revoir','Review again','Repasar')}</button><button class="btn pri" data-gl="yes">💪 ${X('Je savais','I knew it','Lo sabía')}</button></div>`:''}<div class="row" style="justify-content:center;margin-top:8px"><button class="btn sm" data-gl="back">${X('Arrêter','Stop','Parar')}</button></div></div>`;return}
+  el.innerHTML=`<div class="panel"><div class="row" style="gap:6px">${['all',...FCSUBJ.filter(k=>all.some(g=>g.k===k))].map(k=>`<button class="chip ${GLS===k?'on':''}" data-gls="${k}">${k==='all'?X('Toutes','All','Todas'):esc(sName(k))} <small>${all.filter(g=>k==='all'||g.k===k).length}</small></button>`).join('')}</div>
+   <div class="row" style="gap:8px;margin-top:10px"><input id="glQ" placeholder="${X('Rechercher un terme…','Search a term…','Buscar…')}" value="${esc(GLQ)}" style="flex:1 1 220px"><button class="btn pri" data-gl="start">${X('Réviser en flashcards','Review as flashcards','Repasar con tarjetas')} (${Math.min(20,due+Math.min(fresh,15))})</button></div>
+   <p class="small muted" style="margin-top:6px">${X(`${due} carte(s) à revoir aujourd’hui · ${fresh} nouvelle(s). Les cartes reviennent au bon moment (révision espacée).`,`${due} due today · ${fresh} new.`,`${due} para hoy · ${fresh} nuevas.`)}</p></div>
+   <div class="panel">${L2.slice(0,400).map(g=>`<div class="glrow"><b>${esc(fTr(g.term))} <span class="small muted" style="font-weight:500">· ${esc(sName(g.k))} <a href="#fiches" data-ofi="${g.k}|${g.f}">${X('fiche','notes','ficha')} ${esc(g.fn)}</a></span></b><span class="small">${esc(fTr(g.def))}</span></div>`).join('')||`<p class="muted">${X('Aucun terme trouvé.','No term found.','Ningún término.')}</p>`}${L2.length>400?`<p class="small muted">${X('Affine ta recherche pour voir plus de termes.','Refine your search to see more.','Refina la búsqueda.')}</p>`:''}</div>`}
+document.addEventListener('click',e=>{const s=e.target.closest('[data-gls]');if(s){GLS=s.dataset.gls;store.set('gls',GLS);renderGlossaire();return}
+  const b=e.target.closest('[data-gl]');if(!b)return;const a=b.dataset.gl;
+  if(a==='start'){const now=Date.now(),L2=glList();const due=L2.filter(g=>GSR[g.key]&&GSR[g.key].d<=now),fresh=L2.filter(g=>!GSR[g.key]).slice(0,15);const cards=[...due,...fresh].slice(0,20);if(!cards.length){toast(X('Rien à réviser pour l’instant 🎉','Nothing to review right now 🎉','Nada que repasar 🎉'));return}GSES={cards,i:0,ok:0,flip:false};renderGlossaire();return}
+  if(a==='flip'&&GSES){GSES.flip=!GSES.flip;renderGlossaire();return}
+  if((a==='yes'||a==='no')&&GSES){const g=GSES.cards[GSES.i],o=GSR[g.key]||{l:0};if(a==='yes'){o.l=Math.min(5,(o.l||0)+1);GSES.ok++}else o.l=0;o.d=Date.now()+[1,2,4,9,20,45][o.l]*864e5*(a==='no'?.5:1);GSR[g.key]=o;store.set('gsr',GSR);GSES.i++;GSES.flip=false;if(GSES.i>=GSES.cards.length)addXP(5+GSES.ok,X('flashcards du glossaire','glossary flashcards','tarjetas'));renderGlossaire();return}
+  if(a==='back'){GSES=null;renderGlossaire()}});
+document.addEventListener('input',e=>{if(e.target.id==='glQ'){GLQ=e.target.value;clearTimeout(window._glq);window._glq=setTimeout(()=>{const pos=e.target.selectionStart;renderGlossaire();const n=$('#glQ');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(err){}}},250)}});
+/* ===== Graphiques interactifs d'Économie ===== */
+let GX=Object.assign({m:'market',ds:0,ss:0,tax:0,ctl:'none',pc:5,ext:'neg',ex:2,ad:0,as:0,lr:0},store.get('gx',{}));
+const gxX=x=>50+x*42,gxY=y=>330-y*31;
+function gxAxes(xl,yl){let s=`<line x1="50" y1="330" x2="480" y2="330" stroke="currentColor"/><line x1="50" y1="330" x2="50" y2="12" stroke="currentColor"/><text x="470" y="350" font-size="13" text-anchor="end" fill="currentColor">${esc(xl)}</text><text x="56" y="14" font-size="13" fill="currentColor">${esc(yl)}</text><!--A-->`;return s}
+const gxLine=(x1,y1,x2,y2,c,w=3,da='')=>`<line x1="${gxX(x1)}" y1="${gxY(y1)}" x2="${gxX(x2)}" y2="${gxY(y2)}" stroke="${c}" stroke-width="${w}" ${da?`stroke-dasharray="${da}"`:''} stroke-linecap="round"/>`;
+const gxPoly=(pts,c,o=.28)=>`<polygon points="${pts.map(([x,y])=>gxX(x)+','+gxY(y)).join(' ')}" fill="${c}" fill-opacity="${o}"/>`;
+const gxTxt=(x,y,t,c='currentColor',a='start')=>`<text x="${gxX(x)}" y="${gxY(y)}" font-size="13" font-weight="700" fill="${c}" text-anchor="${a}">${esc(t)}</text>`;
+const gxDash=(x,y)=>gxLine(0,y,x,y,'#888',1.2,'4 4')+gxLine(x,0,x,y,'#888',1.2,'4 4');
+const r1=v=>Math.round(v*100)/100;
+function gxMarket(){const a=9+GX.ds,c=1+GX.ss,t=GX.tax;// D: P=a-Q ; S: P=c+Q ; avec taxe : P=c+t+Q
+  const Q0=(a-c)/2,P0=c+Q0;let svg=gxAxes(X('Quantité','Quantity','Cantidad'),X('Prix','Price','Precio')),out='';
+  svg+=gxLine(0,a,Math.min(10,a),Math.max(0,a-10),'#2457c5')+gxTxt(Math.min(9.6,a-0.3),Math.max(0.4,a-9.6)+0.3,'D','#2457c5');
+  svg+=gxLine(0,c,Math.min(10,10-c),Math.min(10,c+10),'#c0392b')+gxTxt(Math.min(9.3,9.7-c),Math.min(9.8,c+9.3),'S','#c0392b');
+  if(t!==0&&GX.ctl==='none'){const Q1=Math.max(0,(a-c-t)/2),Pc=a-Q1,Pp=Pc-t;svg+=gxLine(0,c+t,Math.min(10,10-c-t),Math.min(10,c+t+10),'#c0392b',2.5,'6 5')+gxTxt(Math.min(9.3,9.7-c-t),Math.min(9.8,c+t+9.3),t>0?'S + taxe':'S − subv.','#c0392b');
+    if(t>0){svg+=gxPoly([[0,a],[0,Pc],[Q1,Pc]],'#2457c5')+gxPoly([[0,Pp],[0,c],[Q1,Pp]],'#c0392b')+gxPoly([[0,Pc],[Q1,Pc],[Q1,Pp],[0,Pp]],'#b8924a',.35)+gxPoly([[Q1,Pc],[Q0,P0],[Q1,Pp]],'#555',.45)}
+    else{const Q2=Q1;svg+=gxPoly([[0,a],[0,Pc],[Q2,Pc]],'#2457c5')+gxPoly([[0,Pp],[0,c],[Q2,Pp]],'#c0392b',.2)}
+    svg+=gxDash(Q1,Pc)+gxDash(Q1,Pp)+gxTxt(Q1+0.15,Pc+0.2,X('Pc (consommateurs)','Pc (consumers)','Pc'))+gxTxt(Q1+0.15,Pp-0.5,X('Pp (producteurs)','Pp (producers)','Pp'));
+    const CS=Q1*(a-Pc)/2,PS=Q1*(Pp-c)/2,TR=Math.abs(t)*Q1,DW=Math.abs(Q0-Q1)*Math.abs(t)/2;
+    out=t>0?X(`Avec une <b>taxe de ${t}</b> par unité : la quantité passe de <b>${r1(Q0)}</b> à <b>${r1(Q1)}</b>. Les consommateurs paient <b>${r1(Pc)}</b>, les producteurs reçoivent <b>${r1(Pp)}</b>.<br>Surplus du consommateur : ${r1(CS)} · du producteur : ${r1(PS)} · recettes de l’État : <b>${r1(TR)}</b> · perte sèche : <b>${r1(DW)}</b> (triangle gris).<br>Incidence : consommateurs ${r1(Pc-P0)} par unité, producteurs ${r1(P0-Pp)} (ici égale, car les pentes sont égales).`,`With a <b>tax of ${t}</b> per unit: quantity falls from <b>${r1(Q0)}</b> to <b>${r1(Q1)}</b>. Consumers pay <b>${r1(Pc)}</b>, producers receive <b>${r1(Pp)}</b>. CS ${r1(CS)} · PS ${r1(PS)} · tax revenue <b>${r1(TR)}</b> · deadweight loss <b>${r1(DW)}</b>.`,`Impuesto de ${t}: Q ${r1(Q0)} → ${r1(Q1)}, recaudación ${r1(TR)}, pérdida ${r1(DW)}.`)
+     :X(`Avec une <b>subvention de ${-t}</b> par unité : la quantité passe de <b>${r1(Q0)}</b> à <b>${r1(Q1)}</b>. Les consommateurs paient <b>${r1(Pc)}</b>, les producteurs reçoivent <b>${r1(Pp)}</b>. Coût pour l’État : <b>${r1(TR)}</b> · perte sèche (surproduction) : <b>${r1(DW)}</b>.`,`With a <b>subsidy of ${-t}</b>: quantity rises from ${r1(Q0)} to ${r1(Q1)}. Cost to government <b>${r1(TR)}</b>, deadweight loss ${r1(DW)}.`,`Subvención: coste ${r1(TR)}.`)}
+  else if(GX.ctl==='max'||GX.ctl==='min'){const Pc=GX.pc,Qd=Math.max(0,a-Pc),Qs=Math.max(0,Pc-c);svg+=gxLine(0,Pc,10,Pc,'#b8924a',2.5)+gxTxt(9.8,Pc+0.25,GX.ctl==='max'?X('prix plafond','max price','precio máx.'):X('prix plancher','min price','precio mín.'),'#b8924a','end')+gxDash(Q0,P0);
+    const eff=GX.ctl==='max'?Pc<P0:Pc>P0;if(eff){const Qt=Math.min(Qd,Qs);svg+=gxPoly(GX.ctl==='max'?[[Qt,a-Qt],[Q0,P0],[Qt,c+Qt]]:[[Qt,a-Qt],[Q0,P0],[Qt,c+Qt]],'#555',.45)+gxLine(Qd,0,Qd,Pc,'#2457c5',1.3,'3 3')+gxLine(Qs,0,Qs,Pc,'#c0392b',1.3,'3 3');
+      out=GX.ctl==='max'?X(`<b>Prix plafond à ${Pc}</b> (sous l’équilibre ${r1(P0)}) : demande ${r1(Qd)}, offre ${r1(Qs)} → <b>pénurie de ${r1(Qd-Qs)}</b>. Risques : files d’attente, marché noir, baisse de qualité. Perte sèche en gris.`,`<b>Maximum price ${Pc}</b>: Qd ${r1(Qd)}, Qs ${r1(Qs)} → <b>shortage of ${r1(Qd-Qs)}</b>.`,`Precio máximo: escasez ${r1(Qd-Qs)}.`)
+       :X(`<b>Prix plancher à ${Pc}</b> (au-dessus de l’équilibre ${r1(P0)}) : offre ${r1(Qs)}, demande ${r1(Qd)} → <b>surplus de ${r1(Qs-Qd)}</b>. L’État doit souvent acheter les excédents (coût = ${r1(Pc*(Qs-Qd))}). Perte sèche en gris.`,`<b>Minimum price ${Pc}</b>: <b>surplus of ${r1(Qs-Qd)}</b>; buying it costs ${r1(Pc*(Qs-Qd))}.`,`Precio mínimo: excedente ${r1(Qs-Qd)}.`)}
+    else out=X(`Ce prix ${GX.ctl==='max'?'plafond':'plancher'} (${Pc}) est ${GX.ctl==='max'?'au-dessus':'en dessous'} de l’équilibre (${r1(P0)}) : il n’a <b>aucun effet</b>.`,`This price control is not binding: no effect.`,`Sin efecto.`)}
+  else{svg+=gxPoly([[0,a],[0,P0],[Q0,P0]],'#2457c5')+gxPoly([[0,P0],[0,c],[Q0,P0]],'#c0392b');out=X(`Équilibre : <b>P* = ${r1(P0)}</b>, <b>Q* = ${r1(Q0)}</b>. Surplus du consommateur (bleu) : ${r1(Q0*(a-P0)/2)} · surplus du producteur (rouge) : ${r1(Q0*(P0-c)/2)}. Déplace la demande ou l’offre pour voir l’effet sur le prix et la quantité.`,`Equilibrium: <b>P* = ${r1(P0)}</b>, <b>Q* = ${r1(Q0)}</b>. CS ${r1(Q0*(a-P0)/2)} · PS ${r1(Q0*(P0-c)/2)}.`,`Equilibrio P*=${r1(P0)}, Q*=${r1(Q0)}.`)}
+  svg+=gxDash(Q0,P0)+`<circle cx="${gxX(Q0)}" cy="${gxY(P0)}" r="5" fill="currentColor"/>`;
+  return{svg,out,ctl:`<label>${X('Déplacer la demande','Shift demand','Desplazar la demanda')} (${GX.ds>0?'+':''}${GX.ds})</label><input type="range" min="-3" max="3" step="0.5" value="${GX.ds}" data-gxv="ds">
+   <label>${X('Déplacer l’offre','Shift supply','Desplazar la oferta')} (${GX.ss>0?'+':''}${GX.ss})</label><input type="range" min="-3" max="3" step="0.5" value="${GX.ss}" data-gxv="ss">
+   <label>${X('Taxe (+) ou subvention (−) par unité','Tax (+) or subsidy (−) per unit','Impuesto (+) o subvención (−)')} (${GX.tax})</label><input type="range" min="-3" max="4" step="0.5" value="${GX.tax}" data-gxv="tax">
+   <label>${X('Contrôle des prix','Price control','Control de precios')}</label><select data-gxs="ctl"><option value="none" ${GX.ctl==='none'?'selected':''}>${X('aucun','none','ninguno')}</option><option value="max" ${GX.ctl==='max'?'selected':''}>${X('prix plafond (maximum)','maximum price','máximo')}</option><option value="min" ${GX.ctl==='min'?'selected':''}>${X('prix plancher (minimum)','minimum price','mínimo')}</option></select>
+   ${GX.ctl!=='none'?`<label>${X('Niveau du prix fixé','Price level','Nivel')} (${GX.pc})</label><input type="range" min="1" max="9" step="0.5" value="${GX.pc}" data-gxv="pc">`:''}`}}
+function gxExt(){const neg=GX.ext==='neg',e=GX.ex;let svg=gxAxes(X('Quantité','Quantity','Cantidad'),X('Coûts et bénéfices','Costs and benefits','Costes y beneficios')),out;
+  // MPB : P=9-Q ; MPC : P=1+Q ; neg : MSC=MPC+e ; pos : MSB=MPB+e
+  const Qm=4,Pm=5;svg+=gxLine(0,9,9,0,'#2457c5')+gxTxt(8.4,1.1,neg?'D = MPB = MSB':'D = MPB','#2457c5')+gxLine(0,1,9,10,'#c0392b')+gxTxt(8.2,9.8,neg?'S = MPC':'S = MPC = MSC','#c0392b');
+  if(neg){const Qs=(8-e)/2,Ps=9-Qs;svg+=gxLine(0,1+e,9-e,10,'#8e44ad',2.5,'6 5')+gxTxt(Math.max(0.5,8-e),9.6,'MSC','#8e44ad')+gxPoly([[Qs,Ps],[Qm,1+e+Qm],[Qm,Pm]],'#555',.45)+gxDash(Qs,Ps)+gxDash(Qm,Pm);
+    out=X(`<b>Externalité négative de production</b> (pollution d’une usine, coût externe ${e} par unité) : le marché produit <b>Qm = ${Qm}</b> alors que l’optimum social est <b>Q* = ${r1(Qs)}</b> → <b>surproduction</b> et perte de bien-être (triangle gris = ${r1((Qm-Qs)*e/2)}). Solutions : taxe pigouvienne de ${e} par unité, quotas échangeables, réglementation.`,`<b>Negative production externality</b> (external cost ${e}): market output <b>${Qm}</b> vs social optimum <b>${r1(Qs)}</b> → overproduction, welfare loss ${r1((Qm-Qs)*e/2)}. Remedies: Pigouvian tax, permits, regulation.`,`Externalidad negativa: sobreproducción.`)}
+  else{const Qs=(8+e)/2,Ps=1+Qs;svg+=gxLine(0,9+e,Math.min(10,9+e),Math.max(0,-1+e<0?0:e-1),'#16a085',2.5,'6 5')+gxTxt(Math.min(9.4,8.5+e*0.1),Math.max(0.6,e+0.4),'MSB','#16a085')+gxPoly([[Qm,Pm],[Qs,Ps],[Qm,9+e-Qm]],'#555',.45)+gxDash(Qs,Ps)+gxDash(Qm,Pm);
+    out=X(`<b>Externalité positive de consommation</b> (vaccination, éducation ; bénéfice externe ${e} par unité) : le marché consomme <b>Qm = ${Qm}</b> alors que l’optimum social est <b>Q* = ${r1(Qs)}</b> → <b>sous-consommation</b> et perte de bien-être (triangle gris = ${r1((Qs-Qm)*e/2)}). Solutions : subvention, fourniture publique, information, obligation.`,`<b>Positive consumption externality</b> (external benefit ${e}): market <b>${Qm}</b> vs optimum <b>${r1(Qs)}</b> → underconsumption, loss ${r1((Qs-Qm)*e/2)}. Remedies: subsidy, public provision, information.`,`Externalidad positiva: subconsumo.`)}
+  return{svg,out,ctl:`<label>${X('Type d’externalité','Type of externality','Tipo')}</label><select data-gxs="ext"><option value="neg" ${neg?'selected':''}>${X('négative de production','negative production','negativa de producción')}</option><option value="pos" ${!neg?'selected':''}>${X('positive de consommation','positive consumption','positiva de consumo')}</option></select>
+   <label>${X('Taille de l’externalité par unité','Size of the externality per unit','Tamaño')} (${e})</label><input type="range" min="0.5" max="4" step="0.5" value="${e}" data-gxv="ex">`}}
+function gxADAS(){const a=GX.ad,s=GX.as,Yf=5+GX.lr;// AD : P=9+a-Y ; SRAS : P=1+s+0.8Y
+  const Y=(8+a-s)/1.8,P=9+a-Y;let svg=gxAxes(X('PIB réel (Y)','Real GDP (Y)','PIB real'),X('Niveau des prix','Price level','Nivel de precios'));
+  svg+=gxLine(0,9+a,Math.min(10,9+a),Math.max(0,a-1),'#2457c5')+gxTxt(Math.min(9.5,8.6+a),Math.max(0.5,a+0.2),'AD','#2457c5')+gxLine(0,1+s,Math.min(10,(9-s)/0.8),Math.min(10,1+s+8),'#c0392b')+gxTxt(Math.min(9.4,(8.6-s)/0.8),Math.min(9.8,9.3+s),'SRAS','#c0392b')+gxLine(Yf,0,Yf,10,'#2e7d32',2.5)+gxTxt(Yf+0.1,9.6,'LRAS','#2e7d32')+gxDash(Y,P)+`<circle cx="${gxX(Y)}" cy="${gxY(P)}" r="5" fill="currentColor"/>`;
+  const gap=Y-Yf;const out=X(`Équilibre de court terme : <b>Y = ${r1(Y)}</b>, niveau des prix <b>${r1(P)}</b>. Production de plein emploi (LRAS) : ${r1(Yf)}.<br>${Math.abs(gap)<0.15?'L’économie est proche du <b>plein emploi</b>.':gap>0?`<b>Écart inflationniste</b> de ${r1(gap)} : la production dépasse son potentiel, pression à la hausse sur les prix. Politiques : budgétaire ou monétaire restrictive.`:`<b>Écart récessionniste (déflationniste)</b> de ${r1(-gap)} : chômage conjoncturel. Politiques : relance budgétaire ou monétaire, ou attendre l’ajustement des salaires (vision néoclassique).`}`,`Short-run equilibrium: <b>Y = ${r1(Y)}</b>, price level <b>${r1(P)}</b>. Full employment: ${r1(Yf)}. ${Math.abs(gap)<0.15?'Near full employment.':gap>0?`<b>Inflationary gap</b> ${r1(gap)}.`:`<b>Recessionary gap</b> ${r1(-gap)}.`}`,`Equilibrio Y=${r1(Y)}.`);
+  return{svg,out,ctl:`<label>${X('Demande globale (consommation, investissement, dépenses publiques, exportations nettes)','Aggregate demand','Demanda agregada')} (${a>0?'+':''}${a})</label><input type="range" min="-3" max="3" step="0.5" value="${a}" data-gxv="ad">
+   <label>${X('Offre globale de court terme (coûts : salaires, pétrole, impôts indirects) — un nombre positif = hausse des coûts','Short-run AS (costs) — positive = higher costs','Oferta a corto plazo')} (${s>0?'+':''}${s})</label><input type="range" min="-3" max="3" step="0.5" value="${s}" data-gxv="as">
+   <label>${X('Offre de long terme (capacité de production : capital, éducation, technologie)','Long-run AS (productive capacity)','Oferta a largo plazo')} (${GX.lr>0?'+':''}${GX.lr})</label><input type="range" min="-2" max="3" step="0.5" value="${GX.lr}" data-gxv="lr">`}}
+function renderGraphes(){const el=$('#gxMain');if(!el)return;const mdl=GX.m==='ext'?gxExt():GX.m==='adas'?gxADAS():gxMarket();
+  el.innerHTML=`<div class="row" style="gap:6px">${[['market',X('Offre, demande, taxes et prix fixés','Supply, demand, taxes, price controls','Oferta y demanda')],['ext',X('Externalités','Externalities','Externalidades')],['adas',X('Demande et offre globales','AD and AS','DA y OA')]].map(([k,t])=>`<button class="chip ${GX.m===k?'on':''}" data-gxm="${k}">${t}</button>`).join('')}<button class="btn sm" data-gxreset="1">${X('Réinitialiser','Reset','Reiniciar')}</button></div>
+   <div class="panel gxwrap"><div><svg class="gxsvg" viewBox="0 0 500 360" role="img" aria-label="${X('Graphique économique interactif','Interactive economics graph','Gráfico interactivo')}"><defs><clipPath id="gxc"><rect x="48" y="0" width="452" height="332"/></clipPath></defs>${mdl.svg.split('<!--A-->')[0]}<g clip-path="url(#gxc)">${mdl.svg.split('<!--A-->')[1]||''}</g></svg></div><div class="gxctl">${mdl.ctl}<div class="note gxout" style="margin-top:12px">${mdl.out}</div><button class="btn sm" data-gxask="1" style="margin-top:8px">${ico('spark')} ${X('Pacha m’explique ce graphique','Pacha explains this graph','Pacha explica')}</button></div></div>
+   <p class="small muted">${X('Modèles simplifiés à droites linéaires, conformes aux diagrammes du programme d’Économie. Entraîne-toi ensuite à les redessiner à la main avec les légendes.','Simplified linear models matching the syllabus diagrams. Then practise redrawing them by hand with labels.','Modelos simplificados.')}</p>`}
+document.addEventListener('input',e=>{const r=e.target.closest('[data-gxv]');if(!r)return;GX[r.dataset.gxv]=+r.value;store.set('gx',GX);const y=scrollY;renderGraphes();const n=$(`[data-gxv="${r.dataset.gxv}"]`);if(n)n.focus({preventScroll:true});scrollTo(0,y)});
+document.addEventListener('change',e=>{const s=e.target.closest('[data-gxs]');if(!s)return;GX[s.dataset.gxs]=s.value;store.set('gx',GX);renderGraphes()});
+document.addEventListener('click',e=>{const m=e.target.closest('[data-gxm]');if(m){GX.m=m.dataset.gxm;store.set('gx',GX);renderGraphes();return}
+  if(e.target.closest('[data-gxreset]')){Object.assign(GX,{ds:0,ss:0,tax:0,ctl:'none',pc:5,ex:2,ad:0,as:0,lr:0});store.set('gx',GX);renderGraphes();return}
+  if(e.target.closest('[data-gxask]')){const o=$('.gxout');$('#bot').classList.add('open');botRender();botSend(X(`Explique-moi ce graphique d’Économie IB comme un professeur, étape par étape, puis donne-moi une question type examen sur ce sujet : ${o?o.innerText:''}`,`Explain this IB Economics graph step by step, then give me an exam-style question: ${o?o.innerText:''}`,`Explícame este gráfico: ${o?o.innerText:''}`))}});
+/* ===== Bilan de la semaine ===== */
+function weekStats(){const now=Date.now(),wk=7*864e5;let min=0,days=0;for(let i=0;i<7;i++){const d=new Date(now-i*864e5);const a=(typeof ACTV!=='undefined'&&ACTV[todayKey(d)])||null;if(a){min+=a.m||0;if(a.n)days++}}
+  const rated=Object.entries(FSR).filter(([,o])=>o.last&&now-o.last<wk);const mastered=rated.filter(([,o])=>o.r===2).length;
+  const ann=ANN().filter(r=>now-new Date(r.d+'T00:00').getTime()<wk);
+  const subjAvg=FCSUBJ.filter(k=>fichesOf(k).length).map(k=>{const L2=fichesOf(k);return{k,v:L2.reduce((a,f)=>a+Math.max(0,fMastery(f.id)),0)/(L2.length*5)}}).sort((a,b)=>a.v-b.v);
+  return{min,days,rated:rated.length,mastered,ann,weak:subjAvg[0],gl:Object.values(GSR).filter(o=>o.d&&o.d>now-wk).length}}
+function bilanHTML(){const w=weekStats(),q=todayFiches().quota;
+  return `<div class="dpgrid"><div class="dpstat"><b>${Math.round(w.min/60*10)/10} h</b>${X('de travail suivi','tracked study','estudio')}</div><div class="dpstat"><b>${w.days}/7</b>${X('jours actifs','active days','días activos')}</div><div class="dpstat"><b>${w.rated}</b>${X('fiches travaillées','notes reviewed','fichas')}</div><div class="dpstat"><b>${w.mastered}</b>${X('fiches maîtrisées','notes mastered','dominadas')}</div><div class="dpstat"><b>${w.ann.length}</b>${X('épreuves notées','papers marked','pruebas')}</div></div>
+   <p style="margin-top:10px">${w.weak?X(`Point à travailler : <b>${esc(sName(w.weak.k))}</b> (${Math.round(w.weak.v*100)} % de maîtrise).`,`Focus area: <b>${esc(sName(w.weak.k))}</b> (${Math.round(w.weak.v*100)}%).`,`A trabajar: ${esc(sName(w.weak.k))}.`):''} ${X(`Objectif de la semaine prochaine : <b>${q*6} nouvelles fiches</b>, toutes les révisions du jour, et au moins <b>une épreuve chronométrée</b>.`,`Next week’s goal: <b>${q*6} new notes</b>, all daily reviews, and at least <b>one timed paper</b>.`,`Objetivo: ${q*6} fichas nuevas.`)}</p>`}
+{const _rl=renderLearn;renderLearn=function(){_rl();if($('#v-perf')&&!$('#lrnWeek')){const p=document.createElement('div');p.className='panel';p.innerHTML=`<h2>${X('Bilan de la semaine','Weekly review','Resumen semanal')}</h2><div id="lrnWeek"></div>`;const m=$('#lrnMap')?.closest('.panel');if(m)m.before(p)}const w=$('#lrnWeek');if(w)w.innerHTML=bilanHTML()}}
+setTimeout(()=>{const d=new Date(),wk=todayKey(new Date(d-d.getDay()*864e5));if((d.getDay()===0||d.getDay()===1)&&store.get('bilanwk','')!==wk&&Object.keys(FSR).length){store.set('bilanwk',wk);const w=weekStats();toast(`${ico('graph')}<b>${X('Ton bilan de la semaine','Your weekly review','Tu resumen')}</b> · ${X(`${w.rated} fiches travaillées, ${w.mastered} maîtrisées. Détails dans Mes performances.`,`${w.rated} notes reviewed, ${w.mastered} mastered.`,`${w.rated} fichas.`)}`)}},2500);
+/* routage des nouvelles vues */
+function routeV16(){const v=location.hash.slice(1);if(v==='diplome')renderDiplome();if(v==='glossaire')renderGlossaire();if(v==='graphes')renderGraphes()}
+addEventListener('hashchange',routeV16);
+{const _ra=renderAll;renderAll=function(){_ra.apply(this,arguments);try{routeV16()}catch(e){}}}
+if(['diplome','glossaire','graphes'].includes(location.hash.slice(1))){route();routeV16()}
+
 window.__sync={NDB,get SYNC(){return SYNC}};
 setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
 
