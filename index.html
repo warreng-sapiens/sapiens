@@ -467,6 +467,7 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .frow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 2px;cursor:pointer;color:inherit;font:inherit}.frow:hover{background:color-mix(in srgb,var(--c) 7%,transparent)}.frow .fdot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}.frow span:nth-child(2){flex:1}.frow em{font-style:normal;font-size:12px;color:var(--muted)}
 .mrow{margin:10px 0}.mhead{display:flex;justify-content:space-between;margin-bottom:5px}.mgrid{display:flex;flex-wrap:wrap;gap:4px}.mcell{width:18px;height:18px;border-radius:4px;border:0;cursor:pointer;padding:0}.mcell:hover{outline:2px solid var(--ink)}
 .quizq{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}.qopt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card,transparent);color:inherit;font:inherit;cursor:pointer}.qopt.ok{border-color:#2e7d32;background:color-mix(in srgb,#4caf50 15%,transparent)}.qopt.ko{border-color:#c62828;background:color-mix(in srgb,#e53935 13%,transparent)}
+.fiche .fbody,.fiche .fq,#cLesson .lcard,#cLesson .ldefs,#cLesson .lsum{font-size:calc(100% * var(--fz,1))}
 .fsrc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.fsrc ul{margin:8px 0 10px;padding-left:18px;display:grid;gap:6px}.fsrc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;word-break:break-word}
 .fnav{margin-top:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr}.ftocbox{position:static;max-height:none}.fiche h1{font-size:24px}}
@@ -5113,6 +5114,100 @@ q:[{m:10,q:`Formule une question d’envergure mondiale et associe-la à un extr
 - Analyse détaillée de passages choisis plutôt qu’un survol de toute l’œuvre.
 - **Intégrité** : la composition doit être **ton propre travail**. Pacha peut te poser des questions et commenter, pas écrire à ta place.`,
 q:[{m:5,q:`Propose une question de recherche pour la composition du NS et justifie en quoi elle est précise et analysable. Fais-la commenter par Pacha.`,ms:`Indicatif : question précise, liée à un concept, faisable en 1 500 mots, centrée sur l’analyse.`}],src:[FRSRC.IB,FRSRC.IBP]}
+);
+/* Fiches SAPIENS — œuvres étudiées en Français A (textes du domaine public) */
+FICHES.fr.units.splice(2,0,{id:'w',t:['Œuvres étudiées','Works studied','Obras estudiadas']});
+FICHES.fr.notes.push(
+{id:'fr-w1',u:'w',n:'Œ.1',t:['Candide ou l’Optimisme (Voltaire, 1759)','Candide (Voltaire, 1759)','Cándido (Voltaire, 1759)'],body:`
+## L’essentiel
+**Candide** est un **conte philosophique** de **Voltaire**, publié anonymement en **1759**, en pleine époque des **Lumières**. À travers les malheurs d’un jeune homme naïf qui parcourt le monde, Voltaire attaque l’**optimisme** du philosophe Leibniz (popularisé par Pangloss : tout serait « au mieux » dans « le meilleur des mondes possibles »), ainsi que la guerre, le fanatisme religieux, l’esclavage et les abus de pouvoir.
+
+## Contexte
+- Le **tremblement de terre de Lisbonne** (1ᵉʳ novembre **1755**, des dizaines de milliers de morts) ébranle l’idée d’un monde parfaitement ordonné ; Voltaire y avait déjà répondu par le *Poème sur le désastre de Lisbonne* (1756).
+- La **guerre de Sept Ans** (1756–1763) fournit l’arrière-plan des massacres du chapitre 3.
+- Censure : le livre est publié sans nom d’auteur et vite condamné.
+
+## Structure (30 chapitres)
+| Étapes | Chapitres | Ce qui se passe |
+|---|---|---|
+| Le « paradis » de Thunder-ten-tronckh | 1 | Candide est chassé du château pour avoir embrassé Cunégonde |
+| L’Europe en guerre | 2–10 | armée bulgare, Hollande, Lisbonne (séisme, autodafé), retrouvailles avec Cunégonde |
+| Le Nouveau Monde | 11–19 | Buenos Aires, Paraguay des jésuites, **Eldorado** (17–18), esclave de Surinam (19) |
+| Retour en Europe | 20–29 | Martin le pessimiste, Paris, Venise, Constantinople |
+| La métairie | 30 | « il faut cultiver notre jardin » |
+
+## Personnages
+- **Candide** : naïf, il évolue du suivisme (il répète Pangloss) vers une sagesse pratique.
+- **Pangloss** : philosophe optimiste, aveugle aux faits ; caricature de Leibniz.
+- **Cunégonde** : objet du désir, victime de violences, enlaidie à la fin.
+- **Martin** : pessimiste manichéen, contrepoint de Pangloss.
+- **Cacambo** : valet débrouillard et fidèle.
+- **La vieille** : son récit montre que la souffrance est universelle.
+
+## Thèmes
+- **La critique de l’optimisme** : le décalage entre la formule de Pangloss et les catastrophes crée l’ironie.
+- **La guerre** : « boucherie héroïque » (ch. 3), oxymore qui démolit l’héroïsme militaire.
+- **La religion et le fanatisme** : autodafé de Lisbonne, Inquisition, jésuites.
+- **L’esclavage** : « C’est à ce prix que vous mangez du sucre en Europe » (ch. 19).
+- **L’utopie** : l’Eldorado, société sans clergé ni prison, où l’or ne vaut rien ; Candide la quitte pourtant.
+- **Le travail et l’action** : « Le travail éloigne de nous trois grands maux, l’ennui, le vice et le besoin » (ch. 30).
+
+## Temps et espace
+- **Espace** : voyage à travers l’Europe, l’Amérique et l’Orient, souvent invraisemblable ; chaque lieu sert la satire. Le récit va d’un faux paradis (le château) au jardin modeste, un espace clos et cultivé où l’on agit.
+- **Temps** : rythme très rapide, ellipses, accumulation de péripéties et de retrouvailles invraisemblables qui parodient les romans d’aventures.
+
+## Procédés
+**Ironie**, **antiphrase**, **hyperbole**, **énumérations**, **litote**, **naïveté feinte** du narrateur, parodie du **roman d’apprentissage** et du roman d’aventures, phrases courtes, rythme vif.
+
+## Citations utiles
+- « ceux qui ont avancé que tout est bien ont dit une sottise ; il fallait dire que tout est au mieux. » (Pangloss, ch. 1)
+- « Rien n’était si beau, si leste, si brillant, si bien ordonné que les deux armées. » (ch. 3)
+- « C’est à ce prix que vous mangez du sucre en Europe. » (ch. 19)
+- « Cela est bien dit, répondit Candide, mais il faut cultiver notre jardin. » (dernière phrase)
+
+## Pour l’épreuve 2 et l’oral
+Concepts utiles : **représentation** (de la guerre, de l’esclavage), **perspective** (naïveté du héros contre lucidité du lecteur), **transformation** (évolution de Candide), **culture** (critique des sociétés européennes).`,
+q:[{m:30,q:`Comment Voltaire utilise-t-il l’espace pour critiquer la société de son temps dans Candide ? Rédige un plan détaillé en trois parties avec des citations.`,ms:`Indicatif : voyage satirique (Europe en guerre, Lisbonne), contre-modèle utopique (Eldorado), jardin final ; citations précises ; lien avec l’ironie et le contexte des Lumières.`}],
+src:[FRSRC.IB,['BnF — Candide, l’édition enrichie (texte annoté, contexte, analyses)','https://candide.bnf.fr/'],['Projet Gutenberg — Candide, ou l’optimisme (texte intégral, édition Beuchot 1829)','https://www.gutenberg.org/ebooks/4650']]},
+{id:'fr-w2',u:'w',n:'Œ.2',t:['Alcools (Guillaume Apollinaire, 1913)','Alcools (Guillaume Apollinaire, 1913)','Alcoholes (Guillaume Apollinaire, 1913)'],body:`
+## L’essentiel
+**Alcools** est un recueil de poèmes de **Guillaume Apollinaire** publié en **1913**, qui rassemble des textes écrits sur une quinzaine d’années. Il se situe **entre tradition et modernité** : vers réguliers et chansons populaires d’un côté, vers libre, images de la ville moderne et **suppression de la ponctuation** (décidée au moment des épreuves) de l’autre.
+
+## Le poète et son époque
+- Apollinaire (1880–1918), ami des peintres cubistes (Picasso, Braque) et défenseur de l’art moderne.
+- Plusieurs poèmes viennent d’**amours malheureuses** : Annie Playden (« La Chanson du Mal-Aimé »), Marie Laurencin (« Le Pont Mirabeau », « Marie »).
+- Avant 1914, Paris se transforme : électricité, automobiles, avions, tour Eiffel.
+
+## Poèmes clés
+| Poème | Ce qu’il faut retenir |
+|---|---|
+| **Zone** (premier poème) | longue déambulation dans Paris, vers libres, mélange de modernité (« À la fin tu es las de ce monde ancien ») et de souvenirs ; tutoiement de soi |
+| **Le Pont Mirabeau** | l’eau qui coule comme le temps et l’amour qui passent ; refrain « Vienne la nuit sonne l’heure / Les jours s’en vont je demeure » |
+| **La Chanson du Mal-Aimé** | long poème de l’amour perdu, mélange de registres et de références mythologiques |
+| **Les Colchiques** | le pré « vénéneux mais joli en automne » : l’amour dangereux, la femme et la fleur |
+| **Nuit rhénane**, **Mai** | les Rhénanes, souvenirs d’Allemagne, légendes |
+| **Vendémiaire** (dernier poème) | Paris boit les vins du monde ; « Hommes de l’avenir souvenez-vous de moi » |
+
+## Thèmes
+- **Le temps qui passe** : fuite des jours, mélancolie, mémoire.
+- **L’amour** : souvent perdu ou douloureux.
+- **La modernité** : la ville, la technique, les nouvelles images poétiques.
+- **Tradition et héritage** : légendes, mythologie, formes de la chanson.
+- **L’ivresse** : le titre évoque l’alcool comme expérience de la vie intense et de la création.
+
+## Procédés
+- **Absence de ponctuation** : le rythme et la disposition guident la lecture ; ambiguïtés de sens.
+- Alternance de **vers réguliers** (octosyllabes, alexandrins) et de **vers libres**.
+- **Refrains**, répétitions, sonorités (assonances en « ou » et « eu » dans « Le Pont Mirabeau »).
+- Images surprenantes, rapprochements inattendus (dans « Zone », la tour Eiffel devient une « bergère » qui garde le « troupeau des ponts »).
+
+## Le temps chez Apollinaire (piste pour une composition)
+Le temps détruit (l’amour s’en va, les jours passent) mais il nourrit aussi la **mémoire** et la **création** : le poète « demeure », et le poème devient la trace qui résiste au temps.
+
+## Pour l’épreuve 2 et l’oral
+Concepts utiles : **transformation** (tradition vers modernité), **créativité**, **représentation** du temps et de la ville, **identité** du poète.`,
+q:[{m:30,q:`« Dans Alcools, Apollinaire fait du temps à la fois un ennemi et une source de poésie. » Construis un plan détaillé en t’appuyant sur trois poèmes.`,ms:`Indicatif : fuite du temps et perte (Le Pont Mirabeau, Les Colchiques), mémoire et nostalgie (Zone), création qui résiste (refrain, Vendémiaire) ; citations précises ; analyse des procédés (rythme, ponctuation absente, refrain).`}],
+src:[FRSRC.IB,['BnF Gallica — Apollinaire, éditions anciennes','https://gallica.bnf.fr/']]}
 );
 /* Fiches SAPIENS — Global Politics HL (programme : premières évaluations 2026) */
 (function(){
@@ -9774,7 +9869,7 @@ const _renderFiche=renderFiche;
 renderFiche=function(){_renderFiche();const art=$('#fMain .fiche');if(!art)return;const f=fichesOf(FSJ).find(x=>x.id===FCID);if(!f)return;
   const o=FSR[f.id],due=o&&o.d?new Date(o.d).toLocaleDateString(LOC(),{day:'numeric',month:'short'}):'';
   const tb=document.createElement('div');tb.className='ftools row';
-  tb.innerHTML=`<button class="btn sm" data-ft="listen">${ico('mic')} ${X('Écouter','Listen','Escuchar')}</button><button class="btn sm" data-ft="simple">${ico('bulb')} ${X('Explique plus simplement','Explain more simply','Explicar más simple')}</button><button class="btn sm" data-ft="quiz">${ico('target')} ${X('Quiz rapide','Quick quiz','Quiz rápido')}</button><button class="btn sm" data-ft="flag">${ico('alert')} ${X('Signaler / vérifier','Report / check','Reportar / verificar')}</button>`;
+  tb.innerHTML=`<button class="btn sm" data-ft="listen">${ico('mic')} ${X('Écouter','Listen','Escuchar')}</button><button class="btn sm" data-ft="simple">${ico('bulb')} ${X('Explique plus simplement','Explain more simply','Explicar más simple')}</button><button class="btn sm" data-ft="quiz">${ico('target')} ${X('Quiz rapide','Quick quiz','Quiz rápido')}</button><button class="btn sm" data-fz="-0.1" aria-label="${X('Texte plus petit','Smaller text','Texto más pequeño')}">A−</button><button class="btn sm" data-fz="0.1" aria-label="${X('Texte plus grand','Larger text','Texto más grande')}">A+</button><button class="btn sm" data-ft="flag">${ico('alert')} ${X('Signaler / vérifier','Report / check','Reportar / verificar')}</button>`;
   art.querySelector('.srcline')?.after(tb);
   const rb=document.createElement('section');rb.className='frate';
   rb.innerHTML=`<h3 class="serif">${X('Où en es-tu avec cette fiche ?','How well do you know this?','¿Cómo dominas esta ficha?')}</h3><p class="small muted">${o?X(`Dernière évaluation enregistrée · prochaine révision : ${due}`,`Next review: ${due}`,`Próximo repaso: ${due}`):X('Ta réponse programme la prochaine révision automatiquement.','Your answer schedules the next review automatically.','Tu respuesta programa el próximo repaso.')}</p>
@@ -9809,6 +9904,18 @@ setTimeout(()=>{try{renderLearn()}catch(e){}},700);
 /* nouveautés à chaque mise à jour */
 setTimeout(()=>{const seenV=store.get('seenver','');if(seenV&&seenV!==VERSION)toast(`${ico('star')}<b>${X('Sapiens a été mis à jour','Sapiens was updated','Sapiens se actualizó')}</b> · ${X('synchronisation entre appareils, fiches du jour, quiz, carte de maîtrise, écoute des fiches. Détails dans Profil › À propos.','device sync, daily notes, quizzes, mastery map, listen to notes. Details in Profile › About.','novedades en Perfil.')}`);store.set('seenver',VERSION)},1500);
 
+
+/* taille du texte des fiches et des cours */
+let FZ=+store.get('fz',1)||1;const applyFZ=()=>document.documentElement.style.setProperty('--fz',FZ);applyFZ();
+document.addEventListener('click',e=>{const b=e.target.closest('[data-fz]');if(!b)return;FZ=Math.round(Math.min(1.45,Math.max(.85,FZ+(+b.dataset.fz)))*100)/100;store.set('fz',FZ);applyFZ();toast(X(`Taille du texte : ${Math.round(FZ*100)} %`,`Text size: ${Math.round(FZ*100)}%`,`Tamaño: ${Math.round(FZ*100)} %`))});
+
+{const ab=$('#prVer')?.closest('.panel');if(ab&&!$('#prNews')){const d=document.createElement('details');d.id='prNews';d.style.marginTop='10px';d.innerHTML=`<summary><b>${X('Nouveautés de la version 15','What’s new in version 15','Novedades de la versión 15')}</b></summary><ul class="small" style="margin-top:6px">
+<li>${X('Synchronisation entre appareils : avec ton compte Claude dans claude.ai, ou avec un code secret sur ton site Netlify (Profil › Mes données).','Device sync: with your Claude account on claude.ai, or with a secret code on your Netlify site.','Sincronización entre dispositivos.')}</li>
+<li>${X('Sauvegarde complète, cahiers compris, et avertissement si l’app n’est pas installée sur l’écran d’accueil.','Full backup including notebooks, and a warning if the app is not installed.','Copia completa con cuadernos.')}</li>
+<li>${X('Voix et dictée Claude dans claude.ai (Chrome et app de bureau).','Claude voice and dictation on claude.ai (Chrome, desktop app).','Voz y dictado de Claude.')}</li>
+<li>${X('Mes fiches du jour, révision espacée, quiz rapide, écoute des fiches, « explique plus simplement », signalement d’erreurs, taille du texte.','Daily notes, spaced repetition, quick quiz, listen, explain simply, error reports, text size.','Fichas del día, repaso espaciado, quiz.')}</li>
+<li>${X('Carte de maîtrise et suivi de tes notes d’épreuves (Mes performances).','Mastery map and exam-results tracker (My performance).','Mapa de dominio y resultados.')}</li>
+<li>${X('Fiches sur Candide et Alcools ; 168 fiches au total, sources vérifiées.','Notes on Candide and Alcools; 168 notes with checked sources.','Fichas sobre Candide y Alcools.')}</li></ul>`;ab.appendChild(d)}}
 window.__sync={NDB,get SYNC(){return SYNC}};
 setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
 
@@ -9819,7 +9926,7 @@ $('#installBtn').addEventListener('click',async()=>{if(!instEvt)return;instEvt.p
 {const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(ios&&!standalone){$('#installTip').hidden=false;$('#installTip').textContent=t('inst_ios')}}
 if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!/claude\.(ai|site)|claudeusercontent/.test(location.host)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 /* ---------- démarrage ---------- */
-function renderAll(){$$('[data-ico]').forEach(e=>{if(!e.innerHTML.trim())e.innerHTML=ico(e.dataset.ico)});if(location.hash==='#fiches'&&typeof renderFiches==='function')renderFiches();if(typeof botVoiceUI==='function')botVoiceUI();if(location.hash==='#oral'&&typeof renderOral==='function')renderOral();if(typeof renderV5==='function'){renderV5();renderIntelText()}if(typeof renderV6==='function')renderV6();if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
+function renderAll(){$$('[data-ico]').forEach(e=>{if(!e.innerHTML.trim()||!e.querySelector('svg *'))e.innerHTML=ico(e.dataset.ico)});if(location.hash==='#fiches'&&typeof renderFiches==='function')renderFiches();if(typeof botVoiceUI==='function')botVoiceUI();if(location.hash==='#oral'&&typeof renderOral==='function')renderOral();if(typeof renderV5==='function'){renderV5();renderIntelText()}if(typeof renderV6==='function')renderV6();if(typeof renderSeal==='function')renderSeal();if(typeof renderV3==='function')renderV3();if(typeof renderV4==='function')renderV4();if($('#botMsgs'))botRender();renderCours();renderHome();renderSubjects();renderCore();renderPlan();renderSAT();renderHW();renderSrc();pomoShow();if(mm)renderFns();draw()}
 initMath();renderFns();applyLang();route();
 (async()=>{try{for(let i=0;i<12&&!window.claude;i++)await new Promise(r=>setTimeout(r,250));if(window.claude&&window.claude.use){S=await window.claude.use('sample');if(S&&S.limits){try{imgOK=!!(await S.limits()).images}catch(e){}}}}catch(e){S=null}
   if(!S&&/^https?:$/.test(location.protocol)){try{const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ping:1})});const j=await r.json();if(r.ok&&j.ok){API='/api/chat';APIF=!!j.files}}catch(e){}}
