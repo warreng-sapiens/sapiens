@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>try{if(localStorage.getItem("atib_lock")&&localStorage.getItem("atib_lock")!=="null"&&!sessionStorage.getItem("atib_unl"))document.documentElement.classList.add("locked")}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Sapiens · par Pacha Académie IB</title>
@@ -504,6 +505,12 @@ body.hicon{--muted:#222;--line:#555}body.hicon .fbody,body.hicon .panel{color:#0
 .instcard{display:flex;flex-direction:column;gap:6px;background:rgba(220,197,154,.08);border:1px solid rgba(220,197,154,.35);border-radius:14px;padding:12px 14px;color:inherit}.instcard .btn{align-self:flex-start}.inststeps{margin:4px 0 0 18px;padding:0;display:grid;gap:4px}
 .updbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));z-index:9999;display:flex;gap:10px;align-items:center;background:var(--ink,#0b1430);color:#fff;padding:10px 14px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:92vw;font-size:14px}
 body.standalone{overscroll-behavior-y:none}button,a,.btn{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+html.locked body>*:not(#lockScreen){visibility:hidden!important}
+#lockScreen{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,#1c2b5e,#060a18 70%);padding:24px calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));visibility:visible!important}
+.lockbox{width:min(360px,100%);display:grid;gap:12px;justify-items:center;text-align:center;background:var(--solid);color:var(--ink);border-radius:26px;padding:26px 22px;box-shadow:0 30px 80px -20px #000c}
+.lockbox h2{margin:4px 0 0}.lockbox input{width:100%;font-size:20px;text-align:center;letter-spacing:.2em;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--soft);color:var(--ink)}.lockbox .btn{width:100%;justify-content:center}
+.linkbtn{background:none;border:0;color:var(--mut);text-decoration:underline;cursor:pointer;padding:4px}
+.noai{display:grid;gap:8px;background:rgba(168,130,58,.08);border:1px solid rgba(168,130,58,.35);border-radius:14px;padding:12px 14px;color:var(--ink)}.noai p{margin:0}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -582,7 +589,7 @@ body.standalone{overscroll-behavior-y:none}button,a,.btn{touch-action:manipulati
     <div class="panel"><h2 data-i="h_dl">Prochaines échéances</h2><div id="hDl"></div></div>
   </div>
   <div class="g3" id="tiles"></div>
-  <p class="note" id="aiNote"></p>
+  <div class="note" id="aiNote"></div>
 </div></section>
 
 <!-- COURS -->
@@ -943,7 +950,7 @@ body.standalone{overscroll-behavior-y:none}button,a,.btn{touch-action:manipulati
     <p class="small muted" style="margin:0" data-i="set_note"></p>
   </div>
   <div id="botMsgs"></div>
-  <p class="warn" id="botWarn" hidden></p>
+  <div id="botWarn" hidden style="margin:10px 14px"></div>
   <p class="small muted" id="botFN" style="margin:0 14px"></p>
   <div class="botin"><button class="btn" id="botAtt" aria-label="Joindre une photo ou un PDF" style="min-width:46px;padding:0 10px">📎</button><input type="file" id="botFile" accept="image/*,application/pdf" multiple hidden><textarea id="botIn" data-ip="bot_ph" rows="1"></textarea><button class="btn" id="botMic" aria-label="Parler" style="min-width:46px;padding:0 10px"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button class="btn pri" id="botGo" aria-label="Envoyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg></button></div>
 </section>
@@ -8664,7 +8671,7 @@ async function apiChat(input,files=[]){
 }
 async function ask(input,out,o={}){
   if(!navigator.onLine&&!S){out.innerHTML=`<p class="warn">${esc(X('Tu es hors ligne : Pacha IA revient dès que la connexion revient. Les cours, flashcards, planning et calculatrice marchent sans Internet.','You are offline: Pacha IA comes back with the connection. Courses, flashcards, planner and calculator work offline.','Sin conexión: la IA vuelve con la conexión.'))}</p>`;return null}
-  if(!aiOK()){out.innerHTML=`<p class="warn">${esc(t('noai'))}</p>`;return null}
+  if(!aiOK()){out.innerHTML=noAIHTML();return null}
   const view=o.view||md;out.innerHTML=o.typing?`<p class="muted typing">${esc(X('Pacha écrit','Pacha is typing','Pacha está escribiendo'))}<i>.</i><i>.</i><i>.</i></p>`:`<p class="muted">${esc(t('thinking'))}</p>`;
   if(o.btn)o.btn.disabled=true;
   try{
@@ -8678,7 +8685,7 @@ async function ask(input,out,o={}){
 function aiErr(e){return e&&e.code==='not_granted'?t('notgranted'):e&&e.code==='rate_limited'?t('ratelim'):((e&&e.message)||String(e))}
 function parseJSON(txt){const a=txt.indexOf('{'),b=txt.lastIndexOf('}');if(a<0||b<a)throw {message:'JSON?'};return JSON.parse(txt.slice(a,b+1))}
 async function askJSON(prompt,out,btn){
-  if(!aiOK()){out.innerHTML=`<p class="warn">${esc(t('noai'))}</p>`;return null}
+  if(!aiOK()){out.innerHTML=noAIHTML();return null}
   out.innerHTML=`<p class="muted">${esc(t('thinking'))}</p>`;if(btn)btn.disabled=true;
   try{const v=S?await S.json(prompt,{modelTier:'default'}):parseJSON(await apiChat(prompt+'\n\nOutput the JSON object only, no other text.'));out.innerHTML='';return v}
   catch(e){const bad=e instanceof SyntaxError||(e&&e.message==='JSON?');out.innerHTML=`<p class="warn">${esc(bad?X('La réponse de l’IA était incomplète. Réessaie dans un instant.','The AI reply was incomplete. Try again in a moment.','La respuesta de la IA estaba incompleta. Reinténtalo.'):aiErr(e))}</p>`;return null}
@@ -9665,7 +9672,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v22 · nov. 2026';
+const VERSION='v23 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -10343,7 +10350,7 @@ $('#fMain').addEventListener('click',e=>{const list=fichesOf(FSJ),f=list.find(x=
 /* ---------- v14 : sauvegarde complète, synchronisation entre appareils, installation ---------- */
 const SYNC=Object.assign({code:'',on:false,last:0,pull:0,dev:''},store.get('sync',{}));
 const saveSync=()=>store.set('sync',SYNC);
-const SKIPK=/^atib_(aikey|sync|trc|nbdel_local)$/;
+const SKIPK=/^atib_(aikey|sync|trc|nbdel_local|lock|lktries|lkwait|instHide)$/;
 let syncDirty=0,syncT=null,syncAPI=null;
 {const _p=NDB.put.bind(NDB),_d=NDB.del.bind(NDB);
  NDB.put=p=>{if(p&&typeof p==='object')p.u=Date.now();markDirty();return _p(p)};
@@ -10854,6 +10861,68 @@ setTimeout(appBadge,3000);document.addEventListener('visibilitychange',()=>{if(d
 /* Pacha IA sur téléphone : plein écran et au-dessus du clavier */
 {const bot=$('#bot');if(bot){const sync=()=>document.body.classList.toggle('botopen',bot.classList.contains('open'));new MutationObserver(sync).observe(bot,{attributes:true,attributeFilter:['class']});sync();
   const vv=window.visualViewport;if(vv){const kb=()=>{const k=Math.max(0,Math.round(innerHeight-vv.height-vv.offsetTop));document.documentElement.style.setProperty('--kb',(k>60?k:0)+'px')};vv.addEventListener('resize',kb);vv.addEventListener('scroll',kb)}}}
+/* ---------- v23 : activer l'IA facilement ---------- */
+const CLAUDE_APP_URL='https://claude.ai/artifact/RKJc4bRVgdrmgBmzwuGzau';
+function noAIHTML(){const inf=typeof APPENV!=='undefined'&&APPENV.inframe;return `<div class="noai"><p><b>🦊 ${X('L’IA n’est pas encore activée sur cet appareil.','AI is not set up on this device yet.','La IA aún no está activada.')}</b> ${X('Tout le reste marche déjà (fiches, quiz hors ligne, flashcards, planning).','Everything else already works.','Todo lo demás ya funciona.')}</p><div class="row"><button class="btn pri sm" data-aion="1">${X('Activer l’IA gratuitement (2 min)','Set up free AI (2 min)','Activar la IA gratis')}</button>${inf?'':`<a class="btn sm" href="${CLAUDE_APP_URL}" target="_blank" rel="noopener">${X('Ouvrir la version claude.ai (IA incluse)','Open the claude.ai version (AI included)','Abrir la versión claude.ai')}</a>`}</div></div>`}
+function openAISetup(){const b=$('#bot');if(!b)return;b.classList.add('open');$('#setBox').hidden=false;setRender();setTimeout(()=>{$('#setGuide')?.scrollIntoView({block:'nearest'});$('#setK')?.focus({preventScroll:true})},200)}
+document.addEventListener('click',e=>{if(e.target.closest('[data-aion]')){e.preventDefault();openAISetup()}});
+{const sb=$('#setBox');if(sb&&!$('#setGuide')){const g=document.createElement('div');g.id='setGuide';g.className='small';sb.querySelector('.f')?.after(g)}}
+function guideHTML(){const p=$('#setP')?.value||'gemini';const G={gemini:{u:'https://aistudio.google.com/app/apikey',n:'Google AI Studio',s:X('connecte-toi avec ton compte Google, puis touche « Create API key » (ou « Créer une clé API »).','sign in with Google, then tap “Create API key”.','inicia sesión con Google y toca «Create API key».')},groq:{u:'https://console.groq.com/keys',n:'Groq Console',s:X('crée un compte gratuit, puis touche « Create API Key ».','create a free account, then tap “Create API Key”.','crea una cuenta y toca «Create API Key».')},anthropic:{u:'https://console.anthropic.com/settings/keys',n:'Anthropic Console',s:X('payant : crée une clé dans « API Keys ».','paid: create a key under “API Keys”.','de pago.')}}[p]||{};
+  return `<ol class="inststeps"><li>${X('Ouvre','Open','Abre')} <a href="${G.u}" target="_blank" rel="noopener"><b>${G.n}</b></a> ${X('et','and','y')} ${G.s}</li><li>${X('Copie la clé (une longue suite de lettres et de chiffres).','Copy the key.','Copia la clave.')}</li><li>${X('Reviens ici, colle-la dans « Ta clé API », puis touche « Enregistrer et tester ».','Come back, paste it below and tap “Save and test”.','Pégala abajo y toca «Guardar y probar».')}</li></ol><p class="muted" style="margin:4px 0 0">${X('Ta clé reste uniquement sur cet appareil : elle n’est jamais envoyée sur GitHub ni synchronisée. Fais-le une fois sur l’iPhone et une fois sur l’iPad. Ne partage jamais ta clé.','Your key stays on this device only. Never share it.','Tu clave se queda en este dispositivo.')}</p>`}
+{const _sr=setRender;setRender=function(){_sr();const g=$('#setGuide');if(g)g.innerHTML=S?'':guideHTML()}}
+$('#setP')?.addEventListener('change',()=>{const g=$('#setGuide');if(g&&!S)g.innerHTML=guideHTML()});
+{const _bs=botStatus;botStatus=function(){_bs();const w=$('#botWarn');if(w&&!aiOK()){w.innerHTML=noAIHTML()}const n=$('#aiNote');if(n&&!aiOK())n.innerHTML=noAIHTML()}}
+setTimeout(()=>{try{botStatus()}catch(e){}},0);
+
+/* ---------- v23 : connexion (verrouillage de l’app) ---------- */
+const LOCK=()=>store.get('lock',null);
+const b64u=a=>btoa(String.fromCharCode(...new Uint8Array(a))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const ub64=s=>Uint8Array.from(atob(s.replace(/-/g,'+').replace(/_/g,'/')+'==='.slice((s.length+3)%4)),c=>c.charCodeAt(0));
+async function hashCode(code,salt,it){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveBits']);return b64u(await crypto.subtle.deriveBits({name:'PBKDF2',salt:ub64(salt),iterations:it,hash:'SHA-256'},k,256))}
+const canBio=()=>!!(window.PublicKeyCredential&&navigator.credentials&&!(typeof APPENV!=='undefined'&&APPENV.inframe)&&window.isSecureContext);
+function unlockOK(){try{sessionStorage.setItem('atib_unl',String(Date.now()))}catch(e){}window.__unl=1;document.documentElement.classList.remove('locked');$('#lockScreen')?.remove()}
+function isUnlocked(){if(window.__unl)return true;try{return !!sessionStorage.getItem('atib_unl')}catch(e){return false}}
+function lockNow(){const L=LOCK();if(!L)return;window.__unl=0;try{sessionStorage.removeItem('atib_unl')}catch(e){}document.documentElement.classList.add('locked');showLock()}
+function showLock(){const L=LOCK();if(!L||$('#lockScreen'))return;const d=document.createElement('div');d.id='lockScreen';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');
+  d.innerHTML=`<form class="lockbox" autocomplete="off"><img src="${$('link[rel=apple-touch-icon]')?.href||''}" alt="" width="72" height="72" style="border-radius:18px"><h2 class="serif">${X('Bonjour','Hello','Hola')}${L.name?' '+esc(L.name):''}</h2><p class="small muted">${X('Entre ton code pour ouvrir Sapiens.','Enter your code to open Sapiens.','Introduce tu código.')}</p>
+  <input id="lkIn" type="password" inputmode="${L.num?'numeric':'text'}" autocomplete="current-password" aria-label="${X('Code','Code','Código')}" placeholder="${X('Ton code','Your code','Tu código')}"><button class="btn pri" type="submit">${X('Se connecter','Log in','Entrar')}</button>
+  ${L.cred&&canBio()?`<button class="btn" type="button" data-lkbio="1">🔐 ${X('Face ID / Touch ID','Face ID / Touch ID','Face ID / Touch ID')}</button>`:''}<p class="small" id="lkMsg" aria-live="polite"></p><button type="button" class="linkbtn small" data-lkforgot="1">${X('Code oublié ?','Forgot code?','¿Olvidaste el código?')}</button></form>`;
+  document.body.appendChild(d);setTimeout(()=>$('#lkIn')?.focus(),100)}
+document.addEventListener('submit',async e=>{if(!e.target.closest('#lockScreen'))return;e.preventDefault();const L=LOCK(),v=$('#lkIn').value,m=$('#lkMsg');if(!L||!v)return;
+  const tries=+(store.get('lktries',0))||0,wait=store.get('lkwait',0)||0;if(wait>Date.now()){m.textContent=X(`Trop d’essais : réessaie dans ${Math.ceil((wait-Date.now())/1000)} s.`,`Too many tries: wait ${Math.ceil((wait-Date.now())/1000)} s.`,'Demasiados intentos.');return}
+  try{if(await hashCode(v,L.salt,L.it)===L.hash){store.set('lktries',0);unlockOK();return}}catch(err){m.textContent=X('Vérification impossible sur ce navigateur.','Cannot verify on this browser.','No se puede verificar.');return}
+  const n=tries+1;store.set('lktries',n);if(n>=5){store.set('lkwait',Date.now()+30000*Math.pow(2,Math.min(4,n-5)))}m.textContent=X('Code incorrect.','Wrong code.','Código incorrecto.');$('#lkIn').value=''});
+document.addEventListener('click',async e=>{
+  if(e.target.closest('[data-lkbio]')){const L=LOCK(),m=$('#lkMsg');try{await navigator.credentials.get({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)),allowCredentials:[{type:'public-key',id:ub64(L.cred)}],userVerification:'required',timeout:60000}});store.set('lktries',0);unlockOK()}catch(err){if(m)m.textContent=X('Face ID n’a pas fonctionné : utilise ton code.','Face ID failed: use your code.','Usa tu código.')}return}
+  if(e.target.closest('[data-lkforgot]')){const m=$('#lkMsg');m.innerHTML=X('Le code ne peut pas être récupéré : il n’est enregistré nulle part en clair. Pour repartir de zéro, il faut effacer les données de Sapiens sur cet appareil, puis les restaurer depuis ta sauvegarde ou ta synchronisation.','The code cannot be recovered. To start over, erase Sapiens data on this device, then restore from your backup or sync.','No se puede recuperar.')+` <br><button type="button" class="btn sm" data-lkwipe="1">${X('Effacer les données de cet appareil','Erase this device’s data','Borrar los datos')}</button>`;return}
+  if(e.target.closest('[data-lkwipe]')){const b=e.target.closest('[data-lkwipe]');if(!b.dataset.sure){b.dataset.sure=1;b.textContent=X('Touche encore pour confirmer : tout sera effacé','Tap again to confirm: everything will be erased','Toca otra vez para confirmar');return}
+    try{Object.keys(localStorage).filter(k=>k.startsWith('atib_')).forEach(k=>localStorage.removeItem(k));indexedDB.deleteDatabase('sapiens-cahiers')}catch(err){}try{sessionStorage.clear()}catch(err){}location.reload();return}
+  const a=e.target.closest('[data-lk]');if(!a)return;const act=a.dataset.lk,m=$('#lkSetMsg');
+  if(act==='set'){const c1=$('#lkC1').value,c2=$('#lkC2').value,name=$('#lkName').value.trim().slice(0,30);if(c1.length<4){m.textContent=X('Le code doit faire au moins 4 caractères.','At least 4 characters.','Mínimo 4 caracteres.');return}if(c1!==c2){m.textContent=X('Les deux codes ne sont pas identiques.','Codes do not match.','Los códigos no coinciden.');return}
+    if(!(window.crypto&&crypto.subtle)){m.textContent=X('Ce navigateur ne permet pas de protéger l’app (ouvre-la en https).','This browser cannot protect the app.','No disponible.');return}
+    const salt=b64u(crypto.getRandomValues(new Uint8Array(16))),it=150000;const old=LOCK();store.set('lock',{name,salt,it,hash:await hashCode(c1,salt,it),num:/^\d+$/.test(c1),cred:old&&old.cred||null,auto:old?.auto??5});unlockOK();renderLockUI();toast(X('Connexion activée ✓','Login enabled ✓','Inicio de sesión activado ✓'));return}
+  if(act==='bio'){const L=LOCK();if(!L)return;try{const cr=await navigator.credentials.create({publicKey:{challenge:crypto.getRandomValues(new Uint8Array(32)),rp:{name:'Sapiens'},user:{id:crypto.getRandomValues(new Uint8Array(16)),name:L.name||'sapiens',displayName:L.name||'Sapiens'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required',residentKey:'discouraged'},timeout:60000}});L.cred=b64u(cr.rawId);store.set('lock',L);renderLockUI();toast(X('Face ID / Touch ID activé ✓','Face ID enabled ✓','Face ID activado ✓'))}catch(err){m.textContent=X('Face ID / Touch ID n’a pas pu être activé sur cet appareil.','Could not enable Face ID here.','No se pudo activar.')}return}
+  if(act==='nobio'){const L=LOCK();if(L){L.cred=null;store.set('lock',L);renderLockUI()}return}
+  if(act==='lock'){lockNow();return}
+  if(act==='off'){const L=LOCK();if(!L)return;const v=$('#lkOld').value;if(!v||await hashCode(v,L.salt,L.it)!==L.hash){m.textContent=X('Entre ton code actuel pour désactiver la connexion.','Enter your current code to turn it off.','Introduce tu código actual.');return}store.set('lock',null);renderLockUI();toast(X('Connexion désactivée','Login disabled','Desactivado'));return}
+});
+document.addEventListener('change',e=>{const s=e.target.closest('#lkAuto');if(!s)return;const L=LOCK();if(L){L.auto=+s.value;store.set('lock',L)}});
+function renderLockUI(){const pd=$('#prData')?.closest('.panel')?.parentElement;if(!pd)return;let p=$('#prLock');if(!p){p=document.createElement('div');p.className='panel';p.id='prLock';const inst=$('#prInstall');inst?inst.after(p):pd.prepend(p)}const L=LOCK();
+  p.innerHTML=`<h2>${X('Connexion et sécurité','Login & security','Inicio de sesión')}</h2>`+(!L?`<p class="small muted">${X('Protège Sapiens par un code : il faudra se connecter pour ouvrir l’app sur cet appareil. Tu peux ensuite ajouter Face ID / Touch ID.','Protect Sapiens with a code.','Protege Sapiens con un código.')}</p>
+   <div class="row"><label class="f" style="flex:1 1 160px"><span>${X('Prénom (affiché à la connexion)','First name','Nombre')}</span><input id="lkName" value="${esc(P&&P.name||'')}" autocomplete="off"></label></div>
+   <div class="row"><label class="f" style="flex:1 1 140px"><span>${X('Code (4 caractères minimum)','Code (min 4)','Código (mín. 4)')}</span><input id="lkC1" type="password" autocomplete="new-password"></label><label class="f" style="flex:1 1 140px"><span>${X('Confirme le code','Confirm','Confirma')}</span><input id="lkC2" type="password" autocomplete="new-password"></label></div>
+   <button class="btn pri sm" data-lk="set">${X('Activer la connexion','Enable login','Activar')}</button>`
+  :`<p class="small">✅ ${X('Connexion activée : Sapiens demande ton code à l’ouverture.','Login is on.','Activado.')}</p>
+   <div class="row" style="align-items:center"><label class="small">${X('Verrouiller après','Lock after','Bloquear tras')} <select id="lkAuto">${[[1,'1 min'],[5,'5 min'],[15,'15 min'],[60,'1 h'],[0,X('fermeture de l’app','closing the app','cerrar la app')]].map(([v,l])=>`<option value="${v}" ${(+L.auto)===v?'selected':''}>${l}</option>`).join('')}</select> ${X('en arrière-plan','in background','en segundo plano')}</label></div>
+   <div class="row">${canBio()?(L.cred?`<button class="btn sm" data-lk="nobio">${X('Retirer Face ID / Touch ID','Remove Face ID','Quitar Face ID')}</button>`:`<button class="btn sm" data-lk="bio">🔐 ${X('Ajouter Face ID / Touch ID','Add Face ID / Touch ID','Añadir Face ID')}</button>`):''}<button class="btn sm" data-lk="lock">${X('Verrouiller maintenant','Lock now','Bloquear ahora')}</button></div>
+   <details class="small" style="margin-top:8px"><summary>${X('Changer ou désactiver le code','Change or turn off','Cambiar o desactivar')}</summary><div class="row" style="margin-top:8px"><label class="f" style="flex:1 1 140px"><span>${X('Nouveau code','New code','Nuevo código')}</span><input id="lkC1" type="password" autocomplete="new-password"></label><label class="f" style="flex:1 1 140px"><span>${X('Confirme','Confirm','Confirma')}</span><input id="lkC2" type="password" autocomplete="new-password"></label></div><input type="hidden" id="lkName" value="${esc(L.name||'')}"><button class="btn sm" data-lk="set">${X('Changer le code','Change code','Cambiar')}</button>
+   <div class="row" style="margin-top:8px"><label class="f" style="flex:1 1 160px"><span>${X('Code actuel','Current code','Código actual')}</span><input id="lkOld" type="password" autocomplete="current-password"></label></div><button class="btn sm" data-lk="off">${X('Désactiver la connexion','Turn off login','Desactivar')}</button></details>`)+
+   `<p class="small" id="lkSetMsg" aria-live="polite"></p><p class="small muted">${X('Le code protège l’accès à l’app sur cet appareil. Il n’est jamais enregistré en clair et n’est pas synchronisé : active-le sur chaque appareil.','The code protects access on this device; it is never stored in clear text.','El código protege el acceso en este dispositivo.')}</p>`}
+addEventListener('hashchange',()=>{if(location.hash==='#profil')renderLockUI()});setTimeout(renderLockUI,0);
+/* verrouillage au démarrage et après un temps en arrière-plan */
+if(LOCK()&&!isUnlocked()){document.documentElement.classList.add('locked');showLock()}else document.documentElement.classList.remove('locked');
+{let hid=0;document.addEventListener('visibilitychange',()=>{const L=LOCK();if(!L)return;if(document.visibilityState==='hidden'){hid=Date.now();if(+L.auto===0){}}else if(hid&&isUnlocked()){const mins=(Date.now()-hid)/60000,lim=+L.auto;if(lim>0&&mins>=lim)lockNow()}});
+  addEventListener('pagehide',()=>{const L=LOCK();if(L&&+L.auto===0){try{sessionStorage.removeItem('atib_unl')}catch(e){}}})}
 window.__sync={NDB,get SYNC(){return SYNC}};
 setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
 
