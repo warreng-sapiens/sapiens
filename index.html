@@ -482,6 +482,7 @@ body.hicon{--muted:#222;--line:#555}body.hicon .fbody,body.hicon .panel{color:#0
 .fsrc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.fsrc ul{margin:8px 0 10px;padding-left:18px;display:grid;gap:6px}.fsrc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;word-break:break-word}
 .fnav{margin-top:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr}.ftocbox{position:static;max-height:none}.fiche h1{font-size:24px}}
+.goalrow{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.goalrow select{width:auto;min-width:64px;padding:4px 8px;display:inline-block}.goalrow .gi{grid-column:1/-1}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -4066,6 +4067,64 @@ q:[{m:6,q:`Listen to a short English news item, then write three key facts and o
 - Practise with the **“Préparer un oral”** coach in Sapiens.`,
 q:[{m:6,q:`Find a photo linked to “Sharing the planet” and record a 3-minute presentation following the method. Ask Pacha for feedback.`,ms:`Indicative: description, interpretation, link to theme and culture, opinion, fluent language.`}],src:[ENSRC.IB]}
 );
+/* English B SL — oral image bank (described photos, original) */
+FICHES.en.units.push({id:'or',t:['Banque d’images pour l’oral','Oral image bank','Banco de imágenes']});
+const enPic=(id,n,theme,title,desc,ideas,qs)=>({id:'en-or'+id,u:'or',n,keep:true,t:[`Oral : ${title}`,`Oral: ${title}`,`Oral: ${title}`],body:`
+## The image (imagine it or find a similar photo)
+**Theme: ${theme}**
+
+${desc}
+
+## Prepare in 15 minutes (as in the exam)
+1. **Describe** briefly (30 seconds): where, who, what is happening.
+2. **Link to the theme** and to a clear **message**: what does the image say about the topic?
+3. **Connect** to Cameroon or Douala, to the wider world, and to your own experience.
+4. Plan **3 to 4 minutes**: introduction, 2 or 3 ideas, short conclusion.
+
+## Ideas you can use
+${ideas}
+
+## Questions the teacher may ask
+${qs}
+
+## Useful language
+- *The photo depicts… / In the foreground… / In the background…*
+- *This image raises the question of… / It suggests that…*
+- *In my country, Cameroon, … whereas in…*
+- *On the one hand… on the other hand… / I would argue that…*`,
+q:[{m:6,q:`Record yourself (or ask Pacha's oral coach) giving a 3 to 4 minute presentation on this image, then answer two of the questions above.`,ms:`Indicative (SL individual oral, 30 marks): A language (12), B1 message linked to the visual (6), B2 conversation (6), C interactive skills (6). Ask Pacha for indicative feedback; this is not an official IB grade.`}],src:[ENSRC.IB]});
+FICHES.en.notes.push(
+{id:'en-or0',u:'or',n:'O.0',keep:true,t:['L’oral individuel d’English B SL : déroulement','English B SL individual oral: how it works','Oral individual'],body:`
+## How the SL individual oral works
+- You receive **two visual stimuli** (photos with a short caption) linked to **different themes** studied in class, and you **choose one**.
+- **15 minutes of supervised preparation**: you may write brief notes.
+- **Part 1, presentation (3 to 4 minutes)**: you describe the image and link it to the theme and to the cultures of the English-speaking world.
+- **Part 2, discussion of the image (4 to 5 minutes)**: the teacher asks follow-up questions.
+- **Part 3, general conversation (5 to 6 minutes)**: on at least one other theme.
+- Total: about **12 to 15 minutes**, worth **25 % of the final grade**.
+
+## Criteria (30 marks)
+| Criterion | Marks | What counts |
+|---|---|---|
+| A — Language | 12 | range of vocabulary, accuracy of grammar, pronunciation and fluency |
+| B1 — Message: visual stimulus | 6 | relevance, links between the image, the theme and target cultures |
+| B2 — Message: conversation | 6 | relevant, developed answers in Parts 2 and 3 |
+| C — Interactive skills | 6 | understanding questions, keeping the conversation going |
+
+## How to train with this bank
+Pick one image a day, set a 15-minute timer, then speak for 4 minutes and record yourself. Pacha's oral coach (menu “Préparer un oral”) can ask you follow-up questions.`,
+q:[{m:3,q:`List the three parts of the SL individual oral with their timing, and the four assessment criteria.`,ms:`Presentation 3–4 min, discussion of the visual 4–5 min, general conversation 5–6 min (1.5); A language /12, B1 /6, B2 /6, C /6 (1.5).`}],src:[ENSRC.IB]},
+enPic(1,'O.1','Identities','Two worlds on one screen','A teenage girl in a school uniform sits on a bus in a big African city. She is watching a video of an American singer on her phone while wearing a bracelet in the colours of her country’s flag. Caption: “Who am I online?”','- Global youth culture and social media versus local identity.\n- Code-switching between languages (French, English, Pidgin, local languages).\n- Belonging: can you be both local and global?','- Do social media make young people lose their culture?\n- Which languages do you use online, and why?\n- Is identity something we choose?'),
+enPic(2,'O.2','Identities','A family recipe','Three generations of women cook together in a small kitchen. The grandmother shows a teenager how to prepare a traditional dish; a smartphone is propped up to film the scene. Caption: “Passing it on.”','- Traditions transmitted between generations.\n- Food as a marker of identity (ndolé, eru, jollof…).\n- Technology used to preserve, not only replace, traditions.','- Which traditions in your family would you like to keep?\n- Are young people still interested in traditions?\n- How can migrants keep their culture abroad?'),
+enPic(3,'O.3','Experiences','First day abroad','A young man with a large suitcase stands in a snowy airport car park, looking at a map on his phone. Caption: “Studying overseas.”','- Studying abroad: opportunities, culture shock, homesickness.\n- Brain drain versus brain gain for African countries.\n- Growing up through new experiences.','- Would you like to study abroad? Where and why?\n- What could make adapting easier?\n- Should students come back home after their studies?'),
+enPic(4,'O.4','Experiences','The volunteer','A group of teenagers in matching T-shirts plants trees on a hillside, laughing as one of them carries a watering can. Caption: “Weekend with purpose.”','- Volunteering and personal growth (link with CAS).\n- Leisure: how young people spend free time.\n- Community engagement.','- What did you learn from a CAS experience?\n- Should volunteering be compulsory at school?\n- Does volunteering really change things?'),
+enPic(5,'O.5','Human ingenuity','Paying with a phone','A market seller in a busy street holds up a phone to receive a mobile money payment from a customer. Fruit is piled in front of her. Caption: “No cash needed.”','- Mobile money in Africa as an innovation.\n- Technology and financial inclusion.\n- Risks: fraud, digital divide, dependence on networks.','- How has technology changed shopping in your city?\n- Who is left behind by digital payments?\n- Which invention has changed your life the most?'),
+enPic(6,'O.6','Human ingenuity','The AI classroom','A student talks to an AI assistant on a laptop while a teacher looks over her shoulder with a slightly worried expression. Caption: “Help or shortcut?”','- Artificial intelligence in education.\n- Academic honesty: learning versus copying.\n- Ethics of new technology.','- How should students use AI?\n- Could AI replace teachers?\n- What are the dangers of relying on technology?'),
+enPic(7,'O.7','Social organization','Rush hour','A packed taxi and dozens of motorbike taxis wait at a crossroads under heavy rain; a traffic officer gestures in the middle. Caption: “Getting to work.”','- Urban life and transport in fast-growing cities.\n- Informal work (motorbike taxis) and its role.\n- Safety, regulation and quality of life.','- What would you change about transport in your city?\n- Is the informal sector good or bad for a country?\n- Why do people move to cities?'),
+enPic(8,'O.8','Social organization','Exam pressure','A classroom of students in uniform writing an exam in silence; a wall clock and a poster saying “Success = Work” are visible. Caption: “The only way?”','- Education systems and the pressure of exams.\n- Equal access to education.\n- Well-being of students.','- Is exam pressure useful or harmful?\n- What makes a good school?\n- Should education be free for everyone?'),
+enPic(9,'O.9','Sharing the planet','After the flood','Residents wade through knee-deep water in a city street, carrying belongings above their heads, plastic waste floating around them. Caption: “Every rainy season.”','- Climate change and urban flooding.\n- Waste management and blocked drains.\n- Responsibility: governments, citizens, rich countries.','- Who is responsible for protecting the environment?\n- What can young people do?\n- Should rich countries pay for climate damage?'),
+enPic(10,'O.10','Sharing the planet','The forest edge','A truck loaded with huge tree trunks drives along a red dirt road; on one side, dense rainforest, on the other, cleared land. Caption: “Progress?”','- Deforestation in the Congo Basin.\n- Economic development versus conservation.\n- Rights of local and indigenous communities.','- Can a country develop without harming nature?\n- How can consumers help?\n- What does sustainable development mean to you?')
+);
 /* Fiches SAPIENS — ESS SL (programme : premières évaluations 2026) */
 window.ESSRC={
  IB:['IB — Guide Systèmes de l’environnement et sociétés (premières évaluations 2026)','https://ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides/environmental-systems-societies-guide.pdf'],
@@ -6969,6 +7028,246 @@ FICHES.math.notes.push(
 q:[{m:6,q:`Sans regarder la fiche, écris la formule qui convient puis résous : (a) la somme des 20 premiers termes de 5 + 8 + 11 + … ; (b) l’aire d’un secteur de rayon 6 cm et d’angle 0,8 rad ; (c) P(A | B) si P(A ∩ B) = 0,12 et P(B) = 0,3.`,ms:`(a) S₂₀ = 10(10 + 57) = **670** (M1 A1) ; (b) ½ × 36 × 0,8 = **14,4 cm²** (M1 A1) ; (c) 0,12/0,3 = **0,4** (M1 A1).`}],
 src:[['IB — Guide Mathématiques : analyse et approches (premières évaluations 2021)','https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/dp-mathematics-analysis-and-approaches-guide-en.pdf']]}
 );
+/* Fiches SAPIENS — SAT numérique (contenu original, structure d'après College Board) */
+window.SATSRC={
+ CB:['College Board — What’s on the SAT (structure officielle)','https://satsuite.collegeboard.org/sat/whats-on-the-test'],
+ CBM:['College Board — SAT Math : domaines et compétences','https://satsuite.collegeboard.org/sat/whats-on-the-test/math'],
+ CBR:['College Board — SAT Reading and Writing','https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing'],
+ BB:['College Board — Bluebook : tests blancs officiels gratuits','https://bluebook.collegeboard.org/'],
+ KH:['Khan Academy — préparation officielle et gratuite au SAT numérique','https://www.khanacademy.org/test-prep/digital-sat'],
+ DES:['Desmos — la calculatrice intégrée au test','https://www.desmos.com/calculator']
+};
+FICHES.sat={units:[
+{id:'gen',t:['Comprendre le SAT','Understanding the SAT','Entender el SAT']},
+{id:'m',t:['Maths','Math','Matemáticas']},
+{id:'rw',t:['Reading and Writing','Reading and Writing','Reading and Writing']}],notes:[
+{id:'sat-0',u:'gen',n:'0.1',t:['Le SAT numérique : structure, score et stratégie','The digital SAT: structure, score and strategy','El SAT digital'],body:`
+## L’essentiel
+Le SAT se passe sur ordinateur ou tablette dans l’application **Bluebook** de College Board. Il dure **2 h 14** (plus une pause de 10 minutes) et compte **98 questions**.
+
+| Section | Modules | Questions | Temps |
+|---|---|---|---|
+| Reading and Writing | 2 modules de 27 questions | 54 | 64 min (2 × 32) |
+| Math | 2 modules de 22 questions | 44 | 70 min (2 × 35) |
+
+- Le score total va de **400 à 1600** : chaque section est notée de 200 à 800.
+- Le test est **adaptatif par module** : si tu réussis bien le premier module, le second est plus difficile, et il permet d’obtenir un score plus élevé.
+- Dans chaque module, **2 questions sont expérimentales** et ne comptent pas, mais tu ne sais pas lesquelles. Traite-les toutes sérieusement.
+- **Aucune pénalité** pour une mauvaise réponse : ne laisse jamais de case vide.
+- En maths, la calculatrice **Desmos** est intégrée pendant toute la section, et une feuille de formules est fournie.
+
+## Pourquoi le premier module compte double
+Le premier module décide du niveau du second. Soigne-le : relis les questions faciles plutôt que de te précipiter, car une erreur bête peut t’envoyer vers le module plus facile, dont le score maximum est plus bas.
+
+## Gestion du temps
+- Reading and Writing : environ **71 secondes par question**. Les textes sont courts (25 à 150 mots) et il y a une seule question par texte.
+- Math : environ **95 secondes par question**.
+- Utilise l’outil **Mark for Review** : réponds, marque la question, avance, puis reviens à la fin du module.
+
+## Plan de préparation conseillé
+1. Fais un **test blanc officiel** dans Bluebook pour connaître ton niveau de départ.
+2. Travaille tes points faibles avec Khan Academy, qui est gratuit et officiel.
+3. Fais un nouveau test blanc toutes les 2 ou 3 semaines, dans les vraies conditions de durée.
+4. Tiens un **carnet d’erreurs** : la page « Mes erreurs à retravailler » de Sapiens le fait pour toi.
+
+## Lien avec l’IB
+Les maths du SAT correspondent surtout aux thèmes 1 et 2 de Maths AA SL (algèbre, fonctions), avec un peu de statistiques et de géométrie. L’anglais demandé est plus exigeant qu’en English B SL, surtout pour le vocabulaire et la grammaire écrite.`,
+q:[{m:3,q:`Explique en trois phrases pourquoi il ne faut jamais laisser une réponse vide au SAT et pourquoi le premier module de chaque section est le plus important.`,ms:`Aucune pénalité pour une mauvaise réponse, donc deviner ne coûte rien (1) ; le test est adaptatif : la performance au module 1 détermine la difficulté du module 2 (1) ; le module difficile permet d’atteindre les scores les plus élevés (1).`}],src:[SATSRC.CB,SATSRC.BB,SATSRC.KH]},
+
+{id:'sat-m1',u:'m',n:'1.1',t:['Maths — Algèbre : équations, inéquations et systèmes linéaires','Math — Algebra: linear equations and systems','Álgebra lineal'],body:`
+## L’essentiel
+Le domaine **Algebra** représente environ **35 % des questions de maths** (13 à 15 questions). Il porte sur les relations **linéaires** :
+- équations et inéquations du premier degré à une ou deux variables ;
+- fonctions linéaires f(x) = mx + b ;
+- **systèmes** de deux équations linéaires ;
+- traduire un énoncé en équation.
+
+## Ce qu’il faut savoir
+- **Pente** : m = (y₂ − y₁)/(x₂ − x₁). Dans un contexte, m est un **taux** (par exemple 15 $ par heure) et b la **valeur de départ**.
+- Deux droites **parallèles** ont la même pente. Un système avec deux droites parallèles distinctes n’a **aucune solution**.
+- Un système a **une infinité de solutions** si les deux équations sont proportionnelles (la même droite).
+- Quand on multiplie ou divise une inéquation par un nombre **négatif**, on **inverse** le sens.
+
+## Exemple guidé
+*Un taxi à Douala facture 500 FCFA de prise en charge puis 250 FCFA par kilomètre. Quel est le prix d’une course de 8 km ?*
+C(k) = 250k + 500, donc C(8) = 2 000 + 500 = **2 500 FCFA**. Ici 250 est la pente (le prix par km) et 500 l’ordonnée à l’origine.
+
+*Pour quelle valeur de c le système 3x + 2y = 7 et 6x + cy = 10 n’a-t-il aucune solution ?*
+Il faut des pentes égales : 6/3 = c/2, donc **c = 4**. On vérifie que 10 ≠ 2 × 7, donc ce sont bien deux droites distinctes.
+
+~~~graph
+{"type":"function","title":"Deux droites parallèles : aucune solution","x":[-2,5],"y":[-4,8],"fns":[{"f":"(7-3*x)/2","name":"3x + 2y = 7"},{"f":"(10-6*x)/4","name":"6x + 4y = 10"}]}
+~~~
+
+## Astuces
+- Avec Desmos, tape les deux équations : le point d’intersection donne la solution du système en quelques secondes.
+- Lis bien la question : on demande souvent **2x + y** ou **x − y** plutôt que x seul. Il suffit parfois d’additionner les deux équations.
+
+## Erreurs fréquentes
+- Confondre la pente et l’ordonnée à l’origine dans un problème concret.
+- Oublier d’inverser le signe de l’inéquation.`,
+q:[{m:4,q:`(a) Si 4(x − 3) = 2x + 6, combien vaut x ? (b) Le système 2x − y = 5 et ax − 3y = 15 a une infinité de solutions : trouve a.`,ms:`(a) 4x − 12 = 2x + 6 ⇒ 2x = 18 ⇒ **x = 9** (2). (b) La deuxième équation doit valoir 3 fois la première : 6x − 3y = 15, donc **a = 6** (2).`}],src:[SATSRC.CBM,SATSRC.KH,SATSRC.DES]},
+
+{id:'sat-m2',u:'m',n:'1.2',t:['Maths — Advanced Math : second degré, exponentielles et fonctions','Math — Advanced Math: quadratics, exponentials, functions','Matemática avanzada'],body:`
+## L’essentiel
+Le domaine **Advanced Math** représente aussi environ **35 % des questions** (13 à 15). Il porte sur :
+- les fonctions du **second degré** et les polynômes ;
+- les fonctions **exponentielles** ;
+- les expressions rationnelles et les racines ;
+- la manipulation d’expressions (factoriser, développer, isoler une variable).
+
+## Second degré : les trois formes
+| Forme | Ce qu’elle montre directement |
+|---|---|
+| y = ax² + bx + c | l’ordonnée à l’origine c |
+| y = a(x − h)² + k | le **sommet** (h ; k) |
+| y = a(x − p)(x − q) | les **racines** p et q |
+
+- **Discriminant** Δ = b² − 4ac : deux solutions si Δ > 0, une si Δ = 0, aucune solution réelle si Δ < 0. C’est une question très fréquente au SAT.
+- Somme des racines = −b/a ; produit des racines = c/a.
+
+## Exponentielles
+- f(t) = a(1 + r)ᵗ : **croissance** de r % par période ; f(t) = a(1 − r)ᵗ : **décroissance**.
+- Exemple : une population de 3 millions qui croît de 2,5 % par an : P(t) = 3 × 1,025ᵗ.
+- Une fonction **linéaire** augmente du même **montant** à chaque période ; une fonction **exponentielle** augmente du même **pourcentage**.
+
+## Exemple guidé
+*Pour quelles valeurs de k l’équation x² − 6x + k = 0 a-t-elle exactement une solution ?*
+Δ = 36 − 4k = 0, donc **k = 9**.
+
+~~~graph
+{"type":"function","title":"Δ > 0, Δ = 0, Δ < 0","x":[-1,7],"y":[-4,8],"fns":[{"f":"x^2-6*x+6","name":"k = 6 : deux racines"},{"f":"x^2-6*x+9","name":"k = 9 : une racine"},{"f":"x^2-6*x+12","name":"k = 12 : aucune"}]}
+~~~
+
+## Astuces
+- Desmos trouve les racines et le sommet si tu cliques sur la courbe.
+- Pour « quelle expression est équivalente », remplace x par une valeur simple (x = 2) dans l’expression de départ et dans chaque réponse.`,
+q:[{m:4,q:`(a) Écris y = x² − 8x + 13 sous la forme y = (x − h)² + k et donne la valeur minimale de y. (b) Une voiture achetée 8 000 000 FCFA perd 12 % de sa valeur par an : écris sa valeur V(t) après t années.`,ms:`(a) (x − 4)² − 16 + 13 = **(x − 4)² − 3**, minimum **−3** (atteint pour x = 4) (2). (b) **V(t) = 8 000 000 × 0,88ᵗ** (2).`}],src:[SATSRC.CBM,SATSRC.KH,SATSRC.DES]},
+
+{id:'sat-m3',u:'m',n:'1.3',t:['Maths — Données, pourcentages et probabilités','Math — Problem-solving and data analysis','Datos y probabilidad'],body:`
+## L’essentiel
+Le domaine **Problem-Solving and Data Analysis** compte environ **15 % des questions** (5 à 7). On y trouve :
+- ratios, taux, proportions et conversions d’unités ;
+- **pourcentages** ;
+- statistiques à une variable (moyenne, médiane, étendue, écart-type) ;
+- nuages de points et droite de tendance ;
+- probabilités simples, tableaux à double entrée ;
+- conclusions qu’on peut tirer ou non d’une étude.
+
+## Pourcentages : la méthode du coefficient
+- Augmenter de 20 % : multiplier par **1,20**. Baisser de 15 % : multiplier par **0,85**.
+- Une hausse de 20 % puis une baisse de 20 % donnent 1,2 × 0,8 = 0,96, soit **−4 %** au total, et non 0 %.
+- Variation en pourcentage = (nouvelle valeur − ancienne)/ancienne × 100.
+
+## Statistiques
+- Une valeur extrême (aberrante) modifie **beaucoup la moyenne** mais **peu la médiane**.
+- L’**écart-type** mesure la dispersion autour de la moyenne : des données très groupées ont un petit écart-type.
+
+## Études et échantillons
+- On ne peut **généraliser** à une population que si l’échantillon a été choisi **au hasard** dans cette population.
+- On ne peut parler de **cause** que si les sujets ont été **répartis au hasard** dans les groupes d’une expérience. Sinon, on parle seulement d’**association**.
+- Un échantillon plus grand donne une **marge d’erreur** plus petite.
+
+## Exemple guidé
+*Dans un tableau, 48 élèves sur 120 font du football, dont 18 filles. On choisit un footballeur au hasard : probabilité que ce soit une fille ?*
+On se limite aux footballeurs : 18/48 = **0,375**.
+
+## Astuces
+- Lis toujours le **titre et les unités** des axes d’un graphique.
+- Pour une probabilité conditionnelle, repère d’abord **la ligne ou la colonne** à laquelle la question se limite.`,
+q:[{m:4,q:`(a) Le prix d’un sac de riz passe de 25 000 à 29 000 FCFA. Quelle est la hausse en pourcentage ? (b) On ajoute la valeur 95 à la série 12, 14, 15, 15, 18. Qu’arrive-t-il à la moyenne et à la médiane ?`,ms:`(a) 4 000/25 000 = **16 %** (2). (b) La moyenne passe de 14,8 à environ **28,2** (forte hausse) ; la médiane passe de **15 à 15** (inchangée) (2).`}],src:[SATSRC.CBM,SATSRC.KH]},
+
+{id:'sat-m4',u:'m',n:'1.4',t:['Maths — Géométrie et trigonométrie','Math — Geometry and trigonometry','Geometría y trigonometría'],body:`
+## L’essentiel
+Le domaine **Geometry and Trigonometry** compte environ **15 % des questions** (5 à 7). La feuille de formules fournie donne les aires et volumes usuels, Pythagore et les triangles particuliers. Il faut surtout savoir **quand** les utiliser.
+
+## Ce qu’il faut savoir
+- **Angles** : somme des angles d’un triangle = 180° ; angles opposés par le sommet égaux ; droites parallèles coupées par une sécante : angles alternes-internes égaux.
+- **Triangles semblables** : mêmes angles, côtés proportionnels. Si les longueurs sont multipliées par k, les aires sont multipliées par **k²** et les volumes par **k³**.
+- **Triangles particuliers** : 30°-60°-90° (côtés x, x√3, 2x) et 45°-45°-90° (côtés x, x, x√2).
+- **Trigonométrie** : SOH-CAH-TOA ; sin x = cos(90° − x) ; radians : π rad = 180°.
+- **Cercle** : équation (x − h)² + (y − k)² = r², centre (h ; k), rayon r. Longueur d’arc = (angle/360) × 2πr.
+
+## Exemple guidé
+*Trouve le centre et le rayon du cercle x² + y² − 6x + 4y − 3 = 0.*
+On complète les carrés : (x − 3)² − 9 + (y + 2)² − 4 − 3 = 0, donc (x − 3)² + (y + 2)² = 16. Centre **(3 ; −2)**, rayon **4**.
+
+## Astuces
+- Si aucune figure n’est donnée, **dessine-en une** sur ton brouillon.
+- Desmos trace directement un cercle à partir de son équation, ce qui permet de vérifier le centre et le rayon.
+- Les figures ne sont pas forcément à l’échelle : ne mesure jamais, calcule.`,
+q:[{m:4,q:`(a) Dans un triangle rectangle, sin A = 0,6. Que vaut cos(90° − A) ? Que vaut cos A ? (b) Un cube a un volume de 27 cm³. On double la longueur de ses arêtes : quel est son nouveau volume ?`,ms:`(a) cos(90° − A) = sin A = **0,6** ; cos A = √(1 − 0,36) = **0,8** (2). (b) Arête 3 cm puis 6 cm : volume **216 cm³** (facteur 2³ = 8) (2).`}],src:[SATSRC.CBM,SATSRC.KH]},
+
+{id:'sat-r1',u:'rw',n:'2.1',t:['Reading — Craft and Structure, Information and Ideas','Reading — Craft and Structure, Information and Ideas','Lectura'],body:`
+## L’essentiel
+La section Reading and Writing a **quatre domaines**. Les deux premiers portent sur la lecture :
+
+| Domaine | Part | Types de questions |
+|---|---|---|
+| Craft and Structure | environ 28 % | sens d’un mot en contexte, structure et but d’un texte, lien entre deux textes |
+| Information and Ideas | environ 26 % | idée principale, détails, preuves (textuelles ou chiffrées), inférences |
+
+Chaque question porte sur un **texte court** (25 à 150 mots).
+
+## Méthode pour chaque question
+1. Lis **d’abord la question** pour savoir quoi chercher.
+2. Lis le texte en entier : il est court.
+3. **Prédis** la réponse avec tes propres mots avant de regarder les choix.
+4. Élimine les réponses **trop fortes** (*always*, *proves*, *completely*), **hors sujet** ou **vraies mais qui ne répondent pas à la question**.
+
+## Types de questions
+- **Words in Context** : remplace le mot par chacune des réponses. Le bon mot garde le sens **et le ton** de la phrase. Un mot fréquent peut avoir un sens rare (*qualify* = nuancer, *check* = freiner).
+- **Text Structure and Purpose** : demande-toi pourquoi l’auteur a écrit cette phrase (introduire, illustrer, contredire, nuancer…).
+- **Cross-Text Connections** : deux textes courts. Note la position de chaque auteur, puis demande-toi comment l’auteur 2 répondrait à l’auteur 1.
+- **Command of Evidence (textual)** : choisis la citation qui **soutient** ou **affaiblit** précisément l’affirmation donnée.
+- **Command of Evidence (quantitative)** : lis le graphique ou le tableau. La bonne réponse doit être **vraie selon les données et liée à l’affirmation** du texte.
+- **Inferences** : complète la dernière phrase par la conclusion la plus logique, sans rien ajouter qui ne soit pas dans le texte.
+
+## Vocabulaire académique fréquent
+undermine (affaiblir), corroborate (confirmer), ambivalent (partagé), meticulous (minutieux), substantiate (étayer), concede (admettre), novel (nouveau), arbitrary (arbitraire), mitigate (atténuer), tentative (provisoire).
+
+## Lien avec l’IB
+Ces compétences ressemblent au **Paper 1 de Français** (but de l’auteur, procédés) et au Paper 2 d’English B (compréhension). Le vocabulaire est celui des textes universitaires.`,
+q:[{m:3,q:`Read: “Although early critics dismissed the novel as sentimental, recent scholars have argued that its emotional scenes serve a clear political purpose.” What is the main function of the word “Although”, and what is the main idea of the sentence?`,ms:`“Although” introduces a **contrast** between the old view and the new one (1). Main idea: recent scholars see the emotional scenes as **politically purposeful**, unlike early critics who saw them as merely sentimental (2).`}],src:[SATSRC.CBR,SATSRC.KH,SATSRC.BB]},
+
+{id:'sat-w1',u:'rw',n:'2.2',t:['Writing — Standard English Conventions et Expression of Ideas','Writing — Conventions and Expression of Ideas','Escritura'],body:`
+## L’essentiel
+| Domaine | Part | Ce qui est testé |
+|---|---|---|
+| Standard English Conventions | environ 26 % | structure de la phrase, ponctuation, accords |
+| Expression of Ideas | environ 20 % | connecteurs logiques, synthèse de notes |
+
+Ce sont souvent les points les **plus faciles à gagner**, parce que les règles sont toujours les mêmes.
+
+## Les règles de ponctuation à connaître
+- Deux phrases complètes ne peuvent être reliées **ni par une simple virgule** (*comma splice*), ni sans rien. On utilise : un point, un **point-virgule**, ou une **virgule + and/but/so**.
+- **Deux-points** ( : ) : après une phrase complète, pour introduire une explication ou une liste.
+- **Tiret ou virgules** autour d’une information supplémentaire : il faut le **même signe** au début et à la fin.
+- Pas de virgule entre le sujet et le verbe, ni entre le verbe et son complément.
+- **Apostrophe** : *the student’s book* (un élève), *the students’ books* (plusieurs), *its* (possessif) ≠ *it’s* (= it is).
+
+## Accords
+- Le verbe s’accorde avec le **vrai sujet** : *The list of items **is** long* (le sujet est *list*, pas *items*).
+- Pronoms : *each, everyone, the team* sont **singuliers** au SAT.
+- Temps du verbe : garde le **même temps** que le reste du texte, sauf indication contraire.
+- **Modificateurs** : *Walking to school, **I** saw…* (c’est bien « I » qui marche).
+
+## Connecteurs logiques (transitions)
+| Relation | Connecteurs |
+|---|---|
+| Opposition | however, nevertheless, by contrast, still |
+| Ajout | moreover, furthermore, in addition |
+| Conséquence | therefore, thus, as a result, consequently |
+| Exemple | for instance, for example |
+| Précision | in fact, indeed, specifically |
+| Ordre | first, then, finally, subsequently |
+
+Méthode : lis la phrase **avant** et la phrase **après**, nomme la relation, puis choisis le connecteur.
+
+## Rhetorical Synthesis (notes de l’élève)
+On te donne une liste de notes et un **objectif** (comparer, présenter une étude au public, souligner une différence…). La bonne réponse est celle qui **remplit l’objectif**, même si d’autres phrases sont vraies.`,
+q:[{m:4,q:`Correct the punctuation and agreement: (a) “The rainy season in Douala lasts several months, many roads become difficult to use.” (b) “The results of the survey shows that most students revise at night.”`,ms:`(a) Comma splice: “…several months; many roads…” or “…several months, **so** many roads…” (2). (b) The subject is “results”: “The results of the survey **show**…” (2).`}],src:[SATSRC.CBR,SATSRC.KH,SATSRC.BB]}
+]};
 /* Fiches SAPIENS — Théorie de la connaissance (TOK) */
 window.TKSRC={
  IB:['IB — Aperçu du cours de théorie de la connaissance (première évaluation 2022)','https://ibo.org/globalassets/new-structure/programmes/dp/pdfs/tok-sb-english.pdf'],
@@ -9269,7 +9568,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v17 · nov. 2026';
+const VERSION='v18 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -10385,7 +10684,7 @@ function mindMap(f){const heads=String(f.body).split('\n').filter(l=>/^##\s/.tes
   const sub=h=>{const lines=String(f.body).split('\n');const i=lines.findIndex(l=>l.replace(/^##\s*/,'').trim()===h);const out=[];for(let j=i+1;j<lines.length&&!/^##\s/.test(lines[j]);j++){const m=lines[j].match(/^\s*[-*]\s+\*\*([^*]{2,50})\*\*/)||lines[j].match(/^\s*\d+\.\s+\*\*([^*]{2,50})\*\*/);if(m)out.push(m[1])}return out.slice(0,5)};
   return `<div class="mmap"><div class="mmc">${esc(fTrT(f.t))}</div><div class="mmb">${heads.map(h=>`<div class="mmn"><b>${esc(fTr(h))}</b>${sub(h).map(x=>`<span>${esc(fTr(x))}</span>`).join('')}</div>`).join('')}</div></div>`}
 $('#fMain').addEventListener('click',async e=>{const b=e.target.closest('[data-ft2]');if(!b)return;const f=fichesOf(FSJ).find(x=>x.id===FCID);if(!f)return;const a=b.dataset.ft2;
-  if(a==='share'){const txt=`${fTrT(f.t)} (${sName(FSJ)})\n\n${ficheText().slice(0,6000)}\n\n— Sapiens, par Pacha Académie IB`;try{if(navigator.share){await navigator.share({title:fTrT(f.t),text:txt});return}}catch(err){if(err&&err.name==='AbortError')return}try{await navigator.clipboard.writeText(txt);toast(X('Fiche copiée : colle-la dans un message pour la partager.','Notes copied: paste them in a message to share.','Ficha copiada.'))}catch(err){toast(X('Partage impossible ici.','Sharing not available here.','No disponible.'))}return}
+  if(a==='share'){const txt=`${fTrT(f.t)} (${sName(FSJ)})\n\n${ficheText().slice(0,6000)}\n\n${X('Ouvrir la fiche dans Sapiens','Open in Sapiens','Abrir en Sapiens')} : ${ficheLink(f)}\n— Sapiens, par Pacha Académie IB`;try{if(navigator.share){await navigator.share({title:fTrT(f.t),text:txt});return}}catch(err){if(err&&err.name==='AbortError')return}try{await navigator.clipboard.writeText(txt);toast(X('Fiche copiée : colle-la dans un message pour la partager.','Notes copied: paste them in a message to share.','Ficha copiada.'))}catch(err){toast(X('Partage impossible ici.','Sharing not available here.','No disponible.'))}return}
   if(a==='print'){document.body.classList.add('printfiche');setTimeout(()=>{try{print()}catch(err){}setTimeout(()=>document.body.classList.remove('printfiche'),800)},60);return}
   if(a==='map'){const m=$('#fMap');m.innerHTML=m.innerHTML?'':mindMap(f);if(m.innerHTML)m.scrollIntoView({behavior:'smooth',block:'center'});return}
   if(a==='draw'){$('#bot').classList.add('open');botRender();$('#botIn').value=X(`Voici la photo de mon schéma pour la fiche « ${fTrT(f.t)} » (${sName(FSJ)}). Vérifie-le comme un examinateur IB : titre, axes et légendes, courbes et déplacements, points d’équilibre, annotations, et dis-moi ce qui coûterait des points.`,`Here is a photo of my diagram for “${fTrT(f.t)}”. Check it like an IB examiner: title, axes, labels, curves, shifts, equilibria, annotations.`,`Foto de mi esquema: revísalo.`);toast(X('Ajoute la photo de ton schéma avec le trombone 📎, puis envoie.','Attach a photo of your diagram with the paperclip 📎, then send.','Adjunta la foto 📎.'));try{$('#botFile').click()}catch(err){}return}
@@ -10398,6 +10697,37 @@ $('#fMain').addEventListener('click',e=>{const b=e.target.closest('[data-fmq]');
 {const _rg=renderGraphes;renderGraphes=function(){_rg();const btn=$('[data-gxask]');if(btn&&!$('[data-gxdraw]'))btn.insertAdjacentHTML('afterend',` <button class="btn sm" data-gxdraw="1" style="margin-top:8px">${ico('pen')} ${X('Faire corriger mon dessin','Check my drawing','Corregir mi dibujo')}</button>`)}}
 document.addEventListener('click',e=>{if(!e.target.closest('[data-gxdraw]'))return;$('#bot').classList.add('open');botRender();$('#botIn').value=X('Voici la photo de mon graphique d’Économie dessiné à la main. Vérifie-le comme un examinateur IB (titre, axes, légendes, courbes, déplacements, équilibres, zones de surplus ou de perte sèche) et dis-moi ce qui coûterait des points.','Here is a photo of my hand-drawn economics graph. Check it like an IB examiner.','Foto de mi gráfico: revísalo.');toast(X('Ajoute la photo avec le trombone 📎, puis envoie.','Attach the photo with 📎, then send.','Adjunta la foto 📎.'));try{$('#botFile').click()}catch(err){}});
 
+/* ---------- v18 : quiz hors ligne, objectifs ---------- */
+function offQuiz(f,k){const G=buildGlossary().filter(g=>g.k===k);if(G.length<4)return null;
+  let own=G.filter(g=>g.f===f.id);const unit=fichesOf(k).filter(x=>x.u===f.u).map(x=>x.id);
+  if(own.length<5)own=own.concat(G.filter(g=>g.f!==f.id&&unit.includes(g.f)).sort(()=>Math.random()-.5)).slice(0,6);
+  if(own.length<3)own=own.concat(G.filter(g=>!own.includes(g)).sort(()=>Math.random()-.5)).slice(0,6);const sh=a=>a.slice().sort(()=>Math.random()-.5);const cut=s=>{s=String(s).replace(/[*_]{1,2}/g,'');return s.length>150?s.slice(0,147)+'…':s};
+  return sh(own).slice(0,6).map((g,i)=>{const others=sh(G.filter(x=>x.key!==g.key&&x.term.toLowerCase()!==g.term.toLowerCase())).slice(0,3);
+    if(i%2===0){const c=sh([g,...others]);return{q:X(`Quelle définition correspond à « ${g.term} » ?`,`Which definition matches “${g.term}”?`,`¿Qué definición corresponde a «${g.term}»?`),c:c.map(x=>cut(x.def)),a:c.indexOf(g),e:`${g.term} : ${cut(g.def)}`}}
+    const c=sh([g,...others]);return{q:X(`Quel terme correspond à cette définition : « ${cut(g.def)} » ?`,`Which term matches: “${cut(g.def)}”?`,`¿Qué término corresponde a: «${cut(g.def)}»?`),c:c.map(x=>x.term),a:c.indexOf(g),e:`${g.term} : ${cut(g.def)}`}})}
+function startOffQuiz(f){const box=$('#fQuiz');if(!box)return;const qs=offQuiz(f,FSJ);
+  if(!qs){box.innerHTML=`<p class="muted small">${X('Pas assez de définitions dans cette fiche pour un quiz hors ligne. Essaie une fiche de cours de la même matière.','Not enough definitions in these notes for an offline quiz.','No hay suficientes definiciones.')}</p>`;return}
+  FQZ={id:f.id,qs,i:0,a:null,ok:0,off:1};drawQuiz();box.scrollIntoView({behavior:'smooth',block:'center'})}
+{const _rf2=renderFiche;renderFiche=function(){_rf2.apply(this,arguments);const tb=$('#fMain .ftools');if(tb&&!tb.querySelector('[data-ft2="off"]'))tb.insertAdjacentHTML('beforeend',`<button class="btn sm" data-ft2="off" title="${X('Fonctionne sans internet ni IA','Works without internet or AI','Sin internet ni IA')}">${ico('target')} ${X('Quiz hors ligne','Offline quiz','Quiz sin conexión')}</button>`)}}
+$('#fMain').addEventListener('click',e=>{const b=e.target.closest('[data-ft2="off"]');if(b){const f=fichesOf(FSJ).find(x=>x.id===FCID);if(f)startOffQuiz(f);return}
+  const q=e.target.closest('[data-ft="quiz"]');if(q&&!navigator.onLine){e.stopImmediatePropagation();const f=fichesOf(FSJ).find(x=>x.id===FCID);if(f){toast(X('Pas de connexion : quiz hors ligne à la place.','Offline: using the offline quiz.','Sin conexión: quiz local.'));startOffQuiz(f)}}},true);
+
+/* Objectifs personnels */
+const GOAL_SUBJ=['eco','gp','fr','en','math','ess'];
+function curGrade(k){const R=RES.filter(r=>r.s===k&&r.mx>0).slice(-3).map(r=>r.sc/r.mx*100),A=ANN().filter(r=>r.s===k&&r.x>0).slice(-3).map(r=>r.m/r.x*100);const all=R.concat(A);if(!all.length)return null;return pct2grade(all.reduce((a,b)=>a+b,0)/all.length)}
+function goalsHTML(){const G=store.get('goals',{}),wk=Math.max(1,Math.round(examDays()/7));let tot=0,cur=0,known=0;
+  const rows=GOAL_SUBJ.map(k=>{const g=+G[k]||0,c=curGrade(k),fs=fichesOf(k),left=fs.filter(f=>fMastery(f.id)<3).length;tot+=g;if(c){cur+=c;known++}
+    const gap=g&&c?g-c:null;const per=Math.ceil(left/wk);
+    const advice=!g?X('choisis une note visée','pick a target','elige una meta'):gap===null?X('fais un quiz ou ajoute une note pour estimer ton niveau','do a quiz or add a result to estimate your level','haz un quiz'):gap<=0?X('objectif atteint : garde le rythme avec les révisions','target reached: keep reviewing','meta alcanzada'):X(`il te manque ${gap} point${gap>1?'s':''} : ${Math.max(per,1)} fiche${per>1?'s':''} par semaine et une épreuve blanche toutes les 2 semaines`,`${gap} grade${gap>1?'s':''} to gain: ${Math.max(per,1)} notes a week and a mock every 2 weeks`,`faltan ${gap}`);
+    return `<div class="goalrow"><b>${esc(sName(k))}</b><label class="small">${X('Visée','Target','Meta')} <select data-goal="${k}" aria-label="${X('Note visée','Target grade','Meta')} ${esc(sName(k))}"><option value="">—</option>${[7,6,5,4,3].map(n=>`<option ${g===n?'selected':''}>${n}</option>`).join('')}</select></label><span class="gi small">${X('Niveau estimé','Estimated level','Nivel estimado')} <b>${c||'?'}</b> · ${X('fiches à maîtriser','notes to master','fichas')} ${left}/${fs.length}</span><span class="gi small muted">${advice}</span></div>`}).join('');
+  return `<p class="small muted">${X(`Il reste environ ${wk} semaines avant les examens. Le niveau estimé vient de tes 3 dernières épreuves blanches et annales (indicatif, pas une note officielle de l’IB).`,`About ${wk} weeks left. The estimate uses your last 3 mocks (indicative, not an official IB grade).`,`Quedan unas ${wk} semanas.`)}</p>${rows}<p class="small" style="margin-top:8px"><b>${X('Total visé','Target total','Total meta')} : ${tot}/42</b> ${X('+ jusqu’à 3 points TOK/EE','+ up to 3 TOK/EE points','+ hasta 3 puntos')}${known?` · ${X('estimé','estimated','estimado')} ${cur}${known<6?' ('+known+'/6 '+X('matières','subjects','materias')+')':''}`:''}</p>`}
+document.addEventListener('change',e=>{const s=e.target.closest('[data-goal]');if(!s)return;const G=store.get('goals',{});if(s.value)G[s.dataset.goal]=+s.value;else delete G[s.dataset.goal];store.set('goals',G);const el=$('#lrnGoal');if(el)el.innerHTML=goalsHTML();toast(X('Objectif enregistré ✓','Target saved ✓','Meta guardada ✓'))});
+{const _rl=renderLearn;renderLearn=function(){_rl();if($('#v-perf')&&!$('#lrnGoal')){const p=document.createElement('div');p.className='panel';p.innerHTML=`<h2>${X('Mes objectifs','My targets','Mis metas')}</h2><div id="lrnGoal"></div>`;const w=$('#lrnWeek')?.closest('.panel');if(w)w.before(p);else $('#lrnMap')?.closest('.panel')?.before(p)}const el=$('#lrnGoal');if(el)el.innerHTML=goalsHTML()}}
+/* liens directs vers une fiche */
+const SITE_URL='https://warreng-sapiens.github.io/sapiens/';
+function ficheLink(f){const base=(typeof INFRAME!=='undefined'&&INFRAME)||!/^https?:/.test(location.protocol)?SITE_URL:location.origin+location.pathname;return base+'#fiche='+FSJ+'/'+encodeURIComponent(f.id)}
+function deepLink(){const m=location.hash.match(/^#fiche=([a-z]+)\/([^&]+)/);if(!m)return false;const id=decodeURIComponent(m[2]);if(FCSUBJ.includes(m[1])&&fichesOf(m[1]).some(f=>f.id===id)){openFiche(m[1],id);return true}location.hash='fiches';return false}
+addEventListener('hashchange',deepLink);setTimeout(deepLink,0);
 window.__sync={NDB,get SYNC(){return SYNC}};
 setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
 
