@@ -462,6 +462,11 @@ body.nbfull .nbwrap{flex:1;overflow:auto}body.nbfull #nbAI{display:none}body.nbf
 .fbody{font-size:16px;line-height:1.7}.fbody h4{font-family:var(--serif,Georgia,serif);font-size:21px;margin:26px 0 8px;color:var(--ink);border-left:4px solid var(--c);padding-left:10px}
 .fbody table{font-size:14px}.fbody blockquote,.fbody .note{margin:12px 0}
 .fq{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;display:grid;gap:8px}.fq details summary{cursor:pointer;color:var(--acc);font-weight:600}
+.ftools{gap:6px;margin:6px 0 14px;flex-wrap:wrap}.ftools .btn svg{width:15px;height:15px;vertical-align:-2px}
+.frate{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.frate .row{gap:8px;flex-wrap:wrap}
+.frow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 2px;cursor:pointer;color:inherit;font:inherit}.frow:hover{background:color-mix(in srgb,var(--c) 7%,transparent)}.frow .fdot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}.frow span:nth-child(2){flex:1}.frow em{font-style:normal;font-size:12px;color:var(--muted)}
+.mrow{margin:10px 0}.mhead{display:flex;justify-content:space-between;margin-bottom:5px}.mgrid{display:flex;flex-wrap:wrap;gap:4px}.mcell{width:18px;height:18px;border-radius:4px;border:0;cursor:pointer;padding:0}.mcell:hover{outline:2px solid var(--ink)}
+.quizq{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}.qopt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card,transparent);color:inherit;font:inherit;cursor:pointer}.qopt.ok{border-color:#2e7d32;background:color-mix(in srgb,#4caf50 15%,transparent)}.qopt.ko{border-color:#c62828;background:color-mix(in srgb,#e53935 13%,transparent)}
 .fsrc{margin-top:26px;border-top:1px solid var(--line);padding-top:14px}.fsrc ul{margin:8px 0 10px;padding-left:18px;display:grid;gap:6px}.fsrc a{color:var(--acc);text-decoration:underline;text-underline-offset:2px;word-break:break-word}
 .fnav{margin-top:24px;justify-content:space-between;flex-wrap:wrap}
 @media (max-width:900px){.fgrid{grid-template-columns:1fr}.ftocbox{position:static;max-height:none}.fiche h1{font-size:24px}}
@@ -7665,7 +7670,7 @@ in_cite2:['Si une idée, une formulation ou une donnée vient de l’IA dans un 
 pf_title:['Mes performances','My performance','Mi rendimiento'],pf_lead:['Ta progression mesurée : maîtrise, temps d’étude, examens, erreurs et régularité.','Your measured progress: mastery, study time, exams, mistakes and consistency.','Tu progreso medido.'],pf_reco:['Recommandations','Recommendations','Recomendaciones'],pf_mast:['Maîtrise par matière','Mastery by subject','Dominio por asignatura'],
 pf_how:['Calcul : 30 % leçons acquises + 30 % flashcards connues + 40 % moyenne des 3 derniers examens blancs (si tu en as passé). C’est un indicateur pour t’orienter, pas une note de l’IB.','Formula: 30% lessons done + 30% known flashcards + 40% average of the last 3 mocks (if any). A guide, not an IB grade.','Fórmula: 30 % lecciones + 30 % tarjetas + 40 % simulacros. Indicativo.'],pf_time:['Temps d’étude (8 semaines)','Study time (8 weeks)','Tiempo de estudio (8 semanas)'],pf_err:['Suivi des erreurs','Error tracking','Seguimiento de errores'],
 pr_title:['Profil et réglages','Profile & settings','Perfil y ajustes'],pr_lead:['Tes objectifs, ta langue, ton IA et tes données.','Your goals, language, AI and data.','Tus objetivos, idioma, IA y datos.'],pr_me:['Moi','Me','Yo'],pr_name:['Prénom (pour l’accueil)','First name (for the welcome)','Nombre'],pr_year:['Année','Year','Año'],pr_target:['Objectif de points (/45)','Points target (/45)','Objetivo de puntos (/45)'],pr_save:['Enregistrer','Save','Guardar'],pr_key:['Configurer la clé d’IA','Set up the AI key','Configurar la clave'],
-pr_data:['Mes données','My data','Mis datos'],pr_priv:['Tout reste sur cet appareil : Sapiens n’a pas de serveur, ne crée pas de compte et ne vend aucune donnée. Ta clé d’IA n’est jamais incluse dans les sauvegardes.','Everything stays on this device: Sapiens has no server, creates no account and sells no data. Your AI key is never included in backups.','Todo queda en este dispositivo. Tu clave nunca se incluye en las copias.'],pr_exp:['Sauvegarder mes données','Back up my data','Guardar mis datos'],pr_imp:['Restaurer une sauvegarde','Restore a backup','Restaurar copia'],pr_del:['Effacer toutes mes données','Erase all my data','Borrar mis datos'],pr_copy:['Copier','Copy','Copiar'],pr_about:['À propos','About','Acerca de'],
+pr_data:['Mes données','My data','Mis datos'],pr_priv:['Tes données restent sur cet appareil. Si tu actives la synchronisation, elles sont aussi envoyées, compressées, sur ton serveur Sapiens, protégées par ton code secret : pas de compte, pas de nom, pas d’e-mail. Ta clé d’IA n’est jamais incluse.','Your data stays on this device. If you turn on sync, it is also sent, compressed, to your Sapiens server, protected by your secret code: no account, no name, no e-mail. Your AI key is never included.','Tus datos quedan en este dispositivo; con la sincronización se guardan también en tu servidor Sapiens, protegidos por tu código secreto. Tu clave nunca se incluye.'],pr_exp:['Sauvegarder mes données','Back up my data','Guardar mis datos'],pr_imp:['Restaurer une sauvegarde','Restore a backup','Restaurar copia'],pr_del:['Effacer toutes mes données','Erase all my data','Borrar mis datos'],pr_copy:['Copier','Copy','Copiar'],pr_about:['À propos','About','Acerca de'],
 pr_ab1:['Les cours et les sujets d’entraînement sont des contenus originaux de Sapiens, pas des documents officiels de l’IB. Les corrections et notes de l’IA sont indicatives. Vérifie toujours les exigences officielles dans les guides de l’IB et auprès de ton école.','Courses and practice questions are original Sapiens content, not official IB documents. AI marks are indicative. Always check official requirements in IB guides and with your school.','Los cursos y ejercicios son contenidos originales de Sapiens, no documentos oficiales del IB.'],
 sig_off:['Signature officielle','Official signature','Firma oficial'],sig_f:['Fondée en 2026','Founded in 2026','Fundada en 2026'],
 masc:['Mascotte','Mascot','Mascota'],
@@ -8885,7 +8890,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v12 · nov. 2026';
+const VERSION='v15 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -9559,6 +9564,253 @@ $('#fMain').addEventListener('click',e=>{const list=fichesOf(FSJ),f=list.find(x=
   if(e.target.closest('#fcDone')){if(FCDONE.has(f.id))FCDONE.delete(f.id);else{FCDONE.add(f.id);addXP(15,X('fiche maîtrisée','notes mastered','ficha dominada'));logAct(0,'lesson')}store.set('fdone',[...FCDONE]);renderFiches();return}
   if(e.target.closest('#fcAsk')){$('#bot').classList.add('open');botRender();$('#botIn').value=X(`À propos de la fiche « ${fTrT(f.t)} » (${sName(FSJ)}) : `,`About the notes “${fTrT(f.t)}” (${sName(FSJ)}): `,`Sobre la ficha «${fTrT(f.t)}»: `);setTimeout(()=>$('#botIn').focus(),60);return}
   const qa=e.target.closest('[data-fask]');if(qa){const q=f.q[+qa.dataset.fask];startExam({s:FSJ,p:X('Fiche','Notes','Ficha')+' '+f.n,t:fTrT(f.t),q:fTr(q.q),ms:fTr(q.ms),mx:q.m,min:Math.max(5,Math.round(q.m*1.5))})}});
+
+/* ---------- v14 : sauvegarde complète, synchronisation entre appareils, installation ---------- */
+const SYNC=Object.assign({code:'',on:false,last:0,pull:0,dev:''},store.get('sync',{}));
+const saveSync=()=>store.set('sync',SYNC);
+const SKIPK=/^atib_(aikey|sync|trc|nbdel_local)$/;
+let syncDirty=0,syncT=null,syncAPI=null;
+{const _p=NDB.put.bind(NDB),_d=NDB.del.bind(NDB);
+ NDB.put=p=>{if(p&&typeof p==='object')p.u=Date.now();markDirty();return _p(p)};
+ NDB.del=id=>{const t=store.get('nbdel',{});t[id]=Date.now();store.set('nbdel',t);markDirty();return _d(id)}}
+{const _s=store.set.bind(store);store.set=(k,v)=>{_s(k,v);if(k!=='sync'&&k!=='trc')markDirty()}}
+function markDirty(){syncDirty=Date.now();if(SYNC.on&&SYNC.code){clearTimeout(syncT);syncT=setTimeout(()=>syncPush(true),20000)}}
+async function fullSnapshot(){const o={app:'Sapiens',version:VERSION,date:new Date().toISOString(),t:Date.now(),data:{},pages:[]};
+  try{Object.keys(localStorage).filter(k=>k.startsWith('atib_')&&!SKIPK.test(k)).forEach(k=>o.data[k]=localStorage.getItem(k))}catch(e){}
+  try{o.pages=(await NDB.all())||[]}catch(e){}return o}
+async function applySnapshot(o,merge){
+  if(!o||o.app!=='Sapiens'||!o.data)throw new Error('format');
+  Object.entries(o.data).forEach(([k,v])=>{if(k.startsWith('atib_')&&!SKIPK.test(k))try{localStorage.setItem(k,v)}catch(e){}});
+  const del=Object.assign({},store.get('nbdel',{}));
+  if(Array.isArray(o.pages)){const loc=merge?((await NDB.all())||[]):[];const m=new Map(loc.map(p=>[p.id,p]));
+    const _put=p=>NDB.tx('readwrite',s=>s.put(p));
+    for(const p of o.pages){if(del[p.id]&&del[p.id]>(p.u||0))continue;const l=m.get(p.id);if(!l||(p.u||0)>=(l.u||0))await _put(p)}
+    for(const id of Object.keys(del)){const l=m.get(id);if(l&&(l.u||0)<del[id])await NDB.tx('readwrite',s=>s.delete(id))}}}
+async function gz(str){if(typeof CompressionStream==='undefined')return 'raw:'+btoa(unescape(encodeURIComponent(str)));
+  const b=await new Response(new Blob([str]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer();
+  let s='';const u=new Uint8Array(b);for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return 'gz:'+btoa(s)}
+async function gunz(z){if(z.startsWith('raw:'))return decodeURIComponent(escape(atob(z.slice(4))));
+  const bin=atob(z.slice(3)),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+  return await new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).text()}
+function newCode(){const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',r=crypto.getRandomValues(new Uint8Array(20));let s='';r.forEach((x,i)=>{s+=a[x%a.length];if(i%5===4&&i<19)s+='-'});return s}
+function devName(){const u=navigator.userAgent;return /iPad|Macintosh.*Mobile|Macintosh.*Touch/.test(u)||(/Macintosh/.test(u)&&navigator.maxTouchPoints>1)?'iPad':/iPhone/.test(u)?'iPhone':/Android/.test(u)?'Android':'Ordinateur'}
+async function hasSyncAPI(){if(syncAPI!==null)return syncAPI;if(!/^https?:$/.test(location.protocol)||/claude\.(ai|site)|claudeusercontent/.test(location.host))return syncAPI=false;
+  try{const r=await fetch('/api/sync?code=ping',{cache:'no-store'});syncAPI=r.ok&&(await r.json()).ok===true}catch(e){syncAPI=false}return syncAPI}
+async function syncPush(quiet){if(!SYNC.code||!(await hasSyncAPI()))return false;
+  try{const snap=await fullSnapshot(),z=await gz(JSON.stringify(snap));
+    const r=await fetch('/api/sync',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({code:SYNC.code,t:snap.t,dev:devName(),z})});
+    const j=await r.json();if(!j.ok)throw new Error(j.error);SYNC.last=snap.t;saveSync();syncDirty=0;if(!quiet)toast(`${ico('check')}<b>${X('Synchronisé','Synced','Sincronizado')}</b>`);renderSyncUI();return true}
+  catch(e){if(!quiet)toast(`${ico('alert')}<b>${X('Synchronisation impossible','Sync failed','Error de sincronización')}</b> · ${e.message==='size'?X('données trop lourdes (cahiers très volumineux)','data too large','datos demasiado grandes'):X('réessaie avec une connexion','try again online','reintenta')}`);return false}}
+async function syncPull(force){if(!SYNC.code||!(await hasSyncAPI()))return false;
+  try{const r=await fetch('/api/sync?code='+encodeURIComponent(SYNC.code),{cache:'no-store'});const j=await r.json();if(!j.ok)throw 0;if(j.empty)return 'empty';
+    if(!force&&j.t<=Math.max(SYNC.last,SYNC.pull))return 'same';
+    if(syncDirty&&!force)await syncPush(true);
+    const o=JSON.parse(await gunz(j.z));await applySnapshot(o,true);SYNC.pull=j.t;saveSync();return 'applied'}
+  catch(e){return false}}
+async function syncStart(){if(!SYNC.on||!SYNC.code||!navigator.onLine)return;const r=await syncPull();
+  if(r==='applied'){toast(`${ico('check')}<b>${X('Données mises à jour depuis ton autre appareil','Updated from your other device','Actualizado desde tu otro dispositivo')}</b>`);setTimeout(()=>location.reload(),1200)}
+  else if(r==='empty')syncPush(true)}
+addEventListener('online',()=>{if(SYNC.on&&syncDirty)syncPush(true)});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&SYNC.on&&syncDirty&&SYNC.code&&syncAPI){try{fullSnapshot().then(s=>gz(JSON.stringify(s)).then(z=>{fetch('/api/sync',{method:'POST',keepalive:z.length<60000,headers:{'content-type':'application/json'},body:JSON.stringify({code:SYNC.code,t:s.t,dev:devName(),z})}).then(r=>r.json()).then(j=>{if(j.ok){SYNC.last=s.t;saveSync();syncDirty=0}}).catch(()=>{})}))}catch(e){}}
+  else if(document.visibilityState==='visible')syncStart()});
+function renderSyncUI(){const el=$('#prSync');if(!el)return;
+  hasSyncAPI().then(ok=>{
+    if(!ok){el.innerHTML=`<p class="small muted">${esc(X('La synchronisation entre appareils fonctionne sur ton site Sapiens publié avec Netlify (pas dans l’aperçu claude.ai). Ici, utilise « Sauvegarder mes données » puis « Restaurer » sur l’autre appareil.','Device sync works on your Sapiens site hosted on Netlify (not in the claude.ai preview). Here, use Save then Restore on the other device.','La sincronización funciona en tu sitio Sapiens en Netlify.'))}</p>`;return}
+    const when=SYNC.last?new Date(SYNC.last).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'—';
+    el.innerHTML=SYNC.code?`<p class="small">${X('Synchronisation','Sync','Sincronización')} <b>${SYNC.on?X('activée','on','activada'):X('en pause','paused','en pausa')}</b> · ${X('dernier envoi','last sent','último envío')} : ${esc(when)}</p>
+      <p class="small">${X('Ton code secret (à saisir sur ton autre appareil, ne le partage avec personne) :','Your secret code (enter it on your other device, never share it):','Tu código secreto:')}<br><code style="font-size:15px;letter-spacing:.5px">${esc(SYNC.code)}</code></p>
+      <div class="row"><button class="btn sm" data-sy="now">${X('Synchroniser maintenant','Sync now','Sincronizar ahora')}</button><button class="btn sm" data-sy="copy">${X('Copier le code','Copy code','Copiar código')}</button><button class="btn sm" data-sy="toggle">${SYNC.on?X('Mettre en pause','Pause','Pausar'):X('Reprendre','Resume','Reanudar')}</button><button class="btn sm" data-sy="forget" style="color:#c2413b">${X('Déconnecter cet appareil','Unlink this device','Desvincular')}</button></div>`
+     :`<p class="small">${X('Retrouve ta progression, tes travaux et tes cahiers sur l’iPhone et l’iPad, automatiquement.','Get your progress, work and notebooks on iPhone and iPad automatically.','Tu progreso en todos tus dispositivos.')}</p>
+      <div class="row"><button class="btn sm" data-sy="new">${X('Créer mon code (premier appareil)','Create my code (first device)','Crear mi código')}</button></div>
+      <div class="row" style="margin-top:6px"><input id="prSyCode" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" style="flex:1 1 220px;text-transform:uppercase" autocomplete="off"><button class="btn sm" data-sy="join">${X('J’ai déjà un code','I already have a code','Ya tengo un código')}</button></div>`})}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-sy]');if(!b)return;const a=b.dataset.sy;
+  if(a==='new'){SYNC.code=newCode();SYNC.on=true;saveSync();renderSyncUI();await syncPush()}
+  else if(a==='join'){const c=($('#prSyCode').value||'').trim().toUpperCase().replace(/\s+/g,'');if(!/^[A-Z0-9-]{16,64}$/.test(c)){toast(X('Code invalide','Invalid code','Código no válido'));return}
+    SYNC.code=c;SYNC.on=true;SYNC.last=0;SYNC.pull=0;saveSync();const r=await syncPull(true);
+    if(r==='applied'){toast(`${ico('check')}<b>${X('Appareil relié : données récupérées','Device linked: data restored','Dispositivo vinculado')}</b>`);setTimeout(()=>location.reload(),1200)}
+    else if(r==='empty'){toast(X('Aucune donnée pour ce code : vérifie-le.','No data for this code: check it.','No hay datos para este código.'));SYNC.code='';saveSync();renderSyncUI()}
+    else toast(X('Connexion impossible, réessaie.','Connection failed, try again.','Error de conexión.'))}
+  else if(a==='now'){await syncPush();const r=await syncPull();if(r==='applied')setTimeout(()=>location.reload(),900)}
+  else if(a==='copy'){try{await navigator.clipboard.writeText(SYNC.code);toast(X('Code copié','Code copied','Código copiado'))}catch(err){}}
+  else if(a==='toggle'){SYNC.on=!SYNC.on;saveSync();renderSyncUI()}
+  else if(a==='forget'){if(!b.dataset.arm){b.dataset.arm=1;b.textContent=X('Confirmer','Confirm','Confirmar');return}Object.assign(SYNC,{code:'',on:false,last:0,pull:0});saveSync();renderSyncUI()}});
+/* sauvegarde complète (avec les cahiers) */
+async function doExport(){const j=JSON.stringify(await fullSnapshot());store.set('lastexp',Date.now());
+  const name='sapiens-sauvegarde-'+todayKey()+'.json';let ok=false;
+  try{if(window.claude&&window.claude.downloads&&window.claude.downloads.save){await window.claude.downloads.save({name,mime:'application/json',data:j});ok=true}}catch(e){}
+  if(!ok)try{const f=new File([j],name,{type:'application/json'});if(navigator.canShare&&navigator.canShare({files:[f]})&&/iPhone|iPad|Android/.test(navigator.userAgent)){await navigator.share({files:[f],title:'Sapiens'});ok=true}}catch(e){if(e&&e.name==='AbortError')return}
+  if(!ok)try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([j],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();a.remove();ok=true}catch(e){}
+  if(j.length<400000){$('#prOut').hidden=false;$('#prOutT').value=j}
+  $('#prMsg').textContent=X('Sauvegarde créée (progression, travaux et cahiers). Garde-la dans Fichiers ou iCloud Drive.','Backup created (progress, work and notebooks). Keep it in Files or iCloud Drive.','Copia creada.')}
+{const old=$('#prExport'),nb=old.cloneNode(true);old.replaceWith(nb);nb.addEventListener('click',()=>doExport());
+ const oi=$('#prImport'),ni=oi.cloneNode(true);oi.replaceWith(ni);ni.addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const o=JSON.parse(await f.text());await applySnapshot(o,false);$('#prMsg').textContent=X('Sauvegarde restaurée : la page va se recharger.','Backup restored: reloading.','Restaurado.');setTimeout(()=>location.reload(),900)}catch(err){$('#prMsg').textContent=X('Fichier de sauvegarde invalide.','Invalid backup file.','Archivo no válido.')}})}
+/* protéger le stockage et conseiller l'installation */
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persisted().then(p=>{if(!p)navigator.storage.persist().catch(()=>{})})}catch(e){}
+const IOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
+const STANDALONE=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const INFRAME=/claude\.(ai|site)|claudeusercontent/.test(location.host)||window.top!==window;
+function safetyBanner(){const host=$('#v-accueil .band');if(!host||$('#safeBan'))return;let msg='';
+  if(IOS&&!STANDALONE&&!INFRAME&&!store.get('banInst',0))msg=X('Sur iPhone et iPad, Safari peut effacer les données d’un site après 7 jours sans visite. <b>Ajoute Sapiens à l’écran d’accueil</b> (bouton Partager ⎋ puis « Sur l’écran d’accueil ») pour protéger ta progression et tes cahiers.','On iPhone and iPad, Safari may erase a site’s data after 7 days without a visit. <b>Add Sapiens to your Home Screen</b> (Share ⎋ then “Add to Home Screen”) to protect your progress and notebooks.','En iPhone/iPad, añade Sapiens a la pantalla de inicio para proteger tus datos.');
+  else if(!SYNC.code&&Date.now()-(store.get('lastexp',0)||0)>14*864e5&&(store.get('banBak',0)||0)<Date.now()-7*864e5&&Object.keys(localStorage).length>8)msg=X('Pense à <b>sauvegarder tes données</b> (Profil › Mes données) ou à activer la <b>synchronisation</b> entre tes appareils.','Remember to <b>back up your data</b> (Profile › My data) or turn on <b>sync</b> between devices.','Recuerda hacer una copia de seguridad.');
+  if(!msg)return;const d=document.createElement('div');d.id='safeBan';d.className='note';d.style.cssText='display:flex;gap:10px;align-items:flex-start';
+  d.innerHTML=`<span style="flex:1">${msg}</span><a class="btn sm" href="#profil">${X('Ouvrir','Open','Abrir')}</a><button class="btn sm" id="safeX" aria-label="${X('Fermer','Close','Cerrar')}">✕</button>`;host.prepend(d);
+  $('#safeX').onclick=()=>{store.set(IOS&&!STANDALONE?'banInst':'banBak',Date.now());d.remove()}}
+{const p=$('#prData')?.closest('.panel');if(p&&!$('#prSync')){const s=document.createElement('div');s.innerHTML=`<h3 style="margin:16px 0 6px">${X('Synchroniser mes appareils','Sync my devices','Sincronizar mis dispositivos')}</h3><div id="prSync"></div>`;p.appendChild(s)}}
+/* ---------- v14b : capacités claude.ai (synchronisation par compte, voix, dictée, téléchargements) ---------- */
+const cuse=n=>{try{return(window.claude&&typeof window.claude.use==='function')?Promise.resolve(window.claude.use(n)).catch(()=>null):Promise.resolve(null)}catch(e){return Promise.resolve(null)}};
+let CDB=null,CUID=null;
+async function claudeDB(){if(CDB!==null)return CDB;if(!INFRAME){CDB=false;return CDB}
+  const [db,u]=await Promise.all([cuse('db'),cuse('user')]);if(db&&u){try{CUID=await u.id()}catch(e){CUID=null}}
+  CDB=(db&&CUID&&/^[A-Za-z0-9_\-.~:@+]+$/.test(CUID))?db:false;return CDB}
+const CHUNK=180000;
+async function cdbPush(snapT,z){const db=await claudeDB();if(!db)return false;const base='data/users/'+CUID;
+  const n=Math.ceil(z.length/CHUNK)||1;for(let i=0;i<n;i++){await db.doc(base+'/sync'+i).set({i,z:z.slice(i*CHUNK,(i+1)*CHUNK)})}
+  await db.doc(base+'/syncmeta').set({t:snapT,n,dev:devName()});return true}
+async function cdbPull(){const db=await claudeDB();if(!db)return null;const base='data/users/'+CUID;
+  const m=await db.doc(base+'/syncmeta').get();if(!m.exists)return{empty:true};const md=m.data();
+  let z='';for(let i=0;i<md.n;i++){const d=await db.doc(base+'/sync'+i).get();if(!d.exists)return null;z+=d.data().z}return{t:md.t,z}}
+async function syncBackend(){if(await claudeDB())return 'claude';return(await hasSyncAPI())?'net':null}
+syncPush=async function(quiet){const be=await syncBackend();if(!be||(be==='net'&&!SYNC.code))return false;
+  try{const snap=await fullSnapshot(),z=await gz(JSON.stringify(snap));
+    if(be==='claude'){if(z.length>CHUNK*60)throw new Error('size');await cdbPush(snap.t,z)}
+    else{const r=await fetch('/api/sync',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({code:SYNC.code,t:snap.t,dev:devName(),z})});const j=await r.json();if(!j.ok)throw new Error(j.error)}
+    SYNC.last=snap.t;saveSync();syncDirty=0;if(!quiet)toast(`${ico('check')}<b>${X('Synchronisé','Synced','Sincronizado')}</b>`);renderSyncUI();return true}
+  catch(e){if(!quiet)toast(`${ico('alert')}<b>${X('Synchronisation impossible','Sync failed','Error de sincronización')}</b> · ${e.message==='size'?X('données trop lourdes (cahiers très volumineux)','data too large','datos demasiado grandes'):X('réessaie avec une connexion','try again online','reintenta')}`);return false}};
+syncPull=async function(force){const be=await syncBackend();if(!be||(be==='net'&&!SYNC.code))return false;
+  try{let j;if(be==='claude'){j=await cdbPull();if(!j)throw 0;if(j.empty)return 'empty'}
+    else{const r=await fetch('/api/sync?code='+encodeURIComponent(SYNC.code),{cache:'no-store'});j=await r.json();if(!j.ok)throw 0;if(j.empty)return 'empty'}
+    if(!force&&j.t<=Math.max(SYNC.last,SYNC.pull))return 'same';
+    if(syncDirty&&!force)await syncPush(true);
+    const o=JSON.parse(await gunz(j.z));await applySnapshot(o,true);SYNC.pull=j.t;saveSync();return 'applied'}
+  catch(e){return false}};
+syncStart=async function(){if(!navigator.onLine)return;const be=await syncBackend();
+  if(be==='claude'){if(store.get('csync',true)===false)return;SYNC.on=true}
+  if(!SYNC.on||(be==='net'&&!SYNC.code)||!be)return;const r=await syncPull();
+  if(r==='applied'){toast(`${ico('check')}<b>${X('Données mises à jour depuis ton autre appareil','Updated from your other device','Actualizado desde tu otro dispositivo')}</b>`);setTimeout(()=>location.reload(),1200)}
+  else if(r==='empty'||(r==='same'&&syncDirty))syncPush(true)};
+markDirty=function(){syncDirty=Date.now();if(SYNC.on&&(SYNC.code||CDB)){clearTimeout(syncT);syncT=setTimeout(()=>syncPush(true),20000)}};
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&CDB&&SYNC.on&&syncDirty)syncPush(true)});
+const _renderSyncUI=renderSyncUI;
+renderSyncUI=function(){const el=$('#prSync');if(!el)return;claudeDB().then(db=>{if(!db)return _renderSyncUI();
+  const on=store.get('csync',true)!==false;const when=SYNC.last?new Date(SYNC.last).toLocaleString(LOC(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'—';
+  el.innerHTML=`<p class="small">${X('Ici, Sapiens se synchronise avec <b>ton compte Claude</b> : ouvre l’app sur ton iPhone, ton iPad ou ton ordinateur avec le même compte et tu retrouves tout (progression, travaux, cahiers). Ces données sont privées : elles ne sont lisibles que par toi.','Here, Sapiens syncs with <b>your Claude account</b>: open it on any device with the same account to find everything. This data is private to you.','Aquí Sapiens se sincroniza con tu cuenta de Claude.')}</p>
+   <p class="small">${X('Synchronisation','Sync','Sincronización')} <b>${on?X('activée','on','activada'):X('en pause','paused','en pausa')}</b> · ${X('dernier envoi','last sent','último envío')} : ${esc(when)}</p>
+   <div class="row"><button class="btn sm" data-csy="now">${X('Synchroniser maintenant','Sync now','Sincronizar ahora')}</button><button class="btn sm" data-csy="toggle">${on?X('Mettre en pause','Pause','Pausar'):X('Reprendre','Resume','Reanudar')}</button></div>`})};
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-csy]');if(!b)return;
+  if(b.dataset.csy==='now'){SYNC.on=true;await syncPush();const r=await syncPull();if(r==='applied')setTimeout(()=>location.reload(),900)}
+  else{const on=store.get('csync',true)!==false;store.set('csync',!on);SYNC.on=!on;renderSyncUI()}});
+/* voix Claude et dictée dans claude.ai (Chrome, app de bureau) ; repli sur la voix du navigateur ailleurs */
+let CLT=null,CLD=null;
+if(INFRAME){cuse('tts').then(t=>{if(t){CLT=t;VX.tts=true}});cuse('dictation').then(d=>{if(d){CLD=d;VX.sr=VX.sr||true;try{renderAll()}catch(e){}}})}
+{const _speak=speak,_stop=stopSpeak,_dict=dictate,_sd=stopDictate;
+ const cut=(s,n)=>{const out=[];let cur='';(s.match(/[^.!?…]+[.!?…]*\s*/g)||[s]).forEach(x=>{if((cur+x).length>n&&cur){out.push(cur);cur=''}cur+=x});if(cur.trim())out.push(cur);return out.flatMap(x=>x.length>n?x.match(new RegExp('.{1,'+n+'}','g')):[x])};
+ speak=function(text,o={}){if(!CLT)return _speak(text,o);const txt=speakable(text);const lines=cut(txt,1500).slice(0,100).map(t=>({text:t}));if(!lines.length){o.onend&&o.onend();return}
+   CLT.speak(lines,{language:o.lang||lang,rate:store.get('vrate',1)}).then(()=>o.onend&&o.onend()).catch(e=>{if(e&&(e.code==='not_granted'||e.code==='unavailable'))CLT=null;o.onend&&o.onend()})};
+ stopSpeak=function(){if(CLT)CLT.stop().catch(()=>{});_stop()};
+ let subs=null,silT=null;
+ dictate=function(o={}){if(!CLD)return _dict(o);let fin='';
+   const p=CLD.start(o.lang?{language:o.lang}:undefined);
+   if(subs)subs.forEach(u=>u());
+   const arm=()=>{clearTimeout(silT);if(!o.continuous)silT=setTimeout(()=>CLD.stop().catch(()=>{}),1800)};
+   subs=[CLD.onPartial(({text})=>{arm();o.onText&&o.onText(fin,text)}),CLD.onFinal(({text})=>{fin+=fin?text:text.replace(/^\s+/,'');arm();o.onText&&o.onText(fin,'')}),
+     CLD.onState(({state,reason})=>{if(state==='idle'&&reason){clearTimeout(silT);if(subs)subs.forEach(u=>u());subs=null;o.onEnd&&o.onEnd(fin.trim())}})];
+   p.catch(err=>{if(err&&err.code==='not_granted')toast(X('Dictée refusée : tu peux la réactiver dans le menu Autorisations de l’artefact.','Dictation declined: re-enable it in the artifact’s Permissions menu.','Dictado rechazado.'));else if(err&&err.code==='unavailable')CLD=null});
+   return{stop(){CLD.stop().catch(()=>{})}}};
+ stopDictate=function(){if(CLD&&CLD.active())CLD.stop().catch(()=>{});else _sd()}}
+/* téléchargement de la sauvegarde dans claude.ai */
+{const _de=doExport;doExport=async function(){const dl=INFRAME?await cuse('downloads'):null;if(!dl)return _de();
+  const j=JSON.stringify(await fullSnapshot());store.set('lastexp',Date.now());
+  try{await dl.save({filename:'sapiens-sauvegarde-'+todayKey()+'.json',data:j});$('#prMsg').textContent=X('Sauvegarde téléchargée (progression, travaux et cahiers).','Backup downloaded.','Copia descargada.')}
+  catch(e){if(j.length<400000){$('#prOut').hidden=false;$('#prOutT').value=j}$('#prMsg').textContent=X('Téléchargement annulé. Tu peux copier le texte ci-dessous.','Download cancelled. You can copy the text below.','Descarga cancelada.')}}}
+
+/* ---------- v15 : révision intelligente des fiches (répétition espacée, quiz, carte de maîtrise, annales) ---------- */
+let FSR=store.get('fsr',{});const saveFSR=()=>store.set('fsr',FSR);
+const FDAY=864e5,FIVL=[1,3,7,16,35,70];
+const allFiches=()=>FCSUBJ.flatMap(k=>fichesOf(k).map(f=>({...f,s:k})));
+function fRate(id,r){const o=FSR[id]||{l:0,n:0};o.n=(o.n||0)+1;o.last=Date.now();o.r=r;
+  if(r===0)o.l=0;else if(r===1)o.l=Math.max(0,Math.min(o.l,2));else o.l=Math.min(FIVL.length-1,(o.l||0)+1);
+  o.d=Date.now()+(r===0?FDAY:r===1?2*FDAY:FIVL[o.l]*FDAY);FSR[id]=o;saveFSR();
+  if(r===2&&!FCDONE.has(id)){FCDONE.add(id);store.set('fdone',[...FCDONE])}if(r===0&&FCDONE.has(id)){FCDONE.delete(id);store.set('fdone',[...FCDONE])}}
+function fMastery(id){const o=FSR[id];if(!o)return FCDONE.has(id)?3:-1;if(o.r===0)return 0;return Math.min(5,1+(o.l||0))}
+const MCOL=['#d9534f','#f0ad4e','#e6c84f','#9ccc65','#4caf50','#2e7d32'];
+function examDays(){const td=new Date();td.setHours(0,0,0,0);return Math.max(1,Math.ceil((new Date((P.exam||'2027-04-23')+'T00:00')-td)/FDAY))}
+function todayFiches(){const now=Date.now(),all=allFiches();
+  const due=all.filter(f=>FSR[f.id]&&FSR[f.id].d<=now).sort((a,b)=>FSR[a.id].d-FSR[b.id].d);
+  const unseen=all.filter(f=>!FSR[f.id]&&!FCDONE.has(f.id));
+  const quota=Math.max(1,Math.min(6,Math.ceil(unseen.length/Math.max(1,examDays()-45)*1.15)));
+  const conf=k=>+(P.conf&&P.conf[k])||3;const order=FCSUBJ.slice().sort((a,b)=>conf(a)-conf(b));
+  const fresh=[];let i=0;while(fresh.length<quota&&unseen.length){const k=order[i%order.length];const f=unseen.find(x=>x.s===k);if(f){fresh.push(f);unseen.splice(unseen.indexOf(f),1)}i++;if(i>200)break}
+  return{due:due.slice(0,8),fresh,quota}}
+function openFiche(s,id){FSJ=s;FCID=id;store.set('fs',s);store.set('fid',id);location.hash='fiches';setTimeout(()=>{renderFiches();scrollTo({top:0})},30)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-ofi]');if(!b)return;e.preventDefault();const [s,id]=b.dataset.ofi.split('|');openFiche(s,id)});
+function fRow(f,tag){return `<button class="frow" data-ofi="${f.s}|${f.id}" style="--c:${sColor(f.s)}"><span class="fdot"></span><span><b>${esc(sName(f.s)==='TOK'?'TOK':sName(f.s))} · ${esc(f.n)}</b> ${esc(fTrT(f.t))}</span><em>${tag}</em></button>`}
+function renderToday(){let host=$('#hFiches');if(!host){const p=$('#heroArt')?.closest('#v-accueil .band > *')||$('#hToday')?.closest('.panel');if(!p)return;host=document.createElement('div');host.className='panel';host.id='hFichesP';host.innerHTML=`<h2>${X('Mes fiches du jour','Today’s notes','Fichas de hoy')}</h2><div id="hFiches"></div>`;p.after(host);host=$('#hFiches')}
+  const {due,fresh}=todayFiches(),all=allFiches(),seen=all.filter(f=>fMastery(f.id)>=3).length;
+  host.innerHTML=`<p class="small muted">${X(`Révision espacée : chaque fiche revient au bon moment (J+1, J+3, J+7…). ${seen}/${all.length} fiches bien maîtrisées · ${examDays()} jours avant les examens.`,`Spaced repetition: each note comes back at the right time. ${seen}/${all.length} notes mastered · ${examDays()} days to exams.`,`Repaso espaciado. ${seen}/${all.length} fichas dominadas.`)}</p>
+   ${due.length?`<h4 style="margin:10px 0 4px">${X('À revoir aujourd’hui','Review today','Repasar hoy')} (${due.length})</h4>${due.map(f=>fRow(f,X('à revoir','review','repasar'))).join('')}`:''}
+   ${fresh.length?`<h4 style="margin:10px 0 4px">${X('Nouvelles fiches','New notes','Fichas nuevas')}</h4>${fresh.map(f=>fRow(f,X('nouvelle','new','nueva'))).join('')}`:''}
+   ${!due.length&&!fresh.length?`<p>${X('Tout est à jour. Bravo ! 🎉','All caught up. Well done! 🎉','¡Todo al día!')}</p>`:''}`}
+function mapHTML(){return FCSUBJ.filter(k=>fichesOf(k).length).map(k=>{const L2=fichesOf(k);const avg=L2.reduce((a,f)=>a+Math.max(0,fMastery(f.id)),0)/(L2.length*5);
+  return `<div class="mrow"><div class="mhead"><b>${esc(sName(k)==='TOK'?'TOK':sName(k))}</b><span class="small muted">${Math.round(avg*100)} %</span></div><div class="mgrid">${L2.map(f=>{const m=fMastery(f.id);return `<button class="mcell" data-ofi="${k}|${f.id}" title="${esc(f.n+' '+fTrT(f.t))}" style="background:${m<0?'var(--line)':MCOL[m]}"></button>`}).join('')}</div></div>`}).join('')+
+  `<p class="small muted" style="margin-top:8px">${X('Gris : pas encore vue · rouge : pas comprise · jaune : à consolider · vert : maîtrisée. Touche une case pour ouvrir la fiche.','Grey: not seen · red: not understood · yellow: to consolidate · green: mastered. Tap a square to open it.','Gris: no vista · rojo: no entendida · verde: dominada.')}</p>`}
+const ANN=()=>store.get('annales',[]);
+function annHTML(){const a=ANN().slice().sort((x,y)=>x.d.localeCompare(y.d));
+  const subj=FCSUBJ.filter(k=>k!=='sat'&&k!=='ee');
+  const rows=a.length?a.slice().reverse().map(r=>`<div class="row" style="justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:6px 0"><span><b>${esc(sName(r.s))}</b> · ${esc(r.p)} <span class="muted small">${esc(r.d)}</span></span><span><b>${r.m}/${r.x}</b> (${Math.round(r.m/r.x*100)} %) <button class="btn sm" data-anndel="${r.id}" aria-label="${X('Supprimer','Delete','Borrar')}">✕</button></span></div>`).join(''):`<p class="muted small">${X('Aucun résultat pour l’instant. Ajoute tes notes aux épreuves blanches et annales faites en classe.','No results yet. Add your marks from mock exams done in class.','Sin resultados.')}</p>`;
+  const series=subj.map(k=>({name:sName(k),points:a.filter(r=>r.s===k).map((r,i)=>[i+1,Math.round(r.m/r.x*100)])})).filter(s=>s.points.length);
+  const chart=series.length&&typeof plotSVG==='function'?(()=>{try{return plotSVG({type:'line',title:X('Évolution de tes notes (%)','Your marks over time (%)','Evolución (%)'),xlabel:X('épreuve n°','paper #','prueba n.º'),ylabel:'%',series})||''}catch(e){return ''}})():'';
+  return `${chart}<div class="row" style="gap:6px;margin:8px 0"><select id="anS">${subj.map(k=>`<option value="${k}">${esc(sName(k))}</option>`).join('')}</select><input id="anP" placeholder="${X('Épreuve (ex. Paper 2, mai 2024)','Paper (e.g. Paper 2, May 2024)','Prueba')}" style="flex:1 1 160px"><input id="anM" type="number" min="0" placeholder="${X('note','mark','nota')}" style="width:80px"><input id="anX" type="number" min="1" placeholder="/ max" style="width:80px"><input id="anD" type="date" value="${todayKey()}" style="width:150px"><button class="btn sm pri" id="anAdd">${X('Ajouter','Add','Añadir')}</button></div>${rows}`}
+document.addEventListener('click',e=>{if(e.target.closest('#anAdd')){const s=$('#anS').value,p=$('#anP').value.trim()||'Paper',m=+$('#anM').value,x=+$('#anX').value,d=$('#anD').value||todayKey();
+    if(!(x>0)||m<0||m>x){toast(X('Vérifie la note et le maximum.','Check the mark and the maximum.','Revisa la nota.'));return}
+    const a=ANN();a.push({id:String(Date.now()),s,p,m,x,d});store.set('annales',a);renderLearn();addXP(10,X('résultat ajouté','result added','resultado'))}
+  const d=e.target.closest('[data-anndel]');if(d){store.set('annales',ANN().filter(r=>r.id!==d.dataset.anndel));renderLearn()}});
+function renderLearn(){const pf=$('#v-perf .band.stackv')||$('#v-perf .phead')?.nextElementSibling;let host=$('#lrnMap');
+  if(!host&&$('#v-perf')){const w=document.createElement('div');w.className='band stackv';w.innerHTML=`<div class="panel"><h2>${X('Ma carte de maîtrise','My mastery map','Mi mapa de dominio')}</h2><div id="lrnMap"></div></div><div class="panel"><h2>${X('Mes résultats d’épreuves','My exam results','Mis resultados')}</h2><p class="small muted">${X('Note ici tes résultats aux épreuves blanches et aux annales faites en classe pour suivre ta progression.','Record your mock exam results here to track progress.','Anota tus resultados.')}</p><div id="lrnAnn"></div></div>`;
+    $('#v-perf .phead').after(w);host=$('#lrnMap')}
+  if(host)host.innerHTML=mapHTML();const an=$('#lrnAnn');if(an)an.innerHTML=annHTML();renderToday()}
+/* barre d'outils et auto-évaluation sur chaque fiche */
+let FQZ=null;
+const _renderFiche=renderFiche;
+renderFiche=function(){_renderFiche();const art=$('#fMain .fiche');if(!art)return;const f=fichesOf(FSJ).find(x=>x.id===FCID);if(!f)return;
+  const o=FSR[f.id],due=o&&o.d?new Date(o.d).toLocaleDateString(LOC(),{day:'numeric',month:'short'}):'';
+  const tb=document.createElement('div');tb.className='ftools row';
+  tb.innerHTML=`<button class="btn sm" data-ft="listen">${ico('mic')} ${X('Écouter','Listen','Escuchar')}</button><button class="btn sm" data-ft="simple">${ico('bulb')} ${X('Explique plus simplement','Explain more simply','Explicar más simple')}</button><button class="btn sm" data-ft="quiz">${ico('target')} ${X('Quiz rapide','Quick quiz','Quiz rápido')}</button><button class="btn sm" data-ft="flag">${ico('alert')} ${X('Signaler / vérifier','Report / check','Reportar / verificar')}</button>`;
+  art.querySelector('.srcline')?.after(tb);
+  const rb=document.createElement('section');rb.className='frate';
+  rb.innerHTML=`<h3 class="serif">${X('Où en es-tu avec cette fiche ?','How well do you know this?','¿Cómo dominas esta ficha?')}</h3><p class="small muted">${o?X(`Dernière évaluation enregistrée · prochaine révision : ${due}`,`Next review: ${due}`,`Próximo repaso: ${due}`):X('Ta réponse programme la prochaine révision automatiquement.','Your answer schedules the next review automatically.','Tu respuesta programa el próximo repaso.')}</p>
+   <div class="row"><button class="btn sm" data-fr="0" style="border-color:#d9534f">😕 ${X('Pas compris','Not understood','No entendida')}</button><button class="btn sm" data-fr="1" style="border-color:#f0ad4e">🤔 ${X('À revoir','Need review','Repasar')}</button><button class="btn sm" data-fr="2" style="border-color:#4caf50">💪 ${X('Je maîtrise','Mastered','Dominada')}</button></div><div id="fQuiz"></div>`;
+  art.querySelector('.fnav')?.before(rb);
+  if(FQZ&&FQZ.id===f.id)drawQuiz()};
+function ficheText(){const b=$('#fMain .fbody');return b?b.innerText:''}
+function drawQuiz(){const box=$('#fQuiz');if(!box||!FQZ)return;const q=FQZ.qs[FQZ.i];
+  if(!q){const sc=FQZ.ok/FQZ.qs.length;box.innerHTML=`<div class="note"><b>${X('Score','Score','Puntuación')} : ${FQZ.ok}/${FQZ.qs.length}</b> — ${sc>=.8?X('excellent, fiche marquée comme maîtrisée.','excellent, marked as mastered.','¡excelente!'):sc>=.5?X('bien, à consolider : elle reviendra dans 2 jours.','good, to consolidate: back in 2 days.','bien, a consolidar.'):X('à retravailler : relis la fiche, elle reviendra demain.','needs work: reread it, back tomorrow.','a repasar.')}</div>`;
+    if(!FQZ.saved){FQZ.saved=1;fRate(FQZ.id,sc>=.8?2:sc>=.5?1:0);addXP(Math.round(10*sc)+5,X('quiz de fiche','notes quiz','quiz'));renderToday()}return}
+  box.innerHTML=`<div class="quizq"><p class="small muted">${X('Question','Question','Pregunta')} ${FQZ.i+1}/${FQZ.qs.length}</p><p><b>${esc(q.q)}</b></p>${q.c.map((c,j)=>`<button class="qopt ${FQZ.a!=null?(j===q.a?'ok':j===FQZ.a?'ko':''):''}" data-qa="${j}" ${FQZ.a!=null?'disabled':''}>${esc(c)}</button>`).join('')}
+   ${FQZ.a!=null?`<p class="small" style="margin-top:6px">${esc(q.e||'')}</p><button class="btn sm pri" data-qn="1">${X('Suivant','Next','Siguiente')} ›</button>`:''}</div>`}
+$('#fMain').addEventListener('click',async e=>{const f=fichesOf(FSJ).find(x=>x.id===FCID);if(!f)return;
+  const r=e.target.closest('[data-fr]');if(r){fRate(f.id,+r.dataset.fr);addXP(5,X('auto-évaluation','self-check','autoevaluación'));renderFiches();renderToday();toast(X('Révision programmée ✓','Review scheduled ✓','Repaso programado ✓'));return}
+  const qa=e.target.closest('[data-qa]');if(qa&&FQZ){FQZ.a=+qa.dataset.qa;if(FQZ.a===FQZ.qs[FQZ.i].a)FQZ.ok++;drawQuiz();return}
+  if(e.target.closest('[data-qn]')&&FQZ){FQZ.i++;FQZ.a=null;drawQuiz();return}
+  const t0=e.target.closest('[data-ft]');if(!t0)return;const a=t0.dataset.ft;
+  if(a==='listen'){if(t0.dataset.on){stopSpeak();delete t0.dataset.on;t0.lastChild.textContent=' '+X('Écouter','Listen','Escuchar');return}
+    unlockTTS();t0.dataset.on=1;t0.lastChild.textContent=' '+X('Arrêter','Stop','Parar');speak(fTrT(f.t)+'. '+ficheText(),{onend:()=>{delete t0.dataset.on;t0.lastChild&&(t0.lastChild.textContent=' '+X('Écouter','Listen','Escuchar'))}});return}
+  if(a==='simple'){const sel=String(getSelection()||'').trim();const part=sel&&sel.length>15?sel:'';
+    $('#bot').classList.add('open');botRender();botSend(part?X(`Explique-moi plus simplement ce passage de la fiche « ${fTrT(f.t)} » (${sName(FSJ)}), avec un exemple concret de la vie courante :\n\n« ${part} »`,`Explain this passage of the notes “${fTrT(f.t)}” more simply, with an everyday example:\n\n“${part}”`,`Explícame más simple: «${part}»`):X(`Explique-moi la fiche « ${fTrT(f.t)} » (${sName(FSJ)}) comme à un élève de 15 ans, en 6 à 8 phrases, avec un exemple concret. Voici la fiche :\n\n${ficheText().slice(0,6000)}`,`Explain the notes “${fTrT(f.t)}” as to a 15-year-old, in 6–8 sentences, with a concrete example:\n\n${ficheText().slice(0,6000)}`,`Explícame la ficha «${fTrT(f.t)}» de forma sencilla:\n\n${ficheText().slice(0,6000)}`));return}
+  if(a==='flag'){const rep=store.get('freports',[]);rep.push({id:f.id,d:todayKey(),sel:String(getSelection()||'').slice(0,500)});store.set('freports',rep);
+    $('#bot').classList.add('open');botRender();botSend(X(`Vérifie l’exactitude de la fiche « ${fTrT(f.t)} » (${sName(FSJ)}, programme IB). Relève précisément chaque erreur factuelle, chiffre douteux ou imprécision, en expliquant la correction et en indiquant une source fiable. Si tout est juste, dis-le simplement.\n\n${ficheText().slice(0,7000)}`,`Check the accuracy of these notes “${fTrT(f.t)}” (IB syllabus). List each factual error or doubtful figure with the correction and a reliable source. If all is correct, say so.\n\n${ficheText().slice(0,7000)}`,`Verifica la ficha «${fTrT(f.t)}»:\n\n${ficheText().slice(0,7000)}`));
+    toast(X('Signalement enregistré. Pacha vérifie la fiche ; montre aussi l’erreur à ton professeur.','Report saved. Pacha is checking; also tell your teacher.','Reporte guardado.'));return}
+  if(a==='quiz'){const box=$('#fQuiz');box.scrollIntoView({behavior:'smooth',block:'center'});
+    const j=await askJSON(`You write a quick self-test for an IB Diploma student based ONLY on these revision notes. Language of questions and answers: ${({fr:'French',en:'English',es:'Spanish'})[lang]}. Create 5 multiple-choice questions (4 options each, exactly one correct) testing understanding, not trivia; include at least one application question. Return JSON {"questions":[{"q":"...","c":["...","...","...","..."],"a":0,"e":"one-sentence explanation"}]}.\n\nNOTES (${sName(FSJ)} — ${fTrT(f.t)}):\n${ficheText().slice(0,9000)}`,box,t0);
+    if(!j||!Array.isArray(j.questions)){return}const qs=j.questions.filter(q=>q&&q.q&&Array.isArray(q.c)&&q.c.length>=2&&Number.isInteger(+q.a)).map(q=>({q:String(q.q),c:q.c.map(String),a:+q.a,e:q.e?String(q.e):''})).slice(0,6);
+    if(!qs.length){box.innerHTML=`<p class="warn">${X('Le quiz n’a pas pu être créé, réessaie.','Could not create the quiz, try again.','No se pudo crear.')}</p>`;return}
+    FQZ={id:f.id,qs,i:0,a:null,ok:0};drawQuiz()}});
+{const _ra=renderAll;renderAll=function(){_ra.apply(this,arguments);try{renderLearn()}catch(e){}}}
+setTimeout(()=>{try{renderLearn()}catch(e){}},700);
+/* nouveautés à chaque mise à jour */
+setTimeout(()=>{const seenV=store.get('seenver','');if(seenV&&seenV!==VERSION)toast(`${ico('star')}<b>${X('Sapiens a été mis à jour','Sapiens was updated','Sapiens se actualizó')}</b> · ${X('synchronisation entre appareils, fiches du jour, quiz, carte de maîtrise, écoute des fiches. Détails dans Profil › À propos.','device sync, daily notes, quizzes, mastery map, listen to notes. Details in Profile › About.','novedades en Perfil.')}`);store.set('seenver',VERSION)},1500);
+
+window.__sync={NDB,get SYNC(){return SYNC}};
+setTimeout(()=>{safetyBanner();renderSyncUI();syncStart()},600);
 
 /* ---------- installation sur téléphone ---------- */
 let instEvt=null;
