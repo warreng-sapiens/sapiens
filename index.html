@@ -9665,7 +9665,7 @@ function renderSeal(){$('#sealF').innerHTML=sealSVG('sf',window.FOXA,92,false)}
 let PROF=Object.assign({name:'',year:'DP2'},store.get('prof',{}));
 let NOTES=store.get('notes',{}),FAV=new Set(store.get('fav',[])),UC=store.get('ucards',[]),WEAK=store.get('weak',[]);
 UC.forEach(c=>CARDS.push(c));
-const VERSION='v21 · nov. 2026';
+const VERSION='v22 · nov. 2026';
 function addUCard(s,f,b,src){const c={id:'u:'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),s,f,b,src:src||X('Mes cartes','My cards','Mis tarjetas')};UC.push(c);CARDS.push(c);store.set('ucards',UC);return c}
 const dfmt=d=>new Date(d).toLocaleDateString(LOC(),{day:'numeric',month:'short'});
 
@@ -10847,7 +10847,7 @@ addEventListener('appinstalled',()=>{toast(X('Sapiens est installée ✓','Sapie
 setTimeout(renderInstall,0);addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(v==='profil'||v==='accueil')renderInstall()});
 /* mise à jour : prévenir quand une nouvelle version est prête */
 if('serviceWorker' in navigator&&!APPENV.inframe){const had=!!navigator.serviceWorker.controller;let shown=0;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!had||shown)return;shown=1;const b=document.createElement('div');b.className='updbar';b.innerHTML=`<span>${X('Une nouvelle version de Sapiens est prête.','A new version of Sapiens is ready.','Nueva versión lista.')}</span><button class="btn sm pri" data-reload="1">${X('Mettre à jour','Update','Actualizar')}</button>`;document.body.appendChild(b)});
-  setInterval(()=>{navigator.serviceWorker.getRegistration().then(r=>r&&r.update()).catch(()=>{})},30*60000)}
+  const chk=()=>navigator.serviceWorker.getRegistration().then(r=>r&&r.update()).catch(()=>{});setInterval(chk,30*60000);setTimeout(chk,4000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')chk()})}
 /* pastille sur l’icône : nombre de fiches à revoir aujourd’hui */
 function appBadge(){try{if(!APPENV.standalone||!navigator.setAppBadge)return;const n=(typeof todayFiches==='function'?todayFiches():[]).length||0;n?navigator.setAppBadge(n).catch(()=>{}):navigator.clearAppBadge&&navigator.clearAppBadge().catch(()=>{})}catch(e){}}
 setTimeout(appBadge,3000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')appBadge()});
