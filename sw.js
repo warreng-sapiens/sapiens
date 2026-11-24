@@ -1,7 +1,7 @@
 // Sapiens (Pacha Académie IB) : fonctionne hors connexion (cours, flashcards, planning, calculatrice, mes travaux).
-const CACHE = "sapiens-v38";
+const CACHE = "sapiens-v39";
 // Bibliothèques gardées pour le mode hors ligne (calculatrice, lecture des fichiers Word).
-const LIBS = ["https://cdn.jsdelivr.net/npm/mathjs@13.0.0/lib/browser/math.js", "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"];
+const LIBS = ["https://cdn.jsdelivr.net/npm/mathjs@13.0.0/lib/browser/math.js", "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js", "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.2.108/legacy/build/pdf.min.mjs", "https://cdn.jsdelivr.net/npm/pdfjs-dist@6.2.108/legacy/build/pdf.worker.min.mjs"];
 const CORE = ["./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-maskable.png"];
 
 self.addEventListener("install", e => {
